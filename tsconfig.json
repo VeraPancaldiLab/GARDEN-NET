@@ -1,0 +1,15 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+      "outDir": "./dist",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "module": "commons",
+      "target": "es5",
+      "jsx": "react"
+  },
+  "include": [
+    ".src/**/*"
+  ]
+}
