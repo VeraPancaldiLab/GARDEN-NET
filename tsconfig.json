@@ -5,11 +5,11 @@
       "sourceMap": true,
       "noImplicitAny": true,
       "strictNullChecks": true,
-      "module": "commons",
+      "module": "commonjs",
       "target": "es5",
       "jsx": "react"
   },
   "include": [
-    ".src/**/*"
+    "./src/**/*"
   ]
 }
