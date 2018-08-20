@@ -12,15 +12,14 @@
       <li><a href="#packages">Packages</a></li>
       <li><a href="#dependencies">Dependencies</a></li>
     </ul></li>
+    <li><a href="#testing">Testing</a></li>
     <li><a href="#build">Build</a></li>
     <li><a href="#production">Production</a><ul>
         <li><a href="#bundler-with-excluded-dependencies">Bundler with excluded dependencies</a></li>
     </ul></li></ul></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#technologies">Technologies</a></li>
-    <li><a href="#license">License</a><ul>
-      <li><a href="#gnu-affero-general-public-license">GNU AFFERO GENERAL PUBLIC LICENSE</a></li>
-    </ul></li>
+    <li><a href="#license">License</a></li>
     <li><a href="#contributors">Contributors</a></li>
   </ul></li>
 </ul>
@@ -37,8 +36,11 @@ Web Frontend for the [ChAs](https://github.com/ricolab/Chromatin_Assortativity/)
 ### Dependencies
 `yarn install`
 
+## Testing
+`yarn test`
+
 ## Build
-yarn build
+`yarn build`
 
 ## Production
 **React**, **React-DOM**, **Reactstrap** and **Cytoscape** dependencies are excluded by default from the bundle a cause of their size
@@ -46,10 +48,12 @@ yarn build
 Use **production.html** which replaces the next lines from the index.html
 ```html
 <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-<script src="./node_modules/react/umd/react.development.js"></script>
-<script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
-<script src="./node_modules/reactstrap/dist/reactstrap.full.js"></script>
-<script src="./node_modules/cytoscape/dist/cytoscape.min.js"></script>
+<script src="../node_modules/react/umd/react.production.min.js"></script>
+<script src="../node_modules/react-dom/umd/react-dom.production.min.js"></script>
+<script src="../node_modules/reactstrap/dist/reactstrap.full.js"></script>
+<script src="../node_modules/cytoscape/dist/cytoscape.min.js"></script>
+<script src="../node_modules/redux/dist/redux.min.js"></script>
+<script src="./node_modules/react-redux/dist/react-redux.min.js"></script>
 ```
 
 with CDN links for production (min versions)
@@ -60,6 +64,8 @@ with CDN links for production (min versions)
 <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/reactstrap/dist/reactstrap.full.js"></script>
 <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+<script src="https://unpkg.com/redux/dist/redux.min.js"></script>
+<script src="https://unpkg.com/react-redux/dist/react-redux.min.js"></script>
 ```
 
 #### Bundler with excluded dependencies
@@ -75,15 +81,19 @@ externals: {
 and [rebuild](#build)
 
 ## Usage
-Open **index.html**/**production.html** with any web browser, for example, [Firefox](https://www.mozilla.org/)
+Open public/**index.html** or public/**production.html** with any web browser, for example, [Firefox](https://www.mozilla.org/)
 
 ## Technologies
 - [Yarn](https://yarnpkg.com/en/)
+- [Webpack](https://webpack.js.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [React](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+    -[react-redux](https://github.com/reduxjs/react-redux)
 - [Bootstrap](https://getbootstrap.com/)
     - [Reactstrap](https://reactstrap.github.io/)
 - [Cytoscape.js](http://js.cytoscape.org/)
+- [jest](https://jestjs.io/)
 
 ## License
 GNU AFFERO GENERAL PUBLIC LICENSE (see [License.md](./License.md))

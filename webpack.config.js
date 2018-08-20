@@ -1,14 +1,12 @@
-module.exports = {
+let config = {
 	entry: "./src/index.tsx",
 	output: {
 		filename: "bundle.js",
-		path: __dirname + "/dist"
 	},
-	// Do explicit the default behaviour
-	mode: "production",
 
-	// Enable sourcemaps for debugging webpack's output.
-	devtool: "source-map",
+  devServer: {
+    progress: true
+  },
 
 	resolve: {
 		// Add '.ts' and '.tsx' as resolvable extensions.
@@ -45,6 +43,21 @@ module.exports = {
 		"react": "React",
 		"react-dom": "ReactDOM",
 		"reactstrap": "Reactstrap",
-		"cytoscape": "cytoscape"
+    "cytoscape": "cytoscape",
+    "redux": "Redux",
+    "react-redux": "ReactRedux"
 	}
+};
+
+module.exports = (env, argv) => {
+
+  if (argv.mode === 'development') {
+    config.output.path = __dirname + '/build';
+    config.watch = true
+
+  } else if (argv.mode === 'production') {
+    config.output.path = __dirname + '/dist';
+  }
+
+  return config;
 };
