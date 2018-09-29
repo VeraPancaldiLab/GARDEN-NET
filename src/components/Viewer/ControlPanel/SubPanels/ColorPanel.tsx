@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, InputGroup, Input } from 'reactstrap';
 
 export class ColorPanel extends React.Component<{onColorChange: (color: string) => void}, {color: string}> {
 
-constructor (props: {onColorChange: (color: string) => string}) {
+constructor (props: {onColorChange: (color: string) => void}) {
     super(props)
     this.state = {
       color: ''
