@@ -12,12 +12,15 @@
       <li><a href="#packages">Packages</a></li>
       <li><a href="#dependencies">Dependencies</a></li>
     </ul></li>
-    <li><a href="#testing">Testing</a></li>
-    <li><a href="#build">Build</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#development">Development</a><ul>
+      <li><a href="#testing">Testing</a></li>
+      <li><a href="#build">Build</a></li>
+      <li><a href="#serve">Serve</a></li>
+    </ul></li>
     <li><a href="#production">Production</a><ul>
         <li><a href="#bundler-with-excluded-dependencies">Bundler with excluded dependencies</a></li>
     </ul></li></ul></li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#technologies">Technologies</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contributors">Contributors</a></li>
@@ -36,11 +39,20 @@ Web Frontend for the [ChAs](https://github.com/ricolab/Chromatin_Assortativity/)
 ### Dependencies
 `yarn install`
 
-## Testing
+## Usage
+1. Run `yarn serve`
+2. Open public/**index.html** or public/**production.html** with any web browser, for example, [Firefox](https://www.mozilla.org/)
+
+## Development
+
+### Testing
 `yarn test`
 
-## Build
+### Build
 `yarn build`
+
+### Serve
+`yarn serve`
 
 ## Production
 **React**, **React-DOM**, **Reactstrap** and **Cytoscape** dependencies are excluded by default from the bundle a cause of their size
@@ -48,12 +60,12 @@ Web Frontend for the [ChAs](https://github.com/ricolab/Chromatin_Assortativity/)
 Use **production.html** which replaces the next lines from the index.html
 ```html
 <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-<script src="../node_modules/react/umd/react.production.min.js"></script>
-<script src="../node_modules/react-dom/umd/react-dom.production.min.js"></script>
+<script src="../node_modules/react/umd/react.development.js"></script>
+<script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
 <script src="../node_modules/reactstrap/dist/reactstrap.full.js"></script>
-<script src="../node_modules/cytoscape/dist/cytoscape.min.js"></script>
-<script src="../node_modules/redux/dist/redux.min.js"></script>
-<script src="./node_modules/react-redux/dist/react-redux.min.js"></script>
+<script src="../node_modules/cytoscape/dist/cytoscape.js"></script>
+<script src="../node_modules/redux/dist/redux.js"></script>
+<script src="../node_modules/react-redux/dist/react-redux.js"></script>
 ```
 
 with CDN links for production (min versions)
@@ -78,10 +90,10 @@ externals: {
   "cytoscape": "cytoscape"
 }
 ```
-and [rebuild](#build)
+and run [Dist](#dist)
 
-## Usage
-Open public/**index.html** or public/**production.html** with any web browser, for example, [Firefox](https://www.mozilla.org/)
+### Dist
+`yarn dist`
 
 ## Technologies
 - [Yarn](https://yarnpkg.com/en/)

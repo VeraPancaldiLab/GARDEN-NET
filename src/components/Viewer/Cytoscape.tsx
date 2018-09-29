@@ -12,8 +12,10 @@ export class Cytoscape extends React.Component<any, any> {
   node_color = '#000'
   edge_color = '#8a2be2'
   size = 25
+
   constructor(props: any) {
-    super(props)
+    super(props);
+    this.state = {json_loaded: false};
   }
 
   componentDidUpdate() {
@@ -58,30 +60,24 @@ export class Cytoscape extends React.Component<any, any> {
   }
 
   componentDidMount (){
+
+    async function fetchAsyncJson(_this : Cytoscape ) {
+      // Warning: The network file has to be serve before by a http server
+      // http-server is provided to help to the development thanks to `yarn serve` command
+      // In this case, the port used to serve is the 8080
+      let url = 'http://localhost:8080/data/network.json';
+      return fetch(url).then(response => {
+        const json = response.json();
+        _this.setState({json_loaded: true});
+        return json;
+      });
+    }
+
     this.cy = cytoscape({
 
       container: document.getElementById('cytoscape_container'), // container to render in
 
-      elements: [ // list of graph elements to start with
-        { // node a
-          data: { id: 'a' }
-        },
-        { // node b
-          data: { id: 'b' }
-        },
-        { // node c
-          data: { id: 'c' }
-        },
-        { // edge ab
-          data: { id: 'ab', source: 'a', target: 'b' },
-        },
-        { // edge ab
-          data: { id: 'ac', source: 'a', target: 'c' },
-        },
-        { // edge ab
-          data: { id: 'bc', source: 'b', target: 'c' }
-        }
-      ],
+      elements: fetchAsyncJson(this),
 
       style: [ // the stylesheet for the graph
         {
@@ -115,7 +111,10 @@ export class Cytoscape extends React.Component<any, any> {
   render() {
     return (
       <div className='container-fluid'>
-      <div id='cytoscape_container'></div>
+        {
+          this.state.json_loaded ? '' : <h1 className='text-center'>Loading...</h1>
+        }
+        <div id='cytoscape_container'></div>
       </div>
     );
   }
