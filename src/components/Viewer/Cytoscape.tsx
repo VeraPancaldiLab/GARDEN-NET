@@ -48,15 +48,16 @@ export class Cytoscape extends React.Component<any, any> {
       default:
         selection = 'node';
     }
-    this.cy.style()
-      .selector(selection)
-      .style({
-        'width': this.size,
-        'height': this.size,
-        'background-color': this.node_color,
-        'line-color': this.edge_color,
-      })
-      .update()
+    // Default style has to be updated
+    // this.cy.style()
+    //   .selector(selection)
+    //   .style({
+    //     'width': this.size,
+    //     'height': this.size,
+    //     'background-color': this.node_color,
+    //     'line-color': this.edge_color,
+    //   })
+    //   .update()
   }
 
   componentDidMount (){
