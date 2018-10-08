@@ -15,7 +15,7 @@ export class Cytoscape extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
-    this.state = {json_loaded: false};
+    this.state = {json_loaded: false, cytoscape_loaded: false};
   }
 
   componentDidUpdate() {
@@ -103,6 +103,7 @@ export class Cytoscape extends React.Component<any, any> {
       layout: {
         name: 'circle',
         animate: true
+        stop: () => {this.setState({cytoscape_loaded: true}); console.log('ready')}
       }
 
     });
@@ -112,7 +113,10 @@ export class Cytoscape extends React.Component<any, any> {
     return (
       <div className='container-fluid'>
         {
-          this.state.json_loaded ? '' : <h1 className='text-center'>Loading...</h1>
+          this.state.json_loaded ? '' : <h1 className='text-center'>Loading data...</h1>
+        }
+        {
+          this.state.cytoscape_loaded ? '' : <h1 className='text-center'>Rendering...</h1>
         }
         <div id='cytoscape_container'></div>
       </div>
