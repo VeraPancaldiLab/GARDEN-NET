@@ -1,4 +1,7 @@
-# ChAs Frontend
+# [ChAs Frontend](https://verapancaldilab.github.io/ChAs_Frontend/)
+**[Website](https://verapancaldilab.github.io/ChAs_Frontend/)**
+
+<https://verapancaldilab.github.io/ChAs_Frontend/>
 
 ![Screenshot](screenshot.png)
 
