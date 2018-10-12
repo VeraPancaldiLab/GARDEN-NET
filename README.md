@@ -1,5 +1,7 @@
 # ChAs Frontend
 
+![Screenshot](screenshot.png)
+
 # Table Of Content
 
 <details>
