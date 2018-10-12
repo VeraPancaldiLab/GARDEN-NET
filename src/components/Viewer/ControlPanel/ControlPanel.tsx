@@ -1,23 +1,14 @@
 import * as React from "react";
-import { ColorPanel } from './SubPanels/ColorPanel';
-import { SelectionPanelContainer } from './../../../containers/SelectionPanelContainer';
-import { SizePanelContainer } from './../../../containers/SizePanelContainer';
-import { ColorPanelContainer } from './../../../containers/ColorPanelContainer';
+import { FeaturesPanelContainer } from './../../../containers/FeaturesPanelContainer';
+import { ChromosomesPanelContainer } from './../../../containers/ChromosomesPanelContainer';
 
 export class ControlPanel extends React.Component<{},{}> {
   render() {
     return (
-      <div className='container' >
-        <div className="row">
-          <div className="col text-center">
-            <ColorPanelContainer/>
-          </div>
-          <div className="col">
-            <SelectionPanelContainer/>
-          </div>
-          <div className="col">
-            <SizePanelContainer/>
-          </div>
+      <div className='container-fluid'>
+          <div className="col" style={{ margin: '5px' }}>
+            <ChromosomesPanelContainer/>
+            <FeaturesPanelContainer/>
         </div>
       </div>
     );

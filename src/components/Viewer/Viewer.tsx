@@ -8,10 +8,12 @@ export class Viewer extends React.Component<{},{}> {
     return (
       <div className='container-fluid'>
         <div className="row">
-          <ControlPanel/>
-        </div>
-        <div className="row">
-          <Cytoscape_container/>
+          <div className="col-10">
+            <Cytoscape_container/>
+          </div>
+          <div className="col-2">
+            <ControlPanel/>
+          </div>
         </div>
       </div>
     );

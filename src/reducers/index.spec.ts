@@ -1,54 +1,32 @@
-import { size_reducer, DEFAULT_SIZE, color_reducer, DEFAULT_COLOR, selection_reducer, DEFAULT_SELECTION, ESELECTION } from './index'
-import { CHANGED_SIZE, CHANGED_COLOR, CHANGED_SELECTION } from '../actions/index'
+import { chromosomes_reducer, DEFAULT_CHROMOSOME, features_reducer, DEFAULT_FEATURE } from './index'
+import { CHANGED_CHROMOSOME, CHANGED_FEATURE } from '../actions/index'
 
 describe('reducers', () => {
-  describe('size_reducer', () => {
+  describe('chromosomes_reducer', () => {
     it('should provide the initial state', () => {
-      expect(size_reducer(undefined, {})).toBe(DEFAULT_SIZE)
+      expect(chromosomes_reducer(undefined, {})).toBe(DEFAULT_CHROMOSOME)
     })
 
-    it('should handle CHANGED_SIZE action', () => {
-      expect(size_reducer(1, { type: CHANGED_SIZE, size: 10 })).toBe(10)
+    it('should handle CHANGED_CHROMOSOME action', () => {
+      expect(chromosomes_reducer(DEFAULT_CHROMOSOME, { type: CHANGED_CHROMOSOME, chromosome: 'X' })).toBe('X')
     })
 
     it('should ignore unknown actions', () => {
-      expect(size_reducer(1, { type: 'unknown' })).toBe(1)
+      expect(chromosomes_reducer(DEFAULT_CHROMOSOME, { type: 'unknown' })).toBe(DEFAULT_CHROMOSOME)
     })
   })
 
-  describe('color_reducer', () => {
+  describe('features_reducer', () => {
     it('should provide the initial state', () => {
-      expect(color_reducer(undefined, {})).toBe(DEFAULT_COLOR)
+      expect(features_reducer(undefined, {})).toBe(DEFAULT_FEATURE)
     })
 
-    it('should handle CHANGED_COLOR action', () => {
-      expect(color_reducer("#AAAAAA", { type: CHANGED_COLOR, color: '#FFFFFF'})).toBe('#FFFFFF')
+    it('should handle CHANGED_FEATURE action', () => {
+      expect(features_reducer(DEFAULT_FEATURE, { type: CHANGED_FEATURE, feature: 'BRG1'})).toBe('BRG1')
     })
 
     it('should ignore unknown actions', () => {
-      expect(color_reducer('#FFFFFF', { type: 'unknown' })).toBe('#FFFFFF')
-    })
-  })
-
-  describe('selection_reducer', () => {
-    it('should provide the initial state', () => {
-      expect(selection_reducer(undefined, {})).toBe(DEFAULT_SELECTION)
-    })
-
-    it('should handle CHANGED_SELECTION action', () => {
-      expect(selection_reducer(ESELECTION.NODE, { type: CHANGED_SELECTION, selection: ESELECTION.BOTH})).toBe(ESELECTION.BOTH)
-    })
-
-    it('should handle CHANGED_SELECTION action', () => {
-      expect(selection_reducer(ESELECTION.NODE, { type: CHANGED_SELECTION, selection: ESELECTION.EDGE})).toBe(ESELECTION.EDGE)
-    })
-
-    it('should handle CHANGED_SELECTION action', () => {
-      expect(selection_reducer(ESELECTION.EDGE, { type: CHANGED_SELECTION, selection: ESELECTION.NODE})).toBe(ESELECTION.NODE)
-    })
-
-    it('should ignore unknown actions', () => {
-      expect(selection_reducer(ESELECTION.NODE, { type: 'unknown' })).toBe(ESELECTION.NODE)
+      expect(features_reducer(DEFAULT_FEATURE, { type: 'unknown' })).toBe(DEFAULT_FEATURE)
     })
   })
 })

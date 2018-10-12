@@ -1,5 +1,4 @@
-import { CHANGED_SIZE, change_size } from './size_action'
-import { CHANGED_COLOR, change_color } from './color_action'
-import { CHANGED_SELECTION, change_selection } from './selection_action'
+import { CHANGED_CHROMOSOME, change_chromosome } from './chromosomes_action'
+import { CHANGED_FEATURE, change_feature } from './features_action'
 
-export { CHANGED_SIZE, change_size, CHANGED_COLOR, change_color, CHANGED_SELECTION, change_selection }
+export { CHANGED_CHROMOSOME, change_chromosome, CHANGED_FEATURE, change_feature }

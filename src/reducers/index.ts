@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux'
-import { size_reducer, DEFAULT_SIZE } from './size_reducer'
-import { color_reducer, DEFAULT_COLOR } from './color_reducer'
-import { selection_reducer, DEFAULT_SELECTION, ESELECTION } from './selection_reducer'
+import { chromosomes_reducer, DEFAULT_CHROMOSOME } from './chromosomes_reducer'
+import { features_reducer, DEFAULT_FEATURE } from './features_reducer'
 
-export { size_reducer, color_reducer, selection_reducer, DEFAULT_SIZE, DEFAULT_COLOR, DEFAULT_SELECTION, ESELECTION }
+export { chromosomes_reducer, features_reducer, DEFAULT_CHROMOSOME, DEFAULT_FEATURE }
 
 export const root_reducers = combineReducers({
-  size: size_reducer,
-  color: color_reducer,
-  selection: selection_reducer
+  chromosome: chromosomes_reducer,
+  feature: features_reducer
 })

@@ -1,80 +1,106 @@
 import * as React from "react";
-import * as Reactstrap from 'reactstrap';
 import * as cytoscape from 'cytoscape';
-import { ESELECTION } from '../../reducers/index'
 import './Cytoscape.css'
 
 export class Cytoscape extends React.Component<any, any> {
 
   cy: any
-  node_size = 25
-  edge_size = 5
-  node_color = '#000'
-  edge_color = '#8a2be2'
-  size = 25
+  chromosomes_cache: Map<string, any> = new Map()
 
   constructor(props: any) {
     super(props);
-    this.state = {json_loaded: false, cytoscape_loaded: false};
+    this.state = {json_loading: true, cytoscape_loading: true};
   }
 
-  componentDidUpdate() {
-    let selection: string;
-    switch (this.props.selection){
-      case ESELECTION.NODE:
-        selection = 'node';
-        if (this.edge_size != this.props.size)
-          this.node_size = this.props.size
-        if (this.edge_color != this.props.color)
-        this.node_color = this.props.color
-        this.size = this.node_size
-        break;
-      case ESELECTION.EDGE:
-        selection = 'edge'
-        if (this.node_size != this.props.size)
-          this.edge_size = this.props.size
-        if (this.node_color != this.props.color)
-          this.edge_color = this.props.color
-        this.size = this.edge_size
-        break;
-      case ESELECTION.BOTH:
-        this.node_size = this.props.size
-        this.node_color = this.props.color
-        selection ='node,edge'
-        this.edge_size = this.props.size
-        this.edge_color = this.props.color
-        this.size = this.node_size
-        break;
-      default:
-        selection = 'node';
+  componentDidUpdate(prevProps: any) {
+    console.log(this.state)
+    if (this.props.chromosome != prevProps.chromosome) {
+      this.setState({json_loading: true, cytoscape_loading: true});
+      if(this.chromosomes_cache.has(this.props.chromosome)) {
+        let cy = this.chromosomes_cache.get(this.props.chromosome)
+        this.setState({json_loading: false})
+
+        let _this = this
+        this.cy = cytoscape({
+
+          container: document.getElementById('cytoscape_container'), // container to render in
+
+          elements: cy.elements().jsons(),
+
+          style: [ // the stylesheet for the graph
+            {
+              selector: 'node',
+              style: {
+                'background-color': 'mapData(features.'+ _this.props.feature + ', 0, 1, black, green)',
+                'label': 'data(name)',
+                'color': 'white',
+                'font-size': 4,
+                'text-valign': 'center',
+                'text-halign': 'center',
+                'width': 35,
+                'height': 35
+              }
+            },
+            {
+              selector: 'node[type = "bait"]',
+              style: {
+                'shape': 'rectangle',
+              }
+            },
+            {
+              selector: 'node[type = "oe"]',
+              style: {
+                'shape': 'ellipse',
+              }
+            }
+          ],
+
+          layout: {
+            name: 'preset',
+            animate: false,
+            stop: () => this.setState({cytoscape_loading: false})
+          }
+        });
+        this.cy.style()
+          .selector('node')
+          .style({
+            'background-color': 'mapData(features.'+ this.props.feature + ', 0, 1, black, green)',
+          })
+          .update()
+      } else {
+        this.chromosomes_cache.set(this.props.chromosome, this.buildNetwork(this))
+        this.cy = this.chromosomes_cache.get(this.props.chromosome)
+      }
+    } else if (this.props.feature != prevProps.feature) {
+      this.cy.style()
+        .selector('node')
+        .style({
+          'background-color': 'mapData(features.'+ this.props.feature + ', 0, 1, black, green)',
+        })
+        .update()
     }
-    // Default style has to be updated
-    // this.cy.style()
-    //   .selector(selection)
-    //   .style({
-    //     'width': this.size,
-    //     'height': this.size,
-    //     'background-color': this.node_color,
-    //     'line-color': this.edge_color,
-    //   })
-    //   .update()
   }
 
   componentDidMount (){
+    this.chromosomes_cache.set(this.props.chromosome, this.buildNetwork(this))
+    this.cy = this.chromosomes_cache.get(this.props.chromosome)
+  }
+
+  buildNetwork (_this: Cytoscape) {
 
     async function fetchAsyncJson(_this : Cytoscape ) {
       // Warning: The network file has to be serve before by a http server
       // http-server is provided to help to the development thanks to `yarn serve` command
       // In this case, the port used to serve is the 8080
-      let url = 'http://localhost:8080/data/network.json';
+      let url = 'http://localhost:8080/data/chromosomes/' + _this.props.chromosome + '/stdout';
       return fetch(url).then(response => {
         const json = response.json();
-        _this.setState({json_loaded: true});
+        _this.setState({json_loading: false});
         return json;
       });
     }
 
-    this.cy = cytoscape({
+    return cytoscape({
 
       container: document.getElementById('cytoscape_container'), // container to render in
 
@@ -84,25 +110,42 @@ export class Cytoscape extends React.Component<any, any> {
         {
           selector: 'node',
           style: {
-            'background-color': '#000',
-            'label': 'data(id)',
-            'width': 25,
-            'height': 25
+            'background-color': 'mapData(features.'+ _this.props.feature + ', 0, 1, black, green)',
+            'label': 'data(name)',
+            'color': 'white',
+            'font-size': 4,
+            'text-valign': 'center',
+            'text-halign': 'center',
+            'width': 35,
+            'height': 35
+          }
+        },
+        {
+          selector: 'node[type = "bait"]',
+          style: {
+            'shape': 'rectangle',
+          }
+        },
+        {
+          selector: 'node[type = "oe"]',
+          style: {
+            'shape': 'ellipse',
           }
         },
         {
           selector: 'edge',
           style: {
             'width': 5,
-            'line-color': '#8a2be2',
+            'line-color': '#ccc',
             'target-arrow-color': '#ccc',
             'target-arrow-shape': 'triangle'
           }
-        }
+        },
       ],
 
       layout: {
         name: 'cose',
+        animate: false,
         idealEdgeLength: 100,
         nodeOverlap: 20,
         refresh: 20,
@@ -118,23 +161,29 @@ export class Cytoscape extends React.Component<any, any> {
         initialTemp: 200,
         coolingFactor: 0.95,
         minTemp: 1.0,
-        stop: () => {this.setState({cytoscape_loaded: true}); console.log('ready')}
+        stop: () => this.setState({cytoscape_loading: false})
       }
-
     });
-
   }
 
   render() {
+
+    const margin_style = {
+      border: '#aaa',
+      borderRadius: '5px',
+      borderStyle: 'solid',
+      borderWidth: '2px'
+    };
+
     return (
       <div className='container-fluid'>
         {
-          this.state.json_loaded ? '' : <h1 className='text-center'>Loading data...</h1>
+        this.state.json_loading ? <h1 className='text-center'>Loading data...</h1> : ''
         }
         {
-          this.state.cytoscape_loaded ? '' : <h1 className='text-center'>Rendering...</h1>
+        this.state.cytoscape_loading ? <h1 className='text-center'>Rendering...</h1> : ''
         }
-        <div id='cytoscape_container'></div>
+        <div id='cytoscape_container' style={margin_style}></div>
       </div>
     );
   }
