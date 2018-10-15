@@ -179,7 +179,7 @@
       "id": "X_5657115_5664388",
       "name": "AU022751-001",
       "start": 5657115,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -2479,7 +2479,7 @@
       "id": "X_7234203_7239516",
       "name": "Prickle3-001",
       "start": 7234203,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -2571,7 +2571,7 @@
       "id": "X_7270050_7281073",
       "name": "Gpkow-001",
       "start": 7270050,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -4135,7 +4135,7 @@
       "id": "X_7369983_7389716",
       "name": "Mir1198-201",
       "start": 7369983,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -4319,7 +4319,7 @@
       "id": "X_7551217_7557732",
       "name": "Gata1-001",
       "start": 7551217,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -4411,7 +4411,7 @@
       "id": "X_7658500_7665311",
       "name": "U6.664-201",
       "start": 7658500,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -5423,7 +5423,7 @@
       "id": "X_7703285_7710417",
       "name": "Wdr13-001",
       "start": 7703285,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -5791,7 +5791,7 @@
       "id": "X_7414140_7426561",
       "name": "Otud5-001",
       "start": 7414140,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -6067,7 +6067,7 @@
       "id": "X_7476206_7483198",
       "name": "Pqbp1-001",
       "start": 7476206,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -6159,7 +6159,7 @@
       "id": "X_7488660_7501411",
       "name": "Pcsk1n-001",
       "start": 7488660,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -6251,7 +6251,7 @@
       "id": "X_7623898_7630531",
       "name": "Gm14820-001",
       "start": 7623898,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -6619,7 +6619,7 @@
       "id": "X_7585650_7596413",
       "name": "Glod5-001",
       "start": 7585650,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -10299,7 +10299,7 @@
       "id": "X_7829168_7831877",
       "name": "Ftsj1-001",
       "start": 7829168,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -16923,7 +16923,7 @@
       "id": "X_20189608_20192395",
       "name": "U2.1-201",
       "start": 20189608,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -18119,7 +18119,7 @@
       "id": "X_20371208_20376118",
       "name": "Araf-001",
       "start": 20371208,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -18855,7 +18855,7 @@
       "id": "X_20501355_20512726",
       "name": "Cfp-001",
       "start": 20501355,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -19867,7 +19867,7 @@
       "id": "X_20518711_20534243",
       "name": "Elk1-001",
       "start": 20518711,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -21155,7 +21155,7 @@
       "id": "X_22438120_22440703",
       "name": "U6.88-201",
       "start": 22438120,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -21339,7 +21339,7 @@
       "id": "X_22941727_22943108",
       "name": "Klhl13-001",
       "start": 22941727,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -22075,7 +22075,7 @@
       "id": "X_33865229_33874507",
       "name": "Lonrf3-001",
       "start": 33865229,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -22443,7 +22443,7 @@
       "id": "X_33941676_33943616",
       "name": "Gm6268-001",
       "start": 33941676,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -23179,7 +23179,7 @@
       "id": "X_34351101_34364713",
       "name": "Gm14549-001",
       "start": 34351101,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -23363,7 +23363,7 @@
       "id": "X_34274182_34287397",
       "name": "Slc25a43-001",
       "start": 34274182,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -23639,7 +23639,7 @@
       "id": "X_34311394_34317359",
       "name": "SNORA36.3-201",
       "start": 34311394,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -24467,7 +24467,7 @@
       "id": "X_34587019_34590164",
       "name": "Ankrd58-001",
       "start": 34587019,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -24651,7 +24651,7 @@
       "id": "X_34524386_34537513",
       "name": "Sept6-003",
       "start": 34524386,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -25019,7 +25019,7 @@
       "id": "X_34623347_34631441",
       "name": "Rpl39-001",
       "start": 34623347,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -25479,7 +25479,7 @@
       "id": "X_34600297_34603085",
       "name": "U6.611-201",
       "start": 34600297,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -26399,7 +26399,7 @@
       "id": "X_34666472_34674264",
       "name": "Nkap-001",
       "start": 34666472,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -26859,7 +26859,7 @@
       "id": "X_34700531_34718330",
       "name": "Gm17273-201",
       "start": 34700531,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -26951,7 +26951,7 @@
       "id": "X_35435120_35438629",
       "name": "Rhox11-001",
       "start": 35435120,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -27319,7 +27319,7 @@
       "id": "X_35365117_35373217",
       "name": "4930525M21Rik-001",
       "start": 35365117,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -27411,7 +27411,7 @@
       "id": "X_35470602_35475381",
       "name": "Rhox13-001",
       "start": 35470602,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -27503,7 +27503,7 @@
       "id": "X_35562465_35566150",
       "name": "AL512346.1-201",
       "start": 35562465,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -28147,7 +28147,7 @@
       "id": "X_35599752_35607362",
       "name": "Fam70a-004",
       "start": 35599752,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -31183,7 +31183,7 @@
       "id": "X_39005715_39012163",
       "name": "AL672290.1-201",
       "start": 39005715,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -35323,7 +35323,7 @@
       "id": "X_45658910_45663226",
       "name": "U6.801-201",
       "start": 45658910,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -35415,7 +35415,7 @@
       "id": "X_45813077_45817741",
       "name": "Elf4-001",
       "start": 45813077,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -35507,7 +35507,7 @@
       "id": "X_45870959_45872500",
       "name": "Rab33a-001",
       "start": 45870959,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -36887,7 +36887,7 @@
       "id": "X_45693827_45695782",
       "name": "Bcorl1-001",
       "start": 45693827,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -37899,7 +37899,7 @@
       "id": "X_46046150_46049828",
       "name": "Rbmx2-001",
       "start": 46046150,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -37991,7 +37991,7 @@
       "id": "X_48363161_48374980",
       "name": "Rap2c-001",
       "start": 48363161,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -41671,7 +41671,7 @@
       "id": "X_49148693_49155980",
       "name": "Usp26-001",
       "start": 49148693,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -43235,7 +43235,7 @@
       "id": "X_53623569_53632174",
       "name": "Ncrna00086-001",
       "start": 53623569,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -43695,7 +43695,7 @@
       "id": "X_50621368_50625747",
       "name": "Fam122b-001",
       "start": 50621368,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -44063,7 +44063,7 @@
       "id": "X_50588728_50598147",
       "name": "Plac1-002",
       "start": 50588728,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -44891,7 +44891,7 @@
       "id": "X_51014392_51029793",
       "name": "AW822252-001",
       "start": 51014392,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -46455,7 +46455,7 @@
       "id": "X_53849958_53859559",
       "name": "Mmgt1-001",
       "start": 53849958,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -47007,7 +47007,7 @@
       "id": "X_54121488_54126299",
       "name": "Gpr112-001",
       "start": 54121488,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -47559,7 +47559,7 @@
       "id": "X_54306130_54311957",
       "name": "Htatsf1-002",
       "start": 54306130,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -50595,7 +50595,7 @@
       "id": "X_57647034_57653244",
       "name": "Mir505-201",
       "start": 57647034,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -52067,7 +52067,7 @@
       "id": "X_61424810_61427767",
       "name": "3830417A13Rik-001",
       "start": 61424810,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -56207,7 +56207,7 @@
       "id": "X_68912440_68923356",
       "name": "Gpr50-001",
       "start": 68912440,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -56391,7 +56391,7 @@
       "id": "X_69214398_69226981",
       "name": "Fate1-002",
       "start": 69214398,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -56759,7 +56759,7 @@
       "id": "X_69169156_69175697",
       "name": "Gm1141-002",
       "start": 69169156,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -56851,7 +56851,7 @@
       "id": "X_69505229_69506645",
       "name": "Mir224-201",
       "start": 69505229,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -56943,7 +56943,7 @@
       "id": "X_70162354_70165910",
       "name": "Cetn2-001",
       "start": 70162354,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -61083,7 +61083,7 @@
       "id": "X_70670690_70682656",
       "name": "Trex2-001",
       "start": 70670690,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -61911,7 +61911,7 @@
       "id": "X_70901813_70911894",
       "name": "Pnck-002",
       "start": 70901813,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -62003,7 +62003,7 @@
       "id": "X_70914988_70921800",
       "name": "Slc6a8-001",
       "start": 70914988,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -62279,7 +62279,7 @@
       "id": "X_70652276_70656997",
       "name": "Zfp92-001",
       "start": 70652276,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -62463,7 +62463,7 @@
       "id": "X_70724691_70731053",
       "name": "Bgn-001",
       "start": 70724691,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -63107,7 +63107,7 @@
       "id": "X_71136964_71141618",
       "name": "Avpr2-001",
       "start": 71136964,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -64395,7 +64395,7 @@
       "id": "X_71015578_71024526",
       "name": "Srpk3-001",
       "start": 71015578,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -64487,7 +64487,7 @@
       "id": "X_71166270_71177763",
       "name": "Arhgap4-018",
       "start": 71166270,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -66235,7 +66235,7 @@
       "id": "X_70990299_71000613",
       "name": "SNORA70.28-201",
       "start": 70990299,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -66511,7 +66511,7 @@
       "id": "X_71031355_71042386",
       "name": "Idh3g-001",
       "start": 71031355,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -66603,7 +66603,7 @@
       "id": "X_71049124_71060266",
       "name": "SNORD38.1-201",
       "start": 71049124,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -66879,7 +66879,7 @@
       "id": "X_71268290_71271096",
       "name": "AL672002.1-201",
       "start": 71268290,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -67523,7 +67523,7 @@
       "id": "X_71611462_71616400",
       "name": "Ubl4-001",
       "start": 71611462,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -68995,7 +68995,7 @@
       "id": "X_71554620_71560776",
       "name": "Fam50a-001",
       "start": 71554620,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -69179,7 +69179,7 @@
       "id": "X_71534833_71543234",
       "name": "Atp6ap1-001",
       "start": 71534833,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -69363,7 +69363,7 @@
       "id": "X_71616503_71631702",
       "name": "Slc10a3-001",
       "start": 71616503,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -70743,7 +70743,7 @@
       "id": "X_71549710_71554619",
       "name": "Gdi1-001",
       "start": 71549710,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -70835,7 +70835,7 @@
       "id": "X_71573930_71575681",
       "name": "Plxna3-001",
       "start": 71573930,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -71387,7 +71387,7 @@
       "id": "X_72328872_72332657",
       "name": "Gab3-002",
       "start": 72328872,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -73503,7 +73503,7 @@
       "id": "X_72661270_72663523",
       "name": "Mtcp1-003",
       "start": 72661270,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -73779,7 +73779,7 @@
       "id": "X_72407323_72411568",
       "name": "4930428E23Rik-001",
       "start": 72407323,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -81323,7 +81323,7 @@
       "id": "X_91365994_91369247",
       "name": "Zfx-001",
       "start": 91365994,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -85831,7 +85831,7 @@
       "id": "X_93902639_93911704",
       "name": "Gpr165-001",
       "start": 93902639,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -86567,7 +86567,7 @@
       "id": "X_96131449_96134175",
       "name": "Yipf6-002",
       "start": 96131449,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -86659,7 +86659,7 @@
       "id": "X_96643230_96656979",
       "name": "Gm14808-001",
       "start": 96643230,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -89971,7 +89971,7 @@
       "id": "X_97925034_97929214",
       "name": "Gdpd2-001",
       "start": 97925034,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -90431,7 +90431,7 @@
       "id": "X_97719163_97720788",
       "name": "Dgat2l6-001",
       "start": 97719163,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -91167,7 +91167,7 @@
       "id": "X_98485792_98492869",
       "name": "Nlgn3-002",
       "start": 98485792,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -91443,7 +91443,7 @@
       "id": "X_98437048_98442767",
       "name": "U11.2-201",
       "start": 98437048,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -92547,7 +92547,7 @@
       "id": "X_98567494_98577631",
       "name": "Gjb1-003",
       "start": 98567494,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -93375,7 +93375,7 @@
       "id": "X_98458176_98465487",
       "name": "Gm614-001",
       "start": 98458176,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -94111,7 +94111,7 @@
       "id": "X_98468054_98471392",
       "name": "Med12-004",
       "start": 98468054,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -97515,7 +97515,7 @@
       "id": "X_99261922_99267286",
       "name": "Rgag4-001",
       "start": 99261922,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -101011,7 +101011,7 @@
       "id": "X_101013551_101020777",
       "name": "Slc16a2-001",
       "start": 101013551,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -104967,7 +104967,7 @@
       "id": "X_103210949_103217808",
       "name": "Cox7b-001",
       "start": 103210949,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -105059,7 +105059,7 @@
       "id": "X_103380152_103384213",
       "name": "Pgk1-001",
       "start": 103380152,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -107451,7 +107451,7 @@
       "id": "X_104283424_104286369",
       "name": "P2ry10-002",
       "start": 104283424,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -107911,7 +107911,7 @@
       "id": "X_104343650_104346181",
       "name": "A630033H20Rik-002",
       "start": 104343650,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -109015,7 +109015,7 @@
       "id": "X_106206425_106211703",
       "name": "Hmgn5-001",
       "start": 106206425,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -109383,7 +109383,7 @@
       "id": "X_106386989_106393271",
       "name": "Gm6377-002",
       "start": 106386989,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -116283,7 +116283,7 @@
       "id": "X_130825871_130831954",
       "name": "Tmem35-001",
       "start": 130825871,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -116375,7 +116375,7 @@
       "id": "X_130838117_130846539",
       "name": "Cenpi-001",
       "start": 130838117,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -116651,7 +116651,7 @@
       "id": "X_131029708_131035514",
       "name": "U6.677-201",
       "start": 131029708,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -117019,7 +117019,7 @@
       "id": "X_131007942_131014647",
       "name": "Taf7l-001",
       "start": 131007942,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -119595,7 +119595,7 @@
       "id": "X_131281416_131287623",
       "name": "Gm10344-201",
       "start": 131281416,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -120147,7 +120147,7 @@
       "id": "X_131287818_131294829",
       "name": "Armcx3-001",
       "start": 131287818,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -120423,7 +120423,7 @@
       "id": "X_131498532_131500888",
       "name": "Nxf2-001",
       "start": 131498532,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -125207,7 +125207,7 @@
       "id": "X_132801609_132806106",
       "name": "Ngfrap1-001",
       "start": 132801609,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -126679,7 +126679,7 @@
       "id": "X_133510887_133517682",
       "name": "Tmsb15l-001",
       "start": 133510887,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -126771,7 +126771,7 @@
       "id": "X_133655677_133656830",
       "name": "Esx1-001",
       "start": 133655677,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -127783,7 +127783,7 @@
       "id": "X_133682067_133691089",
       "name": "SNORA63.4-201",
       "start": 133682067,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -128611,7 +128611,7 @@
       "id": "X_134104140_134116251",
       "name": "Il1rapl2-001",
       "start": 134104140,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -128795,7 +128795,7 @@
       "id": "X_135443132_135451950",
       "name": "Nrk-001",
       "start": 135443132,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -129991,7 +129991,7 @@
       "id": "X_136391006_136406487",
       "name": "Morc4-002",
       "start": 136391006,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -130635,7 +130635,7 @@
       "id": "X_137130524_137137159",
       "name": "Tsc22d3-001",
       "start": 137130524,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -132015,7 +132015,7 @@
       "id": "X_138155073_138163292",
       "name": "Gm15295-001",
       "start": 138155073,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -135695,7 +135695,7 @@
       "id": "X_141120275_141124686",
       "name": "Trpc5-001",
       "start": 141120275,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -136431,7 +136431,7 @@
       "id": "X_141780870_141787969",
       "name": "Lhfpl1-001",
       "start": 141780870,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -138731,7 +138731,7 @@
       "id": "X_143987081_143994545",
       "name": "Lrch2-004",
       "start": 143987081,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -139927,7 +139927,7 @@
       "id": "X_148575534_148582694",
       "name": "Iqsec2-001",
       "start": 148575534,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -140663,7 +140663,7 @@
       "id": "X_147089666_147094551",
       "name": "Tro-001",
       "start": 147089666,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -141675,7 +141675,7 @@
       "id": "X_147478804_147483091",
       "name": "Fgd1-002",
       "start": 147478804,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -142319,7 +142319,7 @@
       "id": "X_148233943_148235927",
       "name": "Huwe1-002",
       "start": 148233943,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -143331,7 +143331,7 @@
       "id": "X_148345284_148348357",
       "name": "Mirlet7f-2-201",
       "start": 148345284,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -143699,7 +143699,7 @@
       "id": "X_148436085_148442740",
       "name": "Hsd17b10-001",
       "start": 148436085,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -143791,7 +143791,7 @@
       "id": "X_148444381_148452958",
       "name": "Ribc1-001",
       "start": 148444381,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -147655,7 +147655,7 @@
       "id": "X_151573430_151574746",
       "name": "SNORA17.395-201",
       "start": 151573430,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -149127,7 +149127,7 @@
       "id": "X_154136687_154146377",
       "name": "Smpx-002",
       "start": 154136687,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -150139,7 +150139,7 @@
       "id": "X_154035182_154039046",
       "name": "Mbtps2-001",
       "start": 154035182,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -151611,7 +151611,7 @@
       "id": "X_156061563_156068046",
       "name": "Sh3kbp1-001",
       "start": 156061563,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -151703,7 +151703,7 @@
       "id": "X_156425734_156430193",
       "name": "Map3k15-001",
       "start": 156425734,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -151979,7 +151979,7 @@
       "id": "X_156575283_156576939",
       "name": "Pdha1-001",
       "start": 156575283,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -153359,7 +153359,7 @@
       "id": "X_157202307_157211022",
       "name": "Rs1-001",
       "start": 157202307,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -153819,7 +153819,7 @@
       "id": "X_158592731_158599683",
       "name": "Nhs-001",
       "start": 158592731,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -155475,7 +155475,7 @@
       "id": "X_160346456_160348618",
       "name": "Ap1s2-001",
       "start": 160346456,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -155567,7 +155567,7 @@
       "id": "X_160720242_160724954",
       "name": "SNORA17.201-201",
       "start": 160720242,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -155751,7 +155751,7 @@
       "id": "X_160574869_160585171",
       "name": "Ace2-002",
       "start": 160574869,
-      "type": "oe"
+      "type": "bait"
     },
     "group": "nodes"
   },
@@ -161282,7 +161282,7 @@
       "mESC_wt": 7.62144231501855,
       "source": "X_5620462_5628068",
       "target": "X_5657115_5664388",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161315,7 +161315,7 @@
       "mESC_wt": 5.870214198999691,
       "source": "X_5657115_5664388",
       "target": "X_6326025_6329148",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161326,7 +161326,7 @@
       "mESC_wt": 6.621131421058131,
       "source": "X_5657115_5664388",
       "target": "X_49895672_49901822",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161436,7 +161436,7 @@
       "mESC_wt": 6.616168868349611,
       "source": "X_6804749_6807352",
       "target": "X_5657115_5664388",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161491,7 +161491,7 @@
       "mESC_wt": 5.03679467816176,
       "source": "X_6895665_6898476",
       "target": "X_7234203_7239516",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161502,7 +161502,7 @@
       "mESC_wt": 8.89493232152066,
       "source": "X_6895665_6898476",
       "target": "X_7270050_7281073",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161535,7 +161535,7 @@
       "mESC_wt": 6.453449376015169,
       "source": "X_7121588_7125190",
       "target": "X_7234203_7239516",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161612,7 +161612,7 @@
       "mESC_wt": 5.89111329894802,
       "source": "X_7234203_7239516",
       "target": "X_7048046_7054194",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161623,7 +161623,7 @@
       "mESC_wt": 5.140122428331111,
       "source": "X_7234203_7239516",
       "target": "X_7569053_7571291",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161634,7 +161634,7 @@
       "mESC_wt": 7.9904064859404595,
       "source": "X_7234203_7239516",
       "target": "X_7638554_7644467",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161667,7 +161667,7 @@
       "mESC_wt": 5.6654598542821395,
       "source": "X_7242430_7249558",
       "target": "X_7369983_7389716",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161678,7 +161678,7 @@
       "mESC_wt": 7.85370251567711,
       "source": "X_7252561_7259920",
       "target": "X_7551217_7557732",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161689,7 +161689,7 @@
       "mESC_wt": 5.62627858374225,
       "source": "X_7252561_7259920",
       "target": "X_7658500_7665311",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161700,7 +161700,7 @@
       "mESC_wt": 5.781667781429159,
       "source": "X_7270050_7281073",
       "target": "X_6895665_6898476",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161711,7 +161711,7 @@
       "mESC_wt": 5.535598454592,
       "source": "X_7270050_7281073",
       "target": "X_6934982_6939220",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161722,7 +161722,7 @@
       "mESC_wt": 6.29131914042351,
       "source": "X_7270050_7281073",
       "target": "X_6959207_6961167",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161733,7 +161733,7 @@
       "mESC_wt": 9.138148579779429,
       "source": "X_7270050_7281073",
       "target": "X_6967270_6974348",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161744,7 +161744,7 @@
       "mESC_wt": 8.522741842895691,
       "source": "X_7270050_7281073",
       "target": "X_6999152_7004984",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161755,7 +161755,7 @@
       "mESC_wt": 5.833264403393309,
       "source": "X_7270050_7281073",
       "target": "X_7048046_7054194",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -161854,7 +161854,7 @@
       "mESC_wt": 5.83068407661634,
       "source": "X_7281074_7300037",
       "target": "X_7234203_7239516",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161876,7 +161876,7 @@
       "mESC_wt": 7.5021462864455,
       "source": "X_7301050_7306364",
       "target": "X_7703285_7710417",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161887,7 +161887,7 @@
       "mESC_wt": 6.36372722366044,
       "source": "X_7322557_7333635",
       "target": "X_7658500_7665311",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161909,7 +161909,7 @@
       "mESC_wt": 5.0132051297333,
       "source": "X_7339155_7341459",
       "target": "X_7270050_7281073",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161920,7 +161920,7 @@
       "mESC_wt": 5.01690669087508,
       "source": "X_7339155_7341459",
       "target": "X_7369983_7389716",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161931,7 +161931,7 @@
       "mESC_wt": 5.07221371760553,
       "source": "X_7339155_7341459",
       "target": "X_7414140_7426561",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161964,7 +161964,7 @@
       "mESC_wt": 5.48543542434258,
       "source": "X_7339155_7341459",
       "target": "X_7476206_7483198",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161975,7 +161975,7 @@
       "mESC_wt": 5.8522722514278795,
       "source": "X_7339155_7341459",
       "target": "X_7488660_7501411",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161986,7 +161986,7 @@
       "mESC_wt": 5.035684787342509,
       "source": "X_7339155_7341459",
       "target": "X_7623898_7630531",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -161997,7 +161997,7 @@
       "mESC_wt": 9.4835229175689,
       "source": "X_7339155_7341459",
       "target": "X_7703285_7710417",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162008,7 +162008,7 @@
       "mESC_wt": 5.48322363084537,
       "source": "X_7369983_7389716",
       "target": "X_6917161_6919011",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162019,7 +162019,7 @@
       "mESC_wt": 5.39921755630669,
       "source": "X_7369983_7389716",
       "target": "X_6934982_6939220",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162030,7 +162030,7 @@
       "mESC_wt": 7.6940553001757,
       "source": "X_7369983_7389716",
       "target": "X_7242430_7249558",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162041,7 +162041,7 @@
       "mESC_wt": 6.19068943052258,
       "source": "X_7369983_7389716",
       "target": "X_7319418_7322556",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162052,7 +162052,7 @@
       "mESC_wt": 5.01873848960447,
       "source": "X_7369983_7389716",
       "target": "X_7322557_7333635",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162063,7 +162063,7 @@
       "mESC_wt": 5.7286650458894695,
       "source": "X_7369983_7389716",
       "target": "X_7339155_7341459",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162074,7 +162074,7 @@
       "mESC_wt": 6.01883623242762,
       "source": "X_7369983_7389716",
       "target": "X_7675122_7676914",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162085,7 +162085,7 @@
       "mESC_wt": 5.47078851520517,
       "source": "X_7389717_7405689",
       "target": "X_7585650_7596413",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162096,7 +162096,7 @@
       "mESC_wt": 5.33903526554504,
       "source": "X_7414140_7426561",
       "target": "X_7306365_7310018",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162107,7 +162107,7 @@
       "mESC_wt": 6.50831965874292,
       "source": "X_7414140_7426561",
       "target": "X_7319418_7322556",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162118,7 +162118,7 @@
       "mESC_wt": 6.789779817545299,
       "source": "X_7414140_7426561",
       "target": "X_7356050_7366773",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162129,7 +162129,7 @@
       "mESC_wt": 7.250280463906339,
       "source": "X_7414140_7426561",
       "target": "X_7564820_7568762",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162140,7 +162140,7 @@
       "mESC_wt": 5.28216237446342,
       "source": "X_7414140_7426561",
       "target": "X_7630532_7631890",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162173,7 +162173,7 @@
       "mESC_wt": 6.4461206276378,
       "source": "X_7447645_7463184",
       "target": "X_7414140_7426561",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162184,7 +162184,7 @@
       "mESC_wt": 5.3834184390138695,
       "source": "X_7447645_7463184",
       "target": "X_7476206_7483198",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162195,7 +162195,7 @@
       "mESC_wt": 6.043619820503941,
       "source": "X_7447645_7463184",
       "target": "X_7623898_7630531",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162206,7 +162206,7 @@
       "mESC_wt": 7.24573228194144,
       "source": "X_7447645_7463184",
       "target": "X_7703285_7710417",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162217,7 +162217,7 @@
       "mESC_wt": 5.54372656161216,
       "source": "X_7476206_7483198",
       "target": "X_7057149_7065288",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162228,7 +162228,7 @@
       "mESC_wt": 5.29059937921171,
       "source": "X_7476206_7483198",
       "target": "X_7239517_7242429",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162239,7 +162239,7 @@
       "mESC_wt": 5.1011834286189,
       "source": "X_7476206_7483198",
       "target": "X_7551217_7557732",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162250,7 +162250,7 @@
       "mESC_wt": 5.925380874184969,
       "source": "X_7476206_7483198",
       "target": "X_7678418_7679998",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162261,7 +162261,7 @@
       "mESC_wt": 8.76715994575891,
       "source": "X_7476206_7483198",
       "target": "X_7703285_7710417",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162283,7 +162283,7 @@
       "mESC_wt": 6.65905520459383,
       "source": "X_7488660_7501411",
       "target": "X_7414140_7426561",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162294,7 +162294,7 @@
       "mESC_wt": 5.04221761885982,
       "source": "X_7488660_7501411",
       "target": "X_7676915_7678417",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162316,7 +162316,7 @@
       "mESC_wt": 6.196481273517281,
       "source": "X_7501412_7514478",
       "target": "X_7551217_7557732",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162426,7 +162426,7 @@
       "mESC_wt": 5.283497928143849,
       "source": "X_7551217_7557732",
       "target": "X_7006904_7016383",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162437,7 +162437,7 @@
       "mESC_wt": 5.7111415348719,
       "source": "X_7551217_7557732",
       "target": "X_7345465_7356049",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162448,7 +162448,7 @@
       "mESC_wt": 5.7577253709665595,
       "source": "X_7551217_7557732",
       "target": "X_7488660_7501411",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162459,7 +162459,7 @@
       "mESC_wt": 5.087214496149691,
       "source": "X_7551217_7557732",
       "target": "X_7638554_7644467",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162470,7 +162470,7 @@
       "mESC_wt": 5.778848561223849,
       "source": "X_7551217_7557732",
       "target": "X_7678418_7679998",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162481,7 +162481,7 @@
       "mESC_wt": 7.30466069970222,
       "source": "X_7551217_7557732",
       "target": "X_7703285_7710417",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162492,7 +162492,7 @@
       "mESC_wt": 5.431246407029481,
       "source": "X_7585650_7596413",
       "target": "X_6988171_6992462",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162503,7 +162503,7 @@
       "mESC_wt": 7.65371862590116,
       "source": "X_7585650_7596413",
       "target": "X_7322557_7333635",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162514,7 +162514,7 @@
       "mESC_wt": 6.0098110985273,
       "source": "X_7585650_7596413",
       "target": "X_7339155_7341459",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162525,7 +162525,7 @@
       "mESC_wt": 5.50870338978781,
       "source": "X_7585650_7596413",
       "target": "X_7389717_7405689",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162536,7 +162536,7 @@
       "mESC_wt": 6.70011704235553,
       "source": "X_7585650_7596413",
       "target": "X_7488660_7501411",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162547,7 +162547,7 @@
       "mESC_wt": 8.47909931865726,
       "source": "X_7623898_7630531",
       "target": "X_6967270_6974348",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162558,7 +162558,7 @@
       "mESC_wt": 5.8093068921644,
       "source": "X_7623898_7630531",
       "target": "X_7339155_7341459",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162569,7 +162569,7 @@
       "mESC_wt": 6.73964398775795,
       "source": "X_7623898_7630531",
       "target": "X_7405690_7407343",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162580,7 +162580,7 @@
       "mESC_wt": 5.75327524837321,
       "source": "X_7623898_7630531",
       "target": "X_7476206_7483198",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162591,7 +162591,7 @@
       "mESC_wt": 7.0674149647564,
       "source": "X_7623898_7630531",
       "target": "X_7631891_7638553",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162602,7 +162602,7 @@
       "mESC_wt": 5.7454783836595595,
       "source": "X_7623898_7630531",
       "target": "X_7701630_7703284",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162613,7 +162613,7 @@
       "mESC_wt": 7.13151624078508,
       "source": "X_7623898_7630531",
       "target": "X_7791935_7794880",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162624,7 +162624,7 @@
       "mESC_wt": 6.05206718998799,
       "source": "X_7623898_7630531",
       "target": "X_11860653_11866115",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162635,7 +162635,7 @@
       "mESC_wt": 6.0900352881786395,
       "source": "X_7649531_7651908",
       "target": "X_7270050_7281073",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162679,7 +162679,7 @@
       "mESC_wt": 7.44323942134816,
       "source": "X_7649531_7651908",
       "target": "X_7551217_7557732",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162690,7 +162690,7 @@
       "mESC_wt": 7.33377404459322,
       "source": "X_7658500_7665311",
       "target": "X_7322557_7333635",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162701,7 +162701,7 @@
       "mESC_wt": 5.32173045713595,
       "source": "X_7658500_7665311",
       "target": "X_7514479_7519390",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162712,7 +162712,7 @@
       "mESC_wt": 5.08272318944564,
       "source": "X_7658500_7665311",
       "target": "X_7655503_7658293",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162767,7 +162767,7 @@
       "mESC_wt": 8.808754056732779,
       "source": "X_7665312_7671920",
       "target": "X_7414140_7426561",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162778,7 +162778,7 @@
       "mESC_wt": 5.97575922928308,
       "source": "X_7703285_7710417",
       "target": "X_7004985_7006903",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162789,7 +162789,7 @@
       "mESC_wt": 5.431362158970491,
       "source": "X_7703285_7710417",
       "target": "X_7148960_7152739",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162800,7 +162800,7 @@
       "mESC_wt": 6.2776105387854,
       "source": "X_7703285_7710417",
       "target": "X_7301050_7306364",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162811,7 +162811,7 @@
       "mESC_wt": 6.89269904320436,
       "source": "X_7703285_7710417",
       "target": "X_7339155_7341459",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162822,7 +162822,7 @@
       "mESC_wt": 7.312656294964079,
       "source": "X_7703285_7710417",
       "target": "X_7476206_7483198",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162833,7 +162833,7 @@
       "mESC_wt": 7.10732543483242,
       "source": "X_7703285_7710417",
       "target": "X_7551217_7557732",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162844,7 +162844,7 @@
       "mESC_wt": 5.28743773838326,
       "source": "X_7703285_7710417",
       "target": "X_7655503_7658293",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -162855,7 +162855,7 @@
       "mESC_wt": 5.96938384364357,
       "source": "X_7719411_7723747",
       "target": "X_7234203_7239516",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162866,7 +162866,7 @@
       "mESC_wt": 5.77232265838109,
       "source": "X_7719411_7723747",
       "target": "X_7270050_7281073",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162877,7 +162877,7 @@
       "mESC_wt": 5.91740727487276,
       "source": "X_7719411_7723747",
       "target": "X_7703285_7710417",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162943,7 +162943,7 @@
       "mESC_wt": 5.59159804493541,
       "source": "X_7763406_7772261",
       "target": "X_7703285_7710417",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -162965,7 +162965,7 @@
       "mESC_wt": 5.263280394552741,
       "source": "X_7772262_7784100",
       "target": "X_7703285_7710417",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163009,7 +163009,7 @@
       "mESC_wt": 6.206483147949379,
       "source": "X_7772262_7784100",
       "target": "X_7829168_7831877",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163020,7 +163020,7 @@
       "mESC_wt": 6.118730767525361,
       "source": "X_7829168_7831877",
       "target": "X_7623898_7630531",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163031,7 +163031,7 @@
       "mESC_wt": 7.58206444019747,
       "source": "X_7829168_7831877",
       "target": "X_7772262_7784100",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163537,7 +163537,7 @@
       "mESC_wt": 8.86391270082567,
       "source": "X_19941242_19945609",
       "target": "X_20189608_20192395",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163592,7 +163592,7 @@
       "mESC_wt": 5.0699603791776,
       "source": "X_20125210_20128418",
       "target": "X_20189608_20192395",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163603,7 +163603,7 @@
       "mESC_wt": 5.59145590950595,
       "source": "X_20189608_20192395",
       "target": "X_19941242_19945609",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163614,7 +163614,7 @@
       "mESC_wt": 7.38554727151902,
       "source": "X_20189608_20192395",
       "target": "X_20005437_20009134",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -163625,7 +163625,7 @@
       "mESC_wt": 5.00598334826463,
       "source": "X_20189608_20192395",
       "target": "X_20484261_20490640",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -163669,7 +163669,7 @@
       "mESC_wt": 5.07881693429406,
       "source": "X_20233753_20244182",
       "target": "X_20189608_20192395",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163680,7 +163680,7 @@
       "mESC_wt": 6.492636211251741,
       "source": "X_20233753_20244182",
       "target": "X_20371208_20376118",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163779,7 +163779,7 @@
       "mESC_wt": 5.78890641606375,
       "source": "X_20260996_20275492",
       "target": "X_20501355_20512726",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163812,7 +163812,7 @@
       "mESC_wt": 7.037154273116009,
       "source": "X_20371208_20376118",
       "target": "X_20189608_20192395",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163823,7 +163823,7 @@
       "mESC_wt": 7.83501079544577,
       "source": "X_20371208_20376118",
       "target": "X_20228750_20230870",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -163834,7 +163834,7 @@
       "mESC_wt": 7.94335498887946,
       "source": "X_20371208_20376118",
       "target": "X_20233753_20244182",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163845,7 +163845,7 @@
       "mESC_wt": 5.85491429241565,
       "source": "X_20371208_20376118",
       "target": "X_20255277_20259401",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -163867,7 +163867,7 @@
       "mESC_wt": 5.18064796926166,
       "source": "X_20376119_20382210",
       "target": "X_20189608_20192395",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -163922,7 +163922,7 @@
       "mESC_wt": 5.819471057301789,
       "source": "X_20400074_20404771",
       "target": "X_20518711_20534243",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164021,7 +164021,7 @@
       "mESC_wt": 6.085945424075309,
       "source": "X_20501355_20512726",
       "target": "X_20213763_20216010",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164032,7 +164032,7 @@
       "mESC_wt": 5.90457926742648,
       "source": "X_20501355_20512726",
       "target": "X_20228750_20230870",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164043,7 +164043,7 @@
       "mESC_wt": 6.288430151487661,
       "source": "X_20501355_20512726",
       "target": "X_20404772_20408698",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164054,7 +164054,7 @@
       "mESC_wt": 5.04145370291582,
       "source": "X_20501355_20512726",
       "target": "X_20452808_20461873",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164065,7 +164065,7 @@
       "mESC_wt": 6.697389661948099,
       "source": "X_20518711_20534243",
       "target": "X_20244183_20247142",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164076,7 +164076,7 @@
       "mESC_wt": 6.902585693719,
       "source": "X_20518711_20534243",
       "target": "X_20400074_20404771",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164087,7 +164087,7 @@
       "mESC_wt": 5.54566426984869,
       "source": "X_20518711_20534243",
       "target": "X_20409226_20410344",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164098,7 +164098,7 @@
       "mESC_wt": 5.38174073059054,
       "source": "X_20518711_20534243",
       "target": "X_20411737_20424864",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164109,7 +164109,7 @@
       "mESC_wt": 8.7004267065781,
       "source": "X_20518711_20534243",
       "target": "X_20443561_20444745",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164153,7 +164153,7 @@
       "mESC_wt": 5.96617004518379,
       "source": "X_22010635_22012277",
       "target": "X_22438120_22440703",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164164,7 +164164,7 @@
       "mESC_wt": 5.1824280482724,
       "source": "X_22438120_22440703",
       "target": "X_22163157_22173152",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164175,7 +164175,7 @@
       "mESC_wt": 5.37064997053979,
       "source": "X_22438120_22440703",
       "target": "X_22941727_22943108",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164186,7 +164186,7 @@
       "mESC_wt": 6.27581214674573,
       "source": "X_22941727_22943108",
       "target": "X_22438120_22440703",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164263,7 +164263,7 @@
       "mESC_wt": 5.64908009999424,
       "source": "X_33425883_33429350",
       "target": "X_33865229_33874507",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164296,7 +164296,7 @@
       "mESC_wt": 5.60395620566952,
       "source": "X_33723752_33735956",
       "target": "X_33941676_33943616",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164307,7 +164307,7 @@
       "mESC_wt": 5.50456132423163,
       "source": "X_33865229_33874507",
       "target": "X_33920573_33925145",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164340,7 +164340,7 @@
       "mESC_wt": 5.773053899630411,
       "source": "X_33941676_33943616",
       "target": "X_33741059_33746561",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164351,7 +164351,7 @@
       "mESC_wt": 6.1602093571092995,
       "source": "X_33941676_33943616",
       "target": "X_33766137_33767614",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164362,7 +164362,7 @@
       "mESC_wt": 9.582980417837721,
       "source": "X_33941676_33943616",
       "target": "X_33770862_33772575",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164373,7 +164373,7 @@
       "mESC_wt": 7.43755301426281,
       "source": "X_33941676_33943616",
       "target": "X_33809738_33811647",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164384,7 +164384,7 @@
       "mESC_wt": 5.015036437465089,
       "source": "X_34031533_34034438",
       "target": "X_34351101_34364713",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164395,7 +164395,7 @@
       "mESC_wt": 7.662582889091481,
       "source": "X_34134615_34139284",
       "target": "X_33941676_33943616",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164417,7 +164417,7 @@
       "mESC_wt": 7.0029500701379295,
       "source": "X_34134615_34139284",
       "target": "X_34274182_34287397",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164439,7 +164439,7 @@
       "mESC_wt": 7.29059147154257,
       "source": "X_34184712_34201189",
       "target": "X_34311394_34317359",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164461,7 +164461,7 @@
       "mESC_wt": 6.46885355957407,
       "source": "X_34274182_34287397",
       "target": "X_34072293_34075621",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164472,7 +164472,7 @@
       "mESC_wt": 8.03094929456286,
       "source": "X_34274182_34287397",
       "target": "X_34607528_34618879",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164483,7 +164483,7 @@
       "mESC_wt": 6.1225159409674,
       "source": "X_34311394_34317359",
       "target": "X_11777792_11786941",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164494,7 +164494,7 @@
       "mESC_wt": 5.32187171974307,
       "source": "X_34311394_34317359",
       "target": "X_19932419_19935854",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164505,7 +164505,7 @@
       "mESC_wt": 5.10362061297824,
       "source": "X_34311394_34317359",
       "target": "X_33797272_33801747",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164516,7 +164516,7 @@
       "mESC_wt": 6.43639668206687,
       "source": "X_34311394_34317359",
       "target": "X_34150838_34158747",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164527,7 +164527,7 @@
       "mESC_wt": 5.97697622296485,
       "source": "X_34311394_34317359",
       "target": "X_34170178_34171523",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164538,7 +164538,7 @@
       "mESC_wt": 5.03501330805374,
       "source": "X_34311394_34317359",
       "target": "X_34178053_34182625",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164549,7 +164549,7 @@
       "mESC_wt": 5.530052820872441,
       "source": "X_34311394_34317359",
       "target": "X_34587019_34590164",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164560,7 +164560,7 @@
       "mESC_wt": 5.70995607265454,
       "source": "X_34311394_34317359",
       "target": "X_34590165_34600296",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164571,7 +164571,7 @@
       "mESC_wt": 5.33719195093419,
       "source": "X_34326040_34337643",
       "target": "X_34524386_34537513",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164582,7 +164582,7 @@
       "mESC_wt": 7.23961084157541,
       "source": "X_34326040_34337643",
       "target": "X_34587019_34590164",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164593,7 +164593,7 @@
       "mESC_wt": 6.638840627521,
       "source": "X_34351101_34364713",
       "target": "X_34115051_34118850",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164604,7 +164604,7 @@
       "mESC_wt": 7.4470647972688795,
       "source": "X_34351101_34364713",
       "target": "X_34182634_34184711",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164615,7 +164615,7 @@
       "mESC_wt": 5.18368604187762,
       "source": "X_34351101_34364713",
       "target": "X_34564597_34565908",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164626,7 +164626,7 @@
       "mESC_wt": 5.5766181985873695,
       "source": "X_34351101_34364713",
       "target": "X_34590165_34600296",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164637,7 +164637,7 @@
       "mESC_wt": 5.33312803268437,
       "source": "X_34351101_34364713",
       "target": "X_34623347_34631441",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164703,7 +164703,7 @@
       "mESC_wt": 6.11796715467259,
       "source": "X_34440121_34446256",
       "target": "X_34600297_34603085",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164725,7 +164725,7 @@
       "mESC_wt": 6.2384124387624205,
       "source": "X_34446257_34452655",
       "target": "X_34524386_34537513",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164747,7 +164747,7 @@
       "mESC_wt": 6.353805400645469,
       "source": "X_34446257_34452655",
       "target": "X_34587019_34590164",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164758,7 +164758,7 @@
       "mESC_wt": 5.28851576891329,
       "source": "X_34524386_34537513",
       "target": "X_34110806_34115050",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164769,7 +164769,7 @@
       "mESC_wt": 5.01312878291577,
       "source": "X_34524386_34537513",
       "target": "X_34149814_34150687",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164780,7 +164780,7 @@
       "mESC_wt": 5.09591884769269,
       "source": "X_34524386_34537513",
       "target": "X_34464272_34465949",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164791,7 +164791,7 @@
       "mESC_wt": 5.6561716827396,
       "source": "X_34524386_34537513",
       "target": "X_34522512_34524348",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164802,7 +164802,7 @@
       "mESC_wt": 5.56491045091661,
       "source": "X_34587019_34590164",
       "target": "X_34298188_34302649",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164813,7 +164813,7 @@
       "mESC_wt": 6.37817980567835,
       "source": "X_34600297_34603085",
       "target": "X_34150838_34158747",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164824,7 +164824,7 @@
       "mESC_wt": 5.187327602651981,
       "source": "X_34600297_34603085",
       "target": "X_34408889_34415646",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164835,7 +164835,7 @@
       "mESC_wt": 5.6488714986673605,
       "source": "X_34600297_34603085",
       "target": "X_34549300_34551597",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164846,7 +164846,7 @@
       "mESC_wt": 7.03893849531095,
       "source": "X_34600297_34603085",
       "target": "X_34587019_34590164",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164868,7 +164868,7 @@
       "mESC_wt": 7.67563596596609,
       "source": "X_34621562_34623193",
       "target": "X_34524386_34537513",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164879,7 +164879,7 @@
       "mESC_wt": 6.774781341084009,
       "source": "X_34621562_34623193",
       "target": "X_34587019_34590164",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164890,7 +164890,7 @@
       "mESC_wt": 8.01218940574502,
       "source": "X_34621562_34623193",
       "target": "X_34666472_34674264",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164901,7 +164901,7 @@
       "mESC_wt": 5.01464824550532,
       "source": "X_34623347_34631441",
       "target": "X_34423438_34427665",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164912,7 +164912,7 @@
       "mESC_wt": 6.39648642761527,
       "source": "X_34623347_34631441",
       "target": "X_34437380_34440120",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164923,7 +164923,7 @@
       "mESC_wt": 5.934594262809711,
       "source": "X_34623347_34631441",
       "target": "X_34446257_34452655",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164934,7 +164934,7 @@
       "mESC_wt": 6.4021918719866395,
       "source": "X_34623347_34631441",
       "target": "X_34728765_34732532",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -164945,7 +164945,7 @@
       "mESC_wt": 5.4007208622722604,
       "source": "X_34650080_34651777",
       "target": "X_34351101_34364713",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164967,7 +164967,7 @@
       "mESC_wt": 8.9919841741984,
       "source": "X_34650080_34651777",
       "target": "X_34587019_34590164",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164978,7 +164978,7 @@
       "mESC_wt": 5.27710170487551,
       "source": "X_34650080_34651777",
       "target": "X_34666472_34674264",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -164989,7 +164989,7 @@
       "mESC_wt": 5.2514615013169506,
       "source": "X_34650080_34651777",
       "target": "X_34700531_34718330",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165011,7 +165011,7 @@
       "mESC_wt": 6.053796155729491,
       "source": "X_34666472_34674264",
       "target": "X_34408889_34415646",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165022,7 +165022,7 @@
       "mESC_wt": 5.3374793851836,
       "source": "X_34700531_34718330",
       "target": "X_34728765_34732532",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165033,7 +165033,7 @@
       "mESC_wt": 5.7710289924421,
       "source": "X_34700531_34718330",
       "target": "X_35435120_35438629",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165055,7 +165055,7 @@
       "mESC_wt": 5.555697955994941,
       "source": "X_34761923_34763131",
       "target": "X_35365117_35373217",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165066,7 +165066,7 @@
       "mESC_wt": 8.20374402703086,
       "source": "X_34761923_34763131",
       "target": "X_35435120_35438629",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165077,7 +165077,7 @@
       "mESC_wt": 8.30870293855744,
       "source": "X_34761923_34763131",
       "target": "X_35470602_35475381",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165088,7 +165088,7 @@
       "mESC_wt": 5.854629917169241,
       "source": "X_34761923_34763131",
       "target": "X_35562465_35566150",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165110,7 +165110,7 @@
       "mESC_wt": 9.51545191082801,
       "source": "X_35226881_35232546",
       "target": "X_35470602_35475381",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165121,7 +165121,7 @@
       "mESC_wt": 6.353197373080469,
       "source": "X_35365117_35373217",
       "target": "X_34753026_34760468",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165132,7 +165132,7 @@
       "mESC_wt": 7.283613110190929,
       "source": "X_35365117_35373217",
       "target": "X_35470602_35475381",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165143,7 +165143,7 @@
       "mESC_wt": 5.98151147726876,
       "source": "X_35365117_35373217",
       "target": "X_35527170_35528223",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165154,7 +165154,7 @@
       "mESC_wt": 5.97418758006415,
       "source": "X_35411613_35419818",
       "target": "X_35599752_35607362",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165176,7 +165176,7 @@
       "mESC_wt": 5.58895115596138,
       "source": "X_35435120_35438629",
       "target": "X_35497123_35504046",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165198,7 +165198,7 @@
       "mESC_wt": 6.456294152459999,
       "source": "X_35463172_35465839",
       "target": "X_35470602_35475381",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165209,7 +165209,7 @@
       "mESC_wt": 5.71480510231184,
       "source": "X_35470602_35475381",
       "target": "X_35226881_35232546",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165220,7 +165220,7 @@
       "mESC_wt": 6.41609496348341,
       "source": "X_35470602_35475381",
       "target": "X_35497123_35504046",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165231,7 +165231,7 @@
       "mESC_wt": 6.34452494034239,
       "source": "X_35470602_35475381",
       "target": "X_35750784_35755699",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165242,7 +165242,7 @@
       "mESC_wt": 5.1959218473028495,
       "source": "X_35470602_35475381",
       "target": "X_35818309_35821319",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165253,7 +165253,7 @@
       "mESC_wt": 5.458571761647309,
       "source": "X_35470602_35475381",
       "target": "X_36126540_36131238",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165286,7 +165286,7 @@
       "mESC_wt": 5.24065249957213,
       "source": "X_35562465_35566150",
       "target": "X_39608298_39610065",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165297,7 +165297,7 @@
       "mESC_wt": 6.199418309476731,
       "source": "X_35599752_35607362",
       "target": "X_35411613_35419818",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165308,7 +165308,7 @@
       "mESC_wt": 5.520116007596999,
       "source": "X_35599752_35607362",
       "target": "X_35435120_35438629",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165319,7 +165319,7 @@
       "mESC_wt": 8.20668160999185,
       "source": "X_35599752_35607362",
       "target": "X_35750784_35755699",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165330,7 +165330,7 @@
       "mESC_wt": 5.18236429289456,
       "source": "X_35599752_35607362",
       "target": "X_35799446_35805200",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165341,7 +165341,7 @@
       "mESC_wt": 5.127490666507049,
       "source": "X_35668798_35669768",
       "target": "X_35435120_35438629",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165363,7 +165363,7 @@
       "mESC_wt": 5.05689671979662,
       "source": "X_35805247_35810552",
       "target": "X_35435120_35438629",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165473,7 +165473,7 @@
       "mESC_wt": 6.24731754283561,
       "source": "X_35984926_35993035",
       "target": "X_35435120_35438629",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165539,7 +165539,7 @@
       "mESC_wt": 5.14756379776797,
       "source": "X_38751490_38755693",
       "target": "X_39005715_39012163",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165561,7 +165561,7 @@
       "mESC_wt": 6.3674924579028795,
       "source": "X_39005715_39012163",
       "target": "X_37929668_37930928",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -165935,7 +165935,7 @@
       "mESC_wt": 8.19512737730002,
       "source": "X_45556523_45567232",
       "target": "X_45658910_45663226",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165946,7 +165946,7 @@
       "mESC_wt": 5.429067418302551,
       "source": "X_45556523_45567232",
       "target": "X_45813077_45817741",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -165957,7 +165957,7 @@
       "mESC_wt": 6.04523607992714,
       "source": "X_45556523_45567232",
       "target": "X_45870959_45872500",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166012,7 +166012,7 @@
       "mESC_wt": 5.567870304110769,
       "source": "X_45608326_45614283",
       "target": "X_45813077_45817741",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166034,7 +166034,7 @@
       "mESC_wt": 6.53711947751598,
       "source": "X_45658910_45663226",
       "target": "X_45345998_45348103",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166045,7 +166045,7 @@
       "mESC_wt": 6.39733823040216,
       "source": "X_45658910_45663226",
       "target": "X_45350760_45355072",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166056,7 +166056,7 @@
       "mESC_wt": 6.197939131529031,
       "source": "X_45658910_45663226",
       "target": "X_45362988_45365107",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166067,7 +166067,7 @@
       "mESC_wt": 8.70226143432289,
       "source": "X_45658910_45663226",
       "target": "X_45369484_45373400",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166078,7 +166078,7 @@
       "mESC_wt": 5.48909062942212,
       "source": "X_45658910_45663226",
       "target": "X_45426586_45437392",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166089,7 +166089,7 @@
       "mESC_wt": 5.35651715314696,
       "source": "X_45658910_45663226",
       "target": "X_45437393_45440120",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166100,7 +166100,7 @@
       "mESC_wt": 5.25142288105049,
       "source": "X_45658910_45663226",
       "target": "X_45446568_45449991",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166111,7 +166111,7 @@
       "mESC_wt": 7.54294774985759,
       "source": "X_45658910_45663226",
       "target": "X_45488530_45495808",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166122,7 +166122,7 @@
       "mESC_wt": 5.4571099302801205,
       "source": "X_45658910_45663226",
       "target": "X_45647452_45654626",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166133,7 +166133,7 @@
       "mESC_wt": 7.973914430088089,
       "source": "X_45658910_45663226",
       "target": "X_45693827_45695782",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166144,7 +166144,7 @@
       "mESC_wt": 6.81493166780623,
       "source": "X_45693827_45695782",
       "target": "X_45335905_45342051",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166155,7 +166155,7 @@
       "mESC_wt": 5.25547783016508,
       "source": "X_45693827_45695782",
       "target": "X_45345998_45348103",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166166,7 +166166,7 @@
       "mESC_wt": 5.16004049981913,
       "source": "X_45693827_45695782",
       "target": "X_45350760_45355072",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166177,7 +166177,7 @@
       "mESC_wt": 6.569119814461559,
       "source": "X_45693827_45695782",
       "target": "X_45373401_45380046",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166188,7 +166188,7 @@
       "mESC_wt": 9.18432518680783,
       "source": "X_45693827_45695782",
       "target": "X_45418827_45421902",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166199,7 +166199,7 @@
       "mESC_wt": 6.86615779102211,
       "source": "X_45693827_45695782",
       "target": "X_45495809_45507888",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166210,7 +166210,7 @@
       "mESC_wt": 6.152215857028589,
       "source": "X_45693827_45695782",
       "target": "X_45628892_45631584",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166221,7 +166221,7 @@
       "mESC_wt": 5.5701769248041,
       "source": "X_45693827_45695782",
       "target": "X_45663227_45664370",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166232,7 +166232,7 @@
       "mESC_wt": 5.5644041764007195,
       "source": "X_45693827_45695782",
       "target": "X_45666486_45671925",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166243,7 +166243,7 @@
       "mESC_wt": 6.122449710607571,
       "source": "X_45693827_45695782",
       "target": "X_45813077_45817741",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166254,7 +166254,7 @@
       "mESC_wt": 8.35153037376793,
       "source": "X_45813077_45817741",
       "target": "X_45335905_45342051",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166265,7 +166265,7 @@
       "mESC_wt": 5.09543842550954,
       "source": "X_45813077_45817741",
       "target": "X_45345998_45348103",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166276,7 +166276,7 @@
       "mESC_wt": 8.277809814027389,
       "source": "X_45813077_45817741",
       "target": "X_45358999_45362803",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166287,7 +166287,7 @@
       "mESC_wt": 6.462995977725001,
       "source": "X_45813077_45817741",
       "target": "X_45394892_45398931",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166298,7 +166298,7 @@
       "mESC_wt": 7.71480362742267,
       "source": "X_45813077_45817741",
       "target": "X_45549687_45554276",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166309,7 +166309,7 @@
       "mESC_wt": 5.232840337243309,
       "source": "X_45813077_45817741",
       "target": "X_45744132_45747879",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166320,7 +166320,7 @@
       "mESC_wt": 6.90103573207408,
       "source": "X_45813077_45817741",
       "target": "X_45763307_45768792",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166353,7 +166353,7 @@
       "mESC_wt": 5.03600920420081,
       "source": "X_45870959_45872500",
       "target": "X_45365108_45369483",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166364,7 +166364,7 @@
       "mESC_wt": 6.93828414024994,
       "source": "X_45971567_45983367",
       "target": "X_46046150_46049828",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166375,7 +166375,7 @@
       "mESC_wt": 7.80809799191252,
       "source": "X_45971567_45983367",
       "target": "X_48363161_48374980",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166397,7 +166397,7 @@
       "mESC_wt": 6.99105629870356,
       "source": "X_46046150_46049828",
       "target": "X_47846203_47850656",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166408,7 +166408,7 @@
       "mESC_wt": 5.58165947174449,
       "source": "X_46046150_46049828",
       "target": "X_53906239_53910211",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166606,7 +166606,7 @@
       "mESC_wt": 5.05222744195735,
       "source": "X_48363161_48374980",
       "target": "X_46219243_46221121",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166617,7 +166617,7 @@
       "mESC_wt": 6.37831175981085,
       "source": "X_48363161_48374980",
       "target": "X_47989801_47991689",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166628,7 +166628,7 @@
       "mESC_wt": 5.378486841924219,
       "source": "X_48363161_48374980",
       "target": "X_48552764_48557376",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166639,7 +166639,7 @@
       "mESC_wt": 5.065518978921321,
       "source": "X_48363161_48374980",
       "target": "X_48712156_48717464",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166650,7 +166650,7 @@
       "mESC_wt": 5.1303115605676695,
       "source": "X_48363161_48374980",
       "target": "X_48717497_48723185",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166661,7 +166661,7 @@
       "mESC_wt": 6.20036365569435,
       "source": "X_48363161_48374980",
       "target": "X_49105722_49107668",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166672,7 +166672,7 @@
       "mESC_wt": 5.5982308838959804,
       "source": "X_48363161_48374980",
       "target": "X_49454544_49463240",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166705,7 +166705,7 @@
       "mESC_wt": 5.01808415456367,
       "source": "X_48899867_48903185",
       "target": "X_49148693_49155980",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166716,7 +166716,7 @@
       "mESC_wt": 6.1967850159613,
       "source": "X_49148693_49155980",
       "target": "X_48899867_48903185",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166727,7 +166727,7 @@
       "mESC_wt": 5.08522531501678,
       "source": "X_49148693_49155980",
       "target": "X_49573034_49578578",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166859,7 +166859,7 @@
       "mESC_wt": 5.49193338612457,
       "source": "X_50259867_50268133",
       "target": "X_53623569_53632174",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166903,7 +166903,7 @@
       "mESC_wt": 5.52548945252993,
       "source": "X_50332905_50342943",
       "target": "X_50621368_50625747",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166947,7 +166947,7 @@
       "mESC_wt": 6.47981739572513,
       "source": "X_50405142_50408021",
       "target": "X_50588728_50598147",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -166958,7 +166958,7 @@
       "mESC_wt": 6.6575548992469695,
       "source": "X_50588728_50598147",
       "target": "X_50209891_50213481",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166969,7 +166969,7 @@
       "mESC_wt": 6.46027223424521,
       "source": "X_50588728_50598147",
       "target": "X_50385289_50389305",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166980,7 +166980,7 @@
       "mESC_wt": 5.93673995263767,
       "source": "X_50588728_50598147",
       "target": "X_50413841_50415816",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -166991,7 +166991,7 @@
       "mESC_wt": 5.240562914702769,
       "source": "X_50588728_50598147",
       "target": "X_50443765_50445350",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167002,7 +167002,7 @@
       "mESC_wt": 5.01227976958798,
       "source": "X_50621368_50625747",
       "target": "X_50389306_50392894",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167013,7 +167013,7 @@
       "mESC_wt": 5.42439693382602,
       "source": "X_50621368_50625747",
       "target": "X_50431538_50433178",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167024,7 +167024,7 @@
       "mESC_wt": 5.12568524098738,
       "source": "X_50621368_50625747",
       "target": "X_50450324_50458177",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167035,7 +167035,7 @@
       "mESC_wt": 5.48528629458745,
       "source": "X_50621368_50625747",
       "target": "X_50476457_50482069",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167046,7 +167046,7 @@
       "mESC_wt": 5.13535088214208,
       "source": "X_50621368_50625747",
       "target": "X_51014392_51029793",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -167167,7 +167167,7 @@
       "mESC_wt": 6.10322805845233,
       "source": "X_51014392_51029793",
       "target": "X_50392895_50402319",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167178,7 +167178,7 @@
       "mESC_wt": 6.468093375710059,
       "source": "X_51014392_51029793",
       "target": "X_50785916_50788240",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -167189,7 +167189,7 @@
       "mESC_wt": 7.66408353729128,
       "source": "X_53599056_53600030",
       "target": "X_53849958_53859559",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -167211,7 +167211,7 @@
       "mESC_wt": 6.613873897649469,
       "source": "X_53623569_53632174",
       "target": "X_54010152_54017159",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167222,7 +167222,7 @@
       "mESC_wt": 5.8553586038084395,
       "source": "X_53707909_53710278",
       "target": "X_53849958_53859559",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -167255,7 +167255,7 @@
       "mESC_wt": 6.77871877902068,
       "source": "X_53777621_53779098",
       "target": "X_54121488_54126299",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -167299,7 +167299,7 @@
       "mESC_wt": 5.92887088894704,
       "source": "X_53849958_53859559",
       "target": "X_54043140_54044591",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167310,7 +167310,7 @@
       "mESC_wt": 6.49238643508497,
       "source": "X_53849958_53859559",
       "target": "X_54306130_54311957",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -167398,7 +167398,7 @@
       "mESC_wt": 5.3346141611262405,
       "source": "X_54121488_54126299",
       "target": "X_54354100_54359781",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167409,7 +167409,7 @@
       "mESC_wt": 5.362674645448401,
       "source": "X_54306130_54311957",
       "target": "X_53881452_53886320",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167420,7 +167420,7 @@
       "mESC_wt": 5.75852713185072,
       "source": "X_54306130_54311957",
       "target": "X_54050050_54061100",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167442,7 +167442,7 @@
       "mESC_wt": 5.2866203844354995,
       "source": "X_54340133_54344754",
       "target": "X_53849958_53859559",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -167574,7 +167574,7 @@
       "mESC_wt": 5.23716397873632,
       "source": "X_57510103_57511829",
       "target": "X_57647034_57653244",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -167585,7 +167585,7 @@
       "mESC_wt": 5.5800287256674,
       "source": "X_57647034_57653244",
       "target": "X_56422676_56423699",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -167706,7 +167706,7 @@
       "mESC_wt": 5.03512671749609,
       "source": "X_61405100_61405977",
       "target": "X_61424810_61427767",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -167728,7 +167728,7 @@
       "mESC_wt": 5.13153548816207,
       "source": "X_61424810_61427767",
       "target": "X_61405100_61405977",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168036,7 +168036,7 @@
       "mESC_wt": 5.36161080845518,
       "source": "X_68687490_68697454",
       "target": "X_68912440_68923356",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168058,7 +168058,7 @@
       "mESC_wt": 5.436994695990469,
       "source": "X_68687490_68697454",
       "target": "X_69214398_69226981",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168080,7 +168080,7 @@
       "mESC_wt": 5.0482942256060594,
       "source": "X_68799128_68811781",
       "target": "X_69169156_69175697",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168091,7 +168091,7 @@
       "mESC_wt": 5.761330019250869,
       "source": "X_68799128_68811781",
       "target": "X_69505229_69506645",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168102,7 +168102,7 @@
       "mESC_wt": 6.42993967546219,
       "source": "X_68799128_68811781",
       "target": "X_70162354_70165910",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168113,7 +168113,7 @@
       "mESC_wt": 5.30790639854105,
       "source": "X_68912440_68923356",
       "target": "X_69214398_69226981",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168124,7 +168124,7 @@
       "mESC_wt": 5.05290769027507,
       "source": "X_68912440_68923356",
       "target": "X_69228110_69232140",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168135,7 +168135,7 @@
       "mESC_wt": 6.96970201702397,
       "source": "X_68912440_68923356",
       "target": "X_70026752_70032014",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168146,7 +168146,7 @@
       "mESC_wt": 5.198039221072889,
       "source": "X_69169156_69175697",
       "target": "X_68912440_68923356",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168179,7 +168179,7 @@
       "mESC_wt": 5.00864103268231,
       "source": "X_69214398_69226981",
       "target": "X_68391199_68396338",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168190,7 +168190,7 @@
       "mESC_wt": 6.0637341258026,
       "source": "X_69214398_69226981",
       "target": "X_68912440_68923356",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168201,7 +168201,7 @@
       "mESC_wt": 8.868185047128609,
       "source": "X_69214398_69226981",
       "target": "X_70053228_70059443",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168212,7 +168212,7 @@
       "mESC_wt": 6.98339720883251,
       "source": "X_69214398_69226981",
       "target": "X_70090297_70093166",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168223,7 +168223,7 @@
       "mESC_wt": 5.09994250349842,
       "source": "X_69214398_69226981",
       "target": "X_70094140_70097048",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168256,7 +168256,7 @@
       "mESC_wt": 5.32480898615883,
       "source": "X_69505229_69506645",
       "target": "X_69887751_69893475",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168311,7 +168311,7 @@
       "mESC_wt": 5.61958425330613,
       "source": "X_69519074_69521334",
       "target": "X_68912440_68923356",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168421,7 +168421,7 @@
       "mESC_wt": 9.30005652840403,
       "source": "X_69898491_69903257",
       "target": "X_69505229_69506645",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168443,7 +168443,7 @@
       "mESC_wt": 5.1182164295545,
       "source": "X_70059444_70077286",
       "target": "X_69214398_69226981",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168465,7 +168465,7 @@
       "mESC_wt": 5.08338146339767,
       "source": "X_70162354_70165910",
       "target": "X_69233460_69235847",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168575,7 +168575,7 @@
       "mESC_wt": 6.21685429809916,
       "source": "X_70281888_70285278",
       "target": "X_70670690_70682656",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168674,7 +168674,7 @@
       "mESC_wt": 5.835837858278331,
       "source": "X_70281888_70285278",
       "target": "X_70901813_70911894",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168685,7 +168685,7 @@
       "mESC_wt": 9.14346389465801,
       "source": "X_70281888_70285278",
       "target": "X_70914988_70921800",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168707,7 +168707,7 @@
       "mESC_wt": 5.883780242678981,
       "source": "X_70307853_70311142",
       "target": "X_70652276_70656997",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168718,7 +168718,7 @@
       "mESC_wt": 5.47665952413759,
       "source": "X_70307853_70311142",
       "target": "X_70670690_70682656",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168751,7 +168751,7 @@
       "mESC_wt": 5.695898385596429,
       "source": "X_70307853_70311142",
       "target": "X_70724691_70731053",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168806,7 +168806,7 @@
       "mESC_wt": 5.1272126990572,
       "source": "X_70581193_70590357",
       "target": "X_70914988_70921800",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168817,7 +168817,7 @@
       "mESC_wt": 8.71749820108389,
       "source": "X_70652276_70656997",
       "target": "X_70281888_70285278",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168828,7 +168828,7 @@
       "mESC_wt": 9.68562146875665,
       "source": "X_70652276_70656997",
       "target": "X_70307853_70311142",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168839,7 +168839,7 @@
       "mESC_wt": 5.22068429671895,
       "source": "X_70652276_70656997",
       "target": "X_70670690_70682656",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168850,7 +168850,7 @@
       "mESC_wt": 7.0214819013825,
       "source": "X_70652276_70656997",
       "target": "X_70731054_70742147",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168861,7 +168861,7 @@
       "mESC_wt": 5.8390922061375905,
       "source": "X_70652276_70656997",
       "target": "X_70846566_70848677",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168872,7 +168872,7 @@
       "mESC_wt": 5.166506810785299,
       "source": "X_70652276_70656997",
       "target": "X_70901813_70911894",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168883,7 +168883,7 @@
       "mESC_wt": 9.91052878876492,
       "source": "X_70652276_70656997",
       "target": "X_71136964_71141618",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168894,7 +168894,7 @@
       "mESC_wt": 5.37804201665919,
       "source": "X_70652276_70656997",
       "target": "X_71152012_71153749",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168905,7 +168905,7 @@
       "mESC_wt": 5.770872749614989,
       "source": "X_70670690_70682656",
       "target": "X_70233882_70236245",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168916,7 +168916,7 @@
       "mESC_wt": 5.620506316242389,
       "source": "X_70670690_70682656",
       "target": "X_70259302_70263544",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168927,7 +168927,7 @@
       "mESC_wt": 5.488609420749349,
       "source": "X_70670690_70682656",
       "target": "X_70269613_70272346",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168938,7 +168938,7 @@
       "mESC_wt": 6.91172554330494,
       "source": "X_70670690_70682656",
       "target": "X_70272347_70275963",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168949,7 +168949,7 @@
       "mESC_wt": 8.53384452506994,
       "source": "X_70670690_70682656",
       "target": "X_70281888_70285278",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168960,7 +168960,7 @@
       "mESC_wt": 5.4213533731615495,
       "source": "X_70670690_70682656",
       "target": "X_70285279_70286933",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168971,7 +168971,7 @@
       "mESC_wt": 5.320673537763111,
       "source": "X_70670690_70682656",
       "target": "X_70304079_70307852",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -168982,7 +168982,7 @@
       "mESC_wt": 7.099848246831,
       "source": "X_70670690_70682656",
       "target": "X_70307853_70311142",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -168993,7 +168993,7 @@
       "mESC_wt": 6.62109243728702,
       "source": "X_70670690_70682656",
       "target": "X_70311143_70315258",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169004,7 +169004,7 @@
       "mESC_wt": 7.5605706794106196,
       "source": "X_70670690_70682656",
       "target": "X_70556617_70558363",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169015,7 +169015,7 @@
       "mESC_wt": 5.00622869351756,
       "source": "X_70670690_70682656",
       "target": "X_70887516_70889435",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169048,7 +169048,7 @@
       "mESC_wt": 6.855981212602611,
       "source": "X_70724691_70731053",
       "target": "X_70233882_70236245",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169059,7 +169059,7 @@
       "mESC_wt": 5.15939182887197,
       "source": "X_70724691_70731053",
       "target": "X_70248062_70259301",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169070,7 +169070,7 @@
       "mESC_wt": 8.24666008330464,
       "source": "X_70724691_70731053",
       "target": "X_70269613_70272346",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169081,7 +169081,7 @@
       "mESC_wt": 6.31340584812579,
       "source": "X_70724691_70731053",
       "target": "X_70281888_70285278",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169092,7 +169092,7 @@
       "mESC_wt": 8.77769514648978,
       "source": "X_70724691_70731053",
       "target": "X_70307853_70311142",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169103,7 +169103,7 @@
       "mESC_wt": 5.21506624565881,
       "source": "X_70724691_70731053",
       "target": "X_70602864_70605440",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169114,7 +169114,7 @@
       "mESC_wt": 5.5588212411425,
       "source": "X_70724691_70731053",
       "target": "X_70670690_70682656",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169125,7 +169125,7 @@
       "mESC_wt": 5.638318580325309,
       "source": "X_70724691_70731053",
       "target": "X_70828869_70833433",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169136,7 +169136,7 @@
       "mESC_wt": 5.14791437397017,
       "source": "X_70724691_70731053",
       "target": "X_70896269_70901812",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169147,7 +169147,7 @@
       "mESC_wt": 8.43110960270934,
       "source": "X_70724691_70731053",
       "target": "X_70901813_70911894",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169158,7 +169158,7 @@
       "mESC_wt": 5.076429498444321,
       "source": "X_70724691_70731053",
       "target": "X_71015578_71024526",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169169,7 +169169,7 @@
       "mESC_wt": 6.312415711142241,
       "source": "X_70724691_70731053",
       "target": "X_71166270_71177763",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169389,7 +169389,7 @@
       "mESC_wt": 9.08357057966095,
       "source": "X_70901813_70911894",
       "target": "X_70229053_70233280",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169400,7 +169400,7 @@
       "mESC_wt": 5.35734241371368,
       "source": "X_70901813_70911894",
       "target": "X_70259302_70263544",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169411,7 +169411,7 @@
       "mESC_wt": 5.2982993102134595,
       "source": "X_70901813_70911894",
       "target": "X_70263545_70264994",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169422,7 +169422,7 @@
       "mESC_wt": 9.01064672634866,
       "source": "X_70901813_70911894",
       "target": "X_70264995_70267153",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169433,7 +169433,7 @@
       "mESC_wt": 8.94973015055402,
       "source": "X_70901813_70911894",
       "target": "X_70269613_70272346",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169444,7 +169444,7 @@
       "mESC_wt": 5.2835346481434105,
       "source": "X_70901813_70911894",
       "target": "X_70272347_70275963",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169455,7 +169455,7 @@
       "mESC_wt": 8.493047772368321,
       "source": "X_70901813_70911894",
       "target": "X_70281888_70285278",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169466,7 +169466,7 @@
       "mESC_wt": 5.34259461599882,
       "source": "X_70901813_70911894",
       "target": "X_70307853_70311142",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169477,7 +169477,7 @@
       "mESC_wt": 6.97577230778139,
       "source": "X_70901813_70911894",
       "target": "X_70311143_70315258",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169488,7 +169488,7 @@
       "mESC_wt": 5.536504620531441,
       "source": "X_70901813_70911894",
       "target": "X_70560821_70562645",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169499,7 +169499,7 @@
       "mESC_wt": 7.55383706587742,
       "source": "X_70901813_70911894",
       "target": "X_70724691_70731053",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169510,7 +169510,7 @@
       "mESC_wt": 5.3042377320728304,
       "source": "X_70901813_70911894",
       "target": "X_70799698_70802525",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169521,7 +169521,7 @@
       "mESC_wt": 6.843672543263019,
       "source": "X_70901813_70911894",
       "target": "X_70802526_70806205",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169532,7 +169532,7 @@
       "mESC_wt": 6.39623827809068,
       "source": "X_70901813_70911894",
       "target": "X_71015578_71024526",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169543,7 +169543,7 @@
       "mESC_wt": 5.474136352335861,
       "source": "X_70901813_70911894",
       "target": "X_71121772_71126911",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169554,7 +169554,7 @@
       "mESC_wt": 6.40871178263492,
       "source": "X_70914988_70921800",
       "target": "X_70307853_70311142",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169565,7 +169565,7 @@
       "mESC_wt": 5.84803781309144,
       "source": "X_70914988_70921800",
       "target": "X_70802526_70806205",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169576,7 +169576,7 @@
       "mESC_wt": 6.5704495327223595,
       "source": "X_70914988_70921800",
       "target": "X_70806206_70808114",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169587,7 +169587,7 @@
       "mESC_wt": 7.28101434904904,
       "source": "X_70914988_70921800",
       "target": "X_70808115_70809529",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169598,7 +169598,7 @@
       "mESC_wt": 5.40992742788108,
       "source": "X_70914988_70921800",
       "target": "X_70818395_70820746",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169609,7 +169609,7 @@
       "mESC_wt": 5.072145274320559,
       "source": "X_70914988_70921800",
       "target": "X_70990299_71000613",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169620,7 +169620,7 @@
       "mESC_wt": 9.627152843184971,
       "source": "X_70914988_70921800",
       "target": "X_71015578_71024526",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169631,7 +169631,7 @@
       "mESC_wt": 5.437933053429,
       "source": "X_70914988_70921800",
       "target": "X_71090865_71094605",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169642,7 +169642,7 @@
       "mESC_wt": 5.16118135663828,
       "source": "X_70956044_70963405",
       "target": "X_70670690_70682656",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169664,7 +169664,7 @@
       "mESC_wt": 6.36122549059,
       "source": "X_70956044_70963405",
       "target": "X_70914988_70921800",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169675,7 +169675,7 @@
       "mESC_wt": 5.82931280336817,
       "source": "X_70956044_70963405",
       "target": "X_71031355_71042386",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169686,7 +169686,7 @@
       "mESC_wt": 8.15292411583491,
       "source": "X_70956044_70963405",
       "target": "X_71049124_71060266",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169708,7 +169708,7 @@
       "mESC_wt": 9.13223937137075,
       "source": "X_70956044_70963405",
       "target": "X_71136964_71141618",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169730,7 +169730,7 @@
       "mESC_wt": 5.21764301876612,
       "source": "X_70956044_70963405",
       "target": "X_71268290_71271096",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169741,7 +169741,7 @@
       "mESC_wt": 5.2031910224085705,
       "source": "X_70990299_71000613",
       "target": "X_70599118_70602863",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169752,7 +169752,7 @@
       "mESC_wt": 8.289001831611,
       "source": "X_70990299_71000613",
       "target": "X_70685462_70693317",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169763,7 +169763,7 @@
       "mESC_wt": 5.46846427089683,
       "source": "X_70990299_71000613",
       "target": "X_70969588_70974389",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169774,7 +169774,7 @@
       "mESC_wt": 8.313887775098861,
       "source": "X_70990299_71000613",
       "target": "X_71136964_71141618",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169785,7 +169785,7 @@
       "mESC_wt": 5.39493353606125,
       "source": "X_70990299_71000613",
       "target": "X_71399693_71401611",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169818,7 +169818,7 @@
       "mESC_wt": 5.386995553006481,
       "source": "X_71015578_71024526",
       "target": "X_70828869_70833433",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169829,7 +169829,7 @@
       "mESC_wt": 7.420940873998309,
       "source": "X_71015578_71024526",
       "target": "X_70914988_70921800",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169840,7 +169840,7 @@
       "mESC_wt": 5.11547217049995,
       "source": "X_71015578_71024526",
       "target": "X_71127460_71128972",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169851,7 +169851,7 @@
       "mESC_wt": 5.30190577374611,
       "source": "X_71015578_71024526",
       "target": "X_71132597_71136916",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169862,7 +169862,7 @@
       "mESC_wt": 7.8181027576099895,
       "source": "X_71015578_71024526",
       "target": "X_71145396_71149864",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169873,7 +169873,7 @@
       "mESC_wt": 5.71922326133021,
       "source": "X_71015578_71024526",
       "target": "X_71178565_71185642",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169884,7 +169884,7 @@
       "mESC_wt": 5.976368619790981,
       "source": "X_71015578_71024526",
       "target": "X_71268290_71271096",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169895,7 +169895,7 @@
       "mESC_wt": 5.13263755337856,
       "source": "X_71015578_71024526",
       "target": "X_71611462_71616400",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169906,7 +169906,7 @@
       "mESC_wt": 5.76026204939295,
       "source": "X_71031355_71042386",
       "target": "X_70942024_70943019",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169917,7 +169917,7 @@
       "mESC_wt": 7.723805306034759,
       "source": "X_71031355_71042386",
       "target": "X_71164025_71166269",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169928,7 +169928,7 @@
       "mESC_wt": 6.24304793101001,
       "source": "X_71049124_71060266",
       "target": "X_70757798_70763382",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169939,7 +169939,7 @@
       "mESC_wt": 5.834479614928029,
       "source": "X_71049124_71060266",
       "target": "X_71121772_71126911",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169950,7 +169950,7 @@
       "mESC_wt": 7.604386493055499,
       "source": "X_71049124_71060266",
       "target": "X_71136964_71141618",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -169961,7 +169961,7 @@
       "mESC_wt": 6.34301310530216,
       "source": "X_71049124_71060266",
       "target": "X_71149865_71150706",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169972,7 +169972,7 @@
       "mESC_wt": 6.866101312049309,
       "source": "X_71049124_71060266",
       "target": "X_71185643_71188689",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169983,7 +169983,7 @@
       "mESC_wt": 5.04709053584565,
       "source": "X_71049124_71060266",
       "target": "X_71204175_71210007",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -169994,7 +169994,7 @@
       "mESC_wt": 5.81916683929277,
       "source": "X_71049124_71060266",
       "target": "X_71268290_71271096",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170016,7 +170016,7 @@
       "mESC_wt": 7.043746671892719,
       "source": "X_71060267_71070541",
       "target": "X_71166270_71177763",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170027,7 +170027,7 @@
       "mESC_wt": 5.2652880861802505,
       "source": "X_71060267_71070541",
       "target": "X_71268290_71271096",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170038,7 +170038,7 @@
       "mESC_wt": 5.840651795183571,
       "source": "X_71136964_71141618",
       "target": "X_70652276_70656997",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170049,7 +170049,7 @@
       "mESC_wt": 5.80005071990776,
       "source": "X_71136964_71141618",
       "target": "X_70990299_71000613",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170060,7 +170060,7 @@
       "mESC_wt": 5.83685627999294,
       "source": "X_71136964_71141618",
       "target": "X_71049124_71060266",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170071,7 +170071,7 @@
       "mESC_wt": 5.04496546708733,
       "source": "X_71166270_71177763",
       "target": "X_70724691_70731053",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170082,7 +170082,7 @@
       "mESC_wt": 5.0209445085387,
       "source": "X_71166270_71177763",
       "target": "X_70921801_70923905",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170093,7 +170093,7 @@
       "mESC_wt": 7.938163235678821,
       "source": "X_71166270_71177763",
       "target": "X_70939664_70942023",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170104,7 +170104,7 @@
       "mESC_wt": 5.25378303768986,
       "source": "X_71166270_71177763",
       "target": "X_70976881_70990298",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170115,7 +170115,7 @@
       "mESC_wt": 5.150468457754751,
       "source": "X_71166270_71177763",
       "target": "X_71042387_71042627",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170126,7 +170126,7 @@
       "mESC_wt": 5.040334778326531,
       "source": "X_71166270_71177763",
       "target": "X_71060267_71070541",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170137,7 +170137,7 @@
       "mESC_wt": 6.61673951934533,
       "source": "X_71166270_71177763",
       "target": "X_71185643_71188689",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170148,7 +170148,7 @@
       "mESC_wt": 5.18814812762654,
       "source": "X_71166270_71177763",
       "target": "X_71204175_71210007",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170159,7 +170159,7 @@
       "mESC_wt": 5.347511260366121,
       "source": "X_71166270_71177763",
       "target": "X_71245123_71247850",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170170,7 +170170,7 @@
       "mESC_wt": 5.6716572123974,
       "source": "X_71166270_71177763",
       "target": "X_71480405_71484383",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170181,7 +170181,7 @@
       "mESC_wt": 5.68088888479151,
       "source": "X_71166270_71177763",
       "target": "X_71675273_71678417",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170192,7 +170192,7 @@
       "mESC_wt": 7.47874481631395,
       "source": "X_71211546_71212463",
       "target": "X_70914988_70921800",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170203,7 +170203,7 @@
       "mESC_wt": 6.101824992990941,
       "source": "X_71211546_71212463",
       "target": "X_71554620_71560776",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170214,7 +170214,7 @@
       "mESC_wt": 5.12137677592744,
       "source": "X_71268290_71271096",
       "target": "X_70281888_70285278",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170225,7 +170225,7 @@
       "mESC_wt": 6.1666760281398405,
       "source": "X_71268290_71271096",
       "target": "X_71015578_71024526",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170236,7 +170236,7 @@
       "mESC_wt": 5.59200404625429,
       "source": "X_71268290_71271096",
       "target": "X_71049124_71060266",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170247,7 +170247,7 @@
       "mESC_wt": 5.72845834674299,
       "source": "X_71268290_71271096",
       "target": "X_71425612_71427498",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170258,7 +170258,7 @@
       "mESC_wt": 8.10594840441025,
       "source": "X_71268290_71271096",
       "target": "X_71534833_71543234",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170269,7 +170269,7 @@
       "mESC_wt": 5.1317354310081695,
       "source": "X_71268290_71271096",
       "target": "X_71570448_71573929",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170280,7 +170280,7 @@
       "mESC_wt": 5.793666798150429,
       "source": "X_71268290_71271096",
       "target": "X_71616503_71631702",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170291,7 +170291,7 @@
       "mESC_wt": 6.447052495303541,
       "source": "X_71329646_71333989",
       "target": "X_71015578_71024526",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170313,7 +170313,7 @@
       "mESC_wt": 6.1329494750588704,
       "source": "X_71329646_71333989",
       "target": "X_71611462_71616400",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170401,7 +170401,7 @@
       "mESC_wt": 5.11974847205811,
       "source": "X_71419847_71423843",
       "target": "X_70724691_70731053",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170423,7 +170423,7 @@
       "mESC_wt": 9.68699109529592,
       "source": "X_71419847_71423843",
       "target": "X_71268290_71271096",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170445,7 +170445,7 @@
       "mESC_wt": 6.3066036341259,
       "source": "X_71419847_71423843",
       "target": "X_71616503_71631702",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170467,7 +170467,7 @@
       "mESC_wt": 7.7331789816141905,
       "source": "X_71493331_71499253",
       "target": "X_71549710_71554619",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170478,7 +170478,7 @@
       "mESC_wt": 5.50827666039483,
       "source": "X_71493331_71499253",
       "target": "X_71573930_71575681",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170500,7 +170500,7 @@
       "mESC_wt": 5.28166563598592,
       "source": "X_71499254_71503835",
       "target": "X_71573930_71575681",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170511,7 +170511,7 @@
       "mESC_wt": 6.301777605995441,
       "source": "X_71506734_71529779",
       "target": "X_71534833_71543234",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170533,7 +170533,7 @@
       "mESC_wt": 8.79225490136449,
       "source": "X_71534833_71543234",
       "target": "X_71268290_71271096",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170544,7 +170544,7 @@
       "mESC_wt": 6.55110460840579,
       "source": "X_71534833_71543234",
       "target": "X_71480405_71484383",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170555,7 +170555,7 @@
       "mESC_wt": 5.03283936503725,
       "source": "X_71534833_71543234",
       "target": "X_71529780_71533399",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170566,7 +170566,7 @@
       "mESC_wt": 6.34966725921731,
       "source": "X_71534833_71543234",
       "target": "X_71549710_71554619",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170577,7 +170577,7 @@
       "mESC_wt": 5.4777700510925404,
       "source": "X_71534833_71543234",
       "target": "X_71562819_71569336",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170588,7 +170588,7 @@
       "mESC_wt": 5.385186048342191,
       "source": "X_71534833_71543234",
       "target": "X_71573930_71575681",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170599,7 +170599,7 @@
       "mESC_wt": 6.95966964600256,
       "source": "X_71534833_71543234",
       "target": "X_71657994_71669543",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170610,7 +170610,7 @@
       "mESC_wt": 5.6025154652283,
       "source": "X_71534833_71543234",
       "target": "X_71669544_71673793",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170621,7 +170621,7 @@
       "mESC_wt": 5.01629263881563,
       "source": "X_71534833_71543234",
       "target": "X_72328872_72332657",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170632,7 +170632,7 @@
       "mESC_wt": 6.63002129830446,
       "source": "X_71549710_71554619",
       "target": "X_71153750_71164024",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170643,7 +170643,7 @@
       "mESC_wt": 8.82221575434821,
       "source": "X_71549710_71554619",
       "target": "X_71292319_71298152",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170654,7 +170654,7 @@
       "mESC_wt": 6.09948017428599,
       "source": "X_71549710_71554619",
       "target": "X_71329646_71333989",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170665,7 +170665,7 @@
       "mESC_wt": 7.0078671460831705,
       "source": "X_71549710_71554619",
       "target": "X_71534833_71543234",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170676,7 +170676,7 @@
       "mESC_wt": 5.0998024385324,
       "source": "X_71549710_71554619",
       "target": "X_71543235_71546004",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170687,7 +170687,7 @@
       "mESC_wt": 6.51221567702045,
       "source": "X_71549710_71554619",
       "target": "X_71573930_71575681",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170698,7 +170698,7 @@
       "mESC_wt": 8.16559386871159,
       "source": "X_71549710_71554619",
       "target": "X_71611462_71616400",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170709,7 +170709,7 @@
       "mESC_wt": 6.35999647200346,
       "source": "X_71554620_71560776",
       "target": "X_70861855_70863894",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170720,7 +170720,7 @@
       "mESC_wt": 5.33462264904521,
       "source": "X_71554620_71560776",
       "target": "X_71413316_71419846",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170731,7 +170731,7 @@
       "mESC_wt": 6.956547325491611,
       "source": "X_71554620_71560776",
       "target": "X_71573930_71575681",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170742,7 +170742,7 @@
       "mESC_wt": 9.6684131875455,
       "source": "X_71554620_71560776",
       "target": "X_71611462_71616400",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170753,7 +170753,7 @@
       "mESC_wt": 5.37738963389513,
       "source": "X_71554620_71560776",
       "target": "X_71616503_71631702",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170764,7 +170764,7 @@
       "mESC_wt": 6.26485526744409,
       "source": "X_71554620_71560776",
       "target": "X_71653532_71657541",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170775,7 +170775,7 @@
       "mESC_wt": 5.00068772357109,
       "source": "X_71573930_71575681",
       "target": "X_71268290_71271096",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170786,7 +170786,7 @@
       "mESC_wt": 7.1177139317125,
       "source": "X_71573930_71575681",
       "target": "X_71467881_71477166",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170797,7 +170797,7 @@
       "mESC_wt": 5.87078895656362,
       "source": "X_71573930_71575681",
       "target": "X_71480405_71484383",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170808,7 +170808,7 @@
       "mESC_wt": 5.75995875795638,
       "source": "X_71573930_71575681",
       "target": "X_71484384_71487640",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170819,7 +170819,7 @@
       "mESC_wt": 5.62127915057703,
       "source": "X_71573930_71575681",
       "target": "X_71529780_71533399",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170830,7 +170830,7 @@
       "mESC_wt": 7.27493069564571,
       "source": "X_71573930_71575681",
       "target": "X_71534833_71543234",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170841,7 +170841,7 @@
       "mESC_wt": 8.04824094158059,
       "source": "X_71573930_71575681",
       "target": "X_71549710_71554619",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170852,7 +170852,7 @@
       "mESC_wt": 5.4245991718178095,
       "source": "X_71573930_71575681",
       "target": "X_71554620_71560776",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170863,7 +170863,7 @@
       "mESC_wt": 5.94810125474254,
       "source": "X_71573930_71575681",
       "target": "X_71611462_71616400",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170874,7 +170874,7 @@
       "mESC_wt": 5.42106821439335,
       "source": "X_71573930_71575681",
       "target": "X_71653532_71657541",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170885,7 +170885,7 @@
       "mESC_wt": 5.55168644791172,
       "source": "X_71593877_71606652",
       "target": "X_71268290_71271096",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170907,7 +170907,7 @@
       "mESC_wt": 6.46298214630829,
       "source": "X_71593877_71606652",
       "target": "X_71573930_71575681",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170918,7 +170918,7 @@
       "mESC_wt": 5.00266108177195,
       "source": "X_71611462_71616400",
       "target": "X_70556617_70558363",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170929,7 +170929,7 @@
       "mESC_wt": 5.3518381707954,
       "source": "X_71611462_71616400",
       "target": "X_71015578_71024526",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -170940,7 +170940,7 @@
       "mESC_wt": 5.73204515817523,
       "source": "X_71611462_71616400",
       "target": "X_71243014_71245122",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170951,7 +170951,7 @@
       "mESC_wt": 5.43656941446313,
       "source": "X_71611462_71616400",
       "target": "X_71280668_71281817",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170962,7 +170962,7 @@
       "mESC_wt": 5.891257657887929,
       "source": "X_71611462_71616400",
       "target": "X_71343016_71345730",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170973,7 +170973,7 @@
       "mESC_wt": 5.51510273371692,
       "source": "X_71611462_71616400",
       "target": "X_71467881_71477166",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170984,7 +170984,7 @@
       "mESC_wt": 5.969504027088241,
       "source": "X_71611462_71616400",
       "target": "X_71480405_71484383",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -170995,7 +170995,7 @@
       "mESC_wt": 6.88252727221644,
       "source": "X_71611462_71616400",
       "target": "X_71549710_71554619",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171006,7 +171006,7 @@
       "mESC_wt": 5.38048345988456,
       "source": "X_71611462_71616400",
       "target": "X_71554620_71560776",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171017,7 +171017,7 @@
       "mESC_wt": 5.13531417719417,
       "source": "X_71611462_71616400",
       "target": "X_71657994_71669543",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -171028,7 +171028,7 @@
       "mESC_wt": 5.283968759281019,
       "source": "X_71616503_71631702",
       "target": "X_71268290_71271096",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171039,7 +171039,7 @@
       "mESC_wt": 5.98172503591194,
       "source": "X_71616503_71631702",
       "target": "X_71292319_71298152",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -171050,7 +171050,7 @@
       "mESC_wt": 5.73421095237743,
       "source": "X_71616503_71631702",
       "target": "X_71399693_71401611",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -171094,7 +171094,7 @@
       "mESC_wt": 6.12020270263076,
       "source": "X_71674229_71675272",
       "target": "X_71268290_71271096",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171116,7 +171116,7 @@
       "mESC_wt": 8.76425219688974,
       "source": "X_71674229_71675272",
       "target": "X_71534833_71543234",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171127,7 +171127,7 @@
       "mESC_wt": 7.00681699655244,
       "source": "X_71674229_71675272",
       "target": "X_71611462_71616400",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171171,7 +171171,7 @@
       "mESC_wt": 5.74448289040825,
       "source": "X_72328872_72332657",
       "target": "X_71268290_71271096",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171182,7 +171182,7 @@
       "mESC_wt": 7.15091481157135,
       "source": "X_72328872_72332657",
       "target": "X_71534833_71543234",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171193,7 +171193,7 @@
       "mESC_wt": 8.89271716831127,
       "source": "X_72328872_72332657",
       "target": "X_71570448_71573929",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -171204,7 +171204,7 @@
       "mESC_wt": 6.17503369748063,
       "source": "X_72328872_72332657",
       "target": "X_71709143_71713129",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -171215,7 +171215,7 @@
       "mESC_wt": 5.615722115336539,
       "source": "X_72328872_72332657",
       "target": "X_71874078_71876325",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -171226,7 +171226,7 @@
       "mESC_wt": 7.558562379985941,
       "source": "X_72328872_72332657",
       "target": "X_72661270_72663523",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171248,7 +171248,7 @@
       "mESC_wt": 5.22672297032611,
       "source": "X_72337969_72347683",
       "target": "X_72407323_72411568",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171259,7 +171259,7 @@
       "mESC_wt": 5.58708479317183,
       "source": "X_72407323_72411568",
       "target": "X_70200003_70201111",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -171270,7 +171270,7 @@
       "mESC_wt": 6.8619428647526695,
       "source": "X_72661270_72663523",
       "target": "X_72328872_72332657",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171281,7 +171281,7 @@
       "mESC_wt": 5.3191070888654695,
       "source": "X_72759512_72761935",
       "target": "X_72661270_72663523",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171897,7 +171897,7 @@
       "mESC_wt": 5.38502526363895,
       "source": "X_90871875_90883396",
       "target": "X_91365994_91369247",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171908,7 +171908,7 @@
       "mESC_wt": 5.0357037025430795,
       "source": "X_91365994_91369247",
       "target": "X_90871875_90883396",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -171919,7 +171919,7 @@
       "mESC_wt": 5.668254715513459,
       "source": "X_91365994_91369247",
       "target": "X_90986883_91002227",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172304,7 +172304,7 @@
       "mESC_wt": 5.823796240604769,
       "source": "X_93650271_93655914",
       "target": "X_93902639_93911704",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -172326,7 +172326,7 @@
       "mESC_wt": 5.70221650837881,
       "source": "X_93902639_93911704",
       "target": "X_93650271_93655914",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -172337,7 +172337,7 @@
       "mESC_wt": 6.03691467503145,
       "source": "X_93902639_93911704",
       "target": "X_93777391_93784907",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172392,7 +172392,7 @@
       "mESC_wt": 7.112772062082269,
       "source": "X_95344222_95348731",
       "target": "X_96131449_96134175",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -172403,7 +172403,7 @@
       "mESC_wt": 5.23809509056728,
       "source": "X_95344222_95348731",
       "target": "X_96643230_96656979",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -172425,7 +172425,7 @@
       "mESC_wt": 6.8730898094888,
       "source": "X_96131449_96134175",
       "target": "X_95896910_95901246",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172645,7 +172645,7 @@
       "mESC_wt": 5.426432695996129,
       "source": "X_96643230_96656979",
       "target": "X_96131449_96134175",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -172656,7 +172656,7 @@
       "mESC_wt": 5.657447209681691,
       "source": "X_96643230_96656979",
       "target": "X_96325433_96327549",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172667,7 +172667,7 @@
       "mESC_wt": 5.3333528823722895,
       "source": "X_96643230_96656979",
       "target": "X_96361052_96363941",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172777,7 +172777,7 @@
       "mESC_wt": 7.108578754260581,
       "source": "X_97572108_97577184",
       "target": "X_97925034_97929214",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -172821,7 +172821,7 @@
       "mESC_wt": 5.78247224180112,
       "source": "X_97636657_97638362",
       "target": "X_97719163_97720788",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -172843,7 +172843,7 @@
       "mESC_wt": 5.5189298661323205,
       "source": "X_97719163_97720788",
       "target": "X_96857516_96859899",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172854,7 +172854,7 @@
       "mESC_wt": 5.40810995132532,
       "source": "X_97719163_97720788",
       "target": "X_96907840_96913474",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172865,7 +172865,7 @@
       "mESC_wt": 9.01245816139713,
       "source": "X_97719163_97720788",
       "target": "X_96981554_96985493",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172898,7 +172898,7 @@
       "mESC_wt": 5.08990729361758,
       "source": "X_97816861_97824216",
       "target": "X_98485792_98492869",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -172909,7 +172909,7 @@
       "mESC_wt": 5.627146272824691,
       "source": "X_97925034_97929214",
       "target": "X_98157496_98159901",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172920,7 +172920,7 @@
       "mESC_wt": 5.020422310836451,
       "source": "X_97925034_97929214",
       "target": "X_98334688_98336470",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172931,7 +172931,7 @@
       "mESC_wt": 5.21300575292671,
       "source": "X_97925034_97929214",
       "target": "X_98437048_98442767",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -172942,7 +172942,7 @@
       "mESC_wt": 5.8486487027245,
       "source": "X_97925034_97929214",
       "target": "X_98465488_98467944",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -172997,7 +172997,7 @@
       "mESC_wt": 5.5011177840791,
       "source": "X_98196153_98205165",
       "target": "X_97925034_97929214",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173008,7 +173008,7 @@
       "mESC_wt": 5.10322919278822,
       "source": "X_98196153_98205165",
       "target": "X_98437048_98442767",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173052,7 +173052,7 @@
       "mESC_wt": 6.445533045456361,
       "source": "X_98254684_98260376",
       "target": "X_98567494_98577631",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173096,7 +173096,7 @@
       "mESC_wt": 7.1967243491484405,
       "source": "X_98277629_98281509",
       "target": "X_98437048_98442767",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173162,7 +173162,7 @@
       "mESC_wt": 7.1665605621982404,
       "source": "X_98336471_98338599",
       "target": "X_98437048_98442767",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173173,7 +173173,7 @@
       "mESC_wt": 6.05991911422547,
       "source": "X_98336471_98338599",
       "target": "X_98458176_98465487",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173184,7 +173184,7 @@
       "mESC_wt": 6.46642384277668,
       "source": "X_98336471_98338599",
       "target": "X_98485792_98492869",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173228,7 +173228,7 @@
       "mESC_wt": 8.20338506847071,
       "source": "X_98437048_98442767",
       "target": "X_91438391_91449735",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173239,7 +173239,7 @@
       "mESC_wt": 5.34846453702753,
       "source": "X_98437048_98442767",
       "target": "X_98030393_98033631",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173250,7 +173250,7 @@
       "mESC_wt": 5.07060029290313,
       "source": "X_98437048_98442767",
       "target": "X_98277629_98281509",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173261,7 +173261,7 @@
       "mESC_wt": 7.165746154737071,
       "source": "X_98437048_98442767",
       "target": "X_98325438_98329344",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173272,7 +173272,7 @@
       "mESC_wt": 5.848576178487459,
       "source": "X_98437048_98442767",
       "target": "X_98477943_98485292",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173283,7 +173283,7 @@
       "mESC_wt": 6.417255621173969,
       "source": "X_98437048_98442767",
       "target": "X_98514163_98519617",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173294,7 +173294,7 @@
       "mESC_wt": 7.6104969485708,
       "source": "X_98437048_98442767",
       "target": "X_98519618_98525030",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173305,7 +173305,7 @@
       "mESC_wt": 5.05649867939447,
       "source": "X_98449092_98451995",
       "target": "X_97925034_97929214",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173349,7 +173349,7 @@
       "mESC_wt": 7.55828555138492,
       "source": "X_98449092_98451995",
       "target": "X_98437048_98442767",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173360,7 +173360,7 @@
       "mESC_wt": 5.67291016842137,
       "source": "X_98449092_98451995",
       "target": "X_98458176_98465487",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173371,7 +173371,7 @@
       "mESC_wt": 6.888904801827519,
       "source": "X_98449092_98451995",
       "target": "X_98468054_98471392",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173393,7 +173393,7 @@
       "mESC_wt": 9.473629611903348,
       "source": "X_98449092_98451995",
       "target": "X_98485792_98492869",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173448,7 +173448,7 @@
       "mESC_wt": 5.168717062922929,
       "source": "X_98458176_98465487",
       "target": "X_97962719_97968059",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173459,7 +173459,7 @@
       "mESC_wt": 5.433361793568539,
       "source": "X_98458176_98465487",
       "target": "X_98357205_98364696",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173470,7 +173470,7 @@
       "mESC_wt": 5.789118325504,
       "source": "X_98458176_98465487",
       "target": "X_98485792_98492869",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173481,7 +173481,7 @@
       "mESC_wt": 8.78165498841709,
       "source": "X_98468054_98471392",
       "target": "X_98338600_98347342",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173492,7 +173492,7 @@
       "mESC_wt": 8.03526094242667,
       "source": "X_98468054_98471392",
       "target": "X_98437048_98442767",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173503,7 +173503,7 @@
       "mESC_wt": 7.432409190829589,
       "source": "X_98468054_98471392",
       "target": "X_98449092_98451995",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173514,7 +173514,7 @@
       "mESC_wt": 7.14767893833812,
       "source": "X_98468054_98471392",
       "target": "X_98485792_98492869",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173525,7 +173525,7 @@
       "mESC_wt": 5.774489462503201,
       "source": "X_98468054_98471392",
       "target": "X_98514163_98519617",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173536,7 +173536,7 @@
       "mESC_wt": 5.03584111382804,
       "source": "X_98468054_98471392",
       "target": "X_98519618_98525030",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173547,7 +173547,7 @@
       "mESC_wt": 6.60683592916814,
       "source": "X_98468054_98471392",
       "target": "X_98609281_98615871",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173558,7 +173558,7 @@
       "mESC_wt": 5.0524183226655,
       "source": "X_98468054_98471392",
       "target": "X_99153751_99155822",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173569,7 +173569,7 @@
       "mESC_wt": 5.177445227542219,
       "source": "X_98485792_98492869",
       "target": "X_97856383_97868902",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173580,7 +173580,7 @@
       "mESC_wt": 5.40030393856588,
       "source": "X_98485792_98492869",
       "target": "X_97962719_97968059",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173591,7 +173591,7 @@
       "mESC_wt": 5.62101183019318,
       "source": "X_98485792_98492869",
       "target": "X_98168496_98176230",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173602,7 +173602,7 @@
       "mESC_wt": 8.0191766630996,
       "source": "X_98485792_98492869",
       "target": "X_98260377_98271170",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173613,7 +173613,7 @@
       "mESC_wt": 5.69187340782462,
       "source": "X_98485792_98492869",
       "target": "X_98291639_98304127",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173624,7 +173624,7 @@
       "mESC_wt": 5.04249055587282,
       "source": "X_98485792_98492869",
       "target": "X_98357205_98364696",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173635,7 +173635,7 @@
       "mESC_wt": 6.8858949434943195,
       "source": "X_98485792_98492869",
       "target": "X_98369467_98373555",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173646,7 +173646,7 @@
       "mESC_wt": 5.36858882729775,
       "source": "X_98485792_98492869",
       "target": "X_98390021_98391429",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173657,7 +173657,7 @@
       "mESC_wt": 5.68921572632718,
       "source": "X_98485792_98492869",
       "target": "X_98514163_98519617",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173668,7 +173668,7 @@
       "mESC_wt": 5.764414290218741,
       "source": "X_98485792_98492869",
       "target": "X_98519618_98525030",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173679,7 +173679,7 @@
       "mESC_wt": 5.19099115536879,
       "source": "X_98567494_98577631",
       "target": "X_98254684_98260376",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173690,7 +173690,7 @@
       "mESC_wt": 5.3998689930075505,
       "source": "X_98567494_98577631",
       "target": "X_98325438_98329344",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173910,7 +173910,7 @@
       "mESC_wt": 7.956994377664289,
       "source": "X_99041616_99046856",
       "target": "X_99261922_99267286",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173976,7 +173976,7 @@
       "mESC_wt": 6.2785756537258495,
       "source": "X_99261922_99267286",
       "target": "X_98958474_98960672",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -173987,7 +173987,7 @@
       "mESC_wt": 5.781409504653519,
       "source": "X_99261922_99267286",
       "target": "X_99041616_99046856",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -173998,7 +173998,7 @@
       "mESC_wt": 8.18754420110195,
       "source": "X_99261922_99267286",
       "target": "X_99047149_99049506",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174009,7 +174009,7 @@
       "mESC_wt": 5.5126993972848,
       "source": "X_99261922_99267286",
       "target": "X_99146818_99151799",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174020,7 +174020,7 @@
       "mESC_wt": 8.14986929956352,
       "source": "X_99261922_99267286",
       "target": "X_99153751_99155822",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174031,7 +174031,7 @@
       "mESC_wt": 6.4004806735025,
       "source": "X_99261922_99267286",
       "target": "X_99178374_99182349",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174284,7 +174284,7 @@
       "mESC_wt": 5.563831632640309,
       "source": "X_100812570_100820556",
       "target": "X_101013551_101020777",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -174328,7 +174328,7 @@
       "mESC_wt": 5.831122846159,
       "source": "X_101013551_101020777",
       "target": "X_100725448_100727029",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174339,7 +174339,7 @@
       "mESC_wt": 5.22862952601799,
       "source": "X_101013551_101020777",
       "target": "X_100913843_100924246",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174350,7 +174350,7 @@
       "mESC_wt": 5.491033226346509,
       "source": "X_101013551_101020777",
       "target": "X_101095060_101105530",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174361,7 +174361,7 @@
       "mESC_wt": 6.17319808291347,
       "source": "X_101013551_101020777",
       "target": "X_101182171_101184834",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174603,7 +174603,7 @@
       "mESC_wt": 5.681669495129371,
       "source": "X_103123292_103129599",
       "target": "X_103210949_103217808",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -174614,7 +174614,7 @@
       "mESC_wt": 9.957742398595562,
       "source": "X_103123292_103129599",
       "target": "X_103380152_103384213",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -174658,7 +174658,7 @@
       "mESC_wt": 5.52418471415131,
       "source": "X_103210949_103217808",
       "target": "X_103351223_103352888",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174669,7 +174669,7 @@
       "mESC_wt": 5.79539808805799,
       "source": "X_103210949_103217808",
       "target": "X_103362986_103365837",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174680,7 +174680,7 @@
       "mESC_wt": 7.12365117724654,
       "source": "X_103210949_103217808",
       "target": "X_103365838_103374008",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174790,7 +174790,7 @@
       "mESC_wt": 8.5956781013726,
       "source": "X_103380152_103384213",
       "target": "X_102308051_102309395",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174801,7 +174801,7 @@
       "mESC_wt": 9.91302639464866,
       "source": "X_103380152_103384213",
       "target": "X_103116159_103117385",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174812,7 +174812,7 @@
       "mESC_wt": 6.31310071930446,
       "source": "X_103380152_103384213",
       "target": "X_103123292_103129599",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -174878,7 +174878,7 @@
       "mESC_wt": 5.64586858610888,
       "source": "X_103781691_103783866",
       "target": "X_104283424_104286369",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -174911,7 +174911,7 @@
       "mESC_wt": 7.364571927492089,
       "source": "X_104115723_104117101",
       "target": "X_104343650_104346181",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -174922,7 +174922,7 @@
       "mESC_wt": 5.38451336884974,
       "source": "X_104283424_104286369",
       "target": "X_103844915_103846933",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174933,7 +174933,7 @@
       "mESC_wt": 5.058468237952599,
       "source": "X_104343650_104346181",
       "target": "X_103896130_103898996",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -174944,7 +174944,7 @@
       "mESC_wt": 6.54727789594803,
       "source": "X_104343650_104346181",
       "target": "X_104283424_104286369",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -174966,7 +174966,7 @@
       "mESC_wt": 6.61067522089458,
       "source": "X_104596381_104598944",
       "target": "X_104283424_104286369",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175010,7 +175010,7 @@
       "mESC_wt": 5.00896413619657,
       "source": "X_105010809_105011769",
       "target": "X_106206425_106211703",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175021,7 +175021,7 @@
       "mESC_wt": 5.61601551222688,
       "source": "X_106029366_106035830",
       "target": "X_106206425_106211703",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175043,7 +175043,7 @@
       "mESC_wt": 5.43672150413272,
       "source": "X_106201630_106206424",
       "target": "X_106386989_106393271",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175054,7 +175054,7 @@
       "mESC_wt": 5.841482091836599,
       "source": "X_106206425_106211703",
       "target": "X_106029366_106035830",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175087,7 +175087,7 @@
       "mESC_wt": 6.409033408631,
       "source": "X_106386989_106393271",
       "target": "X_104912033_104915471",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175098,7 +175098,7 @@
       "mESC_wt": 6.402371266097441,
       "source": "X_106386989_106393271",
       "target": "X_105867008_105871461",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175593,7 +175593,7 @@
       "mESC_wt": 7.200699740548849,
       "source": "X_130602789_130611240",
       "target": "X_130825871_130831954",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175604,7 +175604,7 @@
       "mESC_wt": 6.32847260208539,
       "source": "X_130602789_130611240",
       "target": "X_130838117_130846539",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175637,7 +175637,7 @@
       "mESC_wt": 8.53350108374861,
       "source": "X_130602789_130611240",
       "target": "X_131029708_131035514",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175670,7 +175670,7 @@
       "mESC_wt": 6.139132009570321,
       "source": "X_130693484_130697803",
       "target": "X_131007942_131014647",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175714,7 +175714,7 @@
       "mESC_wt": 6.3599580034893,
       "source": "X_130755892_130757851",
       "target": "X_130825871_130831954",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175780,7 +175780,7 @@
       "mESC_wt": 6.1334530708181205,
       "source": "X_130825871_130831954",
       "target": "X_99596798_99599017",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175791,7 +175791,7 @@
       "mESC_wt": 6.96574877033438,
       "source": "X_130825871_130831954",
       "target": "X_126518318_126520798",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175802,7 +175802,7 @@
       "mESC_wt": 5.3531766047843306,
       "source": "X_130825871_130831954",
       "target": "X_130595709_130599851",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175813,7 +175813,7 @@
       "mESC_wt": 7.25873913819842,
       "source": "X_130825871_130831954",
       "target": "X_130627178_130631694",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175824,7 +175824,7 @@
       "mESC_wt": 5.6713779207431605,
       "source": "X_130825871_130831954",
       "target": "X_130663270_130665666",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175835,7 +175835,7 @@
       "mESC_wt": 5.00731784275967,
       "source": "X_130825871_130831954",
       "target": "X_130716818_130719201",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175846,7 +175846,7 @@
       "mESC_wt": 5.9435525775407,
       "source": "X_130825871_130831954",
       "target": "X_131046944_131050274",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175857,7 +175857,7 @@
       "mESC_wt": 5.18999690349541,
       "source": "X_130838117_130846539",
       "target": "X_130403444_130407448",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175868,7 +175868,7 @@
       "mESC_wt": 5.115865265227179,
       "source": "X_130838117_130846539",
       "target": "X_130591719_130595708",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175879,7 +175879,7 @@
       "mESC_wt": 6.31556426474399,
       "source": "X_130838117_130846539",
       "target": "X_130624172_130627177",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175890,7 +175890,7 @@
       "mESC_wt": 6.2953434083250706,
       "source": "X_130838117_130846539",
       "target": "X_130627178_130631694",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175901,7 +175901,7 @@
       "mESC_wt": 6.18552998174881,
       "source": "X_130838117_130846539",
       "target": "X_130631695_130633226",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175912,7 +175912,7 @@
       "mESC_wt": 8.269809377236461,
       "source": "X_130838117_130846539",
       "target": "X_130665667_130667356",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175923,7 +175923,7 @@
       "mESC_wt": 6.4157309189561,
       "source": "X_130838117_130846539",
       "target": "X_130667357_130669507",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175956,7 +175956,7 @@
       "mESC_wt": 5.16051838553453,
       "source": "X_131007942_131014647",
       "target": "X_130661106_130662754",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175967,7 +175967,7 @@
       "mESC_wt": 5.25823103022062,
       "source": "X_131029708_131035514",
       "target": "X_130602789_130611240",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -175978,7 +175978,7 @@
       "mESC_wt": 5.56710872241881,
       "source": "X_131029708_131035514",
       "target": "X_130627178_130631694",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -175989,7 +175989,7 @@
       "mESC_wt": 5.465269622671269,
       "source": "X_131029708_131035514",
       "target": "X_130642907_130643928",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176000,7 +176000,7 @@
       "mESC_wt": 5.37576293611598,
       "source": "X_131029708_131035514",
       "target": "X_130648228_130649475",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176011,7 +176011,7 @@
       "mESC_wt": 5.2269874886220595,
       "source": "X_131029708_131035514",
       "target": "X_130667357_130669507",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176033,7 +176033,7 @@
       "mESC_wt": 8.9534924615768,
       "source": "X_131075249_131077841",
       "target": "X_131281416_131287623",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176066,7 +176066,7 @@
       "mESC_wt": 8.85892609390359,
       "source": "X_131135463_131139417",
       "target": "X_131281416_131287623",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176088,7 +176088,7 @@
       "mESC_wt": 5.45447599821206,
       "source": "X_131210153_131221949",
       "target": "X_131287818_131294829",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176110,7 +176110,7 @@
       "mESC_wt": 5.77504010443509,
       "source": "X_131236952_131259745",
       "target": "X_131281416_131287623",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176121,7 +176121,7 @@
       "mESC_wt": 5.809370104951099,
       "source": "X_131236952_131259745",
       "target": "X_131498532_131500888",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176132,7 +176132,7 @@
       "mESC_wt": 5.98631734240914,
       "source": "X_131281416_131287623",
       "target": "X_131067966_131075248",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176143,7 +176143,7 @@
       "mESC_wt": 5.23406836288519,
       "source": "X_131281416_131287623",
       "target": "X_131075249_131077841",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176154,7 +176154,7 @@
       "mESC_wt": 5.49262527314158,
       "source": "X_131281416_131287623",
       "target": "X_131099153_131109435",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176165,7 +176165,7 @@
       "mESC_wt": 6.514981575724891,
       "source": "X_131281416_131287623",
       "target": "X_131343878_131347958",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176176,7 +176176,7 @@
       "mESC_wt": 8.008699831269599,
       "source": "X_131281416_131287623",
       "target": "X_131417407_131418449",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176187,7 +176187,7 @@
       "mESC_wt": 6.0854829258101395,
       "source": "X_131281416_131287623",
       "target": "X_131445218_131448000",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176198,7 +176198,7 @@
       "mESC_wt": 7.091515284095731,
       "source": "X_131281416_131287623",
       "target": "X_131448001_131448598",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176209,7 +176209,7 @@
       "mESC_wt": 7.6136408890128,
       "source": "X_131281416_131287623",
       "target": "X_131470604_131475732",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176220,7 +176220,7 @@
       "mESC_wt": 5.7547495535153494,
       "source": "X_131281416_131287623",
       "target": "X_131482733_131484756",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176231,7 +176231,7 @@
       "mESC_wt": 6.19599084686745,
       "source": "X_131281416_131287623",
       "target": "X_131498532_131500888",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176242,7 +176242,7 @@
       "mESC_wt": 5.34306777940916,
       "source": "X_131281416_131287623",
       "target": "X_131521917_131531803",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176253,7 +176253,7 @@
       "mESC_wt": 5.389161156203049,
       "source": "X_131281416_131287623",
       "target": "X_131532096_131535401",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176264,7 +176264,7 @@
       "mESC_wt": 5.24462085401051,
       "source": "X_131287818_131294829",
       "target": "X_131411280_131417406",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176275,7 +176275,7 @@
       "mESC_wt": 5.7724395621398195,
       "source": "X_131287818_131294829",
       "target": "X_131433148_131442318",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176286,7 +176286,7 @@
       "mESC_wt": 5.97513542211696,
       "source": "X_131287818_131294829",
       "target": "X_131445218_131448000",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176297,7 +176297,7 @@
       "mESC_wt": 5.11592918591417,
       "source": "X_131287818_131294829",
       "target": "X_131448599_131459338",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176308,7 +176308,7 @@
       "mESC_wt": 5.00171583611142,
       "source": "X_131287818_131294829",
       "target": "X_131537246_131539528",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176319,7 +176319,7 @@
       "mESC_wt": 5.21036502374793,
       "source": "X_131498532_131500888",
       "target": "X_130954354_130962184",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176330,7 +176330,7 @@
       "mESC_wt": 5.1438778704558805,
       "source": "X_131498532_131500888",
       "target": "X_130974330_130976223",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176341,7 +176341,7 @@
       "mESC_wt": 7.1941500885359,
       "source": "X_131498532_131500888",
       "target": "X_131281416_131287623",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176352,7 +176352,7 @@
       "mESC_wt": 7.801128003694131,
       "source": "X_131498532_131500888",
       "target": "X_132229631_132231756",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176374,7 +176374,7 @@
       "mESC_wt": 5.39968153384977,
       "source": "X_131559446_131560851",
       "target": "X_131281416_131287623",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176671,7 +176671,7 @@
       "mESC_wt": 8.40357402895254,
       "source": "X_132705643_132707079",
       "target": "X_132801609_132806106",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176704,7 +176704,7 @@
       "mESC_wt": 5.64094386494563,
       "source": "X_132777590_132781411",
       "target": "X_132801609_132806106",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176715,7 +176715,7 @@
       "mESC_wt": 7.402704408765691,
       "source": "X_132801609_132806106",
       "target": "X_133258275_133266983",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176803,7 +176803,7 @@
       "mESC_wt": 5.99638748343735,
       "source": "X_133357107_133362945",
       "target": "X_133510887_133517682",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176814,7 +176814,7 @@
       "mESC_wt": 5.53242772910728,
       "source": "X_133357107_133362945",
       "target": "X_133655677_133656830",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176858,7 +176858,7 @@
       "mESC_wt": 5.1976614699310995,
       "source": "X_133510887_133517682",
       "target": "X_133398361_133399901",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176891,7 +176891,7 @@
       "mESC_wt": 5.03988317262828,
       "source": "X_133578374_133585274",
       "target": "X_133510887_133517682",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176902,7 +176902,7 @@
       "mESC_wt": 6.31583844215618,
       "source": "X_133578374_133585274",
       "target": "X_133682067_133691089",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176946,7 +176946,7 @@
       "mESC_wt": 6.2790401857367,
       "source": "X_133655677_133656830",
       "target": "X_132801609_132806106",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176957,7 +176957,7 @@
       "mESC_wt": 8.556280721516929,
       "source": "X_133655677_133656830",
       "target": "X_133189386_133195134",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176968,7 +176968,7 @@
       "mESC_wt": 5.82606221637061,
       "source": "X_133655677_133656830",
       "target": "X_133357107_133362945",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -176979,7 +176979,7 @@
       "mESC_wt": 5.23109025801471,
       "source": "X_133655677_133656830",
       "target": "X_133395243_133396827",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -176990,7 +176990,7 @@
       "mESC_wt": 5.8739740374108695,
       "source": "X_133655677_133656830",
       "target": "X_133541612_133544738",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177001,7 +177001,7 @@
       "mESC_wt": 5.73754464715983,
       "source": "X_133655677_133656830",
       "target": "X_133638533_133640102",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177012,7 +177012,7 @@
       "mESC_wt": 5.39066905905799,
       "source": "X_133655677_133656830",
       "target": "X_133713181_133721565",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177023,7 +177023,7 @@
       "mESC_wt": 5.2539354290073605,
       "source": "X_133682067_133691089",
       "target": "X_134104140_134116251",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177034,7 +177034,7 @@
       "mESC_wt": 5.770709809673691,
       "source": "X_134104140_134116251",
       "target": "X_133682067_133691089",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177045,7 +177045,7 @@
       "mESC_wt": 5.515975719347559,
       "source": "X_134104140_134116251",
       "target": "X_133736292_133738188",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177056,7 +177056,7 @@
       "mESC_wt": 8.724040931379971,
       "source": "X_134743501_134749154",
       "target": "X_135443132_135451950",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177067,7 +177067,7 @@
       "mESC_wt": 6.54616017144349,
       "source": "X_135443132_135451950",
       "target": "X_135002968_135007407",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177133,7 +177133,7 @@
       "mESC_wt": 6.01578594907786,
       "source": "X_136216323_136222517",
       "target": "X_135443132_135451950",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177144,7 +177144,7 @@
       "mESC_wt": 5.458204161429981,
       "source": "X_136216323_136222517",
       "target": "X_136391006_136406487",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177166,7 +177166,7 @@
       "mESC_wt": 9.313382839352721,
       "source": "X_136391006_136406487",
       "target": "X_136389760_136390994",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177177,7 +177177,7 @@
       "mESC_wt": 5.35311366674999,
       "source": "X_136391006_136406487",
       "target": "X_136810299_136813885",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177188,7 +177188,7 @@
       "mESC_wt": 6.013433519251901,
       "source": "X_136391006_136406487",
       "target": "X_136946747_136950448",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177199,7 +177199,7 @@
       "mESC_wt": 6.19083705515188,
       "source": "X_136531739_136533706",
       "target": "X_137130524_137137159",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177243,7 +177243,7 @@
       "mESC_wt": 5.472539816220231,
       "source": "X_136898660_136904623",
       "target": "X_137130524_137137159",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177309,7 +177309,7 @@
       "mESC_wt": 8.08054382349718,
       "source": "X_137130524_137137159",
       "target": "X_136810299_136813885",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177320,7 +177320,7 @@
       "mESC_wt": 5.29560828260832,
       "source": "X_137130524_137137159",
       "target": "X_136820143_136824607",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177342,7 +177342,7 @@
       "mESC_wt": 8.12104639713757,
       "source": "X_137490890_137492246",
       "target": "X_138155073_138163292",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177364,7 +177364,7 @@
       "mESC_wt": 5.228196171305281,
       "source": "X_138155073_138163292",
       "target": "X_137659523_137666265",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177375,7 +177375,7 @@
       "mESC_wt": 5.194759877842519,
       "source": "X_138155073_138163292",
       "target": "X_138530486_138536151",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177661,7 +177661,7 @@
       "mESC_wt": 8.96918813566211,
       "source": "X_140723639_140736466",
       "target": "X_141120275_141124686",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177694,7 +177694,7 @@
       "mESC_wt": 6.17480325371155,
       "source": "X_141120275_141124686",
       "target": "X_141864025_141865517",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177727,7 +177727,7 @@
       "mESC_wt": 6.934625572659381,
       "source": "X_141594247_141608337",
       "target": "X_141780870_141787969",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177738,7 +177738,7 @@
       "mESC_wt": 6.17700863636795,
       "source": "X_141780870_141787969",
       "target": "X_140876016_140881574",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177749,7 +177749,7 @@
       "mESC_wt": 5.1701554082121,
       "source": "X_141780870_141787969",
       "target": "X_141183808_141186234",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -177958,7 +177958,7 @@
       "mESC_wt": 5.4912823553399095,
       "source": "X_143588515_143601280",
       "target": "X_143987081_143994545",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -177991,7 +177991,7 @@
       "mESC_wt": 5.15544883009069,
       "source": "X_143856174_143866673",
       "target": "X_143987081_143994545",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178046,7 +178046,7 @@
       "mESC_wt": 5.26255220291178,
       "source": "X_143987081_143994545",
       "target": "X_132381690_132384447",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178057,7 +178057,7 @@
       "mESC_wt": 5.32376380053508,
       "source": "X_143987081_143994545",
       "target": "X_143485862_143492477",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178068,7 +178068,7 @@
       "mESC_wt": 6.69228378220184,
       "source": "X_143987081_143994545",
       "target": "X_143783859_143785083",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178090,7 +178090,7 @@
       "mESC_wt": 5.1987598240585795,
       "source": "X_146871319_146876493",
       "target": "X_148575534_148582694",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178167,7 +178167,7 @@
       "mESC_wt": 8.932985666834949,
       "source": "X_147022649_147024270",
       "target": "X_147089666_147094551",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178233,7 +178233,7 @@
       "mESC_wt": 7.30372215478373,
       "source": "X_147089666_147094551",
       "target": "X_147022649_147024270",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178244,7 +178244,7 @@
       "mESC_wt": 5.34312999428263,
       "source": "X_147089666_147094551",
       "target": "X_147285128_147294323",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178266,7 +178266,7 @@
       "mESC_wt": 9.01525607241248,
       "source": "X_147437318_147453073",
       "target": "X_147478804_147483091",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178277,7 +178277,7 @@
       "mESC_wt": 5.677410467885981,
       "source": "X_147478804_147483091",
       "target": "X_147513283_147520403",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178332,7 +178332,7 @@
       "mESC_wt": 5.80896660507905,
       "source": "X_147816714_147821768",
       "target": "X_148233943_148235927",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178387,7 +178387,7 @@
       "mESC_wt": 5.43211363185644,
       "source": "X_147972196_147980170",
       "target": "X_148233943_148235927",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178398,7 +178398,7 @@
       "mESC_wt": 8.65237739522338,
       "source": "X_148233943_148235927",
       "target": "X_147972196_147980170",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178442,7 +178442,7 @@
       "mESC_wt": 7.74732001946292,
       "source": "X_148284583_148295415",
       "target": "X_148345284_148348357",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178475,7 +178475,7 @@
       "mESC_wt": 6.35250015274953,
       "source": "X_148345284_148348357",
       "target": "X_148298303_148300411",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178486,7 +178486,7 @@
       "mESC_wt": 5.2067384753621395,
       "source": "X_148345284_148348357",
       "target": "X_148436085_148442740",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178497,7 +178497,7 @@
       "mESC_wt": 5.44860284339164,
       "source": "X_148345284_148348357",
       "target": "X_148444381_148452958",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178508,7 +178508,7 @@
       "mESC_wt": 5.99757910773207,
       "source": "X_148345284_148348357",
       "target": "X_148455164_148461471",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178519,7 +178519,7 @@
       "mESC_wt": 5.76849243985919,
       "source": "X_148436085_148442740",
       "target": "X_148562982_148569103",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178530,7 +178530,7 @@
       "mESC_wt": 5.57312318487663,
       "source": "X_148436085_148442740",
       "target": "X_148582695_148589778",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178541,7 +178541,7 @@
       "mESC_wt": 5.0736185319869005,
       "source": "X_148436085_148442740",
       "target": "X_148590199_148598693",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178552,7 +178552,7 @@
       "mESC_wt": 6.6158932538905,
       "source": "X_148436085_148442740",
       "target": "X_148630650_148636636",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178563,7 +178563,7 @@
       "mESC_wt": 5.01634555149767,
       "source": "X_148436085_148442740",
       "target": "X_148691266_148696374",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178574,7 +178574,7 @@
       "mESC_wt": 7.551847662629269,
       "source": "X_148444381_148452958",
       "target": "X_148381128_148382922",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178585,7 +178585,7 @@
       "mESC_wt": 6.103398585196871,
       "source": "X_148444381_148452958",
       "target": "X_148436085_148442740",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178596,7 +178596,7 @@
       "mESC_wt": 7.16646311646428,
       "source": "X_148575534_148582694",
       "target": "X_147773747_147780425",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178607,7 +178607,7 @@
       "mESC_wt": 5.27403122370619,
       "source": "X_148575534_148582694",
       "target": "X_148364252_148367911",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178618,7 +178618,7 @@
       "mESC_wt": 5.22845858017537,
       "source": "X_148575534_148582694",
       "target": "X_148482802_148489307",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178629,7 +178629,7 @@
       "mESC_wt": 5.71609677007104,
       "source": "X_148575534_148582694",
       "target": "X_148774458_148780078",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -178904,7 +178904,7 @@
       "mESC_wt": 6.51256204338964,
       "source": "X_151144802_151149742",
       "target": "X_151573430_151574746",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -178926,7 +178926,7 @@
       "mESC_wt": 6.39788709750152,
       "source": "X_151573430_151574746",
       "target": "X_151782661_151792971",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179036,7 +179036,7 @@
       "mESC_wt": 5.36699843954611,
       "source": "X_153629559_153634062",
       "target": "X_154136687_154146377",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179113,7 +179113,7 @@
       "mESC_wt": 6.15943667435395,
       "source": "X_154005810_154007050",
       "target": "X_154035182_154039046",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179135,7 +179135,7 @@
       "mESC_wt": 6.25519953559895,
       "source": "X_154035182_154039046",
       "target": "X_153922928_153925221",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179146,7 +179146,7 @@
       "mESC_wt": 5.0589539513818895,
       "source": "X_154035182_154039046",
       "target": "X_153925360_153931218",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179157,7 +179157,7 @@
       "mESC_wt": 5.23363333252751,
       "source": "X_154035182_154039046",
       "target": "X_154082192_154084306",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179168,7 +179168,7 @@
       "mESC_wt": 5.36507127675592,
       "source": "X_154035182_154039046",
       "target": "X_154516132_154521021",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179179,7 +179179,7 @@
       "mESC_wt": 5.12019279695929,
       "source": "X_154136687_154146377",
       "target": "X_154951958_154954671",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179190,7 +179190,7 @@
       "mESC_wt": 5.386798381600701,
       "source": "X_154136687_154146377",
       "target": "X_155745350_155750043",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179256,7 +179256,7 @@
       "mESC_wt": 5.1201394249252,
       "source": "X_155808639_155811274",
       "target": "X_156061563_156068046",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179267,7 +179267,7 @@
       "mESC_wt": 5.42158514972075,
       "source": "X_155808639_155811274",
       "target": "X_156425734_156430193",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179289,7 +179289,7 @@
       "mESC_wt": 7.293425807128919,
       "source": "X_155850353_155854984",
       "target": "X_156575283_156576939",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179311,7 +179311,7 @@
       "mESC_wt": 5.2773010668790095,
       "source": "X_156061563_156068046",
       "target": "X_155808639_155811274",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179322,7 +179322,7 @@
       "mESC_wt": 5.7610635681048095,
       "source": "X_156061563_156068046",
       "target": "X_155887479_155891132",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179333,7 +179333,7 @@
       "mESC_wt": 5.58671789435604,
       "source": "X_156061563_156068046",
       "target": "X_156359872_156363151",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179344,7 +179344,7 @@
       "mESC_wt": 5.8641505078447596,
       "source": "X_156061563_156068046",
       "target": "X_156398800_156402272",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179355,7 +179355,7 @@
       "mESC_wt": 5.22505963527052,
       "source": "X_156425734_156430193",
       "target": "X_156563381_156565642",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179366,7 +179366,7 @@
       "mESC_wt": 5.663388655969781,
       "source": "X_156425734_156430193",
       "target": "X_156575283_156576939",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179377,7 +179377,7 @@
       "mESC_wt": 6.569133781082269,
       "source": "X_156425734_156430193",
       "target": "X_156775585_156780660",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179388,7 +179388,7 @@
       "mESC_wt": 6.85097830122064,
       "source": "X_156575283_156576939",
       "target": "X_155850353_155854984",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179399,7 +179399,7 @@
       "mESC_wt": 5.28536183193261,
       "source": "X_156575283_156576939",
       "target": "X_156423483_156425733",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179410,7 +179410,7 @@
       "mESC_wt": 8.94132396736108,
       "source": "X_156575283_156576939",
       "target": "X_156425734_156430193",
-      "type": "oe-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179465,7 +179465,7 @@
       "mESC_wt": 5.39473933766343,
       "source": "X_156938496_156940367",
       "target": "X_157202307_157211022",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179476,7 +179476,7 @@
       "mESC_wt": 5.6226415835633805,
       "source": "X_156963415_156974447",
       "target": "X_156061563_156068046",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179498,7 +179498,7 @@
       "mESC_wt": 9.82656078117407,
       "source": "X_158152404_158156894",
       "target": "X_158592731_158599683",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179553,7 +179553,7 @@
       "mESC_wt": 5.480412856604179,
       "source": "X_158592731_158599683",
       "target": "X_158385762_158390993",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179564,7 +179564,7 @@
       "mESC_wt": 6.0755663122453,
       "source": "X_158592731_158599683",
       "target": "X_158407319_158414139",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179575,7 +179575,7 @@
       "mESC_wt": 5.679017681630071,
       "source": "X_158592731_158599683",
       "target": "X_158889143_158892635",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179586,7 +179586,7 @@
       "mESC_wt": 5.670407057823531,
       "source": "X_158592731_158599683",
       "target": "X_158892636_158893822",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179597,7 +179597,7 @@
       "mESC_wt": 5.6475901408965,
       "source": "X_158592731_158599683",
       "target": "X_159033528_159038139",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179641,7 +179641,7 @@
       "mESC_wt": 6.439801425865,
       "source": "X_159400092_159402613",
       "target": "X_160346456_160348618",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179652,7 +179652,7 @@
       "mESC_wt": 5.15507956846032,
       "source": "X_159400092_159402613",
       "target": "X_160720242_160724954",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179663,7 +179663,7 @@
       "mESC_wt": 8.25403918667794,
       "source": "X_159824194_159828437",
       "target": "X_160574869_160585171",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179685,7 +179685,7 @@
       "mESC_wt": 7.39366262544026,
       "source": "X_160346456_160348618",
       "target": "X_159400092_159402613",
-      "type": "oe-bait"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179696,7 +179696,7 @@
       "mESC_wt": 6.168047751513469,
       "source": "X_160346456_160348618",
       "target": "X_159675211_159681578",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179729,7 +179729,7 @@
       "mESC_wt": 6.27792158303339,
       "source": "X_160574869_160585171",
       "target": "X_160056905_160063979",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179751,7 +179751,7 @@
       "mESC_wt": 5.1267805203285,
       "source": "X_160694755_160700896",
       "target": "X_160574869_160585171",
-      "type": "bait-oe"
+      "type": "bait-bait"
     },
     "group": "edges"
   },
@@ -179795,7 +179795,7 @@
       "mESC_wt": 6.62482591449785,
       "source": "X_160720242_160724954",
       "target": "X_160446970_160449408",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179806,7 +179806,7 @@
       "mESC_wt": 5.35893125754668,
       "source": "X_160720242_160724954",
       "target": "X_160467706_160474366",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179817,7 +179817,7 @@
       "mESC_wt": 5.336582569707691,
       "source": "X_160720242_160724954",
       "target": "X_160539601_160542655",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179828,7 +179828,7 @@
       "mESC_wt": 5.979163072694511,
       "source": "X_160720242_160724954",
       "target": "X_160617770_160622623",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
@@ -179839,7 +179839,7 @@
       "mESC_wt": 8.24148212707104,
       "source": "X_160720242_160724954",
       "target": "X_160633302_160637395",
-      "type": "oe-oe"
+      "type": "bait-oe"
     },
     "group": "edges"
   },
