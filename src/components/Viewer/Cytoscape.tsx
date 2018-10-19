@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as cytoscape from 'cytoscape';
+import { Modal, ModalBody } from 'reactstrap'
 import './Cytoscape.css'
 
 export class Cytoscape extends React.Component<any, any> {
@@ -9,67 +10,76 @@ export class Cytoscape extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
-    this.state = {json_loading: true, cytoscape_loading: true};
+    this.state = {cytoscape_loading: true};
   }
 
   componentDidUpdate(prevProps: any) {
-    console.log(this.state)
     if (this.props.chromosome != prevProps.chromosome) {
-      this.setState({json_loading: true, cytoscape_loading: true});
+      this.setState({cytoscape_loading: true});
       if(this.chromosomes_cache.has(this.props.chromosome)) {
         let cy = this.chromosomes_cache.get(this.props.chromosome)
-        this.setState({json_loading: false})
 
         let _this = this
-        this.cy = cytoscape({
+        let promise = new Promise(function(resolve, reject) {
+          setTimeout(function() {
+            _this.cy = cytoscape({
 
-          container: document.getElementById('cytoscape_container'), // container to render in
+              container: document.getElementById('cytoscape_container'), // container to render in
 
-          elements: cy.elements().jsons(),
+              elements: cy.elements().jsons(),
 
-          style: [ // the stylesheet for the graph
-            {
-              selector: 'node',
-              style: {
+              style: [ // the stylesheet for the graph
+                {
+                  selector: 'node',
+                  style: {
+                    'background-color': 'mapData(features.'+ _this.props.feature + ', 0, 1, black, green)',
+                    'label': 'data(name)',
+                    'color': 'white',
+                    'font-size': 4,
+                    'text-valign': 'center',
+                    'text-halign': 'center',
+                    'width': 35,
+                    'height': 35
+                  }
+                },
+                {
+                  selector: 'node[type = "bait"]',
+                  style: {
+                    'shape': 'rectangle',
+                  }
+                },
+                {
+                  selector: 'node[type = "oe"]',
+                  style: {
+                    'shape': 'ellipse',
+                  }
+                }
+              ],
+
+              layout: {
+                name: 'preset',
+                animate: false,
+                stop: () => _this.setState({cytoscape_loading: false})
+              }
+            });
+            _this.cy.style()
+              .selector('node')
+              .style({
                 'background-color': 'mapData(features.'+ _this.props.feature + ', 0, 1, black, green)',
-                'label': 'data(name)',
-                'color': 'white',
-                'font-size': 4,
-                'text-valign': 'center',
-                'text-halign': 'center',
-                'width': 35,
-                'height': 35
-              }
-            },
-            {
-              selector: 'node[type = "bait"]',
-              style: {
-                'shape': 'rectangle',
-              }
-            },
-            {
-              selector: 'node[type = "oe"]',
-              style: {
-                'shape': 'ellipse',
-              }
-            }
-          ],
-
-          layout: {
-            name: 'preset',
-            animate: false,
-            stop: () => this.setState({cytoscape_loading: false})
-          }
+              })
+              .update()
+            resolve(_this.cy);
+          }, 500);
         });
-        this.cy.style()
-          .selector('node')
-          .style({
-            'background-color': 'mapData(features.'+ this.props.feature + ', 0, 1, black, green)',
-          })
-          .update()
       } else {
-        this.chromosomes_cache.set(this.props.chromosome, this.buildNetwork(this))
-        this.cy = this.chromosomes_cache.get(this.props.chromosome)
+        let _this = this
+        let promise = new Promise(function(resolve, reject) {
+          setTimeout(function() {
+            _this.chromosomes_cache.set(_this.props.chromosome, _this.buildNetwork(_this))
+            _this.cy = _this.chromosomes_cache.get(_this.props.chromosome)
+            resolve(_this.cy);
+          }, 500);
+        });
       }
     } else if (this.props.feature != prevProps.feature) {
       this.cy.style()
@@ -82,8 +92,14 @@ export class Cytoscape extends React.Component<any, any> {
   }
 
   componentDidMount (){
-    this.chromosomes_cache.set(this.props.chromosome, this.buildNetwork(this))
-    this.cy = this.chromosomes_cache.get(this.props.chromosome)
+    let _this = this
+    let promise = new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        _this.chromosomes_cache.set(_this.props.chromosome, _this.buildNetwork(_this))
+        _this.cy = _this.chromosomes_cache.get(_this.props.chromosome)
+        resolve(_this.cy);
+      }, 500);
+    });
   }
 
   buildNetwork (_this: Cytoscape) {
@@ -95,7 +111,6 @@ export class Cytoscape extends React.Component<any, any> {
       let url = 'https://raw.githubusercontent.com/VeraPancaldiLab/ChAs_Frontend/master/data/chromosomes/' + _this.props.chromosome + '/stdout';
       return fetch(url).then(response => {
         const json = response.json();
-        _this.setState({json_loading: false});
         return json;
       });
     }
@@ -177,12 +192,14 @@ export class Cytoscape extends React.Component<any, any> {
 
     return (
       <div className='container-fluid'>
-        {
-        this.state.json_loading ? <h1 className='text-center'>Loading data...</h1> : ''
-        }
-        {
-        this.state.cytoscape_loading ? <h1 className='text-center'>Rendering...</h1> : ''
-        }
+        <Modal isOpen={this.state.cytoscape_loading} centered={true} className='text-center'>
+              <ModalBody>
+                Be patient please
+                <br/>
+                Rendering chromosome {this.props.chromosome}
+                <div className='spinner'></div>
+              </ModalBody>
+        </Modal>
         <div id='cytoscape_container' style={margin_style}></div>
       </div>
     );

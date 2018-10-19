@@ -1,4 +1,7 @@
-# ChAs Frontend
+# [ChAs Frontend](https://verapancaldilab.github.io/ChAs_Frontend/)
+**[Website](https://verapancaldilab.github.io/ChAs_Frontend/)**
+
+<https://verapancaldilab.github.io/ChAs_Frontend/>
 
 ![Screenshot](screenshot.png)
 
@@ -103,7 +106,7 @@ and run [Dist](#dist)
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
-    -[react-redux](https://github.com/reduxjs/react-redux)
+    - [react-redux](https://github.com/reduxjs/react-redux)
 - [Bootstrap](https://getbootstrap.com/)
     - [Reactstrap](https://reactstrap.github.io/)
 - [Cytoscape.js](http://js.cytoscape.org/)
