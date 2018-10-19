@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"#cytoscape_container {\\n  height: 525px;\\n  width: 1125px;\\n}\\n\\n.spinner {\\n  border: 16px solid #AAAAAA;\\n  border-top: 16px solid #5C5C5C;\\n  border-radius: 50%;\\n  position: relative;\\n  left: 40%;\\n  width: 100px;\\n  height: 100px;\\n  animation: spin 2s linear infinite;\\n}\\n\\n@keyframes spin {\\n  0% { transform: rotate(0deg); }\\n  100% { transform: rotate(360deg); }\\n}\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./src/components/Viewer/Cytoscape.css?./node_modules/css-loader");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"#cytoscape_container {\\n  min-height: calc(100vh - 150px);\\n  width: 100%;\\n}\\n\\n.spinner {\\n  border: 16px solid #AAAAAA;\\n  border-top: 16px solid #5C5C5C;\\n  border-radius: 50%;\\n  position: relative;\\n  left: 40%;\\n  width: 100px;\\n  height: 100px;\\n  animation: spin 2s linear infinite;\\n}\\n\\n@keyframes spin {\\n  0% { transform: rotate(0deg); }\\n  100% { transform: rotate(360deg); }\\n}\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./src/components/Viewer/Cytoscape.css?./node_modules/css-loader");
 
 /***/ }),
 
@@ -317,7 +317,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst index_1 = __webpack_require__(/*! ../actions/index */ \"./src/actions/index.ts\");\nexports.DEFAULT_CHROMOSOME = '1';\nexports.chromosomes_reducer = (state = exports.DEFAULT_CHROMOSOME, action) => {\n    switch (action.type) {\n        case index_1.CHANGED_CHROMOSOME:\n            return action.chromosome;\n        default:\n            return state;\n    }\n};\n\n\n//# sourceURL=webpack:///./src/reducers/chromosomes_reducer.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst index_1 = __webpack_require__(/*! ../actions/index */ \"./src/actions/index.ts\");\nexports.DEFAULT_CHROMOSOME = 'Y';\nexports.chromosomes_reducer = (state = exports.DEFAULT_CHROMOSOME, action) => {\n    switch (action.type) {\n        case index_1.CHANGED_CHROMOSOME:\n            return action.chromosome;\n        default:\n            return state;\n    }\n};\n\n\n//# sourceURL=webpack:///./src/reducers/chromosomes_reducer.ts?");
 
 /***/ }),
 
