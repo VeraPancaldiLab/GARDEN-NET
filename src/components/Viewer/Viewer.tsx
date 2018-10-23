@@ -7,11 +7,11 @@ export class Viewer extends React.Component<{},{}> {
   render() {
     return (
       <div className='container-fluid'>
-        <div className="row">
-          <div className="col-10">
+        <div className="row flex-column-reverse flex-md-row">
+          <div className="col-md-10">
             <Cytoscape_container/>
           </div>
-          <div className="col-2">
+          <div className="col-md-2">
             <ControlPanel/>
           </div>
         </div>

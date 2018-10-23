@@ -198,7 +198,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst FeaturesPanelContainer_1 = __webpack_require__(/*! ./../../../containers/FeaturesPanelContainer */ \"./src/containers/FeaturesPanelContainer.ts\");\nconst ChromosomesPanelContainer_1 = __webpack_require__(/*! ./../../../containers/ChromosomesPanelContainer */ \"./src/containers/ChromosomesPanelContainer.ts\");\nclass ControlPanel extends React.Component {\n    render() {\n        return (React.createElement(\"div\", { className: 'container-fluid' },\n            React.createElement(\"div\", { className: \"col\", style: { margin: '5px' } },\n                React.createElement(ChromosomesPanelContainer_1.ChromosomesPanelContainer, null),\n                React.createElement(FeaturesPanelContainer_1.FeaturesPanelContainer, null))));\n    }\n}\nexports.ControlPanel = ControlPanel;\n\n\n//# sourceURL=webpack:///./src/components/Viewer/ControlPanel/ControlPanel.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst FeaturesPanelContainer_1 = __webpack_require__(/*! ./../../../containers/FeaturesPanelContainer */ \"./src/containers/FeaturesPanelContainer.ts\");\nconst ChromosomesPanelContainer_1 = __webpack_require__(/*! ./../../../containers/ChromosomesPanelContainer */ \"./src/containers/ChromosomesPanelContainer.ts\");\nconst DownloadButtonContainer_1 = __webpack_require__(/*! ./../../../containers/DownloadButtonContainer */ \"./src/containers/DownloadButtonContainer.ts\");\nclass ControlPanel extends React.Component {\n    render() {\n        return (React.createElement(\"div\", { className: 'container-fluid' },\n            React.createElement(\"div\", { className: \"col\", style: { margin: '5px' } },\n                React.createElement(ChromosomesPanelContainer_1.ChromosomesPanelContainer, null),\n                React.createElement(FeaturesPanelContainer_1.FeaturesPanelContainer, null),\n                React.createElement(DownloadButtonContainer_1.DownloadButtonContainer, null))));\n    }\n}\nexports.ControlPanel = ControlPanel;\n\n\n//# sourceURL=webpack:///./src/components/Viewer/ControlPanel/ControlPanel.tsx?");
 
 /***/ }),
 
@@ -211,6 +211,18 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 
 "use strict";
 eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst reactstrap_1 = __webpack_require__(/*! reactstrap */ \"reactstrap\");\nclass ChromosomesPanel extends React.Component {\n    constructor(props) {\n        super(props);\n        this.onChromosomeChange = this.onChromosomeChange.bind(this);\n    }\n    onChromosomeChange(event) {\n        this.props.onChromosomeChange(event.target.value);\n    }\n    render() {\n        const margin_style = {\n            border: '#aaa',\n            borderRadius: '5px',\n            borderStyle: 'solid',\n            borderWidth: '2px',\n            paddingLeft: '5px',\n            paddingRight: '5px',\n            marginBottom: '15px'\n        };\n        const chromosomes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 'X', 'Y'];\n        return (React.createElement(reactstrap_1.Form, { style: margin_style, className: 'text-center' },\n            React.createElement(reactstrap_1.FormGroup, null,\n                React.createElement(reactstrap_1.Label, { for: \"Select\" }, \"Chromosomes\"),\n                React.createElement(reactstrap_1.Input, { type: \"select\", defaultValue: this.props.chromosome, className: 'text-center', onChange: this.onChromosomeChange, name: \"select\" }, chromosomes.map(chromosome => React.createElement(\"option\", { key: chromosome, value: chromosome }, chromosome))))));\n    }\n}\nexports.ChromosomesPanel = ChromosomesPanel;\n\n\n//# sourceURL=webpack:///./src/components/Viewer/ControlPanel/SubPanels/ChromosomesPanel.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/Viewer/ControlPanel/SubPanels/DownloadButton.tsx":
+/*!*************************************************************************!*\
+  !*** ./src/components/Viewer/ControlPanel/SubPanels/DownloadButton.tsx ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst reactstrap_1 = __webpack_require__(/*! reactstrap */ \"reactstrap\");\nclass DownloadButton extends React.Component {\n    constructor(props) {\n        super(props);\n        this.onDownload = this.onDownload.bind(this);\n    }\n    onDownload(event) {\n        let url = 'http://localhost:8080/data/chromosomes/' + this.props.chromosome + '/stdout';\n        fetch(url).then(response => {\n            const json = response.json();\n            return json;\n        }).then(json => {\n            // Create a hidden 'a' element; click it and remove it\n            let blob = new Blob([JSON.stringify(json, null, 2)], { type: 'application/json' });\n            let hiddenElement = document.createElement('a');\n            document.body.appendChild(hiddenElement);\n            hiddenElement.href = window.URL.createObjectURL(blob);\n            hiddenElement.setAttribute('download', 'chr' + this.props.chromosome + '.json');\n            hiddenElement.style.display = 'none';\n            hiddenElement.click();\n            document.body.removeChild(hiddenElement);\n        });\n    }\n    render() {\n        const margin_style = {\n            border: '#aaa',\n            borderRadius: '5px',\n            borderStyle: 'solid',\n            borderWidth: '2px',\n            paddingLeft: '5px',\n            paddingRight: '5px',\n            marginTop: '15px'\n        };\n        return (React.createElement(\"div\", { className: 'text-center' },\n            React.createElement(reactstrap_1.Button, { outline: true, color: 'secondary', onClick: this.onDownload, style: margin_style }, \"Download\")));\n    }\n}\nexports.DownloadButton = DownloadButton;\n\n\n//# sourceURL=webpack:///./src/components/Viewer/ControlPanel/SubPanels/DownloadButton.tsx?");
 
 /***/ }),
 
@@ -257,7 +269,7 @@ eval("\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _argument
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst ControlPanel_1 = __webpack_require__(/*! ./ControlPanel/ControlPanel */ \"./src/components/Viewer/ControlPanel/ControlPanel.tsx\");\nconst CytoscapeContainer_1 = __webpack_require__(/*! ../../containers/CytoscapeContainer */ \"./src/containers/CytoscapeContainer.ts\");\nclass Viewer extends React.Component {\n    render() {\n        return (React.createElement(\"div\", { className: 'container-fluid' },\n            React.createElement(\"div\", { className: \"row\" },\n                React.createElement(\"div\", { className: \"col-10\" },\n                    React.createElement(CytoscapeContainer_1.Cytoscape_container, null)),\n                React.createElement(\"div\", { className: \"col-2\" },\n                    React.createElement(ControlPanel_1.ControlPanel, null)))));\n    }\n}\nexports.Viewer = Viewer;\n\n\n//# sourceURL=webpack:///./src/components/Viewer/Viewer.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst ControlPanel_1 = __webpack_require__(/*! ./ControlPanel/ControlPanel */ \"./src/components/Viewer/ControlPanel/ControlPanel.tsx\");\nconst CytoscapeContainer_1 = __webpack_require__(/*! ../../containers/CytoscapeContainer */ \"./src/containers/CytoscapeContainer.ts\");\nclass Viewer extends React.Component {\n    render() {\n        return (React.createElement(\"div\", { className: 'container-fluid' },\n            React.createElement(\"div\", { className: \"row flex-column-reverse flex-md-row\" },\n                React.createElement(\"div\", { className: \"col-md-10\" },\n                    React.createElement(CytoscapeContainer_1.Cytoscape_container, null)),\n                React.createElement(\"div\", { className: \"col-md-2\" },\n                    React.createElement(ControlPanel_1.ControlPanel, null)))));\n    }\n}\nexports.Viewer = Viewer;\n\n\n//# sourceURL=webpack:///./src/components/Viewer/Viewer.tsx?");
 
 /***/ }),
 
@@ -282,6 +294,18 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 
 "use strict";
 eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst react_redux_1 = __webpack_require__(/*! react-redux */ \"react-redux\");\nconst Cytoscape_1 = __webpack_require__(/*! ../components/Viewer/Cytoscape */ \"./src/components/Viewer/Cytoscape.tsx\");\nexports.mapStateToProps = (state) => {\n    return {\n        chromosome: state.chromosome,\n        feature: state.feature\n    };\n};\nexports.Cytoscape_container = react_redux_1.connect(exports.mapStateToProps, null)(Cytoscape_1.Cytoscape);\n\n\n//# sourceURL=webpack:///./src/containers/CytoscapeContainer.ts?");
+
+/***/ }),
+
+/***/ "./src/containers/DownloadButtonContainer.ts":
+/*!***************************************************!*\
+  !*** ./src/containers/DownloadButtonContainer.ts ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst react_redux_1 = __webpack_require__(/*! react-redux */ \"react-redux\");\nconst DownloadButton_1 = __webpack_require__(/*! ../components/Viewer/ControlPanel/SubPanels/DownloadButton */ \"./src/components/Viewer/ControlPanel/SubPanels/DownloadButton.tsx\");\nexports.mapStateToProps = (state) => {\n    return { chromosome: state.chromosome };\n};\nexports.DownloadButtonContainer = react_redux_1.connect(exports.mapStateToProps, null)(DownloadButton_1.DownloadButton);\n\n\n//# sourceURL=webpack:///./src/containers/DownloadButtonContainer.ts?");
 
 /***/ }),
 
