@@ -8,7 +8,7 @@ export class DownloadButton extends React.Component<any, {}> {
   }
 
   onDownload (event: React.MouseEvent<HTMLElement>) {
-    let url = 'http://localhost:8080/data/chromosomes/' + this.props.chromosome + '/stdout';
+    let url = 'https://raw.githubusercontent.com/VeraPancaldiLab/ChAs_Frontend/master/data/chromosomes/' + this.props.chromosome + '/stdout';
     fetch(url).then(response => {
       const json = response.json();
       return json
