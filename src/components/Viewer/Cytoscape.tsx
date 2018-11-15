@@ -32,7 +32,7 @@ export class Cytoscape extends React.Component<any, any> {
                 {
                   selector: 'node',
                   style: {
-                    'background-color': 'mapData(features.'+ _this.props.feature + ', 0, 1, black, green)',
+                    'background-color': 'mapData('+ _this.props.feature + ', 0, 1, black, green)',
                     'label': 'data(name)',
                     'color': 'white',
                     'font-size': 4,
@@ -65,7 +65,7 @@ export class Cytoscape extends React.Component<any, any> {
             _this.cy.style()
               .selector('node')
               .style({
-                'background-color': 'mapData(features.'+ _this.props.feature + ', 0, 1, black, green)',
+                'background-color': 'mapData('+ _this.props.feature + ', 0, 1, black, green)',
               })
               .update()
             resolve(_this.cy);
@@ -85,7 +85,7 @@ export class Cytoscape extends React.Component<any, any> {
       this.cy.style()
         .selector('node')
         .style({
-          'background-color': 'mapData(features.'+ this.props.feature + ', 0, 1, black, green)',
+          'background-color': 'mapData('+ this.props.feature + ', 0, 1, black, green)',
         })
         .update()
     }
@@ -125,7 +125,7 @@ export class Cytoscape extends React.Component<any, any> {
         {
           selector: 'node',
           style: {
-            'background-color': 'mapData(features.'+ _this.props.feature + ', 0, 1, black, green)',
+            'background-color': 'mapData('+ _this.props.feature + ', 0, 1, black, green)',
             'label': 'data(name)',
             'color': 'white',
             'font-size': 4,
