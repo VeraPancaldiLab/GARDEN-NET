@@ -33,7 +33,7 @@ export class Cytoscape extends React.Component<any, any> {
                   selector: 'node',
                   style: {
                     'background-color': 'mapData('+ _this.props.feature + ', 0, 1, black, green)',
-                    'label': 'data(name)',
+                    'label': 'data(curated_gene_name)',
                     'color': 'white',
                     'font-size': 4,
                     'text-valign': 'center',
@@ -108,7 +108,7 @@ export class Cytoscape extends React.Component<any, any> {
       // Warning: The network file has to be serve before by a http server
       // http-server is provided to help to the development thanks to `yarn serve` command
       // In this case, the port used to serve is the 8080
-      let url = 'http://localhost:8080/data/chromosomes/' + _this.props.chromosome + '/stdout';
+      let url = 'http://localhost:8080/data/chromosomes/chr' + _this.props.chromosome + '.json';
       return fetch(url).then(response => {
         const json = response.json();
         return json;
@@ -126,7 +126,7 @@ export class Cytoscape extends React.Component<any, any> {
           selector: 'node',
           style: {
             'background-color': 'mapData('+ _this.props.feature + ', 0, 1, black, green)',
-            'label': 'data(name)',
+            'label': 'data(curated_gene_name)',
             'color': 'white',
             'font-size': 4,
             'text-valign': 'center',
