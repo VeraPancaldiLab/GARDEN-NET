@@ -22,52 +22,7 @@ export class Cytoscape extends React.Component<any, any> {
         let _this = this
         let promise = new Promise(function(resolve, reject) {
           setTimeout(function() {
-            _this.cy = cytoscape({
-
-              container: document.getElementById('cytoscape_container'), // container to render in
-
-              elements: cy.elements().jsons(),
-
-              style: [ // the stylesheet for the graph
-                {
-                  selector: 'node',
-                  style: {
-                    'background-color': 'mapData('+ _this.props.feature + ', 0, 1, black, green)',
-                    'label': 'data(curated_gene_name)',
-                    'color': 'white',
-                    'font-size': 4,
-                    'text-valign': 'center',
-                    'text-halign': 'center',
-                    'width': 35,
-                    'height': 35
-                  }
-                },
-                {
-                  selector: 'node[type = "bait"]',
-                  style: {
-                    'shape': 'rectangle',
-                  }
-                },
-                {
-                  selector: 'node[type = "oe"]',
-                  style: {
-                    'shape': 'ellipse',
-                  }
-                }
-              ],
-
-              layout: {
-                name: 'preset',
-                animate: false,
-                stop: () => _this.setState({cytoscape_loading: false})
-              }
-            });
-            _this.cy.style()
-              .selector('node')
-              .style({
-                'background-color': 'mapData('+ _this.props.feature + ', 0, 1, black, green)',
-              })
-              .update()
+            _this.cy = _this.buildNetwork(_this, cy.elements().jsons())
             resolve(_this.cy);
           }, 500);
         });
@@ -102,9 +57,9 @@ export class Cytoscape extends React.Component<any, any> {
     });
   }
 
-  buildNetwork (_this: Cytoscape) {
+  buildNetwork (_this: Cytoscape, cy_json_elements = null) {
 
-    async function fetchAsyncJson(_this : Cytoscape ) {
+    async function fetchAsyncJson(_this : Cytoscape) {
       // Warning: The network file has to be serve before by a http server
       // http-server is provided to help to the development thanks to `yarn serve` command
       // In this case, the port used to serve is the 8080
@@ -119,7 +74,7 @@ export class Cytoscape extends React.Component<any, any> {
 
       container: document.getElementById('cytoscape_container'), // container to render in
 
-      elements: fetchAsyncJson(this),
+      elements: cy_json_elements || fetchAsyncJson(this),
 
       style: [ // the stylesheet for the graph
         {
