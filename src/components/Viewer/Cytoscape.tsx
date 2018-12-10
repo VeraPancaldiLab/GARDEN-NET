@@ -19,20 +19,18 @@ export class Cytoscape extends React.Component<any, any> {
       if(this.chromosomes_cache.has(this.props.chromosome)) {
         let cy = this.chromosomes_cache.get(this.props.chromosome)
 
-        let _this = this
-        let promise = new Promise(function(resolve, reject) {
-          setTimeout(function() {
-            _this.cy = _this.buildNetwork(_this, cy.elements().jsons())
-            resolve(_this.cy);
+        let promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            this.cy = this.buildNetwork(cy.elements().jsons())
+            resolve(this.cy);
           }, 500);
         });
       } else {
-        let _this = this
-        let promise = new Promise(function(resolve, reject) {
-          setTimeout(function() {
-            _this.chromosomes_cache.set(_this.props.chromosome, _this.buildNetwork(_this))
-            _this.cy = _this.chromosomes_cache.get(_this.props.chromosome)
-            resolve(_this.cy);
+        let promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            this.chromosomes_cache.set(this.props.chromosome, this.buildNetwork())
+            this.cy = this.chromosomes_cache.get(this.props.chromosome)
+            resolve(this.cy);
           }, 500);
         });
       }
@@ -47,40 +45,38 @@ export class Cytoscape extends React.Component<any, any> {
   }
 
   componentDidMount (){
-    let _this = this
-    let promise = new Promise(function(resolve, reject) {
-      setTimeout(function() {
-        _this.chromosomes_cache.set(_this.props.chromosome, _this.buildNetwork(_this))
-        _this.cy = _this.chromosomes_cache.get(_this.props.chromosome)
-        resolve(_this.cy);
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.chromosomes_cache.set(this.props.chromosome, this.buildNetwork())
+        this.cy = this.chromosomes_cache.get(this.props.chromosome)
+        resolve(this.cy);
       }, 500);
     });
   }
 
-  buildNetwork (_this: Cytoscape, cy_json_elements = null) {
-
-    async function fetchAsyncJson(_this : Cytoscape) {
+    async fetchAsyncJson() {
       // Warning: The network file has to be serve before by a http server
       // http-server is provided to help to the development thanks to `yarn serve` command
       // In this case, the port used to serve is the 8080
-      let url = 'http://localhost:8080/data/chromosomes/chr' + _this.props.chromosome + '.json';
+      let url = 'http://localhost:8080/data/chromosomes/chr' + this.props.chromosome + '.json';
       return fetch(url).then(response => {
         const json = response.json();
         return json;
       });
     }
 
+  buildNetwork (cy_json_elements = null) {
     return cytoscape({
 
       container: document.getElementById('cytoscape_container'), // container to render in
 
-      elements: cy_json_elements || fetchAsyncJson(this),
+      elements: cy_json_elements || this.fetchAsyncJson(),
 
       style: [ // the stylesheet for the graph
         {
           selector: 'node',
           style: {
-            'background-color': 'mapData('+ _this.props.feature + ', 0, 1, black, green)',
+            'background-color': 'mapData('+ this.props.feature + ', 0, 1, black, green)',
             'label': 'data(curated_gene_name)',
             'color': 'white',
             'font-size': 4,

@@ -2,12 +2,8 @@ import * as React from "react";
 import { Form, FormGroup, Input, Label } from 'reactstrap';
 
 export class FeaturesPanel extends React.Component<any, {}> {
-  constructor(props: any) {
-    super(props)
-    this.onFeatureChange = this.onFeatureChange.bind(this)
-  }
 
-  onFeatureChange (event: any) {
+  onFeatureChange = (event: any) => {
     this.props.onFeatureChange(event.target.value)
   }
 

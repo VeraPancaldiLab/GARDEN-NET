@@ -7,12 +7,8 @@ interface IChromosomeProps {
 }
 
 export class ChromosomesPanel extends React.Component<IChromosomeProps, {}> {
-  constructor(props: any) {
-    super(props)
-    this.onChromosomeChange = this.onChromosomeChange.bind(this);
-  }
 
-  onChromosomeChange (event: React.ChangeEvent<HTMLInputElement>) {
+  onChromosomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.props.onChromosomeChange(event.target.value)
   }
 
