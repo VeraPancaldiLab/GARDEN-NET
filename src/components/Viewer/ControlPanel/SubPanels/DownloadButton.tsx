@@ -4,8 +4,7 @@ import { Button } from 'reactstrap';
 export class DownloadButton extends React.Component<any, {}> {
 
   onDownload = (event: React.MouseEvent<HTMLElement>) => {
-    let url = 'http://localhost:8080/data/chromosomes/' + this.props.chromosome + '/stdout';
-    fetch(url).then(response => {
+    fetch(this.props.download).then(response => {
       const json = response.json();
       return json
     }).then(json => {

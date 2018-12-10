@@ -10,7 +10,7 @@ export class Cytoscape extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
-    this.state = {cytoscape_loading: true};
+    this.state = {cytoscape_loading: true, download: ''};
   }
 
   componentDidUpdate(prevProps: any) {
@@ -54,12 +54,18 @@ export class Cytoscape extends React.Component<any, any> {
     });
   }
 
+
+  onDownloadChange = (download : string) => {
+      this.props.onDownloadChange(download)
+  }
+
     async fetchAsyncJson() {
       // Warning: The network file has to be serve before by a http server
       // http-server is provided to help to the development thanks to `yarn serve` command
       // In this case, the port used to serve is the 8080
-      let url = 'http://localhost:8080/data/chromosomes/chr' + this.props.chromosome + '.json';
-      return fetch(url).then(response => {
+      let download = 'http://localhost:8080/data/chromosomes/chr' + this.props.chromosome + '.json';
+      this.onDownloadChange(download);
+      return fetch(download).then(response => {
         const json = response.json();
         return json;
       });
