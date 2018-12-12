@@ -13,7 +13,7 @@ export class DownloadButton extends React.Component<any, {}> {
       let hiddenElement = document.createElement('a');
       document.body.appendChild(hiddenElement);
       hiddenElement.href = window.URL.createObjectURL(blob);
-      hiddenElement.setAttribute('download', 'chr'+ this.props.chromosome + '.json');
+      hiddenElement.setAttribute('download', this.props.download.split('/').pop());
       hiddenElement.style.display = 'none';
       hiddenElement.click();
       document.body.removeChild(hiddenElement);

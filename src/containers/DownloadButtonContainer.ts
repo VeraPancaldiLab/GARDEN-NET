@@ -2,14 +2,12 @@ import { connect } from 'react-redux'
 import { DownloadButton } from '../components/Viewer/ControlPanel/SubPanels/DownloadButton'
 
 interface IDownloadProps {
-  download: string,
-  chromosome: string
+  download: string
 }
 
 export const mapStateToProps = (state: IDownloadProps) => {
   return {
-    download: state.download,
-    chromosome: state.chromosome
+    download: state.download
   }
 }
 

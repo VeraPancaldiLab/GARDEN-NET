@@ -5,14 +5,16 @@ import { Cytoscape } from '../components/Viewer/Cytoscape'
 interface ICytoscapeProps {
   chromosome: string,
   feature: string,
-  download: string
+    download: string,
+    gene: string
 }
 
 export const mapStateToProps = (state: ICytoscapeProps) => {
   return {
    chromosome: state.chromosome,
    feature: state.feature,
-   download: state.download
+    download: state.download,
+    gene: state.gene
   }
 }
 

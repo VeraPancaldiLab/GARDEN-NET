@@ -1,15 +1,29 @@
 import * as React from "react";
-import { Button, Form, FormGroup, InputGroup, InputGroupAddon, InputGroupText, Input, Label } from 'reactstrap';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, Button, DropdownItem, Form, FormGroup, Label } from 'reactstrap';
 
 interface IChromosomeProps {
   onChromosomeChange:(feature: string) => void,
+    onGeneChange:(gene: string) => void,
     chromosome: string
 }
 
-export class ChromosomesPanel extends React.Component<IChromosomeProps, {}> {
+export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
 
-  onChromosomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.onChromosomeChange(event.target.value)
+  constructor(props: any) {
+    super(props)
+    this.state = {dropdownOpen: false}
+  }
+
+  onChromosomeChange = (event: React.MouseEvent<HTMLElement>) => {
+    const selector = event.target as HTMLInputElement
+    this.props.onChromosomeChange(selector.value)
+    this.props.onGeneChange('Choose')
+  }
+
+  toggle=() => {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
   }
 
   render() {
@@ -26,12 +40,18 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, {}> {
     const chromosomes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 'X', 'Y']
 
     return (
-      <Form style={margin_style} className='text-center'>
-        <FormGroup>
+      <Form style={margin_style}>
+        <FormGroup className='text-center'>
           <Label for="Select">Chromosomes</Label>
-          <Input type="select" defaultValue={this.props.chromosome} className='text-center' onChange={this.onChromosomeChange} name="select">
-            { chromosomes.map(chromosome => <option key={chromosome} value={chromosome}>{chromosome}</option>) }
-          </Input>
+          <br/>
+          <ButtonDropdown style={{display: 'grid'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <DropdownToggle caret>
+              {this.props.chromosome}
+            </DropdownToggle>
+            <DropdownMenu className='text-center container-fluid' id='chromosomes'>
+              { chromosomes.map(chromosome => <DropdownItem key={chromosome} value={chromosome} onClick={this.onChromosomeChange}>{chromosome}</DropdownItem>) }
+            </DropdownMenu>
+          </ButtonDropdown>
         </FormGroup>
       </Form>
     );
