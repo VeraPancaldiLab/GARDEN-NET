@@ -2,14 +2,9 @@ import * as React from "react";
 import { Button } from 'reactstrap';
 
 export class DownloadButton extends React.Component<any, {}> {
-  constructor(props: any) {
-    super(props)
-    this.onDownload = this.onDownload.bind(this)
-  }
 
-  onDownload (event: React.MouseEvent<HTMLElement>) {
-    let url = 'https://raw.githubusercontent.com/VeraPancaldiLab/ChAs_Frontend/master/data/chromosomes/' + this.props.chromosome + '/stdout';
-    fetch(url).then(response => {
+  onDownload = (event: React.MouseEvent<HTMLElement>) => {
+    fetch(this.props.download).then(response => {
       const json = response.json();
       return json
     }).then(json => {
@@ -18,7 +13,7 @@ export class DownloadButton extends React.Component<any, {}> {
       let hiddenElement = document.createElement('a');
       document.body.appendChild(hiddenElement);
       hiddenElement.href = window.URL.createObjectURL(blob);
-      hiddenElement.setAttribute('download', 'chr'+ this.props.chromosome + '.json');
+      hiddenElement.setAttribute('download', this.props.download.split('/').pop());
       hiddenElement.style.display = 'none';
       hiddenElement.click();
       document.body.removeChild(hiddenElement);

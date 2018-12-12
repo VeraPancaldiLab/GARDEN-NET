@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { change_chromosome } from '../actions/index'
+import { change_chromosome, change_gene } from '../actions/index'
 import { ChromosomesPanel } from '../components/Viewer/ControlPanel/SubPanels/ChromosomesPanel'
 
 export const mapStateToProps = (state: {chromosome: string}) => {
@@ -7,7 +7,8 @@ export const mapStateToProps = (state: {chromosome: string}) => {
 }
 
 export const mapDispatchToProps = {
-  onChromosomeChange: change_chromosome
+  onChromosomeChange: change_chromosome,
+  onGeneChange: change_gene
 }
 
 export const ChromosomesPanelContainer = connect(

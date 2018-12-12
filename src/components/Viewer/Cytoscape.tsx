@@ -6,7 +6,12 @@ import './Cytoscape.css'
 export class Cytoscape extends React.Component<any, any> {
 
   cy: any
-  chromosomes_cache: Map<string, any> = new Map()
+  cache: Map<string, any> = new Map()
+  BASE_URL = 'https://raw.githubusercontent.com/VeraPancaldiLab/ChAs_Frontend/master/data/'
+  URL = {
+    chromosome: this.BASE_URL + 'chromosomes/chr' ,
+    gene: this.BASE_URL + 'genes/' ,
+  }
 
   constructor(props: any) {
     super(props);
@@ -14,28 +19,52 @@ export class Cytoscape extends React.Component<any, any> {
   }
 
   componentDidUpdate(prevProps: any) {
-    if (this.props.chromosome != prevProps.chromosome) {
+    if ((this.props.chromosome != prevProps.chromosome) && this.props.chromosome != 'Choose') {
       this.setState({cytoscape_loading: true});
-      if(this.chromosomes_cache.has(this.props.chromosome)) {
-        let cy = this.chromosomes_cache.get(this.props.chromosome)
+      const url = this.chromosomePath(this.props.chromosome)
+      this.onDownloadChange(url)
+      if(this.cache.has(this.props.chromosome)) {
+        let cy = this.cache.get(this.props.chromosome)
 
-        let _this = this
-        let promise = new Promise(function(resolve, reject) {
-          setTimeout(function() {
-            _this.cy = _this.buildNetwork(_this, cy.elements().jsons())
-            resolve(_this.cy);
+        let promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            this.cy = this.buildNetwork(cy.elements().jsons())
+            resolve(this.cy);
           }, 500);
         });
-      } else {
-        let _this = this
-        let promise = new Promise(function(resolve, reject) {
-          setTimeout(function() {
-            _this.chromosomes_cache.set(_this.props.chromosome, _this.buildNetwork(_this))
-            _this.cy = _this.chromosomes_cache.get(_this.props.chromosome)
-            resolve(_this.cy);
+      } else if (this.props.chromosome != 'Choose') {
+        let promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const cy_json_elements = this.fetchAsyncJson(url)
+            this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements))
+            this.cy = this.cache.get(this.props.chromosome)
+            resolve(this.cy);
           }, 500);
         });
       }
+    } else if ((this.props.gene != prevProps.gene) && this.props.gene != 'Choose') {
+      this.setState({cytoscape_loading: true});
+      const url = this.genePath(this.props.gene)
+      this.onDownloadChange(url)
+      if(this.cache.has(this.props.gene)) {
+        let cy = this.cache.get(this.props.gene)
+        let promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            this.cy = this.buildNetwork(cy.elements().jsons())
+            resolve(this.cy);
+          }, 500);
+        });
+      } else if (this.props.gene != 'Choose') {
+        let promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const cy_json_elements = this.fetchAsyncJson(url)
+            this.cache.set(this.props.gene, this.buildNetwork(cy_json_elements))
+            this.cy = this.cache.get(this.props.gene)
+            resolve(this.cy);
+          }, 500);
+        });
+      }
+
     } else if (this.props.feature != prevProps.feature) {
       this.cy.style()
         .selector('node')
@@ -47,40 +76,54 @@ export class Cytoscape extends React.Component<any, any> {
   }
 
   componentDidMount (){
-    let _this = this
-    let promise = new Promise(function(resolve, reject) {
-      setTimeout(function() {
-        _this.chromosomes_cache.set(_this.props.chromosome, _this.buildNetwork(_this))
-        _this.cy = _this.chromosomes_cache.get(_this.props.chromosome)
-        resolve(_this.cy);
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const url = this.chromosomePath(this.props.chromosome)
+        const cy_json_elements = this.fetchAsyncJson(url)
+        this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements))
+        this.cy = this.cache.get(this.props.chromosome)
+        resolve(this.cy);
       }, 500);
     });
   }
 
-  buildNetwork (_this: Cytoscape, cy_json_elements = null) {
 
-    async function fetchAsyncJson(_this : Cytoscape) {
-      // Warning: The network file has to be serve before by a http server
-      // http-server is provided to help to the development thanks to `yarn serve` command
-      // In this case, the port used to serve is the 8080
-      let url = 'https://raw.githubusercontent.com/VeraPancaldiLab/ChAs_Frontend/master/data/chromosomes/chr' + _this.props.chromosome + '.json';
-      return fetch(url).then(response => {
-        const json = response.json();
-        return json;
-      });
-    }
+  onDownloadChange = (download : string) => {
+    this.props.onDownloadChange(download)
+  }
 
+  genePath(gene: string): string {
+    const url = this.URL['gene'] + gene + '.json';
+    return url
+  }
+
+  chromosomePath(chromosome: string): string {
+    const url = this.URL['chromosome'] + chromosome + '.json';
+    return url
+  }
+
+  async fetchAsyncJson(url: string) {
+    // Warning: The network file has to be serve before by a http server
+    // http-server is provided to help to the development thanks to `yarn serve` command
+    // In this case, the port used to serve is the 8080
+    return fetch(url).then(response => {
+      const json = response.json();
+      return json;
+    });
+  }
+
+  buildNetwork (cy_json_elements: any) {
     return cytoscape({
 
       container: document.getElementById('cytoscape_container'), // container to render in
 
-      elements: cy_json_elements || fetchAsyncJson(this),
+      elements: cy_json_elements,
 
       style: [ // the stylesheet for the graph
         {
           selector: 'node',
           style: {
-            'background-color': 'mapData('+ _this.props.feature + ', 0, 1, black, green)',
+            'background-color': 'mapData('+ this.props.feature + ', 0, 1, black, green)',
             'label': 'data(curated_gene_name)',
             'color': 'white',
             'font-size': 4,
@@ -133,12 +176,12 @@ export class Cytoscape extends React.Component<any, any> {
     return (
       <div className='container-fluid'>
         <Modal isOpen={this.state.cytoscape_loading} centered={true} className='text-center'>
-              <ModalBody>
-                Be patient please
-                <br/>
-                Rendering chromosome {this.props.chromosome}
-                <div className='spinner'></div>
-              </ModalBody>
+          <ModalBody>
+            Be patient please
+            <br/>
+  Rendering {this.props.chromosome != 'Choose' ? 'Chromosome ' + this.props.chromosome : 'Gene ' + this.props.gene }
+  <div className='spinner'></div>
+</ModalBody>
         </Modal>
         <div id='cytoscape_container' style={margin_style}></div>
       </div>

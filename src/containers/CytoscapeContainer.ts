@@ -1,13 +1,28 @@
 import { connect } from 'react-redux'
+import { change_download } from '../actions/index'
 import { Cytoscape } from '../components/Viewer/Cytoscape'
 
-export const mapStateToProps = (state: {chromosome: string , feature: string}) => {
+interface ICytoscapeProps {
+  chromosome: string,
+  feature: string,
+    download: string,
+    gene: string
+}
+
+export const mapStateToProps = (state: ICytoscapeProps) => {
   return {
    chromosome: state.chromosome,
-   feature: state.feature }
+   feature: state.feature,
+    download: state.download,
+    gene: state.gene
+  }
+}
+
+export const mapDispatchToProps = {
+  onDownloadChange: change_download
 }
 
 export const Cytoscape_container = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Cytoscape)

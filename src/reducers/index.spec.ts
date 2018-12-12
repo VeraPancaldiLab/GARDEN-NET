@@ -1,32 +1,46 @@
-import { chromosomes_reducer, DEFAULT_CHROMOSOME, features_reducer, DEFAULT_FEATURE } from './index'
-import { CHANGED_CHROMOSOME, CHANGED_FEATURE } from '../actions/index'
+import * as Reducer from './index'
+import { CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_GENE } from '../actions/index'
 
 describe('reducers', () => {
   describe('chromosomes_reducer', () => {
     it('should provide the initial state', () => {
-      expect(chromosomes_reducer(undefined, {})).toBe(DEFAULT_CHROMOSOME)
+      expect(Reducer.chromosomes_reducer(undefined, {})).toBe(Reducer.DEFAULT_CHROMOSOME)
     })
 
     it('should handle CHANGED_CHROMOSOME action', () => {
-      expect(chromosomes_reducer(DEFAULT_CHROMOSOME, { type: CHANGED_CHROMOSOME, chromosome: 'X' })).toBe('X')
+      expect(Reducer.chromosomes_reducer(Reducer.DEFAULT_CHROMOSOME, { type: CHANGED_CHROMOSOME, chromosome: 'X' })).toBe('X')
     })
 
     it('should ignore unknown actions', () => {
-      expect(chromosomes_reducer(DEFAULT_CHROMOSOME, { type: 'unknown' })).toBe(DEFAULT_CHROMOSOME)
+      expect(Reducer.chromosomes_reducer(Reducer.DEFAULT_CHROMOSOME, { type: 'unknown' })).toBe(Reducer.DEFAULT_CHROMOSOME)
     })
   })
 
   describe('features_reducer', () => {
     it('should provide the initial state', () => {
-      expect(features_reducer(undefined, {})).toBe(DEFAULT_FEATURE)
+      expect(Reducer.features_reducer(undefined, {})).toBe(Reducer.DEFAULT_FEATURE)
     })
 
     it('should handle CHANGED_FEATURE action', () => {
-      expect(features_reducer(DEFAULT_FEATURE, { type: CHANGED_FEATURE, feature: 'BRG1'})).toBe('BRG1')
+      expect(Reducer.features_reducer(Reducer.DEFAULT_FEATURE, { type: CHANGED_FEATURE, feature: 'BRG1'})).toBe('BRG1')
     })
 
     it('should ignore unknown actions', () => {
-      expect(features_reducer(DEFAULT_FEATURE, { type: 'unknown' })).toBe(DEFAULT_FEATURE)
+      expect(Reducer.features_reducer(Reducer.DEFAULT_FEATURE, { type: 'unknown' })).toBe(Reducer.DEFAULT_FEATURE)
+    })
+  })
+
+  describe('genes_reducer', () => {
+    it('should provide the initial state', () => {
+      expect(Reducer.genes_reducer(undefined, {})).toBe(Reducer.DEFAULT_GENE)
+    })
+
+    it('should handle CHANGED_GENE action', () => {
+      expect(Reducer.genes_reducer(Reducer.DEFAULT_GENE, { type: CHANGED_GENE, gene: 'Hoxa1'})).toBe('Hoxa1')
+    })
+
+    it('should ignore unknown actions', () => {
+      expect(Reducer.genes_reducer(Reducer.DEFAULT_GENE, { type: 'unknown' })).toBe(Reducer.DEFAULT_GENE)
     })
   })
 })
