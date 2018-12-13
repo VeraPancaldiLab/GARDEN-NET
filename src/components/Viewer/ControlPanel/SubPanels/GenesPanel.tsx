@@ -48,10 +48,10 @@ export class GenesPanel extends React.Component<IGeneProps, any> {
           <Label for="Select">Genes</Label>
           <br/>
           <ButtonDropdown style={{display: 'grid'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle style={{fontSize: 'x-small'}} caret>
+            <DropdownToggle caret>
               {this.props.gene}
             </DropdownToggle>
-            <DropdownMenu style={{fontSize: 'x-small'}}>
+            <DropdownMenu className='text-center container-fluid'>
               { genes.map(gene => <DropdownItem key={gene} value={gene} onClick={this.onGeneChange}>{gene}</DropdownItem>) }
             </DropdownMenu>
           </ButtonDropdown>
