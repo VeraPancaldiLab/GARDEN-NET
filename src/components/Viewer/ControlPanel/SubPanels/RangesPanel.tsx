@@ -51,7 +51,7 @@ export class RangesPanel extends React.Component<IGeneProps, any> {
             <DropdownToggle style={{fontSize: 'x-small'}} caret>
               {this.props.range}
             </DropdownToggle>
-            <DropdownMenu style={{fontSize: 'x-small'}}>
+            <DropdownMenu className='text-center container-fluid' style={{fontSize: 'x-small', height: 'auto',  maxHeight: '200px', overflowX: 'hidden'}}>
               { ranges.slice(0,-1).map(range => <div key={range}><DropdownItem value={range} onClick={this.onRangeChange}>{range}</DropdownItem><DropdownItem style={{margin: 0}} divider/></div>) }
               { ranges.slice(-1).map(range => <div key={range}><DropdownItem style={{marginTop: '5px'}} value={range} onClick={this.onRangeChange}>{range}</DropdownItem></div>) }
             </DropdownMenu>
