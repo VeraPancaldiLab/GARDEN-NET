@@ -1,5 +1,5 @@
 import * as Reducer from './index'
-import { CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_GENE, CHANGED_RANGE } from '../actions/index'
+import { CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_GENE, CHANGED_RANGE, CHANGED_SEARCH, CHANGED_TEXT } from '../actions/index'
 
 describe('reducers', () => {
   describe('chromosomes_reducer', () => {
@@ -55,6 +55,34 @@ describe('reducers', () => {
 
     it('should ignore unknown actions', () => {
       expect(Reducer.ranges_reducer(Reducer.DEFAULT_RANGE, { type: 'unknown' })).toBe(Reducer.DEFAULT_RANGE)
+    })
+  })
+
+  describe('search_reducer', () => {
+    it('should provide the initial state', () => {
+      expect(Reducer.search_reducer(undefined, {})).toBe(Reducer.DEFAULT_SEARCH)
+    })
+
+    it('should handle CHANGED_SEARCH action', () => {
+      expect(Reducer.search_reducer(Reducer.DEFAULT_SEARCH, { type: CHANGED_SEARCH, search: 'Hoxa1'})).toBe('Hoxa1')
+    })
+
+    it('should ignore unknown actions', () => {
+      expect(Reducer.search_reducer(Reducer.DEFAULT_SEARCH, { type: 'unknown' })).toBe(Reducer.DEFAULT_SEARCH)
+    })
+  })
+
+  describe('text_reducer', () => {
+    it('should provide the initial state', () => {
+      expect(Reducer.text_reducer(undefined, {})).toBe(Reducer.DEFAULT_TEXT)
+    })
+
+    it('should handle CHANGED_TEXT action', () => {
+      expect(Reducer.text_reducer(Reducer.DEFAULT_TEXT, { type: CHANGED_TEXT, text: 'Hoxa1'})).toBe('Hoxa1')
+    })
+
+    it('should ignore unknown actions', () => {
+      expect(Reducer.text_reducer(Reducer.DEFAULT_TEXT, { type: 'unknown' })).toBe(Reducer.DEFAULT_TEXT)
     })
   })
 })

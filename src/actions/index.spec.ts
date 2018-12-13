@@ -30,4 +30,16 @@ describe('actions', () => {
       expect(Action.change_range('6:52155590-52158317')).toEqual({type: Action.CHANGED_RANGE, range: '6:52155590-52158317'})
     })
   })
+
+  describe('search_action', () => {
+    it('should provide the change_search action', () => {
+      expect(Action.change_search('Hoxa1')).toEqual({type: Action.CHANGED_SEARCH, search: 'Hoxa1'})
+    })
+  })
+
+  describe('text_action', () => {
+    it('should provide the change_text action', () => {
+      expect(Action.change_text('Hoxa1')).toEqual({type: Action.CHANGED_TEXT, text: 'Hoxa1'})
+    })
+  })
 })

@@ -12,11 +12,12 @@ export class Cytoscape extends React.Component<any, any> {
     chromosome: this.BASE_URL + 'chromosomes/chr' ,
     gene: this.BASE_URL + 'genes/' ,
     range: this.BASE_URL + 'ranges/' ,
+    search: 'http://127.0.0.1:5000/?features&search='
   }
 
   constructor(props: any) {
     super(props);
-    this.state = {cytoscape_loading: true};
+    this.state = {cytoscape_loading: true, loading_message: ''};
   }
 
   componentDidUpdate(prevProps: any) {
@@ -24,6 +25,8 @@ export class Cytoscape extends React.Component<any, any> {
       this.setState({cytoscape_loading: true});
       const url = this.chromosomePath(this.props.chromosome)
       this.onDownloadChange(url)
+      let message = 'Chromosome ' + this.props.chromosome
+      this.setState({loading_message: message })
       if(this.cache.has(this.props.chromosome)) {
         let cy = this.cache.get(this.props.chromosome)
 
@@ -47,6 +50,8 @@ export class Cytoscape extends React.Component<any, any> {
       this.setState({cytoscape_loading: true});
       const url = this.genePath(this.props.gene)
       this.onDownloadChange(url)
+      let message = 'Gene ' + this.props.gene
+      this.setState({loading_message: message })
       if(this.cache.has(this.props.gene)) {
         let cy = this.cache.get(this.props.gene)
         let promise = new Promise((resolve, reject) => {
@@ -70,6 +75,8 @@ export class Cytoscape extends React.Component<any, any> {
       this.setState({cytoscape_loading: true});
       const url = this.rangePath(this.props.range)
       this.onDownloadChange(url)
+      let message = 'Range ' + this.props.range
+      this.setState({loading_message: message })
       if(this.cache.has(this.props.range)) {
         let cy = this.cache.get(this.props.range)
         let promise = new Promise((resolve, reject) => {
@@ -84,6 +91,31 @@ export class Cytoscape extends React.Component<any, any> {
             const cy_json_elements = this.fetchAsyncJson(url)
             this.cache.set(this.props.range, this.buildNetwork(cy_json_elements))
             this.cy = this.cache.get(this.props.range)
+            resolve(this.cy);
+          }, 500);
+        });
+      }
+
+    } else if ((this.props.search != prevProps.search) && this.props.search != 'Choose') {
+      this.setState({cytoscape_loading: true});
+      const url = this.searchPath(this.props.search)
+      let message = 'Search ' + this.props.search
+      this.setState({loading_message: message })
+      this.onDownloadChange(url)
+      if(this.cache.has(this.props.search)) {
+        let cy = this.cache.get(this.props.search)
+        let promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            this.cy = this.buildNetwork(cy.elements().jsons())
+            resolve(this.cy);
+          }, 500);
+        });
+      } else if (this.props.search != 'Choose') {
+        let promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const cy_json_elements = this.fetchAsyncJson(url)
+            this.cache.set(this.props.search, this.buildNetwork(cy_json_elements))
+            this.cy = this.cache.get(this.props.search)
             resolve(this.cy);
           }, 500);
         });
@@ -104,6 +136,8 @@ export class Cytoscape extends React.Component<any, any> {
       setTimeout(() => {
         const url = this.chromosomePath(this.props.chromosome)
         this.onDownloadChange(url)
+        let message = 'Chromosome ' + this.props.chromosome
+        this.setState({loading_message: message  })
         const cy_json_elements = this.fetchAsyncJson(url)
         this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements))
         this.cy = this.cache.get(this.props.chromosome)
@@ -127,6 +161,10 @@ export class Cytoscape extends React.Component<any, any> {
 
   rangePath(range: string): string {
     return this.URL['range'] + range + '.json';
+  }
+
+  searchPath(search: string): string {
+    return this.URL['search'] + search;
   }
 
   async fetchAsyncJson(url: string) {
@@ -206,7 +244,7 @@ export class Cytoscape extends React.Component<any, any> {
           <ModalBody>
             Be patient please
             <br/>
-  Rendering {this.props.chromosome != 'Choose' ? 'Chromosome ' + this.props.chromosome : 'Gene ' + this.props.gene }
+  Rendering {this.state.loading_message}
   <div className='spinner'></div>
 </ModalBody>
         </Modal>
