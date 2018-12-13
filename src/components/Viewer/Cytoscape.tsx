@@ -103,6 +103,7 @@ export class Cytoscape extends React.Component<any, any> {
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         const url = this.chromosomePath(this.props.chromosome)
+        this.onDownloadChange(url)
         const cy_json_elements = this.fetchAsyncJson(url)
         this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements))
         this.cy = this.cache.get(this.props.chromosome)
