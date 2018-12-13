@@ -24,4 +24,10 @@ describe('actions', () => {
       expect(Action.change_gene('Hoxa1')).toEqual({type: Action.CHANGED_GENE, gene: 'Hoxa1'})
     })
   })
+
+  describe('ranges_action', () => {
+    it('should provide the change_range action', () => {
+      expect(Action.change_range('6:52155590-52158317')).toEqual({type: Action.CHANGED_RANGE, range: '6:52155590-52158317'})
+    })
+  })
 })

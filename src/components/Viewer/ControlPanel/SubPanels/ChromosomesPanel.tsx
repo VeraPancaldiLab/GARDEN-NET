@@ -4,6 +4,7 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, Button, DropdownItem, For
 interface IChromosomeProps {
   onChromosomeChange:(feature: string) => void,
     onGeneChange:(gene: string) => void,
+    onRangeChange:(gene: string) => void,
     chromosome: string
 }
 
@@ -18,6 +19,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
     const selector = event.target as HTMLInputElement
     this.props.onChromosomeChange(selector.value)
     this.props.onGeneChange('Choose')
+    this.props.onRangeChange('Choose')
   }
 
   toggle=() => {
