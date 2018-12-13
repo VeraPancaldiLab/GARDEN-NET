@@ -7,11 +7,10 @@ export class Cytoscape extends React.Component<any, any> {
 
   cy: any
   cache: Map<string, any> = new Map()
-  BASE_URL = 'https://raw.githubusercontent.com/VeraPancaldiLab/ChAs_Frontend/master/data/'
+  BASE_URL = 'http://localhost:8080/data/'
   URL = {
     chromosome: this.BASE_URL + 'chromosomes/chr' ,
     gene: this.BASE_URL + 'genes/' ,
-    range: this.BASE_URL + 'ranges/' ,
   }
 
   constructor(props: any) {
@@ -66,29 +65,6 @@ export class Cytoscape extends React.Component<any, any> {
         });
       }
 
-    } else if ((this.props.range != prevProps.range) && this.props.range != 'Choose') {
-      this.setState({cytoscape_loading: true});
-      const url = this.rangePath(this.props.range)
-      this.onDownloadChange(url)
-      if(this.cache.has(this.props.range)) {
-        let cy = this.cache.get(this.props.range)
-        let promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            this.cy = this.buildNetwork(cy.elements().jsons())
-            resolve(this.cy);
-          }, 500);
-        });
-      } else if (this.props.range != 'Choose') {
-        let promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            const cy_json_elements = this.fetchAsyncJson(url)
-            this.cache.set(this.props.range, this.buildNetwork(cy_json_elements))
-            this.cy = this.cache.get(this.props.range)
-            resolve(this.cy);
-          }, 500);
-        });
-      }
-
     } else if (this.props.feature != prevProps.feature) {
       this.cy.style()
         .selector('node')
@@ -111,21 +87,47 @@ export class Cytoscape extends React.Component<any, any> {
     });
   }
 
+<<<<<<< HEAD
+  buildNetwork (_this: Cytoscape, cy_json_elements = null) {
+
+    async function fetchAsyncJson(_this : Cytoscape) {
+      // Warning: The network file has to be serve before by a http server
+      // http-server is provided to help to the development thanks to `yarn serve` command
+      // In this case, the port used to serve is the 8080
+      let url = 'https://raw.githubusercontent.com/VeraPancaldiLab/ChAs_Frontend/master/data/chromosomes/chr' + _this.props.chromosome + '.json';
+      return fetch(url).then(response => {
+        const json = response.json();
+        return json;
+      });
+    }
+||||||| merged common ancestors
+  buildNetwork (_this: Cytoscape, cy_json_elements = null) {
+
+    async function fetchAsyncJson(_this : Cytoscape) {
+      // Warning: The network file has to be serve before by a http server
+      // http-server is provided to help to the development thanks to `yarn serve` command
+      // In this case, the port used to serve is the 8080
+      let url = 'http://localhost:8080/data/chromosomes/chr' + _this.props.chromosome + '.json';
+      return fetch(url).then(response => {
+        const json = response.json();
+        return json;
+      });
+    }
+=======
+>>>>>>> master
 
   onDownloadChange = (download : string) => {
     this.props.onDownloadChange(download)
   }
 
   genePath(gene: string): string {
-    return this.URL['gene'] + gene + '.json';
+    const url = this.URL['gene'] + gene + '.json';
+    return url
   }
 
   chromosomePath(chromosome: string): string {
-    return this.URL['chromosome'] + chromosome + '.json';
-  }
-
-  rangePath(range: string): string {
-    return this.URL['range'] + range + '.json';
+    const url = this.URL['chromosome'] + chromosome + '.json';
+    return url
   }
 
   async fetchAsyncJson(url: string) {
