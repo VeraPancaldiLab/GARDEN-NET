@@ -52,7 +52,8 @@ export class GenesPanel extends React.Component<IGeneProps, any> {
               {this.props.gene}
             </DropdownToggle>
             <DropdownMenu className='text-center container-fluid'>
-              { genes.map(gene => <DropdownItem key={gene} value={gene} onClick={this.onGeneChange}>{gene}</DropdownItem>) }
+              { genes.slice(0,-1).map(gene => <div key={gene}><DropdownItem value={gene} onClick={this.onGeneChange}>{gene}</DropdownItem><DropdownItem style={{margin: 0}} divider/></div>) }
+              { genes.slice(-1).map(gene => <DropdownItem style={{marginTop: '5px'}} key={gene} value={gene} onClick={this.onGeneChange}>{gene}</DropdownItem>) }
             </DropdownMenu>
           </ButtonDropdown>
         </FormGroup>

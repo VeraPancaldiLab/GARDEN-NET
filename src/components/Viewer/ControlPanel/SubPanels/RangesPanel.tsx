@@ -52,7 +52,8 @@ export class RangesPanel extends React.Component<IGeneProps, any> {
               {this.props.range}
             </DropdownToggle>
             <DropdownMenu style={{fontSize: 'x-small'}}>
-              { ranges.map(range => <DropdownItem key={range} value={range} onClick={this.onRangeChange}>{range}</DropdownItem>) }
+              { ranges.slice(0,-1).map(range => <div key={range}><DropdownItem value={range} onClick={this.onRangeChange}>{range}</DropdownItem><DropdownItem style={{margin: 0}} divider/></div>) }
+              { ranges.slice(-1).map(range => <div key={range}><DropdownItem style={{marginTop: '5px'}} value={range} onClick={this.onRangeChange}>{range}</DropdownItem></div>) }
             </DropdownMenu>
           </ButtonDropdown>
         </FormGroup>
