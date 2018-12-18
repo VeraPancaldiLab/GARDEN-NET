@@ -152,8 +152,8 @@ export class Cytoscape extends React.Component<any, any> {
           style: {
             'background-color': 'mapData('+ this.props.feature + ', 0, 1, black, green)',
             'label': 'data(curated_gene_name)',
-            'color': 'white',
-            'font-size': 4,
+            'color': 'gold',
+            'font-size': 9.5,
             'text-valign': 'center',
             'text-halign': 'center',
             'width': 35,
