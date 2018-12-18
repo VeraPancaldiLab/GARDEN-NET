@@ -174,7 +174,7 @@ export class Cytoscape extends React.Component<any, any> {
     return fetch(url).then(response => {
       const json = response.json();
       return json;
-    });
+    }).catch(err => alert('There are not any node which matches with the search petition: "' + this.props.search + '"') );
   }
 
   buildNetwork (cy_json_elements: any) {
