@@ -3,13 +3,11 @@ import { DownloadButton } from '../components/Viewer/ControlPanel/SubPanels/Down
 
 interface IDownloadProps {
   download: string
-  feature: string
 }
 
 export const mapStateToProps = (state: IDownloadProps) => {
   return {
-    download: state.download,
-    feature: state.feature
+    download: state.download
   }
 }
 
