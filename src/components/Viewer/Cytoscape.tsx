@@ -96,7 +96,7 @@ export class Cytoscape extends React.Component<any, any> {
         });
       }
 
-    } else if ((this.props.search != prevProps.search) && this.props.search != 'Choose') {
+    } else if ((this.props.search != prevProps.search) && this.props.search != '') {
       this.setState({cytoscape_loading: true});
       const url = this.searchPath(this.props.search)
       let message = 'Search ' + this.props.search
