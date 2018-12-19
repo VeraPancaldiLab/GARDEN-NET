@@ -1,7 +1,7 @@
-# [ChAs Frontend](https://verapancaldilab.github.io/ChAs_Frontend/)
-**[Website](https://verapancaldilab.github.io/ChAs_Frontend/)**
+# [GARNET](https://verapancaldilab.github.io/GARNET)
+**[Website](https://verapancaldilab.github.io/GARNET/)**
 
-<https://verapancaldilab.github.io/ChAs_Frontend/>
+<https://verapancaldilab.github.io/GARNET/>
 
 ![Screenshot](screenshot.png)
 
@@ -10,7 +10,7 @@
 <details>
 <summary>Click to expand Table Of Content</summary>
 <ul>
-  <li><a href="#chas-frontend">ChAs Frontend</a><ul>
+  <li><a href="#garnet">GARNET</a><ul>
     <li><a href="#table-of-content">Table Of Content</a></li>
     <li><a href="#description">Description</a></li>
     <li><a href="#requirements">Requirements</a><ul>
@@ -25,7 +25,9 @@
     </ul></li>
     <li><a href="#production">Production</a><ul>
         <li><a href="#bundler-with-excluded-dependencies">Bundler with excluded dependencies</a></li>
-    </ul></li></ul></li>
+      </ul></li>
+      <li><a href="#dist">Dist</a></li>
+    </ul></li>
     <li><a href="#technologies">Technologies</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contributors">Contributors</a></li>
@@ -34,7 +36,7 @@
 </details>
 
 ## Description
-Web Frontend for the [ChAs](https://github.com/ricolab/Chromatin_Assortativity/) script
+Web Frontend for Genome ARchitecture Networks Exploration Tool (GARNET)
 
 ## Requirements
 

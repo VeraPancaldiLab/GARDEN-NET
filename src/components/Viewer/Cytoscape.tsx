@@ -103,6 +103,7 @@ export class Cytoscape extends React.Component<any, any> {
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         const url = this.chromosomePath(this.props.chromosome)
+        this.onDownloadChange(url)
         const cy_json_elements = this.fetchAsyncJson(url)
         this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements))
         this.cy = this.cache.get(this.props.chromosome)
@@ -151,8 +152,8 @@ export class Cytoscape extends React.Component<any, any> {
           style: {
             'background-color': 'mapData('+ this.props.feature + ', 0, 1, black, green)',
             'label': 'data(curated_gene_name)',
-            'color': 'white',
-            'font-size': 4,
+            'color': 'gold',
+            'font-size': 9.5,
             'text-valign': 'center',
             'text-halign': 'center',
             'width': 35,
