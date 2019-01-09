@@ -1,17 +1,17 @@
-import { connect } from 'react-redux'
-import { DownloadButton } from '../components/Viewer/ControlPanel/SubPanels/DownloadButton'
+import { connect } from "react-redux";
+import { DownloadButton } from "../components/Viewer/ControlPanel/SubPanels/DownloadButton";
 
 interface IDownloadProps {
-  download : string
+  download: string;
 }
 
-export const mapStateToProps = (state : IDownloadProps) => {
+export const mapStateToProps = (state: IDownloadProps) => {
   return {
-    download: state.download
-  }
-}
+    download: state.download,
+  };
+};
 
 export const DownloadButtonContainer = connect(
   mapStateToProps,
-  null
-)(DownloadButton)
+  null,
+)(DownloadButton);

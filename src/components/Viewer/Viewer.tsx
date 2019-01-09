@@ -1,11 +1,11 @@
 import * as React from "react";
-import { ControlPanel } from './ControlPanel/ControlPanel'
-import { Cytoscape_container } from '../../containers/CytoscapeContainer'
+import { Cytoscape_container } from "../../containers/CytoscapeContainer";
+import { ControlPanel } from "./ControlPanel/ControlPanel";
 
 export class Viewer extends React.Component<{}, {}> {
-  render() {
+  public render() {
     return (
-      <div className='container-fluid'>
+      <div className="container-fluid">
         <div className="row flex-column-reverse flex-md-row">
           <div className="col-md-10">
             <Cytoscape_container />
