@@ -3,16 +3,16 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, FormG
 
 export class FeaturesPanel extends React.Component<any, any> {
 
-  constructor(props: any) {
+  constructor(props : any) {
     super(props)
-    this.state = {dropdownOpen: false}
+    this.state = { dropdownOpen: false }
   }
 
-  onFeatureChange = (event: any) => {
+  onFeatureChange = (event : any) => {
     this.props.onFeatureChange(event.target.value)
   }
 
-  toggle=() => {
+  toggle = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     });
@@ -35,14 +35,14 @@ export class FeaturesPanel extends React.Component<any, any> {
       <Form className='text-center' style={margin_style}>
         <FormGroup className='text-center'>
           <Label for="Select">Features</Label>
-          <br/>
-          <ButtonDropdown style={{display: 'grid'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle style={{color: 'black', backgroundColor: 'white'}} caret>
+          <br />
+          <ButtonDropdown style={{ display: 'grid' }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <DropdownToggle style={{ color: 'black', backgroundColor: 'white' }} caret>
               {this.props.feature}
             </DropdownToggle>
-            <DropdownMenu  className='text-center container-fluid' style={{ height: 'auto',  maxHeight: '200px', overflowX: 'hidden'}}>
-              { features.slice(0,-1).map(feature => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem><DropdownItem style={{margin: 0}} divider/></div>) }
-              { features.slice(-1).map(feature => <div key={feature}><DropdownItem style={{marginTop: '5px'}} value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem></div>) }
+            <DropdownMenu className='text-center container-fluid' style={{ height: 'auto', maxHeight: '200px', overflowX: 'hidden' }}>
+              {features.slice(0, -1).map(feature => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem><DropdownItem style={{ margin: 0 }} divider /></div>)}
+              {features.slice(-1).map(feature => <div key={feature}><DropdownItem style={{ marginTop: '5px' }} value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem></div>)}
             </DropdownMenu>
           </ButtonDropdown>
         </FormGroup>

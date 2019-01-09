@@ -27,7 +27,10 @@
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.2.1",
+    "typescript-formatter": "^7.2.2",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   },
@@ -48,6 +51,7 @@
   "scripts": {
     "build": "./node_modules/.bin/webpack --mode development --progress --display-error-details",
     "dist": "./node_modules/.bin/webpack --mode production --progress",
+    "fmt": "./node_modules/.bin/tsfmt --replace",
     "serve": "./node_modules/.bin/http-server ./ -a 0.0.0.0 --cors --gzip -o",
     "test": "./node_modules/.bin/jest"
   }

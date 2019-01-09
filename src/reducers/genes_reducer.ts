@@ -6,7 +6,7 @@ interface IGeneAction {
   gene?: string
 }
 
-export const genes_reducer = (state: string = DEFAULT_GENE, action: IGeneAction) => {
+export const genes_reducer = (state : string = DEFAULT_GENE, action : IGeneAction) => {
   switch (action.type) {
     case CHANGED_GENE:
       return action.gene;

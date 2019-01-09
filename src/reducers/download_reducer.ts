@@ -7,7 +7,7 @@ interface IDownloadAction {
   download?: string
 }
 
-export const download_reducer = (state: string = DEFAULT_DOWNLOAD, action: IDownloadAction) => {
+export const download_reducer = (state : string = DEFAULT_DOWNLOAD, action : IDownloadAction) => {
   switch (action.type) {
     case CHANGED_DOWNLOAD:
       return action.download;

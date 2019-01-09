@@ -3,17 +3,17 @@ import { change_download } from '../actions/index'
 import { Cytoscape } from '../components/Viewer/Cytoscape'
 
 interface ICytoscapeProps {
-  chromosome: string,
-  feature: string,
-    download: string,
-    gene: string,
-    range: string
+  chromosome : string,
+  feature : string,
+  download : string,
+  gene : string,
+  range : string
 }
 
-export const mapStateToProps = (state: ICytoscapeProps) => {
+export const mapStateToProps = (state : ICytoscapeProps) => {
   return {
-   chromosome: state.chromosome,
-   feature: state.feature,
+    chromosome: state.chromosome,
+    feature: state.feature,
     download: state.download,
     gene: state.gene,
     range: state.range

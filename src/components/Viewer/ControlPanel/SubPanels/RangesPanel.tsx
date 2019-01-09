@@ -2,27 +2,27 @@ import * as React from "react";
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, FormGroup, Label } from 'reactstrap';
 
 interface IGeneProps {
-  onRangeChange:(gene: string) => void,
-  onGeneChange:(gene: string) => void,
-    onChromosomeChange:(gene: string) => void,
-    range: string,
+  onRangeChange : (gene : string) => void,
+  onGeneChange : (gene : string) => void,
+  onChromosomeChange : (gene : string) => void,
+  range : string,
 }
 
 export class RangesPanel extends React.Component<IGeneProps, any> {
 
-  constructor(props: any) {
+  constructor(props : any) {
     super(props)
-    this.state = {dropdownOpen: false}
+    this.state = { dropdownOpen: false }
   }
 
-  onRangeChange = (event: React.MouseEvent<HTMLElement>) => {
+  onRangeChange = (event : React.MouseEvent<HTMLElement>) => {
     const selector = event.target as HTMLInputElement
     this.props.onRangeChange(selector.value)
     this.props.onGeneChange('Choose')
     this.props.onChromosomeChange('Choose')
   }
 
-  toggle=() => {
+  toggle = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     });
@@ -46,14 +46,14 @@ export class RangesPanel extends React.Component<IGeneProps, any> {
       <Form style={margin_style}>
         <FormGroup className='text-center'>
           <Label for="Select">Ranges</Label>
-          <br/>
-          <ButtonDropdown style={{display: 'grid'}} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle style={{fontSize: 'x-small'}} caret>
+          <br />
+          <ButtonDropdown style={{ display: 'grid' }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <DropdownToggle style={{ fontSize: 'x-small' }} caret>
               {this.props.range}
             </DropdownToggle>
-            <DropdownMenu className='text-center container-fluid' style={{fontSize: 'x-small', height: 'auto',  maxHeight: '200px', overflowX: 'hidden'}}>
-              { ranges.slice(0,-1).map(range => <div key={range}><DropdownItem value={range} onClick={this.onRangeChange}>{range}</DropdownItem><DropdownItem style={{margin: 0}} divider/></div>) }
-              { ranges.slice(-1).map(range => <div key={range}><DropdownItem style={{marginTop: '5px'}} value={range} onClick={this.onRangeChange}>{range}</DropdownItem></div>) }
+            <DropdownMenu className='text-center container-fluid' style={{ fontSize: 'x-small', height: 'auto', maxHeight: '200px', overflowX: 'hidden' }}>
+              {ranges.slice(0, -1).map(range => <div key={range}><DropdownItem value={range} onClick={this.onRangeChange}>{range}</DropdownItem><DropdownItem style={{ margin: 0 }} divider /></div>)}
+              {ranges.slice(-1).map(range => <div key={range}><DropdownItem style={{ marginTop: '5px' }} value={range} onClick={this.onRangeChange}>{range}</DropdownItem></div>)}
             </DropdownMenu>
           </ButtonDropdown>
         </FormGroup>

@@ -6,7 +6,7 @@ interface IRangeAction {
   range?: string
 }
 
-export const ranges_reducer = (state: string = DEFAULT_RANGE, action: IRangeAction) => {
+export const ranges_reducer = (state : string = DEFAULT_RANGE, action : IRangeAction) => {
   switch (action.type) {
     case CHANGED_RANGE:
       return action.range;

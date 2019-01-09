@@ -33,7 +33,7 @@ export class DownloadButton extends React.Component<any, {}> {
 
     return (
       <div className='text-center'>
-        <Button outline color='secondary' onClick={ this.onDownload } style={margin_style}>Download</Button>
+        <Button outline color='secondary' onClick={this.onDownload} style={margin_style}>Download</Button>
       </div>
     );
   }

@@ -2,8 +2,8 @@ import { connect } from 'react-redux'
 import { change_gene, change_chromosome, change_range } from '../actions/index'
 import { GenesPanel } from '../components/Viewer/ControlPanel/SubPanels/GenesPanel'
 
-export const mapStateToProps = (state: {gene: string}) => {
-  return { gene: state.gene}
+export const mapStateToProps = (state : { gene : string }) => {
+  return { gene: state.gene }
 }
 
 export const mapDispatchToProps = {

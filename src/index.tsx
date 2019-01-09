@@ -10,7 +10,7 @@ const rootEl = document.getElementById('frontend_container')
 
 ReactDOM.render(
   <Provider store={store}>
-    <Frontend/>
+    <Frontend />
   </Provider>,
   rootEl
 );

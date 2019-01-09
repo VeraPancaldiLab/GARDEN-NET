@@ -22,7 +22,7 @@ describe('reducers', () => {
     })
 
     it('should handle CHANGED_FEATURE action', () => {
-      expect(Reducer.features_reducer(Reducer.DEFAULT_FEATURE, { type: CHANGED_FEATURE, feature: 'BRG1'})).toBe('BRG1')
+      expect(Reducer.features_reducer(Reducer.DEFAULT_FEATURE, { type: CHANGED_FEATURE, feature: 'BRG1' })).toBe('BRG1')
     })
 
     it('should ignore unknown actions', () => {
@@ -36,7 +36,7 @@ describe('reducers', () => {
     })
 
     it('should handle CHANGED_GENE action', () => {
-      expect(Reducer.genes_reducer(Reducer.DEFAULT_GENE, { type: CHANGED_GENE, gene: 'Hoxa1'})).toBe('Hoxa1')
+      expect(Reducer.genes_reducer(Reducer.DEFAULT_GENE, { type: CHANGED_GENE, gene: 'Hoxa1' })).toBe('Hoxa1')
     })
 
     it('should ignore unknown actions', () => {
@@ -50,7 +50,7 @@ describe('reducers', () => {
     })
 
     it('should handle CHANGED_RANGE action', () => {
-      expect(Reducer.ranges_reducer(Reducer.DEFAULT_RANGE, { type: CHANGED_RANGE, range: '6:52155590-52158317'})).toBe('6:52155590-52158317')
+      expect(Reducer.ranges_reducer(Reducer.DEFAULT_RANGE, { type: CHANGED_RANGE, range: '6:52155590-52158317' })).toBe('6:52155590-52158317')
     })
 
     it('should ignore unknown actions', () => {
