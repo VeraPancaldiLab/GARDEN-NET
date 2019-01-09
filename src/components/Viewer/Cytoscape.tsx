@@ -27,21 +27,15 @@ export class Cytoscape extends React.Component<any, any> {
       if(this.cache.has(this.props.chromosome)) {
         let cy = this.cache.get(this.props.chromosome)
 
-        let promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            this.cy = this.buildNetwork(cy.elements().jsons())
-            resolve(this.cy);
-          }, 500);
-        });
+        setTimeout(() => {
+          this.cy = this.buildNetwork(cy.elements().jsons())
+        }, 500);
       } else if (this.props.chromosome != 'Choose') {
-        let promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            const cy_json_elements = this.fetchAsyncJson(url)
-            this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements))
-            this.cy = this.cache.get(this.props.chromosome)
-            resolve(this.cy);
-          }, 500);
-        });
+        setTimeout(() => {
+          const cy_json_elements = this.fetchAsyncJson(url)
+          this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements))
+          this.cy = this.cache.get(this.props.chromosome)
+        }, 500);
       }
     } else if ((this.props.gene != prevProps.gene) && this.props.gene != 'Choose') {
       this.setState({cytoscape_loading: true});
@@ -49,21 +43,15 @@ export class Cytoscape extends React.Component<any, any> {
       this.onDownloadChange(url)
       if(this.cache.has(this.props.gene)) {
         let cy = this.cache.get(this.props.gene)
-        let promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            this.cy = this.buildNetwork(cy.elements().jsons())
-            resolve(this.cy);
-          }, 500);
-        });
+        setTimeout(() => {
+          this.cy = this.buildNetwork(cy.elements().jsons())
+        }, 500);
       } else if (this.props.gene != 'Choose') {
-        let promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            const cy_json_elements = this.fetchAsyncJson(url)
-            this.cache.set(this.props.gene, this.buildNetwork(cy_json_elements))
-            this.cy = this.cache.get(this.props.gene)
-            resolve(this.cy);
-          }, 500);
-        });
+        setTimeout(() => {
+          const cy_json_elements = this.fetchAsyncJson(url)
+          this.cache.set(this.props.gene, this.buildNetwork(cy_json_elements))
+          this.cy = this.cache.get(this.props.gene)
+        }, 500);
       }
 
     } else if ((this.props.range != prevProps.range) && this.props.range != 'Choose') {
@@ -72,21 +60,15 @@ export class Cytoscape extends React.Component<any, any> {
       this.onDownloadChange(url)
       if(this.cache.has(this.props.range)) {
         let cy = this.cache.get(this.props.range)
-        let promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            this.cy = this.buildNetwork(cy.elements().jsons())
-            resolve(this.cy);
-          }, 500);
-        });
+        setTimeout(() => {
+          this.cy = this.buildNetwork(cy.elements().jsons())
+        }, 500);
       } else if (this.props.range != 'Choose') {
-        let promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            const cy_json_elements = this.fetchAsyncJson(url)
-            this.cache.set(this.props.range, this.buildNetwork(cy_json_elements))
-            this.cy = this.cache.get(this.props.range)
-            resolve(this.cy);
-          }, 500);
-        });
+        setTimeout(() => {
+          const cy_json_elements = this.fetchAsyncJson(url)
+          this.cache.set(this.props.range, this.buildNetwork(cy_json_elements))
+          this.cy = this.cache.get(this.props.range)
+        }, 500);
       }
 
     } else if (this.props.feature != prevProps.feature) {
@@ -100,16 +82,13 @@ export class Cytoscape extends React.Component<any, any> {
   }
 
   componentDidMount (){
-    let promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const url = this.chromosomePath(this.props.chromosome)
-        this.onDownloadChange(url)
-        const cy_json_elements = this.fetchAsyncJson(url)
-        this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements))
-        this.cy = this.cache.get(this.props.chromosome)
-        resolve(this.cy);
-      }, 500);
-    });
+    setTimeout(() => {
+      const url = this.chromosomePath(this.props.chromosome)
+      this.onDownloadChange(url)
+      const cy_json_elements = this.fetchAsyncJson(url)
+      this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements))
+      this.cy = this.cache.get(this.props.chromosome)
+    }, 500);
   }
 
 

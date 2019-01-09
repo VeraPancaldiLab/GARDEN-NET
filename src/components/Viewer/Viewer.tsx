@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as Reactstrap from 'reactstrap';
 import { ControlPanel } from './ControlPanel/ControlPanel'
 import { Cytoscape_container } from '../../containers/CytoscapeContainer'
 

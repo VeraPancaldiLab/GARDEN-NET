@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ButtonDropdown, DropdownToggle, DropdownMenu, Button, DropdownItem, Form, FormGroup, Label } from 'reactstrap';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, FormGroup, Label } from 'reactstrap';
 
 interface IChromosomeProps {
   onChromosomeChange:(feature: string) => void,

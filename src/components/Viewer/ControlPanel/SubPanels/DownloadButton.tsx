@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 
 export class DownloadButton extends React.Component<any, {}> {
 
-  onDownload = (event: React.MouseEvent<HTMLElement>) => {
+  onDownload = () => {
     fetch(this.props.download).then(response => {
       const json = response.json();
       return json
