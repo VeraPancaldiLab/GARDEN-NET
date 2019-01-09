@@ -20,7 +20,7 @@ export class Cytoscape extends React.Component<any, any> {
   }
 
   public componentDidUpdate(prevProps: any) {
-    if ((this.props.chromosome != prevProps.chromosome) && this.props.chromosome != "Choose") {
+    if ((this.props.chromosome !== prevProps.chromosome) && this.props.chromosome !== "Choose") {
       this.setState({ cytoscape_loading: true });
       const url = this.chromosomePath(this.props.chromosome);
       this.onDownloadChange(url);
@@ -30,14 +30,14 @@ export class Cytoscape extends React.Component<any, any> {
         setTimeout(() => {
           this.cy = this.buildNetwork(cy.elements().jsons());
         }, 500);
-      } else if (this.props.chromosome != "Choose") {
+      } else if (this.props.chromosome !== "Choose") {
         setTimeout(() => {
           const cy_json_elements = this.fetchAsyncJson(url);
           this.cache.set(this.props.chromosome, this.buildNetwork(cy_json_elements));
           this.cy = this.cache.get(this.props.chromosome);
         }, 500);
       }
-    } else if ((this.props.gene != prevProps.gene) && this.props.gene != "Choose") {
+    } else if ((this.props.gene !== prevProps.gene) && this.props.gene !== "Choose") {
       this.setState({ cytoscape_loading: true });
       const url = this.genePath(this.props.gene);
       this.onDownloadChange(url);
@@ -46,7 +46,7 @@ export class Cytoscape extends React.Component<any, any> {
         setTimeout(() => {
           this.cy = this.buildNetwork(cy.elements().jsons());
         }, 500);
-      } else if (this.props.gene != "Choose") {
+      } else if (this.props.gene !== "Choose") {
         setTimeout(() => {
           const cy_json_elements = this.fetchAsyncJson(url);
           this.cache.set(this.props.gene, this.buildNetwork(cy_json_elements));
@@ -54,7 +54,7 @@ export class Cytoscape extends React.Component<any, any> {
         }, 500);
       }
 
-    } else if ((this.props.range != prevProps.range) && this.props.range != "Choose") {
+    } else if ((this.props.range !== prevProps.range) && this.props.range !== "Choose") {
       this.setState({ cytoscape_loading: true });
       const url = this.rangePath(this.props.range);
       this.onDownloadChange(url);
@@ -63,7 +63,7 @@ export class Cytoscape extends React.Component<any, any> {
         setTimeout(() => {
           this.cy = this.buildNetwork(cy.elements().jsons());
         }, 500);
-      } else if (this.props.range != "Choose") {
+      } else if (this.props.range !== "Choose") {
         setTimeout(() => {
           const cy_json_elements = this.fetchAsyncJson(url);
           this.cache.set(this.props.range, this.buildNetwork(cy_json_elements));
@@ -71,7 +71,7 @@ export class Cytoscape extends React.Component<any, any> {
         }, 500);
       }
 
-    } else if (this.props.feature != prevProps.feature) {
+    } else if (this.props.feature !== prevProps.feature) {
       this.cy.style()
         .selector("node")
         .style({
@@ -184,11 +184,11 @@ export class Cytoscape extends React.Component<any, any> {
           <ModalBody>
             Be patient please
             <br />
-            Rendering {this.props.chromosome != "Choose" ? "Chromosome " + this.props.chromosome : "Gene " + this.props.gene}
-            <div className="spinner"></div>
+            Rendering {this.props.chromosome !== "Choose" ? "Chromosome " + this.props.chromosome : "Gene " + this.props.gene}
+            <div className="spinner" />
           </ModalBody>
         </Modal>
-        <div id="cytoscape_container" style={margin_style}></div>
+        <div id="cytoscape_container" style={margin_style} />
       </div>
     );
   }

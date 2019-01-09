@@ -11,11 +11,11 @@ export class Header extends React.Component<{}, {}> {
           </div>
         </div>
         <div className="row">
-          <div className="col"></div>
+          <div className="col" />
           <div className="col">
             <Reactstrap.Alert color="primary" className="text-center">Still in development!</Reactstrap.Alert>
           </div>
-          <div className="col"></div>
+          <div className="col" />
         </div>
       </div>
     );
