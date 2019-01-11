@@ -16,13 +16,13 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
-    "reactstrap": "^6.5.0",
+    "reactstrap": "^7.0.2",
     "redux": "^4.0.1"
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "awesome-typescript-loader": "^5.2.1",
-    "css-loader": "^1.0.1",
+    "css-loader": "^2.1.0",
     "jest": "^23.6.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
