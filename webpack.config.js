@@ -53,7 +53,6 @@ module.exports = (env, argv) => {
 
   if (argv.mode === 'development') {
     config.output.path = __dirname + '/build';
-    config.watch = true
 
   } else if (argv.mode === 'production') {
     config.output.path = __dirname + '/dist';
