@@ -8,6 +8,7 @@ interface ICytoscapeProps {
   download: string;
   gene: string;
   range: string;
+  search: string;
 }
 
 export const mapStateToProps = (state: ICytoscapeProps) => {
@@ -17,6 +18,7 @@ export const mapStateToProps = (state: ICytoscapeProps) => {
     download: state.download,
     gene: state.gene,
     range: state.range,
+    search: state.search,
   };
 };
 

@@ -5,6 +5,7 @@ interface IGeneProps {
   onGeneChange: (gene: string) => void;
   onChromosomeChange: (gene: string) => void;
   onRangeChange: (gene: string) => void;
+  onTextChange: (gene: string) => void;
   gene: string;
 }
 
@@ -20,6 +21,7 @@ export class GenesPanel extends React.Component<IGeneProps, any> {
     this.props.onGeneChange(selector.value);
     this.props.onChromosomeChange("Choose");
     this.props.onRangeChange("Choose");
+    this.props.onTextChange("");
   }
 
   public toggle = () => {

@@ -5,6 +5,7 @@ interface IChromosomeProps {
   onChromosomeChange: (feature: string) => void;
   onGeneChange: (gene: string) => void;
   onRangeChange: (gene: string) => void;
+  onTextChange: (gene: string) => void;
   chromosome: string;
 }
 
@@ -20,6 +21,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
     this.props.onChromosomeChange(selector.value);
     this.props.onGeneChange("Choose");
     this.props.onRangeChange("Choose");
+    this.props.onTextChange("");
   }
 
   public toggle = () => {

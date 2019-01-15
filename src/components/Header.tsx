@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Reactstrap from "reactstrap";
+import { SearchPanelContainer } from "./../containers/SearchPanelContainer";
 
 export class Header extends React.Component<{}, {}> {
   public render() {
@@ -16,6 +17,13 @@ export class Header extends React.Component<{}, {}> {
             <Reactstrap.Alert color="primary" className="text-center">Still in development!</Reactstrap.Alert>
           </div>
           <div className="col" />
+        </div>
+        <div className="row">
+          <div className="col"></div>
+          <div className="col">
+            <SearchPanelContainer />
+          </div>
+          <div className="col"></div>
         </div>
       </div>
     );
