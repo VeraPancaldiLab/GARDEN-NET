@@ -7,7 +7,7 @@ export class Cytoscape extends React.Component<any, any> {
 
   public cy: any;
   public cache: Map<string, any> = new Map();
-  public BASE_URL = "https://raw.githubusercontent.com/VeraPancaldiLab/ChAs_Frontend/master/data/";
+  public BASE_URL = "https://pancaldi.bsc.es/garnet/data/";
   public URL = {
     chromosome: this.BASE_URL + "chromosomes/chr",
     gene: this.BASE_URL + "genes/",
