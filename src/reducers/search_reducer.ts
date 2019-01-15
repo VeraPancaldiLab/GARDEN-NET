@@ -1,10 +1,10 @@
-import { CHANGED_SEARCH } from '../actions/index'
+import { CHANGED_SEARCH } from "../actions/index";
 
-export const DEFAULT_SEARCH = '';
+export const DEFAULT_SEARCH = "";
 
 interface ISearchAction {
-  type?: string,
-  search?: string
+  type?: string;
+  search?: string;
 }
 
 export const search_reducer = (state: string = DEFAULT_SEARCH, action: ISearchAction) => {
@@ -14,4 +14,4 @@ export const search_reducer = (state: string = DEFAULT_SEARCH, action: ISearchAc
     default:
       return state;
   }
-}
+};

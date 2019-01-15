@@ -1,0 +1,22 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-react"
+  ],
+  "jsRules": {
+    "max-line-length": {
+      "options": [120]
+    }
+  },
+  "rules": {
+    "indent": [true, "spaces", 2],
+    "whitespace": [true,
+      "check-branch",
+      "check-operator",
+      "check-separator",
+      "check-typecast"
+    ]
+  },
+  "rulesDirectory": []
+}

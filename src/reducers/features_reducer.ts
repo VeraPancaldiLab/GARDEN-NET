@@ -1,10 +1,10 @@
-import { CHANGED_FEATURE } from '../actions/index'
+import { CHANGED_FEATURE } from "../actions/index";
 
-export const DEFAULT_FEATURE = 'EZH2';
+export const DEFAULT_FEATURE = "EZH2";
 
 interface IFeatureAction {
-  type?: string,
-  feature?: string
+  type?: string;
+  feature?: string;
 }
 
 export const features_reducer = (state: string = DEFAULT_FEATURE, action: IFeatureAction) => {
@@ -14,4 +14,4 @@ export const features_reducer = (state: string = DEFAULT_FEATURE, action: IFeatu
     default:
       return state;
   }
-}
+};

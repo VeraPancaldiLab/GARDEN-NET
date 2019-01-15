@@ -1,10 +1,10 @@
-import { CHANGED_TEXT } from '../actions/index'
+import { CHANGED_TEXT } from "../actions/index";
 
-export const DEFAULT_TEXT = '';
+export const DEFAULT_TEXT = "";
 
 interface ITextAction {
-  type?: string,
-  text?: string
+  type?: string;
+  text?: string;
 }
 
 export const text_reducer = (state: string = DEFAULT_TEXT, action: ITextAction) => {
@@ -14,4 +14,4 @@ export const text_reducer = (state: string = DEFAULT_TEXT, action: ITextAction) 
     default:
       return state;
   }
-}
+};
