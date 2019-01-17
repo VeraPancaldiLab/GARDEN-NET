@@ -146,7 +146,13 @@ export class Cytoscape extends React.Component<any, any> {
     return fetch(url).then((response) => {
       const json = response.json();
       return json;
-    }).catch((_err) => alert('There are not any node which matches with the search petition: "' + this.props.search + '"'));
+    }).catch((_err) => {
+      this.setState({ cytoscape_loading: false });
+      // Let the loading message disappear thanks to delay the alert message with a zero time out
+      setTimeout(() => {
+        alert('There are not any node which matches with the search petition: "' + this.props.search + '"');
+      }, 0);
+    });
   }
 
   public buildNetwork(cy_json_elements: any) {
@@ -216,9 +222,9 @@ export class Cytoscape extends React.Component<any, any> {
           <ModalBody>
             Be patient please
             <br />
-  Rendering {this.state.loading_message}
-  <div className="spinner"></div>
-</ModalBody>
+            Rendering {this.state.loading_message}
+            <div className="spinner"></div>
+          </ModalBody>
         </Modal>
         <div id="cytoscape_container" style={margin_style}></div>
       </div>
