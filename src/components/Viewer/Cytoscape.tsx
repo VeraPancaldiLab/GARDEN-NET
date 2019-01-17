@@ -148,6 +148,9 @@ export class Cytoscape extends React.Component<any, any> {
       return json;
     }).catch((_err) => {
       this.setState({ cytoscape_loading: false });
+      if (this.props.search !== "") {
+        this.cache.delete(this.props.search);
+      }
       // Let the loading message disappear thanks to delay the alert message with a zero time out
       setTimeout(() => {
         alert('There are not any node which matches with the search petition: "' + this.props.search + '"');
