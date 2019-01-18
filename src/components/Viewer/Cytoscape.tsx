@@ -177,24 +177,26 @@ export class Cytoscape extends React.Component<any, any> {
             "text-halign": "center",
             "width": 35,
             "height": 35,
+            "border-color": "#ccc",
+            "border-width": 3,
           },
         },
         {
           selector: 'node[type = "bait"]',
           style: {
-            shape: "rectangle",
+            shape: "ellipse",
           },
         },
         {
           selector: 'node[type = "oe"]',
           style: {
-            shape: "ellipse",
+            shape: "rectangle",
           },
         },
         {
           selector: "edge",
           style: {
-            "width": 5,
+            "width": 3,
             "line-color": "#ccc",
             "target-arrow-color": "#ccc",
             "target-arrow-shape": "triangle",
