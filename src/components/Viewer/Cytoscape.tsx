@@ -84,18 +84,32 @@ export class Cytoscape extends React.Component<any, any> {
       const message = "Search " + this.props.search;
       this.setState({ loading_message: message });
       this.onDownloadChange(url);
-      if (this.cache.has(this.props.search)) {
-        const cy = this.cache.get(this.props.search);
-        setTimeout(() => {
+      setTimeout(() => {
+        if (this.cache.has(this.props.search)) {
+          const cy = this.cache.get(this.props.search);
           this.cy = this.buildNetwork(cy.elements().jsons());
-        }, 500);
-      } else if (this.props.search !== "Choose") {
-        setTimeout(() => {
+          this.cy.style()
+            .selector("node")
+            .style({
+              "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
+              "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
+              "border-color": "mapData(chr, 1, 21, blue, darkorange)",
+            }).update();
+        } else if (this.props.search !== "Choose") {
           const cy_json_elements = this.fetchAsyncJson(url);
           this.cache.set(this.props.search, this.buildNetwork(cy_json_elements));
           this.cy = this.cache.get(this.props.search);
-        }, 500);
-      }
+          this.cy.on("layoutstop", (event: any) => {
+            event.cy.style()
+              .selector("node")
+              .style({
+                "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
+                "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
+                "border-color": "mapData(chr, 1, 21, blue, darkorange)",
+              }).update();
+          });
+        }
+      }, 500);
 
     } else if (this.props.feature !== prevProps.feature) {
       this.cy.style()
