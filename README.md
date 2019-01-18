@@ -1,9 +1,9 @@
 # [GARNET](https://verapancaldilab.github.io/GARNET)
 **[Website](https://verapancaldilab.github.io/GARNET/)**
 
-<https://verapancaldilab.github.io/GARNET/>
+<https://pancaldi.bsc.es/garnet>
 
-![Screenshot](screenshot.png)
+[![Screenshot](screenshot.png)](https://pancaldi.bsc.es/garnet)
 
 # Table Of Content
 
