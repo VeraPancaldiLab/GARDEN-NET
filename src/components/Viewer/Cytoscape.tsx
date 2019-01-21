@@ -80,13 +80,15 @@ export class Cytoscape extends React.Component<any, any> {
 
     } else if ((this.props.search !== prevProps.search) && this.props.search !== "") {
       this.setState({ cytoscape_loading: true });
-      const url = this.searchPath(this.props.search);
+      // Always search in lowercase
+      const search = this.props.search.toString().toLowerCase();
+      const url = this.searchPath(search);
       const message = "Search " + this.props.search;
       this.setState({ loading_message: message });
       this.onDownloadChange(url);
       setTimeout(() => {
-        if (this.cache.has(this.props.search)) {
-          const cy = this.cache.get(this.props.search);
+        if (this.cache.has(search)) {
+          const cy = this.cache.get(search);
           this.cy = this.buildNetwork(cy.elements().jsons());
           this.cy.style()
             .selector("node")
@@ -95,10 +97,10 @@ export class Cytoscape extends React.Component<any, any> {
               "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "border-color": "mapData(chr, 1, 21, blue, darkorange)",
             }).update();
-        } else if (this.props.search !== "Choose") {
+        } else if (search !== "Choose") {
           const cy_json_elements = this.fetchAsyncJson(url);
-          this.cache.set(this.props.search, this.buildNetwork(cy_json_elements));
-          this.cy = this.cache.get(this.props.search);
+          this.cache.set(search, this.buildNetwork(cy_json_elements));
+          this.cy = this.cache.get(search);
           this.cy.on("layoutstop", (event: any) => {
             event.cy.style()
               .selector("node")
