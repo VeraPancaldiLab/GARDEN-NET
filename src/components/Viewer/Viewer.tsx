@@ -8,7 +8,14 @@ export class Viewer extends React.Component<{}, {}> {
       <div className="container-fluid">
         <div className="row flex-column-reverse flex-md-row">
           <div className="col-md-10">
-            <Cytoscape_container />
+            <div className="row">
+              <div className="col" style={{ paddingRight: "0px" }}>
+                <Cytoscape_container cytoscape_container="cytoscape_container_left" />
+              </div>
+              <div className="col" style={{ paddingRight: "0px" }}>
+                <Cytoscape_container cytoscape_container="cytoscape_container_right" />
+              </div>
+            </div>
           </div>
           <div className="col-md-2">
             <ControlPanel />

@@ -1,4 +1,4 @@
-#cytoscape_container {
+.cytoscape_container {
   min-height: calc(86vh - 150px);
   width: 100%;
 }

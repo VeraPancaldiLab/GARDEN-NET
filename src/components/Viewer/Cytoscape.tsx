@@ -177,7 +177,7 @@ export class Cytoscape extends React.Component<any, any> {
   public buildNetwork(cy_json_elements: any) {
     return cytoscape({
 
-      container: document.getElementById("cytoscape_container"), // container to render in
+      container: document.getElementById(this.props.cytoscape_container), // container to render in
 
       elements: cy_json_elements,
 
@@ -247,7 +247,7 @@ export class Cytoscape extends React.Component<any, any> {
             <div className="spinner"></div>
           </ModalBody>
         </Modal>
-        <div id="cytoscape_container" style={margin_style}></div>
+        <div className="cytoscape_container" id={this.props.cytoscape_container} style={margin_style}></div>
       </div>
     );
   }
