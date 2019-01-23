@@ -1,5 +1,5 @@
 {
-  "name": "GARNET",
+  "name": "GARDEN-NET",
   "version": "0.0.3",
   "main": "./dist/bundle.js",
   "license": "AGPL-3.0-or-later",
@@ -54,7 +54,7 @@
     "dist": "./node_modules/.bin/webpack --mode production --progress",
     "fmt": "./node_modules/.bin/tsfmt --replace",
     "lint": "./node_modules/.bin/tslint --fix --project tsconfig.json",
-    "serve": "./node_modules/.bin/http-server ./ -a 0.0.0.0 --cors --gzip -o",
+    "serve": "./node_modules/.bin/http-server ./ -a 0.0.0.0 -p 8080 --cors --gzip -o",
     "test": "./node_modules/.bin/jest"
   }
 }

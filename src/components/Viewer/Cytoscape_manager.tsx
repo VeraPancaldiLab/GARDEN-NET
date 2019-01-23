@@ -5,13 +5,13 @@ import { Cytoscape_container } from "../../containers/CytoscapeContainer";
 
 export class Cytoscape_manager extends React.Component<any, any> {
 
-  public BASE_URL = "https://pancaldi.bsc.es/garnet/data/";
+  public BASE_URL = "https://pancaldi.bsc.es/garden-net/data/";
   private cache: Map<string, any> = new Map();
   private URL = {
     chromosome: this.BASE_URL + "chromosomes/chr",
     gene: this.BASE_URL + "genes/",
     range: this.BASE_URL + "ranges/",
-    search: "https://pancaldi.bsc.es/garnet-rest?features=true&search=",
+    search: "https://pancaldi.bsc.es/garden-net_rest?features=true&search=",
   };
   private left_container_id = "left_container_id";
   private right_container_id = "right_container_id";
