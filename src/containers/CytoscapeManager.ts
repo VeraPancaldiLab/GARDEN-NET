@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { change_download } from "../actions/index";
+import { change_download, change_search } from "../actions/index";
 import { Cytoscape_manager } from "../components/Viewer/Cytoscape_manager";
 
 interface ICytoscapeProps {
@@ -24,6 +24,7 @@ export const mapStateToProps = (state: ICytoscapeProps) => {
 
 export const mapDispatchToProps = {
   onDownloadChange: change_download,
+  onSearchChange: change_search,
 };
 
 export const CytoscapeManager = connect(
