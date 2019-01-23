@@ -213,6 +213,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "border-color": "mapData(chr, 1, 21, blue, darkorange)",
+              "border-width": (ele: any) => 3 + 0.5 * ele.data("total_degree"),
             }).update();
           const searched_node = this.right_cy_network.nodes().forEach(function(node: any) {
             if (node.data("curated_gene_name" === search)) {
@@ -246,6 +247,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
                 "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
                 "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
                 "border-color": "mapData(chr, 1, 21, blue, darkorange)",
+                "border-width": (ele: any) => 3 + 0.5 * ele.data("total_degree"),
               }).update();
             const searched_node = this.right_cy_network.nodes().forEach(function(node: any) {
               if (node.data("curated_gene_name" === search)) {
