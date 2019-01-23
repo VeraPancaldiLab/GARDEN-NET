@@ -63,7 +63,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   }
 
   public buildNetwork(cy_json_elements: any, cytoscape_container_id: string, hide_message: boolean = true) {
-    return cytoscape({
+    const cy = cytoscape({
 
       container: document.getElementById(cytoscape_container_id), // container to render in
 
@@ -118,6 +118,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
         },
       },
     });
+    cy.on('tap', 'node', (event: any) => {
+      const node = event.target;
+      const node_name = node.data("curated_gene_name");
+      if (node_name != "") {
+        this.props.onSearchChange(node_name);
+      }
+    });
+    return cy
   }
 
   public componentDidMount() {
