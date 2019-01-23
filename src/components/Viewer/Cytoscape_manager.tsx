@@ -17,9 +17,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private right_container_id = "right_container_id";
   private left_cy_network: any;
   private right_cy_network: any;
+  private reuse_message: boolean
 
   constructor(props: any) {
     super(props);
+    this.reuse_message = false
     this.state = { cytoscape_loading: true, loading_message: "", left_network: undefined, right_network: undefined };
   }
 
@@ -120,10 +122,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
     });
     cy.on('tap', 'node', (event: any) => {
       const node = event.target;
-      const node_name = node.data("curated_gene_name");
-      if (node_name != "") {
-        this.props.onSearchChange(node_name);
+      const node_real_id = node.data('chr') + '_' + node.data('start')
+      let message = "Search " ;
+      const node_name = node.data('curated_gene_name') 
+      if (node_name != '') {
+        message += node_name
+      } else {
+        const node_message = node_real_id.replace('_', ':')
+        message += 'by id ' + node_message
       }
+      this.reuse_message = true
+      this.setState({ loading_message: message });
+      this.props.onSearchChange(node_real_id);
     });
     return cy
   }
@@ -208,8 +218,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.setState({ cytoscape_loading: true });
       const search = this.props.search.toString().toLowerCase();
       const url = this.searchPath(search);
-      const message = "Search " + this.props.search;
-      this.setState({ loading_message: message });
+      if (!this.reuse_message) {
+        this.reuse_message = false
+        const message = "Search " + this.props.search;
+        this.setState({ loading_message: message });
+      }
       setTimeout(() => {
         if (this.cache.has(search)) {
           const cy = this.cache.get(search);
