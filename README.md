@@ -1,16 +1,16 @@
-# [GARNET](https://verapancaldilab.github.io/GARNET)
-**[Website](https://verapancaldilab.github.io/GARNET/)**
+# [GARDEN-NET](https://verapancaldilab.github.io/GARDEN-NET/)
+**[Website](https://verapancaldilab.github.io/GARDEN-NET/)**
 
-<https://pancaldi.bsc.es/garnet>
+<https://pancaldi.bsc.es/GARDEN-NET>
 
-[![Screenshot](screenshot.png)](https://pancaldi.bsc.es/garnet)
+[![Screenshot](screenshot.png)](https://pancaldi.bsc.es/garden-net)
 
 # Table Of Content
 
 <details>
 <summary>Click to expand Table Of Content</summary>
 <ul>
-  <li><a href="#garnet">GARNET</a><ul>
+  <li><a href="#garden-net">GARDEN-NET</a><ul>
     <li><a href="#table-of-content">Table Of Content</a></li>
     <li><a href="#description">Description</a></li>
     <li><a href="#requirements">Requirements</a><ul>
@@ -28,6 +28,7 @@
       </ul></li>
       <li><a href="#dist">Dist</a></li>
     </ul></li>
+    <li><a href="#deployment">Deployment</a></li>
     <li><a href="#technologies">Technologies</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contributors">Contributors</a></li>
@@ -36,7 +37,7 @@
 </details>
 
 ## Description
-Web Frontend for Genome ARchitecture Networks Exploration Tool (GARNET)
+Genome ARchitecture Data Epigenome and Nucleome - Network Exploration Tool (GARDEN-NET)
 
 ## Requirements
 
@@ -104,7 +105,7 @@ and run [Dist](#dist)
 
 ## Deployment
 `
-docker run --rm --interactive --tty --publish 8080:8080 --user "$(id -u):$(id -g)" --volume "$(pwd):/GARNET" --workdir /GARNET node:8-alpine sh -c 'yarn install && yarn build:no-watch && yarn dist && yarn serve'
+docker run --rm --interactive --tty --publish 8080:8080 --user "$(id -u):$(id -g)" --volume "$(pwd):/GARDEN-NET" --workdir /GARDEN-NET node:8-alpine sh -c 'yarn install && yarn build:no-watch && yarn dist && yarn serve'
 `
 
 or run

@@ -8,7 +8,7 @@ export class Header extends React.Component<{}, {}> {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1 className="text-center"><a href="https://github.com/VeraPancaldiLab/GARNET">GARNET</a></h1>
+            <h1 className="text-center"><a href="https://github.com/VeraPancaldiLab/GARDEN-NET">GARDEN-NET</a></h1>
           </div>
         </div>
         <div className="row">
