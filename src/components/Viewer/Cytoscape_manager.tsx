@@ -122,7 +122,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
     });
     cy.on('tap', 'node', (event: any) => {
       const node = event.target;
-      const node_real_id = node.data('chr') + '_' + node.data('start')
+      const node_internal_id = node.data('chr') + '_' + node.data('start')
+      const node_real_id = node_internal_id + '-' + node.data('end')
       let message = "Search " ;
       const node_name = node.data('curated_gene_name') 
       if (node_name != '') {
@@ -133,7 +134,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       }
       this.reuse_message = true
       this.setState({ loading_message: message });
-      this.props.onSearchChange(node_real_id);
+      this.props.onSearchChange(node_internal_id);
     });
     return cy
   }
@@ -158,7 +159,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     if ((this.props.chromosome !== prevProps.chromosome) && this.props.chromosome !== "Choose") {
       this.setState({ cytoscape_loading: true });
       const url = this.chromosomePath(this.props.chromosome);
-      // this.onDownloadChange(url);
+      this.onDownloadChange(url);
       const message = "Chromosome " + this.props.chromosome;
       this.setState({ loading_message: message });
 
