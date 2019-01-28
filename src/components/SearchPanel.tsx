@@ -14,8 +14,6 @@ export class SearchPanel extends React.Component<any, any> {
   public onSubmit = () => {
     this.props.onSearchChange(this.props.text);
     this.props.onChromosomeChange("Choose");
-    this.props.onGeneChange("Choose");
-    this.props.onRangeChange("Choose");
   }
 
   public handleEnterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {

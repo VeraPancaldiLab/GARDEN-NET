@@ -3,8 +3,6 @@ import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormG
 
 interface IChromosomeProps {
   onChromosomeChange: (feature: string) => void;
-  onGeneChange: (gene: string) => void;
-  onRangeChange: (gene: string) => void;
   onTextChange: (gene: string) => void;
   chromosome: string;
 }
@@ -19,8 +17,6 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
   public onChromosomeChange = (event: React.MouseEvent<HTMLElement>) => {
     const selector = event.target as HTMLInputElement;
     this.props.onChromosomeChange(selector.value);
-    this.props.onGeneChange("Choose");
-    this.props.onRangeChange("Choose");
     this.props.onTextChange("");
   }
 
@@ -54,7 +50,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
             </DropdownToggle>
             <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
               {chromosomes.slice(0, -1).map((chromosome) => <div key={chromosome}><DropdownItem value={chromosome} onClick={this.onChromosomeChange}>{chromosome}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
-              {chromosomes.slice(-1).map((chromosome) => <DropdownItem style={{ marginTop: "5px" }} key={chromosome} value={chromosome} onClick={this.onChromosomeChange}>{chromosome}</DropdownItem>)}
+              {chromosomes.slice(-1).map((chromosome) => <DropdownItem key={chromosome} value={chromosome} onClick={this.onChromosomeChange}>{chromosome}</DropdownItem>)}
             </DropdownMenu>
           </ButtonDropdown>
         </FormGroup>
