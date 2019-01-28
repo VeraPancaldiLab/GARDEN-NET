@@ -3,8 +3,6 @@ import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormG
 
 interface IChromosomeProps {
   onChromosomeChange: (feature: string) => void;
-  onGeneChange: (gene: string) => void;
-  onRangeChange: (gene: string) => void;
   onTextChange: (gene: string) => void;
   chromosome: string;
 }
@@ -19,8 +17,6 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
   public onChromosomeChange = (event: React.MouseEvent<HTMLElement>) => {
     const selector = event.target as HTMLInputElement;
     this.props.onChromosomeChange(selector.value);
-    this.props.onGeneChange("Choose");
-    this.props.onRangeChange("Choose");
     this.props.onTextChange("");
   }
 

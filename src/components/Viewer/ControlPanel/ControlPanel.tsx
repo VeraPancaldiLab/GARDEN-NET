@@ -2,8 +2,6 @@ import * as React from "react";
 import { ChromosomesPanelContainer } from "./../../../containers/ChromosomesPanelContainer";
 import { DownloadButtonContainer } from "./../../../containers/DownloadButtonContainer";
 import { FeaturesPanelContainer } from "./../../../containers/FeaturesPanelContainer";
-import { GenesPanelContainer } from "./../../../containers/GenesPanelContainer";
-import { RangesPanelContainer } from "./../../../containers/RangesPanelContainer";
 
 export class ControlPanel extends React.Component<{}, {}> {
   public render() {
@@ -12,8 +10,6 @@ export class ControlPanel extends React.Component<{}, {}> {
         <h3 className="text-center" style={{visibility: "hidden"}}>Panel</h3>
         <div className="col">
           <ChromosomesPanelContainer />
-          <GenesPanelContainer />
-          <RangesPanelContainer />
           <FeaturesPanelContainer />
           <DownloadButtonContainer />
         </div>

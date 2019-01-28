@@ -9,8 +9,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private cache: Map<string, any> = new Map();
   private URL = {
     chromosome: this.BASE_URL + "chromosomes/chr",
-    gene: this.BASE_URL + "genes/",
-    range: this.BASE_URL + "ranges/",
     search: "http://127.0.0.1:5000/?features=true&search=",
   };
   private left_container_id = "left_container_id";
@@ -29,18 +27,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
     this.props.onDownloadChange(download);
   }
 
-  public genePath(gene: string): string {
-    return this.URL.gene + gene + ".json";
-  }
-
   public chromosomePath(chromosome: string): string {
     return this.URL.chromosome + chromosome + ".json";
   }
-
-  public rangePath(range: string): string {
-    return this.URL.range + range + ".json";
-  }
-
   public searchPath(search: string): string {
     return this.URL.search + search;
   }
@@ -179,44 +168,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
           console.log("clean right view");
           this.right_cy_network.elements().remove();
         }
-      }, 500);
-
-    } else if ((this.props.gene !== prevProps.gene) && this.props.gene !== "Choose") {
-      this.setState({ cytoscape_loading: true });
-      const url = this.genePath(this.props.gene);
-      const message = "Gene " + this.props.gene;
-      this.setState({ loading_message: message, left_title: message });
-
-      setTimeout(() => {
-        if (this.cache.has(this.props.gene)) {
-          const cy = this.cache.get(this.props.gene);
-          this.left_cy_network = this.buildNetwork(cy.elements().jsons(), this.left_container_id);
-        } else {
-          const cy_json_elements = this.fetchAsyncJson(url);
-          this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
-          this.cache.set(this.props.gene, this.left_cy_network);
-        }
-        // Clean right view
-        this.right_cy_network.elements().remove();
-      }, 500);
-
-    } else if ((this.props.range !== prevProps.range) && this.props.range !== "Choose") {
-      this.setState({ cytoscape_loading: true });
-      const url = this.rangePath(this.props.range);
-      const message = "Range" + this.props.range;
-      this.setState({ loading_message: message, left_title: message });
-
-      setTimeout(() => {
-        if (this.cache.has(this.props.range)) {
-          const cy = this.cache.get(this.props.range);
-          this.left_cy_network = this.buildNetwork(cy.elements().jsons(), this.left_container_id);
-        } else {
-          const cy_json_elements = this.fetchAsyncJson(url);
-          this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
-          this.cache.set(this.props.range, this.left_cy_network);
-        }
-        // Clean right view
-        this.right_cy_network.elements().remove();
       }, 500);
 
       // If search change, update right view and change to the searched node chromosome

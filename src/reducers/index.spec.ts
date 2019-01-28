@@ -1,4 +1,4 @@
-import { CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_GENE, CHANGED_RANGE, CHANGED_SEARCH, CHANGED_TEXT } from "../actions/index";
+import { CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_SEARCH, CHANGED_TEXT } from "../actions/index";
 import * as Reducer from "./index";
 
 describe("reducers", () => {
@@ -27,34 +27,6 @@ describe("reducers", () => {
 
     it("should ignore unknown actions", () => {
       expect(Reducer.features_reducer(Reducer.DEFAULT_FEATURE, { type: "unknown" })).toBe(Reducer.DEFAULT_FEATURE);
-    });
-  });
-
-  describe("genes_reducer", () => {
-    it("should provide the initial state", () => {
-      expect(Reducer.genes_reducer(undefined, {})).toBe(Reducer.DEFAULT_GENE);
-    });
-
-    it("should handle CHANGED_GENE action", () => {
-      expect(Reducer.genes_reducer(Reducer.DEFAULT_GENE, { type: CHANGED_GENE, gene: "Hoxa1" })).toBe("Hoxa1");
-    });
-
-    it("should ignore unknown actions", () => {
-      expect(Reducer.genes_reducer(Reducer.DEFAULT_GENE, { type: "unknown" })).toBe(Reducer.DEFAULT_GENE);
-    });
-  });
-
-  describe("ranges_reducer", () => {
-    it("should provide the initial state", () => {
-      expect(Reducer.ranges_reducer(undefined, {})).toBe(Reducer.DEFAULT_RANGE);
-    });
-
-    it("should handle CHANGED_RANGE action", () => {
-      expect(Reducer.ranges_reducer(Reducer.DEFAULT_RANGE, { type: CHANGED_RANGE, range: "6:52155590-52158317" })).toBe("6:52155590-52158317");
-    });
-
-    it("should ignore unknown actions", () => {
-      expect(Reducer.ranges_reducer(Reducer.DEFAULT_RANGE, { type: "unknown" })).toBe(Reducer.DEFAULT_RANGE);
     });
   });
 
