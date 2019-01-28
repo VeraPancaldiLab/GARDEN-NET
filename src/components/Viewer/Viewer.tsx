@@ -6,11 +6,11 @@ export class Viewer extends React.Component<{}, {}> {
   public render() {
     return (
       <div className="container-fluid">
-        <div className="row flex-column-reverse flex-md-row">
-          <div className="col-md-10">
+        <div className="row flex-column-reverse flex-lg-row">
+          <div className="col-lg-10" style={{ padding: "0px"}}>
             <CytoscapeManager />
           </div>
-          <div className="col-md-2">
+          <div className="col-lg-2" style={{ padding: "0px"}}>
             <ControlPanel />
           </div>
         </div>
