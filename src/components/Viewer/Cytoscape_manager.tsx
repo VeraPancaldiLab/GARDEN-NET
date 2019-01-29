@@ -72,7 +72,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             "text-halign": "center",
             "width": 35,
             "height": 35,
-            "border-color": "#ccc",
+            "border-color": "mapData(chr, 1, 21, blue, darkorange)",
             "border-width": 3,
           },
         },
@@ -140,6 +140,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.onDownloadChange(url);
       const cy_json_elements = this.fetchAsyncJson(url);
       this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
+      this.left_cy_network.on("layoutstop", (event: any) => {
+        event.cy.style()
+          .selector("node")
+          .style({
+            width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+            height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+          }).update();
+      });
       this.cache.set(this.props.chromosome, this.left_cy_network);
       this.right_cy_network = this.buildNetwork(undefined, this.right_container_id);
     }, 500);
@@ -163,9 +171,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
           this.cache.set(this.props.chromosome, this.left_cy_network);
         }
+        this.left_cy_network.on("layoutstop", (event: any) => {
+          event.cy.style()
+            .selector("node")
+            .style({
+              width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+              height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+            }).update();
+        });
         // Clean right view only if we select explictly a chromosome
         if (!this.props.search) {
-          console.log("clean right view");
           this.right_cy_network.elements().remove();
         }
       }, 500);
