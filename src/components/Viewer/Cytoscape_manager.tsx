@@ -64,15 +64,15 @@ export class Cytoscape_manager extends React.Component<any, any> {
         {
           selector: "node",
           style: {
-            "background-color": "mapData(" + this.props.feature + ", 0, 1, black, green)",
+            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
             "label": "data(curated_gene_name)",
-            "color": "gold",
+            "color": "black",
             "font-size": 9.5,
             "text-valign": "center",
             "text-halign": "center",
             "width": 35,
             "height": 35,
-            "border-color": "#ccc",
+            "border-color": "mapData(chr, 1, 21, blue, darkorange)",
             "border-width": 3,
           },
         },
@@ -140,6 +140,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.onDownloadChange(url);
       const cy_json_elements = this.fetchAsyncJson(url);
       this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
+      this.left_cy_network.on("layoutstop", (event: any) => {
+        event.cy.style()
+          .selector("node")
+          .style({
+            width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+            height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+          }).update();
+      });
       this.cache.set(this.props.chromosome, this.left_cy_network);
       this.right_cy_network = this.buildNetwork(undefined, this.right_container_id);
     }, 500);
@@ -163,9 +171,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
           this.cache.set(this.props.chromosome, this.left_cy_network);
         }
+        this.left_cy_network.on("layoutstop", (event: any) => {
+          event.cy.style()
+            .selector("node")
+            .style({
+              width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+              height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+            }).update();
+        });
         // Clean right view only if we select explictly a chromosome
         if (!this.props.search) {
-          console.log("clean right view");
           this.right_cy_network.elements().remove();
         }
       }, 500);
@@ -186,13 +201,46 @@ export class Cytoscape_manager extends React.Component<any, any> {
         if (this.cache.has(search)) {
           const cy = this.cache.get(search);
           this.right_cy_network = this.buildNetwork(cy.elements().jsons(), this.right_container_id);
+
+          // Define temporal min and max
+          let max = Math.max(this.right_cy_network.nodes().data("total_degree"));
+          let min = max;
+
+          this.right_cy_network.nodes().forEach((node: any) => {
+            const total_degree = node.data("total_degree");
+            if (max < total_degree) {
+              max = total_degree;
+            }
+            if (min > total_degree) {
+              min = total_degree;
+            }
+          });
+          console.log(min, max);
           this.right_cy_network.style()
             .selector("node")
             .style({
               "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "border-color": "mapData(chr, 1, 21, blue, darkorange)",
-              "border-width": (ele: any) => 3 + 0.5 * ele.data("total_degree"),
+              // normalize total_degree to 0-1 range but never 0
+              "border-opacity": (ele: any) => {
+                const opacity = (ele.data("total_degree") - min) / (max - min);
+                console.log(opacity);
+                if (opacity <= 0.3) {
+                  return 0.3;
+                } else {
+                  return opacity;
+                }
+              },
+              "background-opacity": (ele: any) => {
+                const opacity = (ele.data("total_degree") - min) / (max - min);
+                console.log(opacity);
+                if (opacity <= 0.3) {
+                  return 0.3;
+                } else {
+                  return opacity;
+                }
+              },
             }).update();
           this.right_cy_network.nodes().forEach((node: any) => {
             const node_id = node.data("chr") + "_" + node.data("start");
@@ -209,13 +257,45 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.right_cy_network = this.buildNetwork(cy_json_elements, this.right_container_id);
           this.cache.set(search, this.right_cy_network);
           this.right_cy_network.one("layoutstop", (event: any) => {
+            // Define temporal min and max
+            let max = Math.max(event.cy.nodes().data("total_degree"));
+            let min = max;
+
+            event.cy.nodes().forEach((node: any) => {
+              const total_degree = node.data("total_degree");
+              if (max < total_degree) {
+                max = total_degree;
+              }
+              if (min > total_degree) {
+                min = total_degree;
+              }
+            });
+
             event.cy.style()
               .selector("node")
               .style({
                 "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
                 "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
                 "border-color": "mapData(chr, 1, 21, blue, darkorange)",
-                "border-width": (ele: any) => 3 + 0.5 * ele.data("total_degree"),
+                // normalize total_degree to 0-1 range but never 0
+                "border-opacity": (ele: any) => {
+                  const opacity = (ele.data("total_degree") - min) / (max - min);
+                  console.log(opacity);
+                  if (opacity <= 0.3) {
+                    return 0.3;
+                  } else {
+                    return opacity;
+                  }
+                },
+                "background-opacity": (ele: any) => {
+                  const opacity = (ele.data("total_degree") - min) / (max - min);
+                  console.log(opacity);
+                  if (opacity <= 0.3) {
+                    return 0.3;
+                  } else {
+                    return opacity;
+                  }
+                },
               }).update();
             this.right_cy_network.nodes().forEach((node: any) => {
               const node_id = node.data("chr") + "_" + node.data("start");
@@ -236,14 +316,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.left_cy_network.style()
         .selector("node")
         .style({
-          "background-color": "mapData(" + this.props.feature + ", 0, 1, black, green)",
+          "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
         })
         .update();
       if (this.right_cy_network !== undefined) {
         this.right_cy_network.style()
           .selector("node")
           .style({
-            "background-color": "mapData(" + this.props.feature + ", 0, 1, black, green)",
+            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
           })
           .update();
 
