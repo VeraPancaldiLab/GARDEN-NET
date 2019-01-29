@@ -64,9 +64,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
         {
           selector: "node",
           style: {
-            "background-color": "mapData(" + this.props.feature + ", 0, 1, black, green)",
+            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
             "label": "data(curated_gene_name)",
-            "color": "gold",
+            "color": "black",
             "font-size": 9.5,
             "text-valign": "center",
             "text-halign": "center",
@@ -251,14 +251,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.left_cy_network.style()
         .selector("node")
         .style({
-          "background-color": "mapData(" + this.props.feature + ", 0, 1, black, green)",
+          "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
         })
         .update();
       if (this.right_cy_network !== undefined) {
         this.right_cy_network.style()
           .selector("node")
           .style({
-            "background-color": "mapData(" + this.props.feature + ", 0, 1, black, green)",
+            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
           })
           .update();
 
