@@ -16,6 +16,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private left_cy_network: any;
   private right_cy_network: any;
   private reuse_message: boolean;
+  private clean_right_view: boolean = true;
 
   constructor(props: any) {
     super(props);
@@ -138,6 +139,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.setState({ loading_message: message, left_title: message });
       const url = this.chromosomePath(this.props.chromosome);
       this.onDownloadChange(url);
+
+      this.clean_right_view = true
       const cy_json_elements = this.fetchAsyncJson(url);
       this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
       this.left_cy_network.on("layoutstop", (event: any) => {
@@ -155,7 +158,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
   public componentDidUpdate(prevProps: any) {
     // If chromosome change, update left view and delete right view
-    if ((this.props.chromosome !== prevProps.chromosome) && this.props.chromosome !== "Choose") {
+    if (this.props.chromosome !== prevProps.chromosome) {
       this.setState({ cytoscape_loading: true });
       const url = this.chromosomePath(this.props.chromosome);
       this.onDownloadChange(url);
@@ -180,14 +183,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
             }).update();
         });
         // Clean right view only if we select explictly a chromosome
-        if (!this.props.search) {
+        if (this.clean_right_view) {
           this.right_cy_network.elements().remove();
+          this.setState({right_title: 'Search view'})
+        } else {
+          this.clean_right_view = true
         }
       }, 500);
 
       // If search change, update right view and change to the searched node chromosome
     } else if ((this.props.search !== prevProps.search) && this.props.search !== "") {
       this.setState({ cytoscape_loading: true });
+      this.clean_right_view = false
       const search = this.props.search.toString().toLowerCase();
       const url = this.searchPath(search);
       if (!this.reuse_message) {
@@ -215,7 +222,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
               min = total_degree;
             }
           });
-          console.log(min, max);
           this.right_cy_network.style()
             .selector("node")
             .style({
@@ -225,7 +231,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
               // normalize total_degree to 0-1 range but never 0
               "border-opacity": (ele: any) => {
                 const opacity = (ele.data("total_degree") - min) / (max - min);
-                console.log(opacity);
                 if (opacity <= 0.3) {
                   return 0.3;
                 } else {
@@ -234,7 +239,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
               },
               "background-opacity": (ele: any) => {
                 const opacity = (ele.data("total_degree") - min) / (max - min);
-                console.log(opacity);
                 if (opacity <= 0.3) {
                   return 0.3;
                 } else {
@@ -280,7 +284,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
                 // normalize total_degree to 0-1 range but never 0
                 "border-opacity": (ele: any) => {
                   const opacity = (ele.data("total_degree") - min) / (max - min);
-                  console.log(opacity);
                   if (opacity <= 0.3) {
                     return 0.3;
                   } else {
@@ -289,7 +292,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
                 },
                 "background-opacity": (ele: any) => {
                   const opacity = (ele.data("total_degree") - min) / (max - min);
-                  console.log(opacity);
                   if (opacity <= 0.3) {
                     return 0.3;
                   } else {
