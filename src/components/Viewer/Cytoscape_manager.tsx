@@ -21,7 +21,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.reuse_message = false;
-    this.state = { cytoscape_loading: true, loading_message: "", left_network: undefined, right_network: undefined, left_title: "", right_title: "" };
+    this.state = { cytoscape_loading: true, loading_message: "",
+      left_network: undefined, right_network: undefined, left_title: "",
+      right_title: "" , show_tooltip: false,  tooltip_text: "",
+      tooltip_x: 0,  tooltip_y: 0};
   }
 
   public onDownloadChange = (download: string) => {
@@ -127,6 +130,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.reuse_message = true;
       this.setState({ loading_message: message });
       this.props.onSearchChange(node_internal_id);
+    });
+    cy.on("mouseover", "node", (event: any) => {
+      const node = event.target;
+      const node_id = node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
+      const x = event.originalEvent.clientX
+      const y = event.originalEvent.clientY
+      this.setState({show_tooltip: true, tooltip_text: node_id,  tooltip_x: x+15,  tooltip_y: y-10})
+    });
+    cy.on("mouseout", "node", () => {
+      this.setState({show_tooltip: false})
     });
     return cy;
   }
@@ -352,6 +365,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           <h3 className="text-center">{this.state.right_title ? this.state.right_title : "Search view"}</h3>
           <Cytoscape_container cytoscape_container_id={this.right_container_id} />
         </div>
+        <div style={{ display: this.state.show_tooltip ? 'block' : 'none',  left: this.state.tooltip_x, top: this.state.tooltip_y, position: "fixed",  border: '#aaa', borderRadius: '5px',  borderStyle: 'solid',  borderWidth: '2px',  backgroundColor: 'white' }} >{this.state.tooltip_text}</div>
       </div>
     );
   }
