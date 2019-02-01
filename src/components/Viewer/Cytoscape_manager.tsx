@@ -21,10 +21,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.reuse_message = false;
-    this.state = { cytoscape_loading: true, loading_message: "",
+    this.state = {
+      cytoscape_loading: true, loading_message: "",
       left_network: undefined, right_network: undefined, left_title: "",
-      right_title: "" , show_tooltip: false,  tooltip_text: "",
-      tooltip_x: 0,  tooltip_y: 0};
+      right_title: "", show_tooltip: false, tooltip_text: "",
+      tooltip_x: 0, tooltip_y: 0
+    };
   }
 
   public onDownloadChange = (download: string) => {
@@ -134,12 +136,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
     cy.on("mouseover", "node", (event: any) => {
       const node = event.target;
       const node_id = node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
-      const x = event.originalEvent.clientX
-      const y = event.originalEvent.clientY
-      this.setState({show_tooltip: true, tooltip_text: node_id,  tooltip_x: x+15,  tooltip_y: y-10})
+      const x = event.originalEvent.clientX;
+      const y = event.originalEvent.clientY;
+      this.setState({ show_tooltip: true, tooltip_text: node_id, tooltip_x: x + 15, tooltip_y: y - 10 });
     });
     cy.on("mouseout", "node", () => {
-      this.setState({show_tooltip: false})
+      this.setState({ show_tooltip: false });
     });
     return cy;
   }
@@ -153,7 +155,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const url = this.chromosomePath(this.props.chromosome);
       this.onDownloadChange(url);
 
-      this.clean_right_view = true
+      this.clean_right_view = true;
       const cy_json_elements = this.fetchAsyncJson(url);
       this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
       this.left_cy_network.on("layoutstop", (event: any) => {
@@ -198,16 +200,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
         // Clean right view only if we select explictly a chromosome
         if (this.clean_right_view) {
           this.right_cy_network.elements().remove();
-          this.setState({right_title: 'Search view'})
+          this.setState({ right_title: "Search view" });
         } else {
-          this.clean_right_view = true
+          this.clean_right_view = true;
         }
       }, 500);
 
       // If search change, update right view and change to the searched node chromosome
     } else if ((this.props.search !== prevProps.search) && this.props.search !== "") {
       this.setState({ cytoscape_loading: true });
-      this.clean_right_view = false
+      this.clean_right_view = false;
       const search = this.props.search.toString().toLowerCase();
       const url = this.searchPath(search);
       if (!this.reuse_message) {
@@ -357,15 +359,15 @@ export class Cytoscape_manager extends React.Component<any, any> {
             <div className="spinner"></div>
           </ModalBody>
         </Modal>
-        <div className="col-sm-6" style={{padding: "0px",  paddingLeft: "10px"}}>
+        <div className="col-sm-6" style={{ padding: "0px", paddingLeft: "10px" }}>
           <h3 className="text-center">{this.state.left_title ? this.state.left_title : "Chromosome " + this.props.chromosome}</h3>
           <Cytoscape_container cytoscape_container_id={this.left_container_id} />
         </div>
-        <div className="col-sm-6" style={{padding: "0px"}}>
+        <div className="col-sm-6" style={{ padding: "0px" }}>
           <h3 className="text-center">{this.state.right_title ? this.state.right_title : "Search view"}</h3>
           <Cytoscape_container cytoscape_container_id={this.right_container_id} />
         </div>
-        <div style={{ display: this.state.show_tooltip ? 'block' : 'none',  left: this.state.tooltip_x, top: this.state.tooltip_y, position: "fixed",  border: '#aaa', borderRadius: '5px',  borderStyle: 'solid',  borderWidth: '2px',  backgroundColor: 'white' }} >{this.state.tooltip_text}</div>
+        <div style={{ display: this.state.show_tooltip ? "block" : "none", left: this.state.tooltip_x, top: this.state.tooltip_y, position: "fixed", border: "#aaa", borderRadius: "5px", borderStyle: "solid", borderWidth: "2px", backgroundColor: "white" }} >{this.state.tooltip_text}</div>
       </div>
     );
   }
