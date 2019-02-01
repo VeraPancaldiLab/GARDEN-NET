@@ -174,7 +174,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   public componentDidUpdate(prevProps: any) {
     // If chromosome change, update left view and delete right view
     if (this.props.chromosome !== prevProps.chromosome) {
-      this.setState({ cytoscape_loading: true });
+      this.setState({ cytoscape_loading: true, show_tooltip: false });
       const url = this.chromosomePath(this.props.chromosome);
       this.onDownloadChange(url);
       const message = "Chromosome " + this.props.chromosome;
@@ -208,7 +208,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
       // If search change, update right view and change to the searched node chromosome
     } else if ((this.props.search !== prevProps.search) && this.props.search !== "") {
-      this.setState({ cytoscape_loading: true });
+      this.setState({ cytoscape_loading: true,  show_tooltip: false });
       this.clean_right_view = false;
       const search = this.props.search.toString().toLowerCase();
       const url = this.searchPath(search);
