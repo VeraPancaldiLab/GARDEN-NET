@@ -25,7 +25,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       cytoscape_loading: true, loading_message: "",
       left_network: undefined, right_network: undefined, left_title: "",
       right_title: "", show_tooltip: false, tooltip_text: "",
-      tooltip_x: 0, tooltip_y: 0
+      tooltip_x: 0, tooltip_y: 0,
     };
   }
 
@@ -208,7 +208,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
       // If search change, update right view and change to the searched node chromosome
     } else if ((this.props.search !== prevProps.search) && this.props.search !== "") {
-      this.setState({ cytoscape_loading: true,  show_tooltip: false });
+      this.setState({ cytoscape_loading: true, show_tooltip: false });
       this.clean_right_view = false;
       const search = this.props.search.toString().toLowerCase();
       const url = this.searchPath(search);
