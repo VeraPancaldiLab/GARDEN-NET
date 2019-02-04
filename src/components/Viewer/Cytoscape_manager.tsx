@@ -17,6 +17,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private right_cy_network: any;
   private reuse_message: boolean;
   private clean_right_view: boolean = true;
+  private old_neighbourhood: any;
 
   constructor(props: any) {
     super(props);
@@ -203,6 +204,15 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.setState({ right_title: "Search view" });
         } else {
           this.clean_right_view = true;
+          this.left_cy_network.on("layoutstop", (event: any) => {
+            const left_node = event.cy.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
+            const neighbourhood = left_node.neighbourhood();
+            event.cy.fit(neighbourhood);
+            neighbourhood.style({
+              "line-color": "gold",
+            });
+            this.old_neighbourhood = neighbourhood;
+          });
         }
       }, 500);
 
@@ -224,11 +234,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
           const cy = this.cache.get(search);
           this.right_cy_network = this.buildNetwork(cy.elements().jsons(), this.right_container_id);
 
+        } else {
+          const cy_json_elements = this.fetchAsyncJson(url);
+          this.right_cy_network = this.buildNetwork(cy_json_elements, this.right_container_id);
+          this.cache.set(search, this.right_cy_network);
+        }
+
+        this.right_cy_network.one("layoutstop", (event: any) => {
           // Define temporal min and max
-          let max = Math.max(this.right_cy_network.nodes().data("total_degree"));
+          let max = Math.max(event.cy.nodes().data("total_degree"));
           let min = max;
 
-          this.right_cy_network.nodes().forEach((node: any) => {
+          event.cy.nodes().forEach((node: any) => {
             const total_degree = node.data("total_degree");
             if (max < total_degree) {
               max = total_degree;
@@ -237,113 +254,63 @@ export class Cytoscape_manager extends React.Component<any, any> {
               min = total_degree;
             }
           });
-          this.right_cy_network.style()
+
+          const opacityStyle = (ele: any) => {
+            const opacity = (ele.data("total_degree") - min) / (max - min);
+            if (opacity <= 0.3) {
+              return 0.3;
+            } else {
+              return opacity;
+            }
+          };
+
+          event.cy.style()
             .selector("node")
             .style({
               "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "border-color": "mapData(chr, 1, 21, blue, darkorange)",
               // normalize total_degree to 0-1 range but never 0
-              "border-opacity": (ele: any) => {
-                const opacity = (ele.data("total_degree") - min) / (max - min);
-                if (opacity <= 0.3) {
-                  return 0.3;
-                } else {
-                  return opacity;
-                }
-              },
-              "background-opacity": (ele: any) => {
-                const opacity = (ele.data("total_degree") - min) / (max - min);
-                if (opacity <= 0.3) {
-                  return 0.3;
-                } else {
-                  return opacity;
-                }
-              },
+              "border-opacity": opacityStyle,
+              "background-opacity": opacityStyle,
             }).update();
-          this.right_cy_network.nodes().forEach((node: any) => {
-            const node_id = node.data("chr") + "_" + node.data("start");
-            const search_id = search.split("-")[0].replace(":", "_");
-            if (node.data("curated_gene_name") === search || node_id === search_id) {
-              const searched_chromosome = node.data("chr");
-              this.props.onChromosomeChange(searched_chromosome);
-              return;
-            }
-          });
-
-        } else {
-          const cy_json_elements = this.fetchAsyncJson(url);
-          this.right_cy_network = this.buildNetwork(cy_json_elements, this.right_container_id);
-          this.cache.set(search, this.right_cy_network);
-          this.right_cy_network.one("layoutstop", (event: any) => {
-            // Define temporal min and max
-            let max = Math.max(event.cy.nodes().data("total_degree"));
-            let min = max;
-
-            event.cy.nodes().forEach((node: any) => {
-              const total_degree = node.data("total_degree");
-              if (max < total_degree) {
-                max = total_degree;
-              }
-              if (min > total_degree) {
-                min = total_degree;
-              }
+          const right_node = this.right_cy_network.nodes().filter((node: any) => this.checkNode(node, search))[0];
+          const searched_chromosome = right_node.data("chr");
+          // Force color the neighbourhood when the chromosome is the same
+          if (this.props.chromosome === searched_chromosome) {
+            const left_node = this.left_cy_network.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
+            const neighbourhood = left_node.neighbourhood();
+            this.left_cy_network.fit(neighbourhood);
+            // Clean neighbourhood first
+            this.old_neighbourhood.style({
+              "line-color": "#ccc",
             });
-
-            event.cy.style()
-              .selector("node")
-              .style({
-                "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
-                "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
-                "border-color": "mapData(chr, 1, 21, blue, darkorange)",
-                // normalize total_degree to 0-1 range but never 0
-                "border-opacity": (ele: any) => {
-                  const opacity = (ele.data("total_degree") - min) / (max - min);
-                  if (opacity <= 0.3) {
-                    return 0.3;
-                  } else {
-                    return opacity;
-                  }
-                },
-                "background-opacity": (ele: any) => {
-                  const opacity = (ele.data("total_degree") - min) / (max - min);
-                  if (opacity <= 0.3) {
-                    return 0.3;
-                  } else {
-                    return opacity;
-                  }
-                },
-              }).update();
-            this.right_cy_network.nodes().forEach((node: any) => {
-              const node_id = node.data("chr") + "_" + node.data("start");
-              const search_id = search.split("-")[0].replace(":", "_");
-              if (node.data("curated_gene_name") === search || node_id === search_id) {
-                const searched_chromosome = node.data("chr");
-                this.props.onChromosomeChange(searched_chromosome);
-                return;
-              }
+            neighbourhood.style({
+              "line-color": "gold",
             });
-          });
-        }
+            this.old_neighbourhood = neighbourhood;
+          } else {
+            this.props.onChromosomeChange(searched_chromosome);
+          }
+        });
       }, 500);
 
     } else if ((this.props.feature !== prevProps.feature) && this.props.feature !== "") {
       this.setState({ cytoscape_loading: false });
-      // If feature change update both views
-      this.left_cy_network.style()
-        .selector("node")
-        .style({
-          "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
-        })
-        .update();
-      if (this.right_cy_network !== undefined) {
-        this.right_cy_network.style()
+
+      const updateFeatures = (cy_network: any) => {
+        cy_network.style()
           .selector("node")
           .style({
             "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
           })
           .update();
+      };
+      // If feature change update both views
+      updateFeatures(this.left_cy_network);
 
+      if (this.right_cy_network !== undefined) {
+        updateFeatures(this.right_cy_network);
       }
     }
   }
@@ -370,5 +337,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
         <div style={{ display: this.state.show_tooltip ? "block" : "none", left: this.state.tooltip_x, top: this.state.tooltip_y, position: "fixed", border: "#aaa", borderRadius: "5px", borderStyle: "solid", borderWidth: "2px", backgroundColor: "white" }} >{this.state.tooltip_text}</div>
       </div>
     );
+  }
+
+  private checkNode = (node: any, search: string) => {
+    const node_id = node.data("chr") + "_" + node.data("start");
+    const search_id = search.split("-")[0].replace(":", "_");
+    if (node.data("curated_gene_name") === search || node_id === search_id) {
+      return node;
+    }
+    return null;
   }
 }
