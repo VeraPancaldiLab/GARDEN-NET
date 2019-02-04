@@ -224,11 +224,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
           const cy = this.cache.get(search);
           this.right_cy_network = this.buildNetwork(cy.elements().jsons(), this.right_container_id);
 
+        } else {
+          const cy_json_elements = this.fetchAsyncJson(url);
+          this.right_cy_network = this.buildNetwork(cy_json_elements, this.right_container_id);
+          this.cache.set(search, this.right_cy_network);
+        }
+
+        this.right_cy_network.one("layoutstop", (event: any) => {
           // Define temporal min and max
-          let max = Math.max(this.right_cy_network.nodes().data("total_degree"));
+          let max = Math.max(event.cy.nodes().data("total_degree"));
           let min = max;
 
-          this.right_cy_network.nodes().forEach((node: any) => {
+          event.cy.nodes().forEach((node: any) => {
             const total_degree = node.data("total_degree");
             if (max < total_degree) {
               max = total_degree;
@@ -237,29 +244,25 @@ export class Cytoscape_manager extends React.Component<any, any> {
               min = total_degree;
             }
           });
-          this.right_cy_network.style()
+
+          const opacityStyle = (ele: any) => {
+            const opacity = (ele.data("total_degree") - min) / (max - min);
+            if (opacity <= 0.3) {
+              return 0.3;
+            } else {
+              return opacity;
+            }
+          };
+
+          event.cy.style()
             .selector("node")
             .style({
               "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "border-color": "mapData(chr, 1, 21, blue, darkorange)",
               // normalize total_degree to 0-1 range but never 0
-              "border-opacity": (ele: any) => {
-                const opacity = (ele.data("total_degree") - min) / (max - min);
-                if (opacity <= 0.3) {
-                  return 0.3;
-                } else {
-                  return opacity;
-                }
-              },
-              "background-opacity": (ele: any) => {
-                const opacity = (ele.data("total_degree") - min) / (max - min);
-                if (opacity <= 0.3) {
-                  return 0.3;
-                } else {
-                  return opacity;
-                }
-              },
+              "border-opacity": opacityStyle,
+              "background-opacity": opacityStyle,
             }).update();
           this.right_cy_network.nodes().forEach((node: any) => {
             const node_id = node.data("chr") + "_" + node.data("start");
@@ -270,80 +273,25 @@ export class Cytoscape_manager extends React.Component<any, any> {
               return;
             }
           });
-
-        } else {
-          const cy_json_elements = this.fetchAsyncJson(url);
-          this.right_cy_network = this.buildNetwork(cy_json_elements, this.right_container_id);
-          this.cache.set(search, this.right_cy_network);
-          this.right_cy_network.one("layoutstop", (event: any) => {
-            // Define temporal min and max
-            let max = Math.max(event.cy.nodes().data("total_degree"));
-            let min = max;
-
-            event.cy.nodes().forEach((node: any) => {
-              const total_degree = node.data("total_degree");
-              if (max < total_degree) {
-                max = total_degree;
-              }
-              if (min > total_degree) {
-                min = total_degree;
-              }
-            });
-
-            event.cy.style()
-              .selector("node")
-              .style({
-                "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
-                "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
-                "border-color": "mapData(chr, 1, 21, blue, darkorange)",
-                // normalize total_degree to 0-1 range but never 0
-                "border-opacity": (ele: any) => {
-                  const opacity = (ele.data("total_degree") - min) / (max - min);
-                  if (opacity <= 0.3) {
-                    return 0.3;
-                  } else {
-                    return opacity;
-                  }
-                },
-                "background-opacity": (ele: any) => {
-                  const opacity = (ele.data("total_degree") - min) / (max - min);
-                  if (opacity <= 0.3) {
-                    return 0.3;
-                  } else {
-                    return opacity;
-                  }
-                },
-              }).update();
-            this.right_cy_network.nodes().forEach((node: any) => {
-              const node_id = node.data("chr") + "_" + node.data("start");
-              const search_id = search.split("-")[0].replace(":", "_");
-              if (node.data("curated_gene_name") === search || node_id === search_id) {
-                const searched_chromosome = node.data("chr");
-                this.props.onChromosomeChange(searched_chromosome);
-                return;
-              }
-            });
-          });
-        }
+        });
       }, 500);
 
     } else if ((this.props.feature !== prevProps.feature) && this.props.feature !== "") {
       this.setState({ cytoscape_loading: false });
-      // If feature change update both views
-      this.left_cy_network.style()
-        .selector("node")
-        .style({
-          "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
-        })
-        .update();
-      if (this.right_cy_network !== undefined) {
-        this.right_cy_network.style()
+
+      const updateFeatures = (cy_network: any) => {
+        cy_network.style()
           .selector("node")
           .style({
             "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
           })
           .update();
+      };
+      // If feature change update both views
+      updateFeatures(this.left_cy_network);
 
+      if (this.right_cy_network !== undefined) {
+        updateFeatures(this.right_cy_network);
       }
     }
   }
