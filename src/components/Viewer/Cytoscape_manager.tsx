@@ -18,6 +18,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private reuse_message: boolean;
   private clean_right_view: boolean = true;
   private old_neighbourhood: any;
+  private chromosome_color: any = { 1: "#0000ff", 2: "#4906f4", 3: "#650eea", 4: "#7a16df", 5: "#8a1ed5", 6: "#9826ca", 7: "#a32dc0", 8: "#ae34b6", 9: "#b83bab", 10: "#c042a1", 11: "#c84996", 12: "#cf508c", 13: "#d55781", 14: "#dc5e76", 15: "#e1646b", 16: "#e76a60", 17: "#ed7153", 18: "#f27846", 19: "#f67f38", X: "#fb8624", Y: "#ff8c00" };
 
   constructor(props: any) {
     super(props);
@@ -79,7 +80,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             "text-halign": "center",
             "width": 35,
             "height": 35,
-            "border-color": "mapData(chr, 1, 21, blue, darkorange)",
+            "border-color": this.chromosome_color[this.props.chromosome],
             "border-width": 3,
           },
         },
@@ -206,13 +207,19 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.clean_right_view = true;
           this.left_cy_network.on("layoutstop", (event: any) => {
             const left_node = event.cy.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
-            const neighbourhood = left_node.closedNeighbourhood();
-            event.cy.fit(neighbourhood);
-            neighbourhood.style({
-              "line-color": "gold",
-              "border-color": "gold"
-            });
-            this.old_neighbourhood = neighbourhood;
+            if (left_node) {
+              const neighbourhood = left_node.closedNeighbourhood();
+              event.cy.fit(neighbourhood);
+              neighbourhood.style({
+                "line-color": "gold",
+                "border-color": "gold",
+              });
+              this.old_neighbourhood = neighbourhood;
+            } else {
+              this.right_cy_network.elements().remove();
+              this.setState({ right_title: "Search view" });
+              this.clean_right_view = true;
+            }
           });
         }
       }, 500);
@@ -270,7 +277,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             .style({
               "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
               "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
-              "border-color": "mapData(chr, 1, 21, blue, darkorange)",
+              "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
               // normalize total_degree to 0-1 range but never 0
               "border-opacity": opacityStyle,
               "background-opacity": opacityStyle,
@@ -283,10 +290,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
             const neighbourhood = left_node.closedNeighbourhood();
             this.left_cy_network.fit(neighbourhood);
             // Clean neighbourhood first
-            this.old_neighbourhood.style({
-              "line-color": "#ccc",
-              "border-color": "#ccc",
-            });
+            if (this.old_neighbourhood) {
+              this.old_neighbourhood.style({
+                "line-color": "#ccc",
+                "border-color": this.chromosome_color[this.props.chromosome],
+              });
+            }
             neighbourhood.style({
               "line-color": "gold",
               "border-color": "gold",
@@ -345,7 +354,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private checkNode = (node: any, search: string) => {
     const node_id = node.data("chr") + "_" + node.data("start");
     const search_id = search.split("-")[0].replace(":", "_");
-    if (node.data("curated_gene_name") === search || node_id === search_id) {
+    if (node.data("curated_gene_name") === search || node_id.toLowerCase().startsWith(search_id)) {
       return node;
     }
     return null;
