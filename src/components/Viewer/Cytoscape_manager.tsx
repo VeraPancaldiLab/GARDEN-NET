@@ -206,10 +206,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.clean_right_view = true;
           this.left_cy_network.on("layoutstop", (event: any) => {
             const left_node = event.cy.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
-            const neighbourhood = left_node.neighbourhood();
+            const neighbourhood = left_node.closedNeighbourhood();
             event.cy.fit(neighbourhood);
             neighbourhood.style({
               "line-color": "gold",
+              "border-color": "gold"
             });
             this.old_neighbourhood = neighbourhood;
           });
@@ -279,14 +280,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
           // Force color the neighbourhood when the chromosome is the same
           if (this.props.chromosome === searched_chromosome) {
             const left_node = this.left_cy_network.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
-            const neighbourhood = left_node.neighbourhood();
+            const neighbourhood = left_node.closedNeighbourhood();
             this.left_cy_network.fit(neighbourhood);
             // Clean neighbourhood first
             this.old_neighbourhood.style({
               "line-color": "#ccc",
+              "border-color": "#ccc",
             });
             neighbourhood.style({
               "line-color": "gold",
+              "border-color": "gold",
             });
             this.old_neighbourhood = neighbourhood;
           } else {
