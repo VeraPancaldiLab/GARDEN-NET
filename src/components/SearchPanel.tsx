@@ -35,7 +35,7 @@ export class SearchPanel extends React.Component<any, any> {
   public onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input_text = e.target.value;
     if (input_text.length !== 0) {
-      this.setState({ filtered_suggestions: this.suggestions.filter((suggestion: string) => suggestion.startsWith(input_text)) });
+      this.setState({ filtered_suggestions: this.suggestions.filter((suggestion: string) => suggestion.toLowerCase().startsWith(input_text.toLowerCase())) });
     }
     this.props.onTextChange(e.target.value);
   }
