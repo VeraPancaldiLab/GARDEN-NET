@@ -181,24 +181,27 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.onDownloadChange(url);
       const message = "Chromosome " + this.props.chromosome;
       this.setState({ loading_message: message, left_title: message });
-
+      const updateStyle = (cy: any) => {
+        cy.style()
+          .selector("node")
+          .style({
+            width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+            height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+          }).update();
+      };
       setTimeout(() => {
         if (this.cache.has(this.props.chromosome)) {
           const cy = this.cache.get(this.props.chromosome);
           this.left_cy_network = this.buildNetwork(cy.elements().jsons(), this.left_container_id);
+          updateStyle(this.left_cy_network);
         } else {
           const cy_json_elements = this.fetchAsyncJson(url);
           this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
           this.cache.set(this.props.chromosome, this.left_cy_network);
+          this.left_cy_network.on("layoutstop", (event: any) => {
+            updateStyle(event.cy);
+          });
         }
-        this.left_cy_network.on("layoutstop", (event: any) => {
-          event.cy.style()
-            .selector("node")
-            .style({
-              width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
-              height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
-            }).update();
-        });
         // Clean right view only if we select explictly a chromosome
         if (this.clean_right_view) {
           this.right_cy_network.elements().remove();
