@@ -181,7 +181,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.onDownloadChange(url);
       const message = "Chromosome " + this.props.chromosome;
       this.setState({ loading_message: message, left_title: message });
-      const updateStyle = (cy: any) => {
+      const updateChromosomeStyle = (cy: any) => {
         cy.style()
           .selector("node")
           .style({
@@ -189,17 +189,35 @@ export class Cytoscape_manager extends React.Component<any, any> {
             height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
           }).update();
       };
+      const updateNeighbourhood = (cy: any) => {
+        const left_node = cy.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
+        if (left_node) {
+          const neighbourhood = left_node.closedNeighbourhood();
+          cy.fit(neighbourhood);
+          neighbourhood.style({
+            "line-color": "gold",
+            "border-color": "gold",
+          });
+          this.old_neighbourhood = neighbourhood;
+        } else {
+          this.right_cy_network.elements().remove();
+          this.setState({ right_title: "Search view" });
+          this.clean_right_view = true;
+        }
+      };
       setTimeout(() => {
         if (this.cache.has(this.props.chromosome)) {
           const cy = this.cache.get(this.props.chromosome);
           this.left_cy_network = this.buildNetwork(cy.elements().jsons(), this.left_container_id);
-          updateStyle(this.left_cy_network);
+          updateChromosomeStyle(this.left_cy_network);
+          updateNeighbourhood(this.left_cy_network);
         } else {
           const cy_json_elements = this.fetchAsyncJson(url);
           this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
           this.cache.set(this.props.chromosome, this.left_cy_network);
           this.left_cy_network.on("layoutstop", (event: any) => {
-            updateStyle(event.cy);
+            updateChromosomeStyle(event.cy);
+            updateNeighbourhood(event.cy);
           });
         }
         // Clean right view only if we select explictly a chromosome
@@ -208,23 +226,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.setState({ right_title: "Search view" });
         } else {
           this.clean_right_view = true;
-          this.left_cy_network.on("layoutstop", (event: any) => {
-            const left_node = event.cy.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
-            if (left_node) {
-              const neighbourhood = left_node.closedNeighbourhood();
-              event.cy.fit(neighbourhood);
-              neighbourhood.style({
-                "line-color": "gold",
-                "border-color": "gold",
-              });
-              this.old_neighbourhood = neighbourhood;
-            } else {
-              this.right_cy_network.elements().remove();
-              this.setState({ right_title: "Search view" });
-              this.clean_right_view = true;
-            }
-          });
         }
+
       }, 500);
 
       // If search change, update right view and change to the searched node chromosome
@@ -239,75 +242,79 @@ export class Cytoscape_manager extends React.Component<any, any> {
       } else {
         this.reuse_message = false;
       }
+      const updateSearchStyle = (cy: any) => {
+        // Define temporal min and max
+        let max = Math.max(cy.nodes().data("total_degree"));
+        let min = max;
+
+        cy.nodes().forEach((node: any) => {
+          const total_degree = node.data("total_degree");
+          if (max < total_degree) {
+            max = total_degree;
+          }
+          if (min > total_degree) {
+            min = total_degree;
+          }
+        });
+
+        const opacityStyle = (ele: any) => {
+          const opacity = (ele.data("total_degree") - min) / (max - min);
+          if (opacity <= 0.3) {
+            return 0.3;
+          } else {
+            return opacity;
+          }
+        };
+
+        cy.style()
+          .selector("node")
+          .style({
+            "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
+            "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
+            "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
+            // normalize total_degree to 0-1 range but never 0
+            "border-opacity": opacityStyle,
+            "background-opacity": opacityStyle,
+          }).update();
+        const right_node = this.right_cy_network.nodes().filter((node: any) => this.checkNode(node, search))[0];
+        const searched_chromosome = right_node.data("chr");
+        // Force color the neighbourhood when the chromosome is the same
+        if (this.props.chromosome === searched_chromosome) {
+          const left_node = this.left_cy_network.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
+          const neighbourhood = left_node.closedNeighbourhood();
+          this.left_cy_network.fit(neighbourhood);
+          // Clean neighbourhood first
+          if (this.old_neighbourhood) {
+            this.old_neighbourhood.style({
+              "line-color": "#ccc",
+              "border-color": this.chromosome_color[this.props.chromosome],
+            });
+          }
+          neighbourhood.style({
+            "line-color": "gold",
+            "border-color": "gold",
+          });
+          this.old_neighbourhood = neighbourhood;
+        } else {
+          this.props.onChromosomeChange(searched_chromosome);
+        }
+      };
 
       setTimeout(() => {
         if (this.cache.has(search)) {
           const cy = this.cache.get(search);
           this.right_cy_network = this.buildNetwork(cy.elements().jsons(), this.right_container_id);
+          updateSearchStyle(this.right_cy_network);
 
         } else {
           const cy_json_elements = this.fetchAsyncJson(url);
           this.right_cy_network = this.buildNetwork(cy_json_elements, this.right_container_id);
           this.cache.set(search, this.right_cy_network);
+          this.right_cy_network.one("layoutstop", (event: any) => {
+            updateSearchStyle(event.cy);
+          });
         }
 
-        this.right_cy_network.one("layoutstop", (event: any) => {
-          // Define temporal min and max
-          let max = Math.max(event.cy.nodes().data("total_degree"));
-          let min = max;
-
-          event.cy.nodes().forEach((node: any) => {
-            const total_degree = node.data("total_degree");
-            if (max < total_degree) {
-              max = total_degree;
-            }
-            if (min > total_degree) {
-              min = total_degree;
-            }
-          });
-
-          const opacityStyle = (ele: any) => {
-            const opacity = (ele.data("total_degree") - min) / (max - min);
-            if (opacity <= 0.3) {
-              return 0.3;
-            } else {
-              return opacity;
-            }
-          };
-
-          event.cy.style()
-            .selector("node")
-            .style({
-              "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
-              "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
-              "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
-              // normalize total_degree to 0-1 range but never 0
-              "border-opacity": opacityStyle,
-              "background-opacity": opacityStyle,
-            }).update();
-          const right_node = this.right_cy_network.nodes().filter((node: any) => this.checkNode(node, search))[0];
-          const searched_chromosome = right_node.data("chr");
-          // Force color the neighbourhood when the chromosome is the same
-          if (this.props.chromosome === searched_chromosome) {
-            const left_node = this.left_cy_network.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
-            const neighbourhood = left_node.closedNeighbourhood();
-            this.left_cy_network.fit(neighbourhood);
-            // Clean neighbourhood first
-            if (this.old_neighbourhood) {
-              this.old_neighbourhood.style({
-                "line-color": "#ccc",
-                "border-color": this.chromosome_color[this.props.chromosome],
-              });
-            }
-            neighbourhood.style({
-              "line-color": "gold",
-              "border-color": "gold",
-            });
-            this.old_neighbourhood = neighbourhood;
-          } else {
-            this.props.onChromosomeChange(searched_chromosome);
-          }
-        });
       }, 500);
 
     } else if ((this.props.feature !== prevProps.feature) && this.props.feature !== "") {
