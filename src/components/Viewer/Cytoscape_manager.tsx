@@ -277,6 +277,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
             "background-opacity": opacityStyle,
           }).update();
         const right_node = this.right_cy_network.nodes().filter((node: any) => this.checkNode(node, search))[0];
+
+        if (!right_node) {
+          // This node searcherd is not found so exit inmmediately without crash
+          return
+        }
+
         const searched_chromosome = right_node.data("chr");
         // Force color the neighbourhood when the chromosome is the same
         if (this.props.chromosome === searched_chromosome) {
