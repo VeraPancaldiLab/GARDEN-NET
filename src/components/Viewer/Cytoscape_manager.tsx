@@ -247,7 +247,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
         let max = cy.nodes().max((node: any) => node.data("total_degree")).value;
 
         const opacityStyle = (ele: any) => {
-          const opacity = (ele.data("total_degree") - min) / (max - min);
+          let opacity = (ele.data("total_degree") - min) / (max - min);
+
+          if (isNaN(opacity)) {
+            opacity = 0
+          }
+
           if (opacity <= 0.3) {
             return 0.3;
           } else {
@@ -268,7 +273,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         const right_node = this.right_cy_network.nodes().filter((node: any) => this.checkNode(node, search))[0];
 
         if (!right_node) {
-          // This node searcherd is not found so exit inmmediately without crash
+          // This node searched is not found so exit inmmediately without crash
           return
         }
 
