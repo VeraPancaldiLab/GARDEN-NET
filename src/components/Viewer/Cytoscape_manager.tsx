@@ -18,7 +18,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private reuse_message: boolean;
   private clean_right_view: boolean = true;
   private old_neighbourhood: any;
-  private chromosome_color: any = { 1: "#0000ff", 2: "#4906f4", 3: "#650eea", 4: "#7a16df", 5: "#8a1ed5", 6: "#9826ca", 7: "#a32dc0", 8: "#ae34b6", 9: "#b83bab", 10: "#c042a1", 11: "#c84996", 12: "#cf508c", 13: "#d55781", 14: "#dc5e76", 15: "#e1646b", 16: "#e76a60", 17: "#ed7153", 18: "#f27846", 19: "#f67f38", X: "#fb8624", Y: "#ff8c00" };
+  private chromosome_color: any = { "1": "#0000ff", "2": "#4906f4", "3": "#650eea", "4": "#7a16df", "5": "#8a1ed5", "6": "#9826ca", "7": "#a32dc0", "8": "#ae34b6", "9": "#b83bab", "10": "#c042a1", "11": "#c84996", "12": "#cf508c", "13": "#d55781", "14": "#dc5e76", "15": "#e1646b", "16": "#e76a60", "17": "#ed7153", "18": "#f27846", "19": "#f67f38", "X": "#fb8624", "Y": "#ff8c00",  "MT": "#000000" };
 
   constructor(props: any) {
     super(props);
@@ -80,7 +80,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             "text-halign": "center",
             "width": 35,
             "height": 35,
-            "border-color": this.chromosome_color[this.props.chromosome],
+            "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
             "border-width": 3,
           },
         },
@@ -194,8 +194,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
         if (left_node) {
           const neighbourhood = left_node.closedNeighbourhood();
           cy.fit(neighbourhood);
-          neighbourhood.style({
+          neighbourhood.edges().style({
             "line-color": "gold",
+          });
+          neighbourhood.nodes().style({
             "border-color": "gold",
           });
           this.old_neighbourhood = neighbourhood;
@@ -243,22 +245,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
         this.reuse_message = false;
       }
       const updateSearchStyle = (cy: any) => {
-        // Define temporal min and max
-        let max = Math.max(cy.nodes().data("total_degree"));
-        let min = max;
-
-        cy.nodes().forEach((node: any) => {
-          const total_degree = node.data("total_degree");
-          if (max < total_degree) {
-            max = total_degree;
-          }
-          if (min > total_degree) {
-            min = total_degree;
-          }
-        });
+        let min = cy.nodes().min((node: any) => node.data("total_degree")).value;
+        let max = cy.nodes().max((node: any) => node.data("total_degree")).value;
 
         const opacityStyle = (ele: any) => {
-          const opacity = (ele.data("total_degree") - min) / (max - min);
+          let opacity = (ele.data("total_degree") - min) / (max - min);
+
+          if (isNaN(opacity)) {
+            opacity = 0
+          }
+
           if (opacity <= 0.3) {
             return 0.3;
           } else {
@@ -279,7 +275,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         const right_node = this.right_cy_network.nodes().filter((node: any) => this.checkNode(node, search))[0];
 
         if (!right_node) {
-          // This node searcherd is not found so exit inmmediately without crash
+          // This node searched is not found so exit inmmediately without crash
           return
         }
 
@@ -291,13 +287,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.left_cy_network.fit(neighbourhood);
           // Clean neighbourhood first
           if (this.old_neighbourhood) {
-            this.old_neighbourhood.style({
-              "line-color": "#ccc",
-              "border-color": this.chromosome_color[this.props.chromosome],
+            this.old_neighbourhood.nodes().style({
+             "border-color": (ele: any) =>  this.chromosome_color[ele.data("chr")],
+            });
+            this.old_neighbourhood.edges().style({
+              "line-color": "#ccc"
             });
           }
-          neighbourhood.style({
+          neighbourhood.edges().style({
             "line-color": "gold",
+          });
+          neighbourhood.nodes().style({
             "border-color": "gold",
           });
           this.old_neighbourhood = neighbourhood;
@@ -370,7 +370,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private checkNode = (node: any, search: string) => {
     const node_id = node.data("chr") + "_" + node.data("start");
     const search_id = search.split("-")[0].replace(":", "_");
-    if (node.data("curated_gene_name") === search || node_id.toLowerCase().startsWith(search_id)) {
+    if (node.data("curated_gene_name") === search || node_id.toLowerCase().startsWith(search_id.toLowerCase())) {
       return node;
     }
     return null;
