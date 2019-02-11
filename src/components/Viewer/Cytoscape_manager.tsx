@@ -243,19 +243,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
         this.reuse_message = false;
       }
       const updateSearchStyle = (cy: any) => {
-        // Define temporal min and max
-        let max = Math.max(cy.nodes().data("total_degree"));
-        let min = max;
-
-        cy.nodes().forEach((node: any) => {
-          const total_degree = node.data("total_degree");
-          if (max < total_degree) {
-            max = total_degree;
-          }
-          if (min > total_degree) {
-            min = total_degree;
-          }
-        });
+        let min = cy.nodes().min((node: any) => node.data("total_degree")).value;
+        let max = cy.nodes().max((node: any) => node.data("total_degree")).value;
 
         const opacityStyle = (ele: any) => {
           const opacity = (ele.data("total_degree") - min) / (max - min);
