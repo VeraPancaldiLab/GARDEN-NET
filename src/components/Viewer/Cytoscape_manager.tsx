@@ -370,7 +370,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private checkNode = (node: any, search: string) => {
     const node_id = node.data("chr") + "_" + node.data("start");
     const search_id = search.split("-")[0].replace(":", "_");
-    if (node.data("curated_gene_name") === search || node_id.toLowerCase().startsWith(search_id)) {
+    if (node.data("curated_gene_name") === search || node_id.toLowerCase().startsWith(search_id.toLowerCase())) {
       return node;
     }
     return null;
