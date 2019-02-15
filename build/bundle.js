@@ -227,6 +227,30 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 
 /***/ }),
 
+/***/ "./src/components/Portal.tsx":
+/*!***********************************!*\
+  !*** ./src/components/Portal.tsx ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst PortalMenu_1 = __webpack_require__(/*! ./PortalMenu */ \"./src/components/PortalMenu.tsx\");\nconst Frontend_1 = __webpack_require__(/*! ./Frontend */ \"./src/components/Frontend.tsx\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\nexports.Portal = () => (React.createElement(react_router_dom_1.HashRouter, null,\n    React.createElement(\"div\", null,\n        React.createElement(react_router_dom_1.Route, { exact: true, path: \"/\", component: PortalMenu_1.PortalMenu }),\n        React.createElement(react_router_dom_1.Route, { exact: true, path: \"/Visualization\", component: Frontend_1.Frontend }))));\n\n\n//# sourceURL=webpack:///./src/components/Portal.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/PortalMenu.tsx":
+/*!***************************************!*\
+  !*** ./src/components/PortalMenu.tsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\nexports.PortalMenu = () => (React.createElement(\"div\", null,\n    React.createElement(react_router_dom_1.Link, { replace: true, to: \"/\" }, \"Portal\"),\n    React.createElement(react_router_dom_1.Link, { target: \"_blank\", to: \"/Visualization\" }, \"Frontend\")));\n\n\n//# sourceURL=webpack:///./src/components/PortalMenu.tsx?");
+
+/***/ }),
+
 /***/ "./src/components/SearchPanel.tsx":
 /*!****************************************!*\
   !*** ./src/components/SearchPanel.tsx ***!
@@ -414,7 +438,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"react-dom\");\nconst react_redux_1 = __webpack_require__(/*! react-redux */ \"react-redux\");\nconst redux_1 = __webpack_require__(/*! redux */ \"redux\");\nconst Frontend_1 = __webpack_require__(/*! ./components/Frontend */ \"./src/components/Frontend.tsx\");\nconst index_1 = __webpack_require__(/*! ./reducers/index */ \"./src/reducers/index.ts\");\nconst store = redux_1.createStore(index_1.root_reducers);\nconst rootEl = document.getElementById(\"frontend_container\");\nReactDOM.render(React.createElement(react_redux_1.Provider, { store: store },\n    React.createElement(Frontend_1.Frontend, null)), rootEl);\n\n\n//# sourceURL=webpack:///./src/index.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"react\");\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"react-dom\");\nconst react_redux_1 = __webpack_require__(/*! react-redux */ \"react-redux\");\nconst redux_1 = __webpack_require__(/*! redux */ \"redux\");\nconst Portal_1 = __webpack_require__(/*! ./components/Portal */ \"./src/components/Portal.tsx\");\nconst index_1 = __webpack_require__(/*! ./reducers/index */ \"./src/reducers/index.ts\");\nconst store = redux_1.createStore(index_1.root_reducers);\nconst rootEl = document.getElementById(\"frontend_container\");\nReactDOM.render(React.createElement(react_redux_1.Provider, { store: store },\n    React.createElement(Portal_1.Portal, null)), rootEl);\n\n\n//# sourceURL=webpack:///./src/index.tsx?");
 
 /***/ }),
 
@@ -531,6 +555,17 @@ eval("module.exports = ReactDOM;\n\n//# sourceURL=webpack:///external_%22ReactDO
 /***/ (function(module, exports) {
 
 eval("module.exports = ReactRedux;\n\n//# sourceURL=webpack:///external_%22ReactRedux%22?");
+
+/***/ }),
+
+/***/ "react-router-dom":
+/*!*********************************!*\
+  !*** external "ReactRouterDOM" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = ReactRouterDOM;\n\n//# sourceURL=webpack:///external_%22ReactRouterDOM%22?");
 
 /***/ }),
 
