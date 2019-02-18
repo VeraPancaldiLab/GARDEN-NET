@@ -22,6 +22,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
+    // if ('match' in this.props) {
+    //   console.log(this.props.match)
+    // if ('params' in this.props) {
+    //   console.log(this.props.match.params)
+    // }
+    // } else {
+    //   console.log('no url')
+    // }
     this.reuse_message = false;
     this.state = {
       cytoscape_loading: true, loading_message: "",
@@ -174,6 +182,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   }
 
   public componentDidUpdate(prevProps: any) {
+    console.log(this.props)
     // If chromosome change, update left view and delete right view
     if (this.props.chromosome !== prevProps.chromosome) {
       this.setState({ cytoscape_loading: true, show_tooltip: false });

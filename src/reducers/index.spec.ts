@@ -1,4 +1,4 @@
-import { CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_SEARCH, CHANGED_TEXT } from "../actions/index";
+import { CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_SEARCH, CHANGED_TEXT, CHANGED_ORGANISM, CHANGED_CELL_TYPE } from "../actions/index";
 import * as Reducer from "./index";
 
 describe("reducers", () => {
@@ -55,6 +55,34 @@ describe("reducers", () => {
 
     it("should ignore unknown actions", () => {
       expect(Reducer.text_reducer(Reducer.DEFAULT_TEXT, { type: "unknown" })).toBe(Reducer.DEFAULT_TEXT);
+    });
+  });
+
+  describe("organism_reducer", () => {
+    it("should provide the initial state", () => {
+      expect(Reducer.organism_reducer(undefined, {})).toBe(Reducer.DEFAULT_ORGANISM);
+    });
+
+    it("should handle CHANGED_ORGANISM action", () => {
+      expect(Reducer.organism_reducer(Reducer.DEFAULT_ORGANISM, { type: CHANGED_ORGANISM, organism: "Homo" })).toBe("Homo");
+    });
+
+    it("should ignore unknown actions", () => {
+      expect(Reducer.organism_reducer(Reducer.DEFAULT_ORGANISM, { type: "unknown" })).toBe(Reducer.DEFAULT_ORGANISM);
+    });
+  });
+
+  describe("cell_type_reducer", () => {
+    it("should provide the initial state", () => {
+      expect(Reducer.cell_type_reducer(undefined, {})).toBe(Reducer.DEFAULT_CELL_TYPE);
+    });
+
+    it("should handle CHANGED_CELL_TYPE action", () => {
+      expect(Reducer.cell_type_reducer(Reducer.DEFAULT_CELL_TYPE, { type: CHANGED_CELL_TYPE, cell_type: "Mon" })).toBe("Mon");
+    });
+
+    it("should ignore unknown actions", () => {
+      expect(Reducer.cell_type_reducer(Reducer.DEFAULT_CELL_TYPE, { type: "unknown" })).toBe(Reducer.DEFAULT_CELL_TYPE);
     });
   });
 });
