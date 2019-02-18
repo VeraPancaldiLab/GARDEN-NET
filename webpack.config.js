@@ -45,7 +45,9 @@ let config = {
 		"reactstrap": "Reactstrap",
     "cytoscape": "cytoscape",
     "redux": "Redux",
-    "react-redux": "ReactRedux"
+    "react-redux": "ReactRedux",
+    "popper.js": "Popper",
+    "cytoscape-popper": 'cytoscapePopper'
 	}
 };
 

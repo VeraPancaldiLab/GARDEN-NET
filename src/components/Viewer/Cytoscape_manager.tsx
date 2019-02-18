@@ -1,6 +1,8 @@
 import * as cytoscape from "cytoscape";
 import * as React from "react";
 import { Modal, ModalBody } from "reactstrap";
+import Tippy from "tippy.js";
+import "tippy.js/themes/light-border.css";
 import { Cytoscape_container } from "../../containers/CytoscapeContainer";
 
 export class Cytoscape_manager extends React.Component<any, any> {
@@ -18,7 +20,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private reuse_message: boolean;
   private clean_right_view: boolean = true;
   private old_neighbourhood: any;
-  private chromosome_color: any = { "1": "#0000ff", "2": "#4906f4", "3": "#650eea", "4": "#7a16df", "5": "#8a1ed5", "6": "#9826ca", "7": "#a32dc0", "8": "#ae34b6", "9": "#b83bab", "10": "#c042a1", "11": "#c84996", "12": "#cf508c", "13": "#d55781", "14": "#dc5e76", "15": "#e1646b", "16": "#e76a60", "17": "#ed7153", "18": "#f27846", "19": "#f67f38", "X": "#fb8624", "Y": "#ff8c00",  "MT": "#000000" };
+  private tooltip_tippy: any;
+  private chromosome_color: any = { 1: "#0000ff", 2: "#4906f4", 3: "#650eea", 4: "#7a16df", 5: "#8a1ed5", 6: "#9826ca", 7: "#a32dc0", 8: "#ae34b6", 9: "#b83bab", 10: "#c042a1", 11: "#c84996", 12: "#cf508c", 13: "#d55781", 14: "#dc5e76", 15: "#e1646b", 16: "#e76a60", 17: "#ed7153", 18: "#f27846", 19: "#f67f38", X: "#fb8624", Y: "#ff8c00", MT: "#000000" };
 
   constructor(props: any) {
     super(props);
@@ -26,8 +29,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     this.state = {
       cytoscape_loading: true, loading_message: "",
       left_network: undefined, right_network: undefined, left_title: "",
-      right_title: "", show_tooltip: false, tooltip_text: "",
-      tooltip_x: 0, tooltip_y: 0,
+      right_title: "",
     };
   }
 
@@ -138,12 +140,23 @@ export class Cytoscape_manager extends React.Component<any, any> {
     cy.on("mouseover", "node", (event: any) => {
       const node = event.target;
       const node_id = node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
-      const x = event.originalEvent.clientX;
-      const y = event.originalEvent.clientY;
-      this.setState({ show_tooltip: true, tooltip_text: node_id, tooltip_x: x + 15, tooltip_y: y - 10 });
+      const ref = node.popperRef(); // used only for positioning
+
+      // using tippy ^4.0.0
+      this.tooltip_tippy = Tippy(ref, { // tippy options:
+        content: () => {
+          const content = document.createElement("div");
+          content.innerHTML = node_id;
+          return content;
+        },
+        arrow: true,
+        theme: "light-border",
+        trigger: "manual",
+      });
+      this.tooltip_tippy.show();
     });
     cy.on("mouseout", "node", () => {
-      this.setState({ show_tooltip: false });
+      this.tooltip_tippy.hide();
     });
     return cy;
   }
@@ -176,7 +189,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   public componentDidUpdate(prevProps: any) {
     // If chromosome change, update left view and delete right view
     if (this.props.chromosome !== prevProps.chromosome) {
-      this.setState({ cytoscape_loading: true, show_tooltip: false });
+      this.setState({ cytoscape_loading: true });
       const url = this.chromosomePath(this.props.chromosome);
       this.onDownloadChange(url);
       const message = "Chromosome " + this.props.chromosome;
@@ -234,7 +247,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
       // If search change, update right view and change to the searched node chromosome
     } else if ((this.props.search !== prevProps.search) && this.props.search !== "") {
-      this.setState({ cytoscape_loading: true, show_tooltip: false });
+      this.setState({ cytoscape_loading: true });
       this.clean_right_view = false;
       const search = this.props.search.toString().toLowerCase();
       const url = this.searchPath(search);
@@ -245,14 +258,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
         this.reuse_message = false;
       }
       const updateSearchStyle = (cy: any) => {
-        let min = cy.nodes().min((node: any) => node.data("total_degree")).value;
-        let max = cy.nodes().max((node: any) => node.data("total_degree")).value;
+        const min = cy.nodes().min((node: any) => node.data("total_degree")).value;
+        const max = cy.nodes().max((node: any) => node.data("total_degree")).value;
 
         const opacityStyle = (ele: any) => {
           let opacity = (ele.data("total_degree") - min) / (max - min);
 
           if (isNaN(opacity)) {
-            opacity = 0
+            opacity = 0;
           }
 
           if (opacity <= 0.3) {
@@ -276,7 +289,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
         if (!right_node) {
           // This node searched is not found so exit inmmediately without crash
-          return
+          return;
         }
 
         const searched_chromosome = right_node.data("chr");
@@ -288,10 +301,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
           // Clean neighbourhood first
           if (this.old_neighbourhood) {
             this.old_neighbourhood.nodes().style({
-             "border-color": (ele: any) =>  this.chromosome_color[ele.data("chr")],
+              "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
             });
             this.old_neighbourhood.edges().style({
-              "line-color": "#ccc"
+              "line-color": "#ccc",
             });
           }
           neighbourhood.edges().style({
@@ -362,7 +375,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
           <h3 className="text-center">{this.state.right_title ? this.state.right_title : "Search view"}</h3>
           <Cytoscape_container cytoscape_container_id={this.right_container_id} />
         </div>
-        <div style={{ display: this.state.show_tooltip ? "block" : "none", left: this.state.tooltip_x, top: this.state.tooltip_y, position: "fixed", border: "#aaa", borderRadius: "5px", borderStyle: "solid", borderWidth: "2px", backgroundColor: "white" }} >{this.state.tooltip_text}</div>
       </div>
     );
   }
