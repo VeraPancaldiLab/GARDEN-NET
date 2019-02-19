@@ -18,7 +18,7 @@ export const mapStateToProps = (state: ICytoscapeProps) => {
     download: state.download,
     search: state.search,
     organism: state.organism,
-    cell_type: state.cell_type
+    cell_type: state.cell_type,
   };
 };
 

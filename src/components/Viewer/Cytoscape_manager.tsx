@@ -18,18 +18,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private reuse_message: boolean;
   private clean_right_view: boolean = true;
   private old_neighbourhood: any;
-  private chromosome_color: any = { "1": "#0000ff", "2": "#4906f4", "3": "#650eea", "4": "#7a16df", "5": "#8a1ed5", "6": "#9826ca", "7": "#a32dc0", "8": "#ae34b6", "9": "#b83bab", "10": "#c042a1", "11": "#c84996", "12": "#cf508c", "13": "#d55781", "14": "#dc5e76", "15": "#e1646b", "16": "#e76a60", "17": "#ed7153", "18": "#f27846", "19": "#f67f38", "X": "#fb8624", "Y": "#ff8c00",  "MT": "#000000" };
+  private chromosome_color: any = { 1: "#0000ff", 2: "#4906f4", 3: "#650eea", 4: "#7a16df", 5: "#8a1ed5", 6: "#9826ca", 7: "#a32dc0", 8: "#ae34b6", 9: "#b83bab", 10: "#c042a1", 11: "#c84996", 12: "#cf508c", 13: "#d55781", 14: "#dc5e76", 15: "#e1646b", 16: "#e76a60", 17: "#ed7153", 18: "#f27846", 19: "#f67f38", X: "#fb8624", Y: "#ff8c00", MT: "#000000" };
 
   constructor(props: any) {
     super(props);
-    // if ('match' in this.props) {
-    //   console.log(this.props.match)
-    // if ('params' in this.props) {
-    //   console.log(this.props.match.params)
-    // }
-    // } else {
-    //   console.log('no url')
-    // }
     this.reuse_message = false;
     this.state = {
       cytoscape_loading: true, loading_message: "",
@@ -182,7 +174,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   }
 
   public componentDidUpdate(prevProps: any) {
-    console.log(this.props)
+    console.log(this.props);
     // If chromosome change, update left view and delete right view
     if (this.props.chromosome !== prevProps.chromosome) {
       this.setState({ cytoscape_loading: true, show_tooltip: false });
@@ -254,14 +246,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
         this.reuse_message = false;
       }
       const updateSearchStyle = (cy: any) => {
-        let min = cy.nodes().min((node: any) => node.data("total_degree")).value;
-        let max = cy.nodes().max((node: any) => node.data("total_degree")).value;
+        const min = cy.nodes().min((node: any) => node.data("total_degree")).value;
+        const max = cy.nodes().max((node: any) => node.data("total_degree")).value;
 
         const opacityStyle = (ele: any) => {
           let opacity = (ele.data("total_degree") - min) / (max - min);
 
           if (isNaN(opacity)) {
-            opacity = 0
+            opacity = 0;
           }
 
           if (opacity <= 0.3) {
@@ -285,7 +277,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
         if (!right_node) {
           // This node searched is not found so exit inmmediately without crash
-          return
+          return;
         }
 
         const searched_chromosome = right_node.data("chr");
@@ -297,10 +289,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
           // Clean neighbourhood first
           if (this.old_neighbourhood) {
             this.old_neighbourhood.nodes().style({
-             "border-color": (ele: any) =>  this.chromosome_color[ele.data("chr")],
+              "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
             });
             this.old_neighbourhood.edges().style({
-              "line-color": "#ccc"
+              "line-color": "#ccc",
             });
           }
           neighbourhood.edges().style({

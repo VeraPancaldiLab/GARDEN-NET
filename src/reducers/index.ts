@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
+import { cell_type_reducer, DEFAULT_CELL_TYPE } from "./cell_type_reducer";
 import { chromosomes_reducer, DEFAULT_CHROMOSOME } from "./chromosomes_reducer";
 import { DEFAULT_DOWNLOAD, download_reducer } from "./download_reducer";
 import { DEFAULT_FEATURE, features_reducer } from "./features_reducer";
+import { DEFAULT_ORGANISM, organism_reducer } from "./organism_reducer";
 import { DEFAULT_SEARCH, search_reducer } from "./search_reducer";
 import { DEFAULT_TEXT, text_reducer } from "./text_reducer";
-import { DEFAULT_ORGANISM, organism_reducer } from "./organism_reducer";
-import { DEFAULT_CELL_TYPE, cell_type_reducer } from "./cell_type_reducer";
 
 const root_reducers = combineReducers({
   chromosome: chromosomes_reducer,

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { change_organism, change_cell_type } from "../actions/index";
+import { change_cell_type, change_organism } from "../actions/index";
 import { Frontend } from "../components/Frontend";
 
 export const mapStateToProps = (state: { organism: string, cell_type: string }) => {

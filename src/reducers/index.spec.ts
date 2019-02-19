@@ -1,4 +1,4 @@
-import { CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_SEARCH, CHANGED_TEXT, CHANGED_ORGANISM, CHANGED_CELL_TYPE } from "../actions/index";
+import { CHANGED_CELL_TYPE, CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_ORGANISM, CHANGED_SEARCH, CHANGED_TEXT } from "../actions/index";
 import * as Reducer from "./index";
 
 describe("reducers", () => {
