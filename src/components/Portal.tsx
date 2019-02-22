@@ -7,7 +7,7 @@ export const Portal = () => (
   <Router>
     <div>
       <Route exact={true} path="/" component={PortalMenu} />
-      <Route exact={true} path="/Visualization/:organism/:cell_type" component={FrontendContainer} />
+      <Route exact={true} path="/Visualize/:organism/:cell_type" component={FrontendContainer} />
     </div>
   </Router>
 );

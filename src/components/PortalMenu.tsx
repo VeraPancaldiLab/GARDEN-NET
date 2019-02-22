@@ -74,8 +74,8 @@ export class PortalMenu extends React.Component<any, any> {
                 {this.state.organism == "Choose" ? "Choose an organism first" : "Choose"}
               </DropdownToggle>
               <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
-                {cell_types[organism_key].slice(0, -1).map((cell_type: any) => <div key={cell_type}><Link target="_blank" to={"/Visualization/" + this.state.organism + "/" + cell_type} key={cell_type}>{cell_type}</Link><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
-                {cell_types[organism_key].slice(-1).map((cell_type: any) => <Link target="_blank" to={"/Visualization/" + this.state.organism + "/" + cell_type} key={cell_type}>{cell_type}</Link>)}
+                {cell_types[organism_key].slice(0, -1).map((cell_type: any) => <div key={cell_type}><Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join('_') + "/" + cell_type.split(" ").join("_")} key={cell_type}>{cell_type}</Link><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
+                {cell_types[organism_key].slice(-1).map((cell_type: any) => <Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join('_') + "/" + cell_type.split(" ").join("_")} key={cell_type}>{cell_type}</Link>)}
               </DropdownMenu>
             </ButtonDropdown>
           </div>
