@@ -46,6 +46,9 @@ let config = {
     "cytoscape": "cytoscape",
     "redux": "Redux",
     "react-redux": "ReactRedux",
+    "popper.js": "Popper",
+    "cytoscape-popper": 'cytoscapePopper',
+    "react-redux": "ReactRedux",
     "react-router-dom": "ReactRouterDOM"
 	}
 };

@@ -1263,6 +1263,13 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
+cytoscape-popper@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/cytoscape-popper/-/cytoscape-popper-1.0.4.tgz#13388223d6d84f66f121643fb1213c26d1c693f8"
+  integrity sha512-rKzWiuhGDw0+1UwKK+2eXkZVSNR8TxAXp3k0QOOkH0GW1w55mnCDUVUKZuQyXqHtcZie+TnW1FJ5ml2Uc/lkOg==
+  dependencies:
+    popper.js "^1.0.0"
+
 cytoscape@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/cytoscape/-/cytoscape-3.4.1.tgz#2c85bdc75dd3cbfe04a8eb33d460443b83a12514"
@@ -3878,7 +3885,7 @@ pn@^1.1.0:
   resolved "https://registry.yarnpkg.com/pn/-/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
   integrity sha512-2qHaIQr2VLRFoxe2nASzsV6ef4yOOH+Fi9FBOVH6cqeSgUnoyySPZkxzLuzd+RYOQTRpROA0ztTMqxROKSb/nA==
 
-popper.js@^1.14.1:
+popper.js@^1.0.0, popper.js@^1.14.1, popper.js@^1.14.7:
   version "1.14.7"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.7.tgz#e31ec06cfac6a97a53280c3e55e4e0c860e7738e"
   integrity sha512-4q1hNvoUre/8srWsH7hnoSJ5xVmIL4qgz+s4qf2TnJIMyZFUFMGH+9vE7mXynAlHSZ/NdTmmow86muD0myUkVQ==
@@ -4949,6 +4956,13 @@ timers-browserify@^2.0.4:
   integrity sha512-YvC1SV1XdOUaL6gx5CoGroT3Gu49pK9+TZ38ErPldOWW4j49GI1HKs9DV+KGq/w6y+LZ72W1c8cKz2vzY+qpzg==
   dependencies:
     setimmediate "^1.0.4"
+
+tippy.js@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-4.0.2.tgz#2e292fd025fa31bedf91408a50dd3dbdfbcf881d"
+  integrity sha512-aFpO4/aUnFjuGLxH710y4CiCJ6jBQ7r4f4fTs1n6U6Wt155/k0W5uJill23VT1F9b0QhJjF4w1kJP39aS8nQZQ==
+  dependencies:
+    popper.js "^1.14.7"
 
 tmpl@1.0.x:
   version "1.0.4"
