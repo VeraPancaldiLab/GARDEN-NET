@@ -2,10 +2,19 @@ import { connect } from "react-redux";
 import { change_chromosome, change_search, change_text } from "../actions/index";
 import { SearchPanel } from "../components/SearchPanel";
 
-export const mapStateToProps = (state: { search: string, text: string }) => {
+interface ISearchProps {
+  search: string;
+  text: string;
+  organism: string;
+  cell_type: string;
+}
+
+export const mapStateToProps = (state: ISearchProps) => {
   return {
     search: state.search,
     text: state.text,
+    organism: state.organism,
+    cell_type: state.cell_type,
   };
 };
 
