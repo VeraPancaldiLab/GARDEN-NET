@@ -5,13 +5,16 @@ interface IChromosomeProps {
   onChromosomeChange: (feature: string) => void;
   onTextChange: (gene: string) => void;
   chromosome: string;
+  organism: string;
 }
 
 export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
 
+  private BASE_URL = "http://localhost:8080/data/";
+
   constructor(props: any) {
     super(props);
-    this.state = { dropdownOpen: false };
+    this.state = { dropdownOpen: false,  chromosomes: [""] };
   }
 
   public onChromosomeChange = (event: React.MouseEvent<HTMLElement>) => {
@@ -26,6 +29,28 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
     });
   }
 
+  public componentDidUpdate = () => {
+    if (this.state.chromosomes[0] == "") {
+      this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + "chromosomes.json").then((json) => {
+        this.setState({chromosomes: json});
+      });
+    }
+  }
+
+  public async fetchAsyncJson(url: string) {
+    // Warning: The network file has to be serve before by a http server
+    // http-server is provided to help to the development thanks to `yarn serve` command
+    // In this case, the port used to serve is the 8080
+    return fetch(url).then((response) => {
+      const json = response.json();
+      return json;
+    }).catch((_err) => {
+      setTimeout(() => {
+        alert("There are not any suggestions to be downloaded");
+      }, 0);
+    });
+  }
+
   public render() {
     const margin_style = {
       border: "#aaa",
@@ -37,7 +62,6 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
       marginBottom: "15px",
     };
 
-    const chromosomes = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "X", "Y"];
 
     return (
       <Form style={margin_style}>
@@ -49,8 +73,8 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
               {this.props.chromosome}
             </DropdownToggle>
             <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
-              {chromosomes.slice(0, -1).map((chromosome) => <div key={chromosome}><DropdownItem value={chromosome} onClick={this.onChromosomeChange}>{chromosome}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
-              {chromosomes.slice(-1).map((chromosome) => <DropdownItem key={chromosome} value={chromosome} onClick={this.onChromosomeChange}>{chromosome}</DropdownItem>)}
+              {this.state.chromosomes.slice(0, -1).map((chromosome: string) => <div key={chromosome}><DropdownItem value={chromosome} onClick={this.onChromosomeChange}>{chromosome}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
+              {this.state.chromosomes.slice(-1).map((chromosome: string) => <DropdownItem key={chromosome} value={chromosome} onClick={this.onChromosomeChange}>{chromosome}</DropdownItem>)}
             </DropdownMenu>
           </ButtonDropdown>
         </FormGroup>

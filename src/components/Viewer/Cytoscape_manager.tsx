@@ -8,11 +8,8 @@ import { Cytoscape_container } from "../../containers/CytoscapeContainer";
 export class Cytoscape_manager extends React.Component<any, any> {
 
   private BASE_URL = "http://localhost:8080/data/";
+  private SEARCH_URL = "http://127.0.0.1:5000/";
   private cache: Map<string, any> = new Map();
-  private URL = {
-    chromosome: this.BASE_URL + "chromosomes/chr",
-    search: "http://127.0.0.1:5000/?features=true&search=",
-  };
   private left_container_id = "left_container_id";
   private right_container_id = "right_container_id";
   private left_cy_network: any;
@@ -21,13 +18,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private clean_right_view: boolean = true;
   private old_neighbourhood: any;
   private tooltip_tippy: any;
-  private chromosome_color: any = { 1: "#0000ff", 2: "#4906f4", 3: "#650eea", 4: "#7a16df", 5: "#8a1ed5", 6: "#9826ca", 7: "#a32dc0", 8: "#ae34b6", 9: "#b83bab", 10: "#c042a1", 11: "#c84996", 12: "#cf508c", 13: "#d55781", 14: "#dc5e76", 15: "#e1646b", 16: "#e76a60", 17: "#ed7153", 18: "#f27846", 19: "#f67f38", X: "#fb8624", Y: "#ff8c00", MT: "#000000" };
+  private initial_rendering = true
+  // http://www.perbang.dk/rgbgradient/
+  private chromosome_color: any = {1: "#F90300", 2: "#FA2E00", 3: "#FA5A00", 4: "#FA8501", 5: "#FAB001", 6: "#FBDC02", 7: "#EFFB02", 8: "#C4FB03", 9: "#9AFB03", 10: "#6FFB03", 11: "#45FC04", 12: "#1AFC04", 13: "#05FC19", 14: "#05FC45", 15: "#06FD70", 16: "#06FD9B", 17: "#06FDC5", 18: "#07FDF0", 19: "#07E0FD", 20: "#08B6FE", 21: "#088BFE", 22: "#0961FE", X: "#0937FE", Y: "#090EFF", MT: "#FFFFFF"};
 
   constructor(props: any) {
     super(props);
     this.reuse_message = false;
+
     this.state = {
-      cytoscape_loading: true, loading_message: "",
+      cytoscape_loading: false, loading_message: "",
       left_network: undefined, right_network: undefined, left_title: "",
       right_title: "",
     };
@@ -38,10 +38,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
   }
 
   public chromosomePath(chromosome: string): string {
-    return this.URL.chromosome + chromosome + ".json";
+    return this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "chromosomes" + "/" + "chr" + chromosome + ".json";
   }
   public searchPath(search: string): string {
-    return this.URL.search + search;
+    return this.SEARCH_URL + "?" + "organism=" + this.props.organism + "&" + "cell_type=" + this.props.cell_type + "&" + "search=" + search;
   }
 
   public async fetchAsyncJson(url: string) {
@@ -63,7 +63,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     });
   }
 
-  public buildNetwork(cy_json_elements: any, cytoscape_container_id: string) {
+  public buildNetwork = (cy_json_elements: any, cytoscape_container_id: string) => {
     const cy = cytoscape({
 
       container: document.getElementById(cytoscape_container_id), // container to render in
@@ -74,7 +74,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
         {
           selector: "node",
           style: {
-            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
             "label": "data(curated_gene_name)",
             "color": "black",
             "font-size": 9.5,
@@ -84,6 +83,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             "height": 35,
             "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
             "border-width": 3,
+            "background-color": "gray",
           },
         },
         {
@@ -161,46 +161,29 @@ export class Cytoscape_manager extends React.Component<any, any> {
     return cy;
   }
 
-  public componentDidMount() {
-    // Load first chromosome in left view
-    // Right view empty
-    setTimeout(() => {
-      const message = "Chromosome " + this.props.chromosome;
-      this.setState({ loading_message: message, left_title: message });
-      const url = this.chromosomePath(this.props.chromosome);
-      this.onDownloadChange(url);
-
-      this.clean_right_view = true;
-      const cy_json_elements = this.fetchAsyncJson(url);
-      this.left_cy_network = this.buildNetwork(cy_json_elements, this.left_container_id);
-      this.left_cy_network.on("layoutstop", (event: any) => {
-        event.cy.style()
-          .selector("node")
-          .style({
-            width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
-            height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
-          }).update();
-      });
-      this.cache.set(this.props.chromosome, this.left_cy_network);
-      this.right_cy_network = this.buildNetwork(undefined, this.right_container_id);
-    }, 500);
-  }
-
   public componentDidUpdate(prevProps: any) {
     // If chromosome change, update left view and delete right view
-    if (this.props.chromosome !== prevProps.chromosome) {
-      this.setState({ cytoscape_loading: true });
+    // Force to update chrosome view if this the first render caused by react router props initialization
+    if (this.initial_rendering || this.props.chromosome !== prevProps.chromosome) {
+      if (this.initial_rendering) {
+        this.right_cy_network = this.buildNetwork(undefined, this.right_container_id);
+        this.initial_rendering = false
+      }
       const url = this.chromosomePath(this.props.chromosome);
       this.onDownloadChange(url);
       const message = "Chromosome " + this.props.chromosome;
-      this.setState({ loading_message: message, left_title: message });
+      this.setState({ cytoscape_loading: true, loading_message: message, left_title: message });
       const updateChromosomeStyle = (cy: any) => {
+        let dict_style = {
+          height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+          width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+        }
+        if (this.props.feature != 'Choose' && this.props.feature !='') {
+          dict_style = {... dict_style, ...{ backgroundColor:  "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)"}}
+        }
         cy.style()
           .selector("node")
-          .style({
-            width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
-            height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
-          }).update();
+          .style(dict_style).update();
       };
       const updateNeighbourhood = (cy: any) => {
         const left_node = cy.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
@@ -208,10 +191,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
           const neighbourhood = left_node.closedNeighbourhood();
           cy.fit(neighbourhood);
           neighbourhood.edges().style({
-            "line-color": "gold",
+            "line-color": "purple",
           });
           neighbourhood.nodes().style({
-            "border-color": "gold",
+            "border-color": "purple",
           });
           this.old_neighbourhood = neighbourhood;
         } else {
@@ -308,10 +291,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             });
           }
           neighbourhood.edges().style({
-            "line-color": "gold",
+            "line-color": "purple",
           });
           neighbourhood.nodes().style({
-            "border-color": "gold",
+            "border-color": "purple",
           });
           this.old_neighbourhood = neighbourhood;
         } else {
@@ -336,8 +319,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
       }, 500);
 
-    } else if ((this.props.feature !== prevProps.feature) && this.props.feature !== "") {
-      this.setState({ cytoscape_loading: false });
+    } else if (this.props.feature !== prevProps.feature && this.props.feature !== "Choose" && this.props.feature !== "") {
 
       const updateFeatures = (cy_network: any) => {
         cy_network.style()
@@ -348,7 +330,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
           .update();
       };
       // If feature change update both views
-      updateFeatures(this.left_cy_network);
+      // If the chromosome is not ready for applying the features don't do nothing
+      if (this.left_cy_network !== undefined) {
+        updateFeatures(this.left_cy_network);
+      }
+
 
       if (this.right_cy_network !== undefined) {
         updateFeatures(this.right_cy_network);
@@ -363,9 +349,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
           <ModalBody>
             Be patient please
             <br />
-            Rendering {this.state.loading_message}
-            <div className="spinner"></div>
-          </ModalBody>
+  Rendering {this.state.loading_message}
+  <div className="spinner"></div>
+</ModalBody>
         </Modal>
         <div className="col-sm-6" style={{ padding: "0px", paddingLeft: "10px" }}>
           <h3 className="text-center">{this.state.left_title ? this.state.left_title : "Chromosome " + this.props.chromosome}</h3>

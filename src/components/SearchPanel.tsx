@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Input, Label, ListGroup, ListGroupItem } from 
 
 export class SearchPanel extends React.Component<any, any> {
 
-  private BASE_URL = "http://localhost:8080/data/suggestions/";
+  private BASE_URL = "http://localhost:8080/data/";
   private suggestions: string[];
 
   constructor(props: any) {
@@ -26,10 +26,12 @@ export class SearchPanel extends React.Component<any, any> {
     });
   }
 
-  public componentDidMount = () => {
-    this.fetchAsyncJson(this.BASE_URL + "suggestions.json").then((json) => {
-      this.suggestions = json;
-    });
+  public componentDidUpdate = () => {
+    if (this.suggestions.length == 0) {
+      this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "suggestions.json").then((json) => {
+        this.suggestions = json;
+      });
+    }
   }
 
   public onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

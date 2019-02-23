@@ -30,4 +30,16 @@ describe("actions", () => {
       expect(Action.change_text("Hoxa1")).toEqual({ type: Action.CHANGED_TEXT, text: "Hoxa1" });
     });
   });
+
+  describe("organism_action", () => {
+    it("should provide the change_organism action", () => {
+      expect(Action.change_organism("Homo")).toEqual({ type: Action.CHANGED_ORGANISM, organism: "Homo" });
+    });
+  });
+
+  describe("cell_type_action", () => {
+    it("should provide the change_cell_type action", () => {
+      expect(Action.change_cell_type("Mon")).toEqual({ type: Action.CHANGED_CELL_TYPE, cell_type: "Mon" });
+    });
+  });
 });

@@ -3,9 +3,32 @@ import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormG
 
 export class FeaturesPanel extends React.Component<any, any> {
 
+  private BASE_URL = "http://localhost:8080/data/";
+
   constructor(props: any) {
     super(props);
-    this.state = { dropdownOpen: false };
+    this.state = { dropdownOpen: false, features: [""] };
+  }
+
+  public componentDidUpdate = () => {
+    if (this.state.features[0] == "") {
+      this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "features.json").then((json) => {
+        this.setState({features: json});
+        this.props.onFeatureChange(json[0]);
+      });
+    }
+  }
+
+  public async fetchAsyncJson(url: string) {
+    // Warning: The network file has to be serve before by a http server
+    // http-server is provided to help to the development thanks to `yarn serve` command
+    // In this case, the port used to serve is the 8080
+    return fetch(url).then((response) => {
+      const json = response.json();
+      return json;
+    }).catch((_err) => {
+        this.setState({features: null});
+    });
   }
 
   public onFeatureChange = (event: any) => {
@@ -29,24 +52,24 @@ export class FeaturesPanel extends React.Component<any, any> {
       marginTop: "15px",
     };
 
-    const features = ["BRG1", "CBX3", "CBX7", "C_MYC", "CoREST", "E2F1", "ESRRB", "HCFC1", "HDAC1", "HDAC2", "KAP1", "KDM2A", "KDM2B", "KLF4", "LAMINB", "LSD1", "MAFK", "MAX", "MBD1A", "MBD1B", "MBD2A", "MBD2T", "MBD3A", "MBD4", "MECP2", "MED1", "MED12", "MI2B", "MLL2", "NANOG", "NIPBL", "N_MYC", "OCT4", "OGT", "P300", "PHF19", "POLII", "RAD21", "REST", "RING1B", "RNAPII.8WG16", "RNAPII.S2P", "RNAPII.S5P", "RNAPII.S7P", "RYBP", "SETDB1", "SIN3A", "SMAD1", "SMC1", "SMC3", "SOX2", "STAT3", "SUZ12", "TAF1", "TCF3", "TCFCP2I1", "TET1", "ZC3H11A", "ZNF384", "X5fC", "X5hmC", "X5mC", "CTCF", "H2AZ", "H2Aub1", "H3K27ac", "H3K27me3", "H3K36me2", "H3K36me3", "H3K4me1", "H3K4me2", "H3K4me3", "H3K79me2", "H3K9ac", "H3K9me3", "H4K20me3", "EZH2", "G9A", "Feature1", "Feature2", "Feature3", "Feature4", "Feature5", "V2"].sort();
-
     return (
-      <Form className="text-center" style={margin_style}>
-        <FormGroup className="text-center">
-          <Label for="Select">Features</Label>
-          <br />
-          <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle style={{ color: "black", backgroundColor: "white" }} caret={true}>
-              {this.props.feature}
-            </DropdownToggle>
-            <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
-              {features.slice(0, -1).map((feature) => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
-              {features.slice(-1).map((feature) => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem></div>)}
-            </DropdownMenu>
-          </ButtonDropdown>
-        </FormGroup>
-      </Form>
+      <div style={{ display: (this.state.features.length == 0 ? "none" : "block") }}>
+        <Form className="text-center" style={margin_style}>
+          <FormGroup className="text-center">
+            <Label for="Select">Features</Label>
+            <br />
+            <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <DropdownToggle style={{ color: "black", backgroundColor: "white" }} caret={true}>
+                {this.props.feature}
+              </DropdownToggle>
+              <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
+                {this.state.features.slice(0, -1).map((feature: string) => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
+                {this.state.features.slice(-1).map((feature: string) => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem></div>)}
+              </DropdownMenu>
+            </ButtonDropdown>
+          </FormGroup>
+        </Form>
+      </div>
     );
   }
 }
