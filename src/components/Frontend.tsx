@@ -4,7 +4,7 @@ import { Viewer } from "./Viewer/Viewer";
 
 export class Frontend extends React.Component<any, any> {
 
-  public componentDidMount = () => {
+  public componentWillMount = () => {
     this.onOrganismChange(this.props.match.params.organism);
     this.onCellTypeChange(this.props.match.params.cell_type);
   }
