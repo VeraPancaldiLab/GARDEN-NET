@@ -18,9 +18,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private clean_right_view: boolean = true;
   private old_neighbourhood: any;
   private tooltip_tippy: any;
-  private initial_rendering = true
+  private initial_rendering = true;
   // http://www.perbang.dk/rgbgradient/
-  private chromosome_color: any = {1: "#F90300", 2: "#FA2E00", 3: "#FA5A00", 4: "#FA8501", 5: "#FAB001", 6: "#FBDC02", 7: "#EFFB02", 8: "#C4FB03", 9: "#9AFB03", 10: "#6FFB03", 11: "#45FC04", 12: "#1AFC04", 13: "#05FC19", 14: "#05FC45", 15: "#06FD70", 16: "#06FD9B", 17: "#06FDC5", 18: "#07FDF0", 19: "#07E0FD", 20: "#08B6FE", 21: "#088BFE", 22: "#0961FE", X: "#0937FE", Y: "#090EFF", MT: "#FFFFFF"};
+  private chromosome_color: any = { 1: "#F90300", 2: "#FA2E00", 3: "#FA5A00", 4: "#FA8501", 5: "#FAB001", 6: "#FBDC02", 7: "#EFFB02", 8: "#C4FB03", 9: "#9AFB03", 10: "#6FFB03", 11: "#45FC04", 12: "#1AFC04", 13: "#05FC19", 14: "#05FC45", 15: "#06FD70", 16: "#06FD9B", 17: "#06FDC5", 18: "#07FDF0", 19: "#07E0FD", 20: "#08B6FE", 21: "#088BFE", 22: "#0961FE", X: "#0937FE", Y: "#090EFF", MT: "#FFFFFF" };
 
   constructor(props: any) {
     super(props);
@@ -167,7 +167,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     if (this.initial_rendering || this.props.chromosome !== prevProps.chromosome) {
       if (this.initial_rendering) {
         this.right_cy_network = this.buildNetwork(undefined, this.right_container_id);
-        this.initial_rendering = false
+        this.initial_rendering = false;
       }
       const url = this.chromosomePath(this.props.chromosome);
       this.onDownloadChange(url);
@@ -177,9 +177,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
         let dict_style = {
           height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
           width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
-        }
-        if (this.props.feature != 'Choose' && this.props.feature !='') {
-          dict_style = {... dict_style, ...{ backgroundColor:  "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)"}}
+        };
+        if (this.props.feature != "Choose" && this.props.feature != "") {
+          dict_style = { ...dict_style, ...{ backgroundColor: "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)" } };
         }
         cy.style()
           .selector("node")
@@ -335,7 +335,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
         updateFeatures(this.left_cy_network);
       }
 
-
       if (this.right_cy_network !== undefined) {
         updateFeatures(this.right_cy_network);
       }
@@ -349,12 +348,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
           <ModalBody>
             Be patient please
             <br />
-  Rendering {this.state.loading_message}
-  <div className="spinner"></div>
-</ModalBody>
+            Rendering {this.state.loading_message}
+            <div className="spinner"></div>
+          </ModalBody>
         </Modal>
         <div className="col-sm-6" style={{ padding: "0px", paddingLeft: "10px" }}>
-          <h3 className="text-center" style={{color: this.chromosome_color[this.props.chromosome]}}>{this.state.left_title ? this.state.left_title : "Chromosome " + this.props.chromosome}</h3>
+          <h3 className="text-center" style={{ color: this.chromosome_color[this.props.chromosome] }}>{this.state.left_title ? this.state.left_title : "Chromosome " + this.props.chromosome}</h3>
           <Cytoscape_container cytoscape_container_id={this.left_container_id} />
         </div>
         <div className="col-sm-6" style={{ padding: "0px" }}>

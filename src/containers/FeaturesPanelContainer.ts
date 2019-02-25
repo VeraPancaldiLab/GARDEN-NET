@@ -6,7 +6,7 @@ export const mapStateToProps = (state: { feature: string, organism: string, cell
   return {
     feature: state.feature,
     organism: state.organism,
-    cell_type: state.cell_type
+    cell_type: state.cell_type,
   };
 };
 

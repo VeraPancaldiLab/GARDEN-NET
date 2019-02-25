@@ -14,7 +14,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
 
   constructor(props: any) {
     super(props);
-    this.state = { dropdownOpen: false,  chromosomes: [""] };
+    this.state = { dropdownOpen: false, chromosomes: [""] };
   }
 
   public onChromosomeChange = (event: React.MouseEvent<HTMLElement>) => {
@@ -32,7 +32,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
   public componentDidUpdate = () => {
     if (this.state.chromosomes[0] == "") {
       this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + "chromosomes.json").then((json) => {
-        this.setState({chromosomes: json});
+        this.setState({ chromosomes: json });
       });
     }
   }
@@ -61,7 +61,6 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
       paddingRight: "5px",
       marginBottom: "15px",
     };
-
 
     return (
       <Form style={margin_style}>

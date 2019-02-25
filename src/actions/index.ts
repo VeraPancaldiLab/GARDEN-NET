@@ -10,5 +10,5 @@ export {
   CHANGED_CHROMOSOME, change_chromosome, CHANGED_FEATURE, change_feature,
   CHANGED_DOWNLOAD, change_download, CHANGED_SEARCH, change_search,
   CHANGED_TEXT, change_text, CHANGED_ORGANISM, change_organism,
-  CHANGED_CELL_TYPE, change_cell_type
+  CHANGED_CELL_TYPE, change_cell_type,
 };

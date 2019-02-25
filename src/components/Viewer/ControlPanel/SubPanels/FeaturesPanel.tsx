@@ -13,7 +13,7 @@ export class FeaturesPanel extends React.Component<any, any> {
   public componentDidUpdate = () => {
     if (this.state.features[0] == "") {
       this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "features.json").then((json) => {
-        this.setState({features: json});
+        this.setState({ features: json });
         this.props.onFeatureChange(json[0]);
       });
     }
@@ -27,7 +27,7 @@ export class FeaturesPanel extends React.Component<any, any> {
       const json = response.json();
       return json;
     }).catch((_err) => {
-        this.setState({features: null});
+      this.setState({ features: null });
     });
   }
 

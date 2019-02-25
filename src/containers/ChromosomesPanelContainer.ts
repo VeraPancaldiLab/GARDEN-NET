@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { change_chromosome, change_text } from "../actions/index";
 import { ChromosomesPanel } from "../components/Viewer/ControlPanel/SubPanels/ChromosomesPanel";
 
-export const mapStateToProps = (state: { chromosome: string,  organism: string }) => {
+export const mapStateToProps = (state: { chromosome: string, organism: string }) => {
   return {
     chromosome: state.chromosome,
     organism: state.organism,
