@@ -2,7 +2,6 @@ import * as cytoscape from "cytoscape";
 import * as React from "react";
 import { Modal, ModalBody } from "reactstrap";
 import Tippy from "tippy.js";
-import "tippy.js/themes/light-border.css";
 import { Cytoscape_container } from "../../containers/CytoscapeContainer";
 
 export class Cytoscape_manager extends React.Component<any, any> {
