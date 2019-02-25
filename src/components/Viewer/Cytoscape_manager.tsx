@@ -354,7 +354,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 </ModalBody>
         </Modal>
         <div className="col-sm-6" style={{ padding: "0px", paddingLeft: "10px" }}>
-          <h3 className="text-center">{this.state.left_title ? this.state.left_title : "Chromosome " + this.props.chromosome}</h3>
+          <h3 className="text-center" style={{color: this.chromosome_color[this.props.chromosome]}}>{this.state.left_title ? this.state.left_title : "Chromosome " + this.props.chromosome}</h3>
           <Cytoscape_container cytoscape_container_id={this.left_container_id} />
         </div>
         <div className="col-sm-6" style={{ padding: "0px" }}>
