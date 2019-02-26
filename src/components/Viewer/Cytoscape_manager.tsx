@@ -140,12 +140,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const node = event.target;
       const node_id = node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
       const ref = node.popperRef(); // used only for positioning
+      const gene_name = node.data("curated_gene_name")
+      const tooltip_content = ( gene_name.length !== 0 ? "<b>" + gene_name + "</b><br/>" : "") + node_id
 
       // using tippy ^4.0.0
       this.tooltip_tippy = Tippy(ref, { // tippy options:
         content: () => {
           const content = document.createElement("div");
-          content.innerHTML = node_id;
+          content.innerHTML = tooltip_content;
           return content;
         },
         arrow: true,
