@@ -82,7 +82,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             "height": 35,
             "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
             "border-width": 3,
-            "background-color": "gray",
+            "background-color": "#ccc",
           },
         },
         {
