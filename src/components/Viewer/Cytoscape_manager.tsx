@@ -78,8 +78,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
             "font-size": 9.5,
             "text-valign": "center",
             "text-halign": "center",
-            "width": 35,
-            "height": 35,
+            "width": 20,
+            "height": 20,
             "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
             "border-width": 3,
             "background-color": "#ccc",
@@ -176,8 +176,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.setState({ cytoscape_loading: true, loading_message: message, left_title: message });
       const updateChromosomeStyle = (cy: any) => {
         let dict_style = {
-          height: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
-          width: (ele: any) => 20 + 1.5 * ele.data("total_degree"),
+          height: (ele: any) => 20 + 1 * ele.data("total_degree"),
+          width: (ele: any) => 20 + 1 * ele.data("total_degree"),
         };
         if (this.props.feature != "Choose" && this.props.feature != "") {
           dict_style = { ...dict_style, ...{ backgroundColor: "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)" } };
@@ -262,8 +262,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
         cy.style()
           .selector("node")
           .style({
-            "width": (ele: any) => 20 + 1.5 * ele.data("degree"),
-            "height": (ele: any) => 20 + 1.5 * ele.data("degree"),
+            "height": (ele: any) => 20 + 1 * ele.data("degree"),
+            "width": (ele: any) => 20 + 1 * ele.data("degree"),
             "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
             // normalize total_degree to 0-1 range but never 0
             "border-opacity": opacityStyle,
