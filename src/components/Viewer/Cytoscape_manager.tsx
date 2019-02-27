@@ -28,7 +28,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     this.state = {
       cytoscape_loading: false, loading_message: "",
       left_network: undefined, right_network: undefined, left_title: "",
-      right_title: "",
+      right_title: "", neighbourhood_node_id: undefined,
     };
   }
 
@@ -121,6 +121,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     cy.on("tap", "node", (event: any) => {
       const node = event.target;
       const node_internal_id = node.data("chr") + "_" + node.data("start");
+      this.setState({neighbourhood_node_id: node_internal_id})
       const node_real_id = node_internal_id + "-" + node.data("end");
       let message = "Search ";
       const node_name = node.data("curated_gene_name");
@@ -187,7 +188,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           .style(dict_style).update();
       };
       const updateNeighbourhood = (cy: any) => {
-        const left_node = cy.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
+        const left_node = cy.nodes().filter((node: any) => this.checkNode(node, this.state.neighbourhood_node_id))[0];
         if (left_node) {
           const neighbourhood = left_node.closedNeighbourhood();
           cy.fit(neighbourhood);
@@ -276,10 +277,13 @@ export class Cytoscape_manager extends React.Component<any, any> {
           return;
         }
 
+        const node_internal_id = right_node.data("chr") + "_" + right_node.data("start");
+        this.setState({neighbourhood_node_id: node_internal_id})
+
         const searched_chromosome = right_node.data("chr");
         // Force color the neighbourhood when the chromosome is the same
         if (this.props.chromosome === searched_chromosome) {
-          const left_node = this.left_cy_network.nodes().filter((node: any) => this.checkNode(node, this.state.right_title))[0];
+          const left_node = this.left_cy_network.nodes().filter((node: any) => this.checkNode(node, this.state.neighbourhood_node_id))[0];
           const neighbourhood = left_node.closedNeighbourhood();
           this.left_cy_network.fit(neighbourhood);
           // Clean neighbourhood first
