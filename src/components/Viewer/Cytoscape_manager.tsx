@@ -188,21 +188,23 @@ export class Cytoscape_manager extends React.Component<any, any> {
           .style(dict_style).update();
       };
       const updateNeighbourhood = (cy: any) => {
-        const left_node = cy.nodes().filter((node: any) => this.checkNode(node, this.state.neighbourhood_node_id))[0];
-        if (left_node) {
-          const neighbourhood = left_node.closedNeighbourhood();
-          cy.fit(neighbourhood);
-          neighbourhood.edges().style({
-            "line-color": "purple",
-          });
-          neighbourhood.nodes().style({
-            "border-color": "purple",
-          });
-          this.old_neighbourhood = neighbourhood;
-        } else {
-          this.right_cy_network.elements().remove();
-          this.setState({ right_title: "Search view" });
-          this.clean_right_view = true;
+        if (this.state.neighbourhood_node_id !== undefined) {
+          const left_node = cy.nodes().filter((node: any) => this.checkNode(node, this.state.neighbourhood_node_id))[0];
+          if (left_node) {
+            const neighbourhood = left_node.closedNeighbourhood();
+            cy.fit(neighbourhood);
+            neighbourhood.edges().style({
+              "line-color": "purple",
+            });
+            neighbourhood.nodes().style({
+              "border-color": "purple",
+            });
+            this.old_neighbourhood = neighbourhood;
+          } else {
+            this.right_cy_network.elements().remove();
+            this.setState({ right_title: "Search view", neighbourhood_node_id: undefined });
+            this.clean_right_view = true;
+          }
         }
       };
       setTimeout(() => {
@@ -223,7 +225,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         // Clean right view only if we select explictly a chromosome
         if (this.clean_right_view) {
           this.right_cy_network.elements().remove();
-          this.setState({ right_title: "Search view" });
+          this.setState({ right_title: "Search view", neighbourhood_node_id: undefined });
         } else {
           this.clean_right_view = true;
         }
