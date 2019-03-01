@@ -3,7 +3,7 @@ import { Col, Row, Table } from "reactstrap";
 
 export class MetadataPanel extends React.Component<any, any> {
 
-  private BASE_URL = "http://CRCT2107:8080/data/";
+  private BASE_URL = "https://pancaldi.bsc.es/garden-net/data/";
 
   constructor(props: any) {
     super(props);
