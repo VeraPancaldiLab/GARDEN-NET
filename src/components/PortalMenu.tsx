@@ -35,13 +35,10 @@ export class PortalMenu extends React.Component<any, any> {
 
     const organisms = ["Homo sapiens", "Mus musculus"];
 
-    interface ICellTypes {
-      [key: string]: string[];
-    }
-    const cell_types: ICellTypes = {
-      Choose: [""],
-      Homo: ["aCD4", "EP", "Ery", "FoeT", "Mac0", "Mac1", "Mac2", "MK", "Mon", "naCD4", "nB", "nCD4", "nCD8", "Neu", "tB", "tCD4", "tCD8"],
-      Mus: ["Embryonic stem cells"],
+    const cell_types: any = {
+      Choose: {},
+      Homo: { aCD4: "Activated total CD4+T cells", EP: "Endothelial precursors", Ery: "Erythroblasts", FoeT: "Fetal thymus", Mac0: "Macrophages M0", Mac1: "Macrophages M1", Mac2: "Macrophages M2", MK: "Megakaryocytes", Mon: "Monocytes", naCD4: "Non-activated total CD4+T cells", nB: "Naive B cells", nCD4: "Naive CD4+ T cells", nCD8: "Naive CD8+ T cells", Neu: "Neutrophils", tB: "Total B cells", tCD4: "Total CD4+ T cells", tCD8: "Total CD8+ T cells" },
+      Mus: { Embryonic_stem_cells: "Embryonic stem cells" },
     };
 
     const organism_key = this.state.organism.split(" ")[0];
@@ -74,8 +71,8 @@ export class PortalMenu extends React.Component<any, any> {
                 {this.state.organism == "Choose" ? "Choose an organism first" : "Choose"}
               </DropdownToggle>
               <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
-                {cell_types[organism_key].slice(0, -1).map((cell_type: any) => <div key={cell_type}><Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join("_") + "/" + cell_type.split(" ").join("_")} key={cell_type}>{cell_type}</Link><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
-                {cell_types[organism_key].slice(-1).map((cell_type: any) => <Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join("_") + "/" + cell_type.split(" ").join("_")} key={cell_type}>{cell_type}</Link>)}
+                {Object.keys(cell_types[organism_key]).slice(0, -1).map((cell_type_key: any) => <div key={cell_type_key}><Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join("_") + "/" + cell_type_key} key={cell_type_key}>{cell_types[organism_key][cell_type_key]}</Link><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
+                {Object.keys(cell_types[organism_key]).slice(-1).map((cell_type_key: any) => <Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join("_") + "/" + cell_type_key} key={cell_type_key}>{cell_types[organism_key][cell_type_key]}</Link>)}
               </DropdownMenu>
             </ButtonDropdown>
           </div>
