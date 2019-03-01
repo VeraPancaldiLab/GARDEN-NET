@@ -121,7 +121,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     cy.on("tap", "node", (event: any) => {
       const node = event.target;
       const node_internal_id = node.data("chr") + "_" + node.data("start");
-      this.setState({neighbourhood_node_id: node_internal_id})
+      this.setState({ neighbourhood_node_id: node_internal_id });
       const node_real_id = node_internal_id + "-" + node.data("end");
       let message = "Search ";
       const node_name = node.data("curated_gene_name");
@@ -141,8 +141,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const node = event.target;
       const node_id = node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
       const ref = node.popperRef(); // used only for positioning
-      const gene_name = node.data("curated_gene_name")
-      const tooltip_content = ( gene_name.length !== 0 ? "<b>" + gene_name + "</b><br/>" : "") + node_id
+      const gene_name = node.data("curated_gene_name");
+      const tooltip_content = (gene_name.length !== 0 ? "<b>" + gene_name + "</b><br/>" : "") + node_id;
 
       // using tippy ^4.0.0
       this.tooltip_tippy = Tippy(ref, { // tippy options:
@@ -188,21 +188,23 @@ export class Cytoscape_manager extends React.Component<any, any> {
           .style(dict_style).update();
       };
       const updateNeighbourhood = (cy: any) => {
-        const left_node = cy.nodes().filter((node: any) => this.checkNode(node, this.state.neighbourhood_node_id))[0];
-        if (left_node) {
-          const neighbourhood = left_node.closedNeighbourhood();
-          cy.fit(neighbourhood);
-          neighbourhood.edges().style({
-            "line-color": "purple",
-          });
-          neighbourhood.nodes().style({
-            "border-color": "purple",
-          });
-          this.old_neighbourhood = neighbourhood;
-        } else {
-          this.right_cy_network.elements().remove();
-          this.setState({ right_title: "Search view" });
-          this.clean_right_view = true;
+        if (this.state.neighbourhood_node_id !== undefined) {
+          const left_node = cy.nodes().filter((node: any) => this.checkNode(node, this.state.neighbourhood_node_id))[0];
+          if (left_node) {
+            const neighbourhood = left_node.closedNeighbourhood();
+            cy.fit(neighbourhood);
+            neighbourhood.edges().style({
+              "line-color": "purple",
+            });
+            neighbourhood.nodes().style({
+              "border-color": "purple",
+            });
+            this.old_neighbourhood = neighbourhood;
+          } else {
+            this.right_cy_network.elements().remove();
+            this.setState({ right_title: "Search view", neighbourhood_node_id: undefined });
+            this.clean_right_view = true;
+          }
         }
       };
       setTimeout(() => {
@@ -223,7 +225,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         // Clean right view only if we select explictly a chromosome
         if (this.clean_right_view) {
           this.right_cy_network.elements().remove();
-          this.setState({ right_title: "Search view" });
+          this.setState({ right_title: "Search view", neighbourhood_node_id: undefined });
         } else {
           this.clean_right_view = true;
         }
@@ -278,7 +280,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         }
 
         const node_internal_id = right_node.data("chr") + "_" + right_node.data("start");
-        this.setState({neighbourhood_node_id: node_internal_id})
+        this.setState({ neighbourhood_node_id: node_internal_id });
 
         const searched_chromosome = right_node.data("chr");
         // Force color the neighbourhood when the chromosome is the same

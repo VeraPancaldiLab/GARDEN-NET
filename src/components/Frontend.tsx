@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Header } from "./Header";
+import { Header } from "./Header/Header";
 import { Viewer } from "./Viewer/Viewer";
 
 export class Frontend extends React.Component<any, any> {
