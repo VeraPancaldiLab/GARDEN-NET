@@ -3,7 +3,7 @@ import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormG
 
 export class FeaturesPanel extends React.Component<any, any> {
 
-  private BASE_URL = "http://localhost:8080/data/";
+  private BASE_URL = "http://CRCT2107:8080/data/";
 
   constructor(props: any) {
     super(props);

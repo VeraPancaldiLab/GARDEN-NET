@@ -6,8 +6,8 @@ import { Cytoscape_container } from "../../containers/CytoscapeContainer";
 
 export class Cytoscape_manager extends React.Component<any, any> {
 
-  private BASE_URL = "http://localhost:8080/data/";
-  private SEARCH_URL = "http://127.0.0.1:5000/";
+  private BASE_URL = "http://CRCT2107:8080/data/";
+  private SEARCH_URL = "http://CRCT2107:5000/";
   private cache: Map<string, any> = new Map();
   private left_container_id = "left_container_id";
   private right_container_id = "right_container_id";
@@ -121,7 +121,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     cy.on("tap", "node", (event: any) => {
       const node = event.target;
       const node_internal_id = node.data("chr") + "_" + node.data("start");
-      this.setState({neighbourhood_node_id: node_internal_id})
+      this.setState({ neighbourhood_node_id: node_internal_id });
       const node_real_id = node_internal_id + "-" + node.data("end");
       let message = "Search ";
       const node_name = node.data("curated_gene_name");
@@ -141,8 +141,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const node = event.target;
       const node_id = node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
       const ref = node.popperRef(); // used only for positioning
-      const gene_name = node.data("curated_gene_name")
-      const tooltip_content = ( gene_name.length !== 0 ? "<b>" + gene_name + "</b><br/>" : "") + node_id
+      const gene_name = node.data("curated_gene_name");
+      const tooltip_content = (gene_name.length !== 0 ? "<b>" + gene_name + "</b><br/>" : "") + node_id;
 
       // using tippy ^4.0.0
       this.tooltip_tippy = Tippy(ref, { // tippy options:
@@ -280,7 +280,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         }
 
         const node_internal_id = right_node.data("chr") + "_" + right_node.data("start");
-        this.setState({neighbourhood_node_id: node_internal_id})
+        this.setState({ neighbourhood_node_id: node_internal_id });
 
         const searched_chromosome = right_node.data("chr");
         // Force color the neighbourhood when the chromosome is the same

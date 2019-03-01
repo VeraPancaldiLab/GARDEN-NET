@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Input, Label, ListGroup, ListGroupItem } from 
 
 export class SearchPanel extends React.Component<any, any> {
 
-  private BASE_URL = "http://localhost:8080/data/";
+  private BASE_URL = "http://CRCT2107:8080/data/";
   private suggestions: string[];
 
   constructor(props: any) {
