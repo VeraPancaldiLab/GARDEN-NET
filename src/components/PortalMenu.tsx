@@ -37,7 +37,7 @@ export class PortalMenu extends React.Component<any, any> {
 
     const cell_types: any = {
       Choose: {},
-      Homo: { aCD4: "Activated total CD4+T cells", EP: "Endothelial precursors", Ery: "Erythroblasts", FoeT: "Fetal thymus", Mac0: "Macrophages M0", Mac1: "Macrophages M1", Mac2: "Macrophages M2", MK: "Megakaryocytes", Mon: "Monocytes", naCD4: "Non-activated total CD4+T cells", nB: "Naive B cells", nCD4: "Naive CD4+ T cells", nCD8: "Naive CD8+ T cells", Neu: "Neutrophils", tB: "Total B cells", tCD4: "Total CD4+ T cells", tCD8: "Total CD8+ T cells" },
+      Homo: { aCD4: "Activated total CD4+T cells", EP: "Endothelial precursors", Ery: "Erythroblasts", FoeT: "Fetal thymus", Mac0: "Macrophages M0", Mac1: "Macrophages M1", Mac2: "Macrophages M2", MK: "Megakaryocytes", Mon: "Monocytes", naCD4: "Non-activated total CD4+T cells", nCD4: "Naive CD4+ T cells", nCD8: "Naive CD8+ T cells", Neu: "Neutrophils", tCD4: "Total CD4+ T cells", tCD8: "Total CD8+ T cells" },
       Mus: { Embryonic_stem_cells: "Embryonic stem cells" },
     };
 
