@@ -271,6 +271,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             // normalize total_degree to 0-1 range but never 0
             "border-opacity": opacityStyle,
             "background-opacity": opacityStyle,
+            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
           }).update();
         const right_node = this.right_cy_network.nodes().filter((node: any) => this.checkNode(node, search))[0];
 
