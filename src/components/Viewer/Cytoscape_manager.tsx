@@ -262,17 +262,23 @@ export class Cytoscape_manager extends React.Component<any, any> {
           }
         };
 
+        let dict_style = {
+          "height": (ele: any) => 20 + 1 * ele.data("degree"),
+          "width": (ele: any) => 20 + 1 * ele.data("degree"),
+          "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
+          // normalize total_degree to 0-1 range but never 0
+          "border-opacity": opacityStyle,
+          "background-opacity": opacityStyle,
+        };
+
+        if (this.props.feature != "Choose" && this.props.feature != "") {
+          dict_style = { ...dict_style, ...{ backgroundColor: "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)" } };
+        }
+
         cy.style()
           .selector("node")
-          .style({
-            "height": (ele: any) => 20 + 1 * ele.data("degree"),
-            "width": (ele: any) => 20 + 1 * ele.data("degree"),
-            "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
-            // normalize total_degree to 0-1 range but never 0
-            "border-opacity": opacityStyle,
-            "background-opacity": opacityStyle,
-            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
-          }).update();
+          .style(dict_style).update();
+
         const right_node = this.right_cy_network.nodes().filter((node: any) => this.checkNode(node, search))[0];
 
         if (!right_node) {
