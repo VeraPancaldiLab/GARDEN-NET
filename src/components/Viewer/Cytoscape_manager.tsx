@@ -122,15 +122,15 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const node = event.target;
       const node_internal_id = node.data("chr") + "_" + node.data("start");
       this.setState({ neighbourhood_node_id: node_internal_id });
-      const node_real_id = node_internal_id + "-" + node.data("end");
+      let node_real_id = node_internal_id + "-" + node.data("end");
+      node_real_id = node_real_id.replace("_", ":");
       let message = "Search ";
       const node_name = node.data("curated_gene_name");
       if (node_name != "") {
         message += node_name;
-        this.setState({ right_title: node_name });
+        this.setState({ right_title: node_name + " (" + node_real_id + ")" });
       } else {
-        const node_message = node_real_id.replace("_", ":");
-        this.setState({ right_title: node_message });
+        this.setState({ right_title: node_real_id });
         message += "by id " + node_message;
       }
       this.reuse_message = true;
