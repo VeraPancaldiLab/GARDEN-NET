@@ -1,8 +1,8 @@
 import * as React from "react";
 import { ChromosomesPanelContainer } from "./../../../containers/ChromosomesPanelContainer";
 import { DownloadButtonContainer } from "./../../../containers/DownloadButtonContainer";
-import { FeaturesPanelContainer } from "./../../../containers/FeaturesPanelContainer";
 import { FeaturesMetadataPanelContainer } from "./../../../containers/FeaturesMetadataPanelContainer";
+import { FeaturesPanelContainer } from "./../../../containers/FeaturesPanelContainer";
 
 export class ControlPanel extends React.Component<{}, {}> {
   public render() {

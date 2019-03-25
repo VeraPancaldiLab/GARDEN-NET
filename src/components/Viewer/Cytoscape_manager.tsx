@@ -131,7 +131,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         this.setState({ right_title: node_name + " (" + node_real_id + ")" });
       } else {
         this.setState({ right_title: node_real_id });
-        message += "by id " + node_message;
+        message += "by id " + node_real_id;
       }
       this.reuse_message = true;
       this.setState({ loading_message: message });

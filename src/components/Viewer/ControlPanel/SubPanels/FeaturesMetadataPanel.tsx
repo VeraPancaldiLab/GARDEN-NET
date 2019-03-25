@@ -11,7 +11,7 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
   }
 
   public componentDidUpdate = (prepProps: any) => {
-    if (this.props.feature != prepProps.feature && this.props.features != 'Choose') {
+    if (this.props.feature != prepProps.feature && this.props.features != "Choose") {
       this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "features_metadata.json").then((json) => {
         if (json.length != 0) {
           this.setState({ features_metadata: json });
@@ -28,7 +28,7 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
       const json = response.json();
       return json;
     }).catch((_err) => {
-      this.setState({ features_metadata: {}});
+      this.setState({ features_metadata: {} });
     });
   }
 
@@ -39,16 +39,16 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
   }
 
   public render() {
-    let net_statistics = null
-    let pp_statistics = null
-    let po_statistics = null
+    let net_statistics = null;
+    let pp_statistics = null;
+    let po_statistics = null;
     if (this.state.features_metadata.net) {
-     net_statistics = Object.keys(this.state.features_metadata.net).map((key) => (<tr key={key}><td>{key}</td><td>{this.state.features_metadata.net[key][this.props.feature]}</td></tr>))
-     pp_statistics = Object.keys(this.state.features_metadata.pp).map((key) => (<tr key={key}><td>{key} (PP)</td><td>{this.state.features_metadata.pp[key][this.props.feature]}</td></tr>))
-     po_statistics = Object.keys(this.state.features_metadata.po).map((key) => (<tr key={key}><td>{key} (PO)</td><td>{this.state.features_metadata.po[key][this.props.feature]}</td></tr>))
+      net_statistics = Object.keys(this.state.features_metadata.net).map((key) => (<tr key={key}><td>{key}</td><td>{this.state.features_metadata.net[key][this.props.feature]}</td></tr>));
+      pp_statistics = Object.keys(this.state.features_metadata.pp).map((key) => (<tr key={key}><td>{key} (PP)</td><td>{this.state.features_metadata.pp[key][this.props.feature]}</td></tr>));
+      po_statistics = Object.keys(this.state.features_metadata.po).map((key) => (<tr key={key}><td>{key} (PO)</td><td>{this.state.features_metadata.po[key][this.props.feature]}</td></tr>));
     }
     return (
-      <div style={{ display: (this.props.feature != 'Choose' ? "block" : "none"), fontSize: "85%", marginTop: "10px" }} className="text-center">
+      <div style={{ display: (this.props.feature != "Choose" ? "block" : "none"), fontSize: "85%", marginTop: "10px" }} className="text-center">
         <Table bordered={true} size="sm">
           <thead>
             <tr>
@@ -63,6 +63,6 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
           </tbody>
         </Table>
       </div>
-    )
+    );
   }
 }
