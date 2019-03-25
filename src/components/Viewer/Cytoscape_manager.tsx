@@ -122,16 +122,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const node = event.target;
       const node_internal_id = node.data("chr") + "_" + node.data("start");
       this.setState({ neighbourhood_node_id: node_internal_id });
-      const node_real_id = node_internal_id + "-" + node.data("end");
+      let node_real_id = node_internal_id + "-" + node.data("end");
+      node_real_id = node_real_id.replace("_", ":");
       let message = "Search ";
       const node_name = node.data("curated_gene_name");
       if (node_name != "") {
         message += node_name;
-        this.setState({ right_title: node_name });
+        this.setState({ right_title: node_name + " (" + node_real_id + ")" });
       } else {
-        const node_message = node_real_id.replace("_", ":");
-        this.setState({ right_title: node_message });
-        message += "by id " + node_message;
+        this.setState({ right_title: node_real_id });
+        message += "by id " + node_real_id;
       }
       this.reuse_message = true;
       this.setState({ loading_message: message });
@@ -173,7 +173,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
       }
       const url = this.chromosomePath(this.props.chromosome);
       this.onDownloadChange(url);
-      const message = "Chromosome " + this.props.chromosome;
+      let message = "";
+      if (this.props.chromosome != "PP") {
+        message = "Chromosome " + this.props.chromosome;
+      } else {
+        message = "Promoter-Promoter only";
+      }
       this.setState({ cytoscape_loading: true, loading_message: message, left_title: message });
       const updateChromosomeStyle = (cy: any) => {
         let dict_style = {
@@ -262,17 +267,23 @@ export class Cytoscape_manager extends React.Component<any, any> {
           }
         };
 
+        let dict_style = {
+          "height": (ele: any) => 20 + 1 * ele.data("degree"),
+          "width": (ele: any) => 20 + 1 * ele.data("degree"),
+          "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
+          // normalize total_degree to 0-1 range but never 0
+          "border-opacity": opacityStyle,
+          "background-opacity": opacityStyle,
+        };
+
+        if (this.props.feature != "Choose" && this.props.feature != "") {
+          dict_style = { ...dict_style, ...{ backgroundColor: "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)" } };
+        }
+
         cy.style()
           .selector("node")
-          .style({
-            "height": (ele: any) => 20 + 1 * ele.data("degree"),
-            "width": (ele: any) => 20 + 1 * ele.data("degree"),
-            "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
-            // normalize total_degree to 0-1 range but never 0
-            "border-opacity": opacityStyle,
-            "background-opacity": opacityStyle,
-            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
-          }).update();
+          .style(dict_style).update();
+
         const right_node = this.right_cy_network.nodes().filter((node: any) => this.checkNode(node, search))[0];
 
         if (!right_node) {
@@ -285,26 +296,31 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
         const searched_chromosome = right_node.data("chr");
         // Force color the neighbourhood when the chromosome is the same
-        if (this.props.chromosome === searched_chromosome) {
+        if (this.props.chromosome === searched_chromosome || this.props.chromosome === "PP") {
           const left_node = this.left_cy_network.nodes().filter((node: any) => this.checkNode(node, this.state.neighbourhood_node_id))[0];
-          const neighbourhood = left_node.closedNeighbourhood();
-          this.left_cy_network.fit(neighbourhood);
-          // Clean neighbourhood first
-          if (this.old_neighbourhood) {
-            this.old_neighbourhood.nodes().style({
-              "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
+          if (left_node) {
+            const neighbourhood = left_node.closedNeighbourhood();
+            this.left_cy_network.fit(neighbourhood);
+            // Clean neighbourhood first
+            if (this.old_neighbourhood) {
+              this.old_neighbourhood.nodes().style({
+                "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
+              });
+              this.old_neighbourhood.edges().style({
+                "line-color": "#ccc",
+              });
+            }
+            neighbourhood.edges().style({
+              "line-color": "purple",
             });
-            this.old_neighbourhood.edges().style({
-              "line-color": "#ccc",
+            neighbourhood.nodes().style({
+              "border-color": "purple",
             });
+            this.old_neighbourhood = neighbourhood;
+            // If there is not left_node and we are showing the PP network, we know that is a other end
+          } else if (this.props.chromosome == "PP") {
+            this.props.onChromosomeChange(searched_chromosome);
           }
-          neighbourhood.edges().style({
-            "line-color": "purple",
-          });
-          neighbourhood.nodes().style({
-            "border-color": "purple",
-          });
-          this.old_neighbourhood = neighbourhood;
         } else {
           this.props.onChromosomeChange(searched_chromosome);
         }
@@ -350,6 +366,15 @@ export class Cytoscape_manager extends React.Component<any, any> {
   }
 
   public render() {
+    // When the PP network is showed the selected chromosome is PP
+    // So we need to extract the right chromosome from the range
+    let chromosome_in_right_title = "MT"; // MT is the black chromosome
+    if (this.state.right_title) {
+      const match = this.state.right_title.match(/([0-9XY]+):\d+-\d+/);
+      if (match) {
+        chromosome_in_right_title = match[1];
+      }
+    }
     return (
       <div className="row">
         <Modal isOpen={this.state.cytoscape_loading} centered={true} className="text-center">
@@ -365,7 +390,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           <Cytoscape_container cytoscape_container_id={this.left_container_id} />
         </div>
         <div className="col-sm-6" style={{ padding: "0px" }}>
-          <h3 className="text-center">{this.state.right_title ? this.state.right_title : "Search view"}</h3>
+          <h3 className="text-center" style={{ color: this.chromosome_color[chromosome_in_right_title] }}>{this.state.right_title ? this.state.right_title : "Search view"}</h3>
           <Cytoscape_container cytoscape_container_id={this.right_container_id} />
         </div>
       </div>

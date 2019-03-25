@@ -45,57 +45,57 @@ export class PortalMenu extends React.Component<any, any> {
 
     return (
       <div className="container">
-        <Row style={{margin: "15px"}}>
+        <Row style={{ margin: "15px" }}>
           <h3 className="text-center">Welcome to
-            <br/>
+            <br />
             Genome ARchitecture DNA Epigenome and Nucleome - Network Exploration Tool</h3>
-            <br/>
-            <span>
-              Here you will be able to visualize chromosome conformation capture datasets as networks of interacting chromatin fragments. The published datasets available were generated with the <em>Promoter Capture HiC</em> technique, which returns contacts involving promoters.
+          <br />
+          <span>
+            Here you will be able to visualize chromosome conformation capture datasets as networks of interacting chromatin fragments. The published datasets available were generated with the <em>Promoter Capture HiC</em> technique, which returns contacts involving promoters.
             </span>
-            <br/>
-            Choose your organism and cell type from the drop-down menu to visualize the corresponding network (by chromosome or genome wide when showing only promoter-promoter contacts). A selection of epigenomic features that have been mapped to the chromatin fragments will be available from the drop-down menu on the right. Select one of them to visualize chromatin fragments that have that feature and to calculate statistics relating to this feature and the 3D network.
-            <br/>
-            <br/>
-            <span>
-              <b>GARDEN-NET</b> integrates most of the functionality provided by the <a href="https://bitbucket.org/eraineri/chaser">ChAseR</a> R package, enabling calculations of network statistics and chromatin assortativity (<em><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1003-3">Pancaldi et al. 2016</a></em>).
+          <br />
+          Choose your organism and cell type from the drop-down menu to visualize the corresponding network (by chromosome or genome wide when showing only promoter-promoter contacts). A selection of epigenomic features that have been mapped to the chromatin fragments will be available from the drop-down menu on the right. Select one of them to visualize chromatin fragments that have that feature and to calculate statistics relating to this feature and the 3D network.
+            <br />
+          <br />
+          <span>
+            <b>GARDEN-NET</b> integrates most of the functionality provided by the <a href="https://bitbucket.org/eraineri/chaser">ChAseR</a> R package, enabling calculations of network statistics and chromatin assortativity (<em><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1003-3">Pancaldi et al. 2016</a></em>).
             </span>
-            <br/>
-            User submitted features can also be visualized on the networks and used for the network based calculations.
+          <br />
+          User submitted features can also be visualized on the networks and used for the network based calculations.
           </Row>
-          <Row className="text-center">
-            <Col>
-              Organism
+        <Row className="text-center">
+          <Col>
+            Organism
             </Col>
-            <Col>
-              Cell Type
+          <Col>
+            Cell Type
             </Col>
-          </Row>
-          <Row className="text-center">
-            <Col>
-              <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen_organism} toggle={this.toggle_organism}>
-                <DropdownToggle caret={true}>
-                  {this.state.organism}
-                </DropdownToggle>
-                <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
-                  {organisms.slice(0, -1).map((organism) => <div key={organism}><DropdownItem value={organism} onClick={this.onClick} className="organism">{organism}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
-                  {organisms.slice(-1).map((organism) => <DropdownItem key={organism} value={organism} onClick={this.onClick} className="organism">{organism}</DropdownItem>)}
-                </DropdownMenu>
-              </ButtonDropdown>
-            </Col>
-            <Col>
-              <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen_cell_type} toggle={this.toggle_cell_type} >
-                <DropdownToggle disabled={this.state.organism == "Choose"} caret={true}>
-                  {this.state.organism == "Choose" ? "Choose an organism first" : "Choose"}
-                </DropdownToggle>
-                <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
-                  {Object.keys(cell_types[organism_key]).slice(0, -1).map((cell_type_key: any) => <div key={cell_type_key}><Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join("_") + "/" + cell_type_key} key={cell_type_key}>{cell_types[organism_key][cell_type_key]}</Link><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
-                  {Object.keys(cell_types[organism_key]).slice(-1).map((cell_type_key: any) => <Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join("_") + "/" + cell_type_key} key={cell_type_key}>{cell_types[organism_key][cell_type_key]}</Link>)}
-                </DropdownMenu>
-              </ButtonDropdown>
-            </Col>
-          </Row>
-        </div>
+        </Row>
+        <Row className="text-center">
+          <Col>
+            <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen_organism} toggle={this.toggle_organism}>
+              <DropdownToggle caret={true}>
+                {this.state.organism}
+              </DropdownToggle>
+              <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
+                {organisms.slice(0, -1).map((organism) => <div key={organism}><DropdownItem value={organism} onClick={this.onClick} className="organism">{organism}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
+                {organisms.slice(-1).map((organism) => <DropdownItem key={organism} value={organism} onClick={this.onClick} className="organism">{organism}</DropdownItem>)}
+              </DropdownMenu>
+            </ButtonDropdown>
+          </Col>
+          <Col>
+            <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen_cell_type} toggle={this.toggle_cell_type} >
+              <DropdownToggle disabled={this.state.organism == "Choose"} caret={true}>
+                {this.state.organism == "Choose" ? "Choose an organism first" : "Choose"}
+              </DropdownToggle>
+              <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
+                {Object.keys(cell_types[organism_key]).slice(0, -1).map((cell_type_key: any) => <div key={cell_type_key}><Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join("_") + "/" + cell_type_key} key={cell_type_key}>{cell_types[organism_key][cell_type_key]}</Link><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
+                {Object.keys(cell_types[organism_key]).slice(-1).map((cell_type_key: any) => <Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join("_") + "/" + cell_type_key} key={cell_type_key}>{cell_types[organism_key][cell_type_key]}</Link>)}
+              </DropdownMenu>
+            </ButtonDropdown>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
