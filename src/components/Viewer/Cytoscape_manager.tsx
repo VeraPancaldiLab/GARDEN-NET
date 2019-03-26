@@ -245,7 +245,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const url = this.searchPath(search);
       if (!this.reuse_message) {
         const message = "Search " + this.props.search;
-        this.setState({ loading_message: message, right_title: this.props.search });
+        this.setState({ loading_message: message });
       } else {
         this.reuse_message = false;
       }
@@ -290,6 +290,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
           // This node searched is not found so exit inmmediately without crash
           return;
         }
+
+        let node_complete_name = right_node.data("curated_gene_name");
+        const node_range = right_node.data("chr") + ":" + right_node.data("start") + "-" + right_node.data("end");
+        if (node_complete_name != "") {
+          node_complete_name += " (" + node_range + ")";
+        } else {
+          node_complete_name = node_range;
+        }
+
+        this.setState({ right_title: node_complete_name });
 
         const node_internal_id = right_node.data("chr") + "_" + right_node.data("start");
         this.setState({ neighbourhood_node_id: node_internal_id });
@@ -375,6 +385,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         chromosome_in_right_title = match[1];
       }
     }
+
     return (
       <div className="row">
         <Modal isOpen={this.state.cytoscape_loading} centered={true} className="text-center">
