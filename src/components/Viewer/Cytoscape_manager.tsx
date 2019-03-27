@@ -308,7 +308,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         const searched_chromosome = right_node.data("chr");
         // Force color the neighbourhood when the chromosome is the same
         if (this.props.chromosome === searched_chromosome || this.props.chromosome === "PP") {
-          const left_node = this.left_cy_network.nodes().filter((node: any) => node.data("searched") == "true")[0];
+          const left_node = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start"); return node_id.toLowerCase() == this.state.neighbourhood_node_id; })[0];
           if (left_node) {
             const neighbourhood = left_node.closedNeighbourhood();
             this.left_cy_network.fit(neighbourhood);
