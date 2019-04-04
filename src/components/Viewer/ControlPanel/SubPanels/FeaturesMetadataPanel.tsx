@@ -49,7 +49,7 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
     }
     return (
       <div style={{ display: (this.props.feature != "Choose" ? "block" : "none"), fontSize: "85%", marginTop: "10px" }} className="text-center">
-        <Table bordered={true} size="sm">
+        <Table bordered={true} size="sm" style={{ fontSize: "small" }}>
           <thead>
             <tr>
               <th>{this.props.feature} statistics</th>
