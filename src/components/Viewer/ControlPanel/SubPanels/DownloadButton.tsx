@@ -26,7 +26,6 @@ export class DownloadButton extends React.Component<any, {}> {
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "2px",
-      marginTop: "15px",
     };
 
     return (
