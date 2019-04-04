@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Col } from "reactstrap";
 import { Header } from "./Header/Header";
 import { Viewer } from "./Viewer/Viewer";
 
@@ -19,10 +20,10 @@ export class Frontend extends React.Component<any, any> {
 
   public render() {
     return (
-      <div>
+      <Col>
         <Header />
         <Viewer />
-      </div>
+      </Col>
     );
   }
 }
