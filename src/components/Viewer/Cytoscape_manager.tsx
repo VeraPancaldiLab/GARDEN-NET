@@ -186,7 +186,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
           width: (ele: any) => 20 + 1 * ele.data("total_degree"),
         };
         if (this.props.feature != "Choose" && this.props.feature != "") {
-          dict_style = { ...dict_style, ...{ backgroundColor: "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)" } };
+          dict_style = {
+            ...dict_style, ...{
+              backgroundColor: "mapData(" + this.props.feature + ", 0, 1, white, black)",
+              color: (ele: any) => ele.data(this.props.feature) > 0.5 ? "white" : "black",
+              textOutlineColor: (ele: any) => ele.data(this.props.feature) > 0.5 ? "black" : "black",
+              textOutlineWidth: (ele: any) => ele.data(this.props.feature) > 0.5 ? 1 : 0,
+            },
+          };
         }
         cy.style()
           .selector("node")
@@ -278,7 +285,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
         };
 
         if (this.props.feature != "Choose" && this.props.feature != "") {
-          dict_style = { ...dict_style, ...{ backgroundColor: "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)" } };
+          dict_style = {
+            ...dict_style, ...{
+              backgroundColor: "mapData(" + this.props.feature + ", 0, 1, white, black)",
+              color: (ele: any) => ele.data(this.props.feature) > 0.5 ? "white" : "black",
+              textOutlineColor: (ele: any) => ele.data(this.props.feature) > 0.5 ? "black" : "black",
+              textOutlineWidth: (ele: any) => ele.data(this.props.feature) > 0.5 ? 1 : 0,
+            },
+          };
         }
 
         cy.style()
@@ -360,7 +374,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
         cy_network.style()
           .selector("node")
           .style({
-            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
+            "background-color": "mapData(" + this.props.feature + ", 0, 1, white, black)",
+            "color": (ele: any) => ele.data(this.props.feature) > 0.5 ? "white" : "black",
+            "text-outline-color": (ele: any) => ele.data(this.props.feature) > 0.5 ? "black" : "black",
+            "text-outline-width": (ele: any) => ele.data(this.props.feature) > 0.5 ? 1 : 0,
           })
           .update();
       };
