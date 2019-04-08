@@ -1,9 +1,9 @@
 import * as React from "react";
-import { Button } from "reactstrap";
+import { Form, FormGroup, Input } from "reactstrap";
 
-export class DownloadButton extends React.Component<any, {}> {
+export class UploadButton extends React.Component<any, {}> {
 
-  public onDownload = () => {
+  public onUpload = () => {
     fetch(this.props.download).then((response) => {
       const json = response.json();
       return json;
@@ -27,12 +27,15 @@ export class DownloadButton extends React.Component<any, {}> {
       borderStyle: "solid",
       borderWidth: "2px",
       fontSize: "small",
-      marginTop: "5px",
     };
 
     return (
       <div className="text-center">
-        <Button outline={true} color="secondary" onClick={this.onDownload} style={margin_style}>Download</Button>
+        <Form>
+          <FormGroup style={{ marginBottom: "0px" }}>
+            <Input style={margin_style} type="file" name="file" id="features_file" />
+          </FormGroup>
+        </Form>
       </div>
     );
   }

@@ -49,7 +49,7 @@ export class FeaturesPanel extends React.Component<any, any> {
       borderWidth: "2px",
       paddingLeft: "5px",
       paddingRight: "5px",
-      marginTop: "15px",
+      fontSize: "small",
     };
 
     return (
@@ -59,7 +59,7 @@ export class FeaturesPanel extends React.Component<any, any> {
             <Label for="Select">Features</Label>
             <br />
             <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle style={{ color: "black", backgroundColor: "white" }} caret={true}>
+              <DropdownToggle style={{ color: "black", backgroundColor: "white", fontSize: "small" }} caret={true}>
                 {this.props.feature}
               </DropdownToggle>
               <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
