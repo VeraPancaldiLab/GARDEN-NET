@@ -20,6 +20,25 @@ export class UploadButton extends React.Component<any, {}> {
     });
   }
 
+  public onFileChange = (event: any) => {
+    const features_file = event.target.files[0];
+    const form_data = new FormData();
+
+    form_data.append("features", features_file);
+    fetch("http://CRCT2107:5000/upload_features", {
+      method: "POST",
+      body: form_data,
+    }).then(
+      // Take the json part of the response when the features file is in the server
+      (response) => response.json(),
+    ).then(
+      // Use the json part of the response
+      (success) => console.log(success),
+    ).catch(
+      (error) => console.log(error),
+    );
+  }
+
   public render() {
     const margin_style = {
       border: "#aaa",
@@ -33,7 +52,7 @@ export class UploadButton extends React.Component<any, {}> {
       <div className="text-center">
         <Form>
           <FormGroup style={{ marginBottom: "0px" }}>
-            <Input style={margin_style} type="file" name="file" id="features_file" />
+            <Input style={margin_style} type="file" onChange={this.onFileChange} name="features" />
           </FormGroup>
         </Form>
       </div>
