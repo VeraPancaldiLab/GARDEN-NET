@@ -1,7 +1,12 @@
 import * as React from "react";
-import { Form, FormGroup, Input } from "reactstrap";
+import { Form, FormGroup, Input, Modal, ModalBody, Progress } from "reactstrap";
 
-export class UploadButton extends React.Component<any, {}> {
+export class UploadButton extends React.Component<any, any> {
+
+  public constructor(props: any) {
+    super(props);
+    this.state = { loading_features: false, message: "", percentage: 0 };
+  }
 
   public onUpload = () => {
     fetch(this.props.download).then((response) => {
@@ -33,15 +38,17 @@ export class UploadButton extends React.Component<any, {}> {
       (response: any) => {
         const json = response.json();
         const headers = response.headers;
-        console.log(headers.get("location"));
+        const location = headers.get("location");
+        this.features_task_progress(location);
         return json;
       },
-    ).then(
-      // Use the json part of the response
-      (success) => console.log(success),
-    ).catch(
-      (error) => console.log(error),
-    );
+    )
+    // ).then(
+    //   // Use the json part of the response
+    //   // (success) => console.log(success),
+    // ).catch(
+    //   // (error) => console.log(error),
+    // );
   }
 
   public render() {
@@ -60,7 +67,35 @@ export class UploadButton extends React.Component<any, {}> {
             <Input style={margin_style} type="file" onChange={this.onFileChange} name="features" />
           </FormGroup>
         </Form>
+        <Modal isOpen={this.state.loading_features} centered={true} className="text-center">
+          <ModalBody>
+            Be patient please
+            <br />
+            {this.state.message}
+          </ModalBody>
+          <div className="text-center"><b>{this.state.percentage}%</b></div>
+          <Progress animated={true} value={this.state.percentage} style={{margin: "10px", borderRadius: "10px"}}/>
+        </Modal>
       </div>
     );
+  }
+
+  private features_task_progress(location: string) {
+    fetch(location).then(
+      // Take the json par
+      (response) => response.json(),
+    ).then((task) => {
+      if (task.state != "PENDING" && task.state != "PROGRESS") {
+        if ("result" in task) {
+          // Finished
+          this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
+          setTimeout(() => { this.setState({ loading_features: false }); }, 1000);
+        }
+      } else {
+        this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
+        // Wait one second to show the finished progress bar before remove it
+        setTimeout(() => { this.features_task_progress(location); }, 1000);
+      }
+    });
   }
 }
