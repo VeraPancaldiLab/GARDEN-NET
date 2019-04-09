@@ -30,7 +30,12 @@ export class UploadButton extends React.Component<any, {}> {
       body: form_data,
     }).then(
       // Take the json part of the response when the features file is in the server
-      (response) => response.json(),
+      (response: any) => {
+        const json = response.json();
+        const headers = response.headers;
+        console.log(headers.get("location"));
+        return json;
+      },
     ).then(
       // Use the json part of the response
       (success) => console.log(success),
