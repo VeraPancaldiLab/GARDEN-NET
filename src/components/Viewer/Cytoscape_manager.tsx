@@ -28,7 +28,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     this.state = {
       cytoscape_loading: false, loading_message: "",
       left_network: undefined, right_network: undefined, left_title: "",
-      right_title: "", neighbourhood_node_id: undefined,
+      right_title: "", neighbourhood_node_ids: [],
     };
   }
 
@@ -73,7 +73,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
         {
           selector: "node",
           style: {
-            "label": "data(curated_gene_name)",
+            "label": (ele: any) => {
+              let label = ele.data("names").split(" ").slice(0, 3).join("\n");
+              if (ele.data("names").split(" ").length > 3) {
+                label += "\n...";
+              }
+              return label;
+            },
+            "text-wrap": "wrap",
             "color": "black",
             "font-size": 9.5,
             "text-valign": "center",
@@ -86,13 +93,13 @@ export class Cytoscape_manager extends React.Component<any, any> {
           },
         },
         {
-          selector: 'node[type = "bait"]',
+          selector: 'node[type = "P"]',
           style: {
             shape: "ellipse",
           },
         },
         {
-          selector: 'node[type = "oe"]',
+          selector: 'node[type = "O"]',
           style: {
             shape: "rectangle",
           },
@@ -121,14 +128,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
     cy.on("tap", "node", (event: any) => {
       const node = event.target;
       const node_internal_id = node.data("chr") + "_" + node.data("start");
-      this.setState({ neighbourhood_node_id: node_internal_id });
+      this.setState({ neighbourhood_node_ids: [node_internal_id] });
       let node_real_id = node_internal_id + "-" + node.data("end");
       node_real_id = node_real_id.replace("_", ":");
       let message = "Search ";
-      const node_name = node.data("curated_gene_name");
+      const node_name = node.data("names");
       if (node_name != "") {
-        message += node_name;
-        this.setState({ right_title: node_name + " (" + node_real_id + ")" });
+        let label = node_name.split(" ").slice(0, 2).join(" ");
+        if (node_name.split(" ").length > 2) {
+          label += "...";
+        }
+        message += label;
+        this.setState({ right_title: label + " (" + node_real_id + ")" });
       } else {
         this.setState({ right_title: node_real_id });
         message += "by id " + node_real_id;
@@ -141,7 +152,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const node = event.target;
       const node_id = node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
       const ref = node.popperRef(); // used only for positioning
-      const gene_name = node.data("curated_gene_name");
+      const gene_name = node.data("names");
       const tooltip_content = (gene_name.length !== 0 ? "<b>" + gene_name + "</b><br/>" : "") + node_id;
 
       // using tippy ^4.0.0
@@ -193,11 +204,15 @@ export class Cytoscape_manager extends React.Component<any, any> {
           .style(dict_style).update();
       };
       const updateNeighbourhood = (cy: any) => {
-        if (this.state.neighbourhood_node_id !== undefined) {
-          const left_node = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start"); return node_id.toLowerCase() == this.state.neighbourhood_node_id; })[0];
+        if (this.state.neighbourhood_node_ids.length != 0) {
+          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
 
-          if (left_node) {
-            const neighbourhood = left_node.closedNeighbourhood();
+          if (left_nodes.length != 0) {
+            const all_left_nodes_together = cy.collection();
+            for (let i = 0; i < left_nodes.length; i++) {
+              all_left_nodes_together.merge(left_nodes[i]);
+            }
+            const neighbourhood = all_left_nodes_together.closedNeighbourhood();
             cy.fit(neighbourhood);
             neighbourhood.edges().style({
               "line-color": "purple",
@@ -208,7 +223,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             this.old_neighbourhood = neighbourhood;
           } else {
             this.right_cy_network.elements().remove();
-            this.setState({ right_title: "Search view", neighbourhood_node_id: undefined });
+            this.setState({ right_title: "Search view", neighbourhood_node_ids: [] });
             this.clean_right_view = true;
           }
         }
@@ -231,7 +246,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         // Clean right view only if we select explictly a chromosome
         if (this.clean_right_view) {
           this.right_cy_network.elements().remove();
-          this.setState({ right_title: "Search view", neighbourhood_node_id: undefined });
+          this.setState({ right_title: "Search view", neighbourhood_node_ids: [] });
         } else {
           this.clean_right_view = true;
         }
@@ -285,32 +300,46 @@ export class Cytoscape_manager extends React.Component<any, any> {
           .selector("node")
           .style(dict_style).update();
 
-        const right_node = this.right_cy_network.nodes().filter((node: any) => node.data("searched") == "true")[0];
+        const right_nodes = this.right_cy_network.nodes().filter((node: any) => node.data("searched") == "true");
 
-        if (!right_node) {
+        if (right_nodes.length == 0) {
           // This node searched is not found so exit inmmediately without crash
           return;
         }
 
-        let node_complete_name = right_node.data("curated_gene_name");
-        const node_range = right_node.data("chr") + ":" + right_node.data("start") + "-" + right_node.data("end");
-        if (node_complete_name != "") {
+        // Use the first left_node as reference
+
+        const node_name = right_nodes[0].data("names");
+        const node_range = right_nodes[0].data("chr") + ":" + right_nodes[0].data("start") + "-" + right_nodes[0].data("end");
+        let node_complete_name = node_range;
+        if (node_name != "") {
+          let label = node_name.split(" ").slice(0, 2).join(" ");
+          if (node_name.split(" ").length > 2) {
+            label += "...";
+          }
+          node_complete_name = label;
           node_complete_name += " (" + node_range + ")";
-        } else {
-          node_complete_name = node_range;
         }
 
         this.setState({ right_title: node_complete_name });
 
-        const node_internal_id = right_node.data("chr") + "_" + right_node.data("start");
-        this.setState({ neighbourhood_node_id: node_internal_id });
+        const nodes_internal_ids = [];
+        for (let i = 0; i < right_nodes.length; i++) {
+          nodes_internal_ids.push(right_nodes[i].data("chr") + "_" + right_nodes[i].data("start"));
+        }
+        this.setState({ neighbourhood_node_ids: nodes_internal_ids });
 
-        const searched_chromosome = right_node.data("chr");
+        const searched_chromosome = right_nodes[0].data("chr");
         // Force color the neighbourhood when the chromosome is the same
         if (this.props.chromosome === searched_chromosome || this.props.chromosome === "PP") {
-          const left_node = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start"); return node_id.toLowerCase() == this.state.neighbourhood_node_id; })[0];
-          if (left_node) {
-            const neighbourhood = left_node.closedNeighbourhood();
+          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
+
+          if (left_nodes.length != 0) {
+            const all_left_nodes_together = left_nodes[0];
+            for (let i = 1; i < left_nodes.length; i++) {
+              all_left_nodes_together.merge(left_nodes[i]);
+            }
+            const neighbourhood = all_left_nodes_together.closedNeighbourhood();
             this.left_cy_network.fit(neighbourhood);
             // Clean neighbourhood first
             if (this.old_neighbourhood) {
