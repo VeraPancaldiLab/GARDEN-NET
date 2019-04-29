@@ -4,7 +4,7 @@ import { ChromosomesPanelContainer } from "./../../../containers/ChromosomesPane
 import { DownloadButtonContainer } from "./../../../containers/DownloadButtonContainer";
 import { FeaturesMetadataPanelContainer } from "./../../../containers/FeaturesMetadataPanelContainer";
 import { FeaturesPanelContainer } from "./../../../containers/FeaturesPanelContainer";
-import { UploadButton } from "./SubPanels/UploadButton";
+import { UploadButtonContainer } from "./../../../containers/UploadButtonContainer";
 
 export class ControlPanel extends React.Component<{}, {}> {
   public render() {
@@ -15,7 +15,7 @@ export class ControlPanel extends React.Component<{}, {}> {
           <ChromosomesPanelContainer />
           <FeaturesPanelContainer />
           <FeaturesMetadataPanelContainer />
-          <UploadButton />
+          <UploadButtonContainer />
           <DownloadButtonContainer />
         </Col>
       </div>

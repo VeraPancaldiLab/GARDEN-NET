@@ -30,7 +30,7 @@ export class UploadButton extends React.Component<any, any> {
     const form_data = new FormData();
 
     form_data.append("features", features_file);
-    fetch("http://CRCT2107:5000/upload_features", {
+    fetch("http://CRCT2107:5000/upload_features?" + "organism=" + this.props.organism + "&cell_type=" + this.props.cell_type, {
       method: "POST",
       body: form_data,
     }).then(
@@ -64,7 +64,7 @@ export class UploadButton extends React.Component<any, any> {
       <div className="text-center">
         <Form>
           <FormGroup style={{ marginBottom: "0px" }}>
-            <Input style={margin_style} type="file" onChange={this.onFileChange} name="features" />
+            <Input style={margin_style} type="file" accept=".bed.gz" onChange={this.onFileChange} name="features" />
           </FormGroup>
         </Form>
         <Modal isOpen={this.state.loading_features} centered={true} className="text-center">
@@ -89,11 +89,11 @@ export class UploadButton extends React.Component<any, any> {
         if ("result" in task) {
           // Finished
           this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
+        // Wait one second to show the finished progress bar before remove it
           setTimeout(() => { this.setState({ loading_features: false }); }, 1000);
         }
       } else {
         this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
-        // Wait one second to show the finished progress bar before remove it
         setTimeout(() => { this.features_task_progress(location); }, 1000);
       }
     });
