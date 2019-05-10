@@ -58,7 +58,7 @@ export class PortalMenu extends React.Component<any, any> {
             <br />
           <br />
           <span>
-            <b>GARDEN-NET</b> integrates most of the functionality provided by the <a href="https://bitbucket.org/eraineri/chaser" target="_blank">ChAseR</a> R package, enabling calculations of network statistics and chromatin assortativity (<em><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1003-3" target="_blank">Pancaldi et al. 2016</a></em>).
+            <b>GARDEN-NET</b> uses functionality provided by the <a href="https://bitbucket.org/eraineri/chaser" target="_blank">ChAseR</a> R package to compute chromatin assortativity (<em><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1003-3" target="_blank">Pancaldi et al. 2016</a></em>).
             </span>
           <br />
           User submitted features can also be visualized on the networks and used for the network based calculations.
