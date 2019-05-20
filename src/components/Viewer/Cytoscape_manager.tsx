@@ -196,8 +196,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
           height: (ele: any) => 20 + 1 * ele.data("total_degree"),
           width: (ele: any) => 20 + 1 * ele.data("total_degree"),
         };
+        const features_style = {
+          backgroundColor: (ele: any) => {
+            if (ele.data(this.props.feature) == 0) {
+              return "#ccc";
+            } else {
+              return "pink";
+            }
+          },
+        };
+
         if (this.props.feature != "Choose" && this.props.feature != "") {
-          dict_style = { ...dict_style, ...{ backgroundColor: "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)" } };
+          dict_style = { ...dict_style, ...features_style };
         }
         cy.style()
           .selector("node")
@@ -292,8 +302,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
           "background-opacity": opacityStyle,
         };
 
+        const features_style = {
+          backgroundColor: (ele: any) => {
+            if (ele.data(this.props.feature) == 0) {
+              return "#ccc";
+            } else {
+              return "pink";
+            }
+          },
+        };
+
         if (this.props.feature != "Choose" && this.props.feature != "") {
-          dict_style = { ...dict_style, ...{ backgroundColor: "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)" } };
+          dict_style = { ...dict_style, ...features_style };
         }
 
         cy.style()
@@ -389,7 +409,13 @@ export class Cytoscape_manager extends React.Component<any, any> {
         cy_network.style()
           .selector("node")
           .style({
-            "background-color": "mapData(" + this.props.feature + ", 0, 1, #ccc, pink)",
+            "background-color": (ele: any) => {
+              if (ele.data(this.props.feature) == 0) {
+                return "#ccc";
+              } else {
+                return "pink";
+              }
+            },
           })
           .update();
       };
