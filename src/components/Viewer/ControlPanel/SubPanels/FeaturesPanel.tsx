@@ -7,14 +7,14 @@ export class FeaturesPanel extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
-    this.state = { dropdownOpen: false, features: [""] };
+    this.state = { dropdownOpen: false };
   }
 
   public componentDidUpdate = () => {
-    if (this.state.features[0] == "") {
+    if (this.props.features_list.length == 0) {
       this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "features.json").then((json) => {
-        this.setState({ features: json });
         this.props.onFeatureChange(json[0]);
+        this.props.onFeaturesListChange(json);
       });
     }
   }
@@ -27,7 +27,7 @@ export class FeaturesPanel extends React.Component<any, any> {
       const json = response.json();
       return json;
     }).catch((_err) => {
-      this.setState({ features: null });
+       this.props.onFeaturesListChange(null);
     });
   }
 
@@ -53,7 +53,7 @@ export class FeaturesPanel extends React.Component<any, any> {
     };
 
     return (
-      <div style={{ display: (this.state.features.length == 0 ? "none" : "block") }}>
+      <div style={{ display: (this.props.features_list.length == 0 ? "none" : "block") }}>
         <Form className="text-center" style={margin_style}>
           <FormGroup className="text-center">
             <Label for="Select">Features</Label>
@@ -63,8 +63,8 @@ export class FeaturesPanel extends React.Component<any, any> {
                 {this.props.feature}
               </DropdownToggle>
               <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>
-                {this.state.features.slice(0, -1).map((feature: string) => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
-                {this.state.features.slice(-1).map((feature: string) => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem></div>)}
+                {this.props.features_list.slice(0, -1).map((feature: string) => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
+                {this.props.features_list.slice(-1).map((feature: string) => <div key={feature}><DropdownItem value={feature} onClick={this.onFeatureChange}>{feature}</DropdownItem></div>)}
               </DropdownMenu>
             </ButtonDropdown>
           </FormGroup>

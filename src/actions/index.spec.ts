@@ -13,6 +13,12 @@ describe("actions", () => {
     });
   });
 
+  describe("features_list_action", () => {
+    it("should provide the change_features_list action", () => {
+      expect(Action.change_features_list(["EZH2"])).toEqual({ type: Action.CHANGED_FEATURES_LIST, features_list: ["EZH2"] });
+    });
+  });
+
   describe("download_action", () => {
     it("should provide the change_download action", () => {
       expect(Action.change_download("http://localhost:8080/data/chromosomes/chr1.json")).toEqual({ type: Action.CHANGED_DOWNLOAD, download: "http://localhost:8080/data/chromosomes/chr1.json" });
