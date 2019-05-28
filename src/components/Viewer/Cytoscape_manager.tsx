@@ -224,11 +224,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
             }
             const neighbourhood = all_left_nodes_together.closedNeighbourhood();
             cy.fit(neighbourhood);
-            neighbourhood.edges().style({
-              "line-color": "purple",
+            cy.elements().style({
+              opacity: 0.2,
             });
             neighbourhood.nodes().style({
-              "border-color": "purple",
+              opacity: 1,
+            });
+            neighbourhood.edges().style({
+              opacity: 1,
             });
             this.old_neighbourhood = neighbourhood;
           } else {
@@ -363,18 +366,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
             this.left_cy_network.fit(neighbourhood);
             // Clean neighbourhood first
             if (this.old_neighbourhood) {
-              this.old_neighbourhood.nodes().style({
-                "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
-              });
-              this.old_neighbourhood.edges().style({
-                "line-color": "#ccc",
+              this.left_cy_network.elements().style({
+                opacity: 1,
               });
             }
-            neighbourhood.edges().style({
-              "line-color": "purple",
+            this.left_cy_network.elements().style({
+              opacity: 0.2,
             });
             neighbourhood.nodes().style({
-              "border-color": "purple",
+              opacity: 1,
+            });
+            neighbourhood.edges().style({
+              opacity: 1,
             });
             this.old_neighbourhood = neighbourhood;
             // If there is not left_node and we are showing the PP network, we know that is a other end
