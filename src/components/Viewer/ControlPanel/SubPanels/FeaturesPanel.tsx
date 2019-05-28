@@ -11,7 +11,7 @@ export class FeaturesPanel extends React.Component<any, any> {
   }
 
   public componentDidUpdate = () => {
-    if (this.props.features_list.length == 0) {
+    if (this.props.features_list[0] == "") {
       this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "features.json").then((json) => {
         this.props.onFeatureChange(json[0]);
         this.props.onFeaturesListChange(json);

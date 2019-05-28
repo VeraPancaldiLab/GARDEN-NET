@@ -1,6 +1,6 @@
 import { CHANGED_FEATURES_LIST } from "../actions/index";
 
-export const DEFAULT_FEATURES_LIST = [];
+export const DEFAULT_FEATURES_LIST = [""];
 
 interface IFeaturesListAction {
   type?: string;
