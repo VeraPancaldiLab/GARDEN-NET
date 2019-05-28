@@ -42,7 +42,7 @@ export class UploadButton extends React.Component<any, any> {
         this.features_task_progress(location);
         return json;
       },
-    )
+    );
     // ).then(
     //   // Use the json part of the response
     //   // (success) => console.log(success),
@@ -91,6 +91,9 @@ export class UploadButton extends React.Component<any, any> {
           this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
         // Wait one second to show the finished progress bar before remove it
           setTimeout(() => { this.setState({ loading_features: false }); }, 1000);
+          const feature_name = Object.keys(task.result.features)[0];
+          const features_list = this.props.features_list.concat(feature_name).sort();
+          this.props.onFeaturesListChange(features_list);
         }
       } else {
         this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
