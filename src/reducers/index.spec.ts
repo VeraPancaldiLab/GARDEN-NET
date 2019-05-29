@@ -1,4 +1,4 @@
-import { CHANGED_CELL_TYPE, CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_FEATURES_LIST, CHANGED_FEATURES_METADATA, CHANGED_ORGANISM, CHANGED_SEARCH, CHANGED_TEXT } from "../actions/index";
+import { CHANGED_CELL_TYPE, CHANGED_CHROMOSOME, CHANGED_FEATURE, CHANGED_FEATURES_LIST, CHANGED_FEATURES_METADATA, CHANGED_FEATURES_NEW, CHANGED_ORGANISM, CHANGED_SEARCH, CHANGED_TEXT } from "../actions/index";
 import * as Reducer from "./index";
 
 describe("reducers", () => {
@@ -55,6 +55,20 @@ describe("reducers", () => {
 
     it("should ignore unknown actions", () => {
       expect(Reducer.features_metadata_reducer(Reducer.DEFAULT_FEATURES_METADATA, { type: "unknown" })).toBe(Reducer.DEFAULT_FEATURES_METADATA);
+    });
+  });
+
+  describe("features_new_reducer", () => {
+    it("should provide the initial state", () => {
+      expect(Reducer.features_new_reducer(undefined, {})).toBe(Reducer.DEFAULT_FEATURES_NEW);
+    });
+
+    it("should handle CHANGED_FEATURES_NEW action", () => {
+      expect(Reducer.features_new_reducer(Reducer.DEFAULT_FEATURES_NEW, { type: CHANGED_FEATURES_NEW, features_new: {BRG1: 0} })).toEqual({BRG1: 0});
+    });
+
+    it("should ignore unknown actions", () => {
+      expect(Reducer.features_new_reducer(Reducer.DEFAULT_FEATURES_NEW, { type: "unknown" })).toBe(Reducer.DEFAULT_FEATURES_NEW);
     });
   });
 

@@ -89,11 +89,13 @@ export class UploadButton extends React.Component<any, any> {
         if ("result" in task) {
           // Finished
           this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
-        // Wait one second to show the finished progress bar before remove it
+          // Wait one second to show the finished progress bar before remove it
           setTimeout(() => { this.setState({ loading_features: false }); }, 1000);
           const feature_name = Object.keys(task.result.features)[0];
           const features_list = this.props.features_list.concat(feature_name).sort();
           this.props.onFeaturesListChange(features_list);
+          const features_new = task.result.features;
+          this.props.onFeaturesNewChange(features_new);
         }
       } else {
         this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
