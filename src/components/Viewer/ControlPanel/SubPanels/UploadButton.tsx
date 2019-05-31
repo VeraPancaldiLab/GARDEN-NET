@@ -5,7 +5,7 @@ export class UploadButton extends React.Component<any, any> {
 
   public constructor(props: any) {
     super(props);
-    this.state = { loading_features: false, message: "", percentage: 0 };
+    this.state = { loading_features: false, message: "", percentage: 0, uploaded_features: []};
   }
 
   public onUpload = () => {
@@ -30,7 +30,11 @@ export class UploadButton extends React.Component<any, any> {
     const form_data = new FormData();
 
     form_data.append("features", features_file);
-    fetch("http://CRCT2107:5000/upload_features?" + "organism=" + this.props.organism + "&cell_type=" + this.props.cell_type, {
+
+    const features_filename = features_file.name;
+    if (!this.state.uploaded_features.includes(features_filename)) {
+      this.setState({uploaded_features: this.state.uploaded_features.concat(features_filename)});
+      fetch("http://CRCT2107:5000/upload_features?" + "organism=" + this.props.organism + "&cell_type=" + this.props.cell_type, {
       method: "POST",
       body: form_data,
     }).then(
@@ -49,6 +53,9 @@ export class UploadButton extends React.Component<any, any> {
     // ).catch(
     //   // (error) => console.log(error),
     // );
+    } else {
+      // Feature already uploaded
+    }
   }
 
   public render() {
