@@ -197,6 +197,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
           width: (ele: any) => 20 + 1 * ele.data("total_degree"),
         };
         if (this.props.feature != "Choose" && this.props.feature != "") {
+          if (this.props.feature in this.props.features_new) {
+            cy.nodes().data(this.props.feature, 0);
+            const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
+            const nodes = cy.filter((ele: any) => {
+              return ele.isNode() && new_features_names.includes(ele.data("name"));
+            });
+            nodes.forEach((node: any) => {
+              node.data(this.props.feature, this.props.features_new[this.props.feature][node.data("name")]);
+            });
+          }
           const features_style = {
             backgroundColor: (ele: any) => {
               if (ele.data(this.props.feature) == 0) {
@@ -305,6 +315,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
         };
 
         if (this.props.feature != "Choose" && this.props.feature != "") {
+          if (this.props.feature in this.props.features_new) {
+            cy.nodes().data(this.props.feature, 0);
+            const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
+            const nodes = cy.filter((ele: any) => {
+              return ele.isNode() && new_features_names.includes(ele.data("id"));
+            });
+            nodes.forEach((node: any) => {
+              node.data(this.props.feature, this.props.features_new[this.props.feature][node.data("id")]);
+            });
+          }
           const features_style = {
             backgroundColor: (ele: any) => {
               if (ele.data(this.props.feature) == 0) {
@@ -406,6 +426,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
       }, 500);
 
     } else if (this.props.feature !== prevProps.feature && this.props.feature !== "Choose" && this.props.feature !== "") {
+
+      if (this.props.feature in this.props.features_new) {
+        this.left_cy_network.nodes().data(this.props.feature, 0);
+        const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
+        const nodes = this.left_cy_network.filter((ele: any) => {
+          return ele.isNode() && new_features_names.includes(ele.data("name"));
+        });
+        nodes.forEach((node: any) => {
+          node.data(this.props.feature, this.props.features_new[this.props.feature][node.data("name")]);
+        });
+      }
 
       const updateFeatures = (cy_network: any) => {
         cy_network.style()

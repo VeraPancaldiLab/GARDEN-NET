@@ -101,9 +101,10 @@ export class UploadButton extends React.Component<any, any> {
           const feature_name = Object.keys(task.result.features)[0];
           const features_list = this.props.features_list.concat(feature_name).sort();
           this.props.onFeaturesListChange(features_list);
-          const features_new = task.result.features;
 
           const features_metadata = this.props.features_metadata;
+          const features_new = this.props.features_new;
+          features_new[feature_name] = task.result.features[feature_name];
           features_metadata[feature_name] = task.result.features_metadata;
           this.props.onFeaturesMetadataChange(features_metadata);
           this.props.onFeaturesNewChange(features_new);
