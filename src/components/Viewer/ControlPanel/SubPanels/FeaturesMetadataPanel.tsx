@@ -7,16 +7,21 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
-    this.state = { dropdownOpen: false };
+    this.state = { dropdownOpen: false, feature_metadata: {} };
   }
 
   public componentDidUpdate = (prepProps: any) => {
-    if (this.props.feature != prepProps.feature && this.props.features != "Choose") {
+    if (this.props.feature !== prepProps.feature && this.props.features !== "Choose") {
+      console.log(this.props.features_metadata);
+      if (this.props.feature in this.props.features_metadata) {
+          this.setState({feature_metadata: this.props.features_metadata[this.props.feature]});
+      } else {
       this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "features_metadata.json").then((json) => {
         if (json.length != 0) {
-          this.props.onFeaturesMetadataChange(json);
+          this.setState({feature_metadata: json});
         }
       });
+      }
     }
   }
 
@@ -42,11 +47,11 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
     let net_statistics = null;
     let pp_statistics = null;
     let po_statistics = null;
-    if (this.props.features_metadata.net) {
-      net_statistics = Object.keys(this.props.features_metadata.net).map((key) => (<tr key={key}><td>{key}</td><td>{ key == "Random ChAs interval" ? this.props.features_metadata.net[key][this.props.feature] :
-        parseFloat(this.props.features_metadata.net[key][this.props.feature]).toFixed(3)}</td></tr>));
-      pp_statistics = Object.keys(this.props.features_metadata.pp).map((key) => (<tr key={key}><td>{key} (PP)</td><td>{parseFloat(this.props.features_metadata.pp[key][this.props.feature]).toFixed(3)}</td></tr>));
-      po_statistics = Object.keys(this.props.features_metadata.po).map((key) => (<tr key={key}><td>{key} (PO)</td><td>{parseFloat(this.props.features_metadata.po[key][this.props.feature]).toFixed(3)}</td></tr>));
+    if (this.state.feature_metadata.net) {
+      net_statistics = Object.keys(this.state.feature_metadata.net).map((key) => (<tr key={key}><td>{key}</td><td>{ key == "Random ChAs interval" ? this.state.feature_metadata.net[key][this.props.feature] :
+        parseFloat(this.state.feature_metadata.net[key][this.props.feature]).toFixed(3)}</td></tr>));
+      pp_statistics = Object.keys(this.state.feature_metadata.pp).map((key) => (<tr key={key}><td>{key} (PP)</td><td>{parseFloat(this.state.feature_metadata.pp[key][this.props.feature]).toFixed(3)}</td></tr>));
+      po_statistics = Object.keys(this.state.feature_metadata.po).map((key) => (<tr key={key}><td>{key} (PO)</td><td>{parseFloat(this.state.feature_metadata.po[key][this.props.feature]).toFixed(3)}</td></tr>));
     }
     return (
       <div style={{ display: (this.props.feature != "Choose" ? "block" : "none"), fontSize: "85%", marginTop: "10px" }} className="text-center">
