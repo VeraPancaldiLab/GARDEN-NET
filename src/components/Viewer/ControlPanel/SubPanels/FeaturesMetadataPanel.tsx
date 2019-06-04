@@ -12,7 +12,6 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
 
   public componentDidUpdate = (prepProps: any) => {
     if (this.props.feature !== prepProps.feature && this.props.features !== "Choose") {
-      console.log(this.props.features_metadata);
       if (this.props.feature in this.props.features_metadata) {
           this.setState({feature_metadata: this.props.features_metadata[this.props.feature]});
       } else {

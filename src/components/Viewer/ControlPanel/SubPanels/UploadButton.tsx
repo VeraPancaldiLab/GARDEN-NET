@@ -5,7 +5,7 @@ export class UploadButton extends React.Component<any, any> {
 
   public constructor(props: any) {
     super(props);
-    this.state = { loading_features: false, message: "", percentage: 0, uploaded_features: []};
+    this.state = { loading_features: false, message: "", percentage: 0, uploaded_features: [], input_key: Date.now()};
   }
 
   public onUpload = () => {
@@ -47,12 +47,6 @@ export class UploadButton extends React.Component<any, any> {
         return json;
       },
     );
-    // ).then(
-    //   // Use the json part of the response
-    //   // (success) => console.log(success),
-    // ).catch(
-    //   // (error) => console.log(error),
-    // );
     } else {
       // Feature already uploaded
     }
@@ -71,7 +65,7 @@ export class UploadButton extends React.Component<any, any> {
       <div className="text-center">
         <Form>
           <FormGroup style={{ marginBottom: "0px" }}>
-            <Input style={margin_style} type="file" accept=".bed.gz" onChange={this.onFileChange} name="features" />
+            <Input style={margin_style} type="file" accept=".bed.gz" onChange={this.onFileChange} key={this.state.input_key} name="features" />
           </FormGroup>
         </Form>
         <Modal isOpen={this.state.loading_features} centered={true} className="text-center">
@@ -92,12 +86,11 @@ export class UploadButton extends React.Component<any, any> {
       // Take the json par
       (response) => response.json(),
     ).then((task) => {
-      if (task.state != "PENDING" && task.state != "PROGRESS") {
+      if (task.state != "PENDING" && task.state != "PROGRESS" && task.state != "FAILURE") {
         if ("result" in task) {
           // Finished
           this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
           // Wait one second to show the finished progress bar before remove it
-          setTimeout(() => { this.setState({ loading_features: false }); }, 1000);
           const feature_name = Object.keys(task.result.features)[0];
           const features_list = this.props.features_list.concat(feature_name).sort();
           this.props.onFeaturesListChange(features_list);
@@ -109,7 +102,11 @@ export class UploadButton extends React.Component<any, any> {
           this.props.onFeaturesMetadataChange(features_metadata);
           this.props.onFeaturesNewChange(features_new);
           this.props.onFeatureChange(feature_name);
+          setTimeout(() => { this.setState({ loading_features: false }); }, 1000);
         }
+      } else if (task.state == "FAILURE") {
+        this.setState({ message: task.message, loading_features: false, input_key: Date.now() });
+        setTimeout(() => {this.setState({ loading_features: false }); } , 1000 );
       } else {
         this.setState({ message: task.message, percentage: task.percentage, loading_features: true });
         setTimeout(() => { this.features_task_progress(location); }, 1000);
