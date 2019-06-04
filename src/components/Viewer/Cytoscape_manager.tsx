@@ -225,7 +225,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             const neighbourhood = all_left_nodes_together.closedNeighbourhood();
             cy.fit(neighbourhood);
             cy.elements().style({
-              opacity: 0.2,
+              opacity: 0.3,
             });
             neighbourhood.nodes().style({
               opacity: 1,
@@ -371,7 +371,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               });
             }
             this.left_cy_network.elements().style({
-              opacity: 0.2,
+              opacity: 0.3,
             });
             neighbourhood.nodes().style({
               opacity: 1,
