@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Alert, Col, Container, Row } from "reactstrap";
+import { Col, Container, Row } from "reactstrap";
 import { MetadataPanelContainer } from "../../containers/MetadataPanelContainer";
 import { SearchPanelContainer } from "./../../containers/SearchPanelContainer";
 
@@ -17,16 +17,13 @@ export class Header extends React.Component<{}, {}> {
             <Col>
               <Container fluid={false}>
                 <Row>
-                  <Col>
-                    <h1 className="text-center"><a href="https://github.com/VeraPancaldiLab/GARDEN-NET">GARDEN-NET</a></h1>
+                  <Col lg="2" />
+                  <Col className="text-center">
+                    <a href="https://github.com/VeraPancaldiLab/GARDEN-NET">
+                      <img src="images/garden-net.png" width="128" height="128" alt="GARDEN-NET logo"/>
+                    </a>
                   </Col>
-                </Row>
-                <Row>
-                  <Col />
-                  <Col xs="auto">
-                    <Alert className="text-center" color="primary">Still in development!</Alert>
-                  </Col>
-                  <Col />
+                  <Col lg="2" />
                 </Row>
                 <Row>
                   <Col lg="2" />
