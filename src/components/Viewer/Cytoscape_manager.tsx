@@ -155,7 +155,16 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const gene_name = node.data("names");
       let intronic_region = "";
       if (this.props.organism == "Homo_sapiens") {
-        intronic_region = (node.data("intronic_regions").trim() == "TRUE" ? "</br>(<b>intronic region<b/>)" : "" );
+        // node.data("intronic_regions") from searched neighbourhood return 1 or 0 instead "TRUE" or "FALSE"
+        let intronic_regions = node.data("intronic_regions");
+        if (typeof(intronic_regions) == "number") {
+          if (intronic_regions == 1) {
+            intronic_regions = "TRUE";
+          } else {
+            intronic_regions = "FALSE";
+          }
+        }
+        intronic_region = (intronic_regions.trim() == "TRUE" ? "</br>(<b>intronic region</b>)" : "" );
       }
       const tooltip_content = (gene_name.length !== 0 ? "<b>" + gene_name + "</b>" + intronic_region + "<br/>" : "") + node_id;
 
