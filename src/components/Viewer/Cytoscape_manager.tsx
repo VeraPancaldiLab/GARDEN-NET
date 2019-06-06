@@ -63,7 +63,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   }
 
   public buildNetwork = (cy_json_elements: any, cytoscape_container_id: string) => {
-    const cy = cytoscape({
+    const cytoscape_definition_data = {
 
       container: document.getElementById(cytoscape_container_id), // container to render in
 
@@ -124,7 +124,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
           }
         },
       },
-    });
+    };
+
+    // Fix TS2345 in TypeScript 3.5.1
+    const cy = cytoscape(cytoscape_definition_data);
+
     cy.on("tap", "node", (event: any) => {
       const node = event.target;
       const node_internal_id = node.data("chr") + "_" + node.data("start");
