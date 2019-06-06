@@ -191,6 +191,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
     return cy;
   }
 
+  // react-redux v7
+  public componentDidMount() {
+    this.forceUpdate();
+  }
+
   public componentDidUpdate(prevProps: any) {
     // If chromosome change, update left view and delete right view
     // Force to update chrosome view if this the first render caused by react router props initialization
@@ -469,7 +474,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             Be patient please
             <br />
             Rendering {this.state.loading_message}
-            <div className="spinner"></div>
+            <div className="spinner"/>
           </ModalBody>
         </Modal>
         <div className="col-sm-6" style={{ padding: "0px", paddingLeft: "10px" }}>

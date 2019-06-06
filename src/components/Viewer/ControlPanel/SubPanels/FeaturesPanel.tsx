@@ -10,6 +10,11 @@ export class FeaturesPanel extends React.Component<any, any> {
     this.state = { dropdownOpen: false, features: [""] };
   }
 
+  // react-redux v7
+  public componentDidMount() {
+    this.forceUpdate();
+  }
+
   public componentDidUpdate = () => {
     if (this.state.features[0] == "") {
       this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "features.json").then((json) => {

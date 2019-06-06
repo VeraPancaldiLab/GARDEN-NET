@@ -24,6 +24,11 @@ export class MetadataPanel extends React.Component<any, any> {
     });
   }
 
+  // react-redux v7
+  public componentDidMount() {
+    this.forceUpdate();
+  }
+
   public componentDidUpdate = (prevProps: any) => {
     if (Object.keys(this.state.network_properties).length === 0 || this.props.chromosome !== prevProps.chromosome) {
       this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "metadata" + "/" + "chr" + this.props.chromosome + ".json").then((json) => {
