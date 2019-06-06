@@ -13,6 +13,24 @@ describe("actions", () => {
     });
   });
 
+  describe("features_list_action", () => {
+    it("should provide the change_features_list action", () => {
+      expect(Action.change_features_list(["EZH2"])).toEqual({ type: Action.CHANGED_FEATURES_LIST, features_list: ["EZH2"] });
+    });
+  });
+
+  describe("features_list_action", () => {
+    it("should provide the change_features_list action", () => {
+      expect(Action.change_features_metadata({EZH2: "0"})).toEqual({ type: Action.CHANGED_FEATURES_METADATA, features_metadata: {EZH2: "0"} });
+    });
+  });
+
+  describe("features_new_action", () => {
+    it("should provide the change_features_new action", () => {
+      expect(Action.change_features_new({EZH2: 0})).toEqual({ type: Action.CHANGED_FEATURES_NEW, features_new: {EZH2: 0} });
+    });
+  });
+
   describe("download_action", () => {
     it("should provide the change_download action", () => {
       expect(Action.change_download("http://localhost:8080/data/chromosomes/chr1.json")).toEqual({ type: Action.CHANGED_DOWNLOAD, download: "http://localhost:8080/data/chromosomes/chr1.json" });

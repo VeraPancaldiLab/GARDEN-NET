@@ -2,9 +2,14 @@ import { connect } from "react-redux";
 import { change_chromosome, change_download, change_search } from "../actions/index";
 import { Cytoscape_manager } from "../components/Viewer/Cytoscape_manager";
 
+interface IFeatureNewMap {
+  [key: string]: number;
+}
+
 interface ICytoscapeProps {
   chromosome: string;
   feature: string;
+  features_new: IFeatureNewMap;
   download: string;
   search: string;
   organism: string;
@@ -15,6 +20,7 @@ export const mapStateToProps = (state: ICytoscapeProps) => {
   return {
     chromosome: state.chromosome,
     feature: state.feature,
+    features_new: state.features_new,
     download: state.download,
     search: state.search,
     organism: state.organism,
