@@ -42,7 +42,9 @@ export class UploadButton extends React.Component<any, any> {
       (response: any) => {
         const json = response.json();
         const headers = response.headers;
-        const location = headers.get("location");
+        // Very weird bug in Location path sent from production server
+        // Also force to use https
+        const location = headers.get("location").replace("http://pancaldi.bsc.es/garden-net_reststatus/", "https://pancaldi.bsc.es/garden-net_rest/status/");
         this.features_task_progress(location);
         return json;
       },
