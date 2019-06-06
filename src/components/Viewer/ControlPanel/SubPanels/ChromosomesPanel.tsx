@@ -59,7 +59,8 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
       borderWidth: "2px",
       paddingLeft: "5px",
       paddingRight: "5px",
-      marginBottom: "15px",
+      marginBottom: "5px",
+      fontSize: "small",
     };
 
     return (
@@ -68,7 +69,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
           <Label for="Select">Chromosomes</Label>
           <br />
           <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle caret={true}>
+            <DropdownToggle caret={true} style={{ fontSize: "small" }}>
               {this.props.chromosome}
             </DropdownToggle>
             <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden" }}>

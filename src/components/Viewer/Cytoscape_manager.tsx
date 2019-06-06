@@ -218,17 +218,26 @@ export class Cytoscape_manager extends React.Component<any, any> {
           height: (ele: any) => 20 + 1 * ele.data("total_degree"),
           width: (ele: any) => 20 + 1 * ele.data("total_degree"),
         };
-        const features_style = {
-          backgroundColor: (ele: any) => {
-            if (ele.data(this.props.feature) == 0) {
-              return "#ccc";
-            } else {
-              return "pink";
-            }
-          },
-        };
-
         if (this.props.feature != "Choose" && this.props.feature != "") {
+          if (this.props.feature in this.props.features_new) {
+            cy.nodes().data(this.props.feature, 0);
+            const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
+            const nodes = cy.filter((ele: any) => {
+              return ele.isNode() && new_features_names.includes(ele.data("name"));
+            });
+            nodes.forEach((node: any) => {
+              node.data(this.props.feature, this.props.features_new[this.props.feature][node.data("name")]);
+            });
+          }
+          const features_style = {
+            backgroundColor: (ele: any) => {
+              if (ele.data(this.props.feature) == 0) {
+                return "#ccc";
+              } else {
+                return "pink";
+              }
+            },
+          };
           dict_style = { ...dict_style, ...features_style };
         }
         cy.style()
@@ -327,17 +336,27 @@ export class Cytoscape_manager extends React.Component<any, any> {
           "background-opacity": opacityStyle,
         };
 
-        const features_style = {
-          backgroundColor: (ele: any) => {
-            if (ele.data(this.props.feature) == 0) {
-              return "#ccc";
-            } else {
-              return "pink";
-            }
-          },
-        };
-
         if (this.props.feature != "Choose" && this.props.feature != "") {
+          if (this.props.feature in this.props.features_new) {
+            cy.nodes().data(this.props.feature, 0);
+            const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
+            const nodes = cy.filter((ele: any) => {
+              return ele.isNode() && new_features_names.includes(ele.data("id"));
+            });
+            nodes.forEach((node: any) => {
+              node.data(this.props.feature, this.props.features_new[this.props.feature][node.data("id")]);
+            });
+          }
+          const features_style = {
+            backgroundColor: (ele: any) => {
+              if (ele.data(this.props.feature) == 0) {
+                return "#ccc";
+              } else {
+                return "pink";
+              }
+            },
+          };
+
           dict_style = { ...dict_style, ...features_style };
         }
 
@@ -430,12 +449,23 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
     } else if (this.props.feature !== prevProps.feature && this.props.feature !== "Choose" && this.props.feature !== "") {
 
+      if (this.props.feature in this.props.features_new) {
+        this.left_cy_network.nodes().data(this.props.feature, 0);
+        const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
+        const nodes = this.left_cy_network.filter((ele: any) => {
+          return ele.isNode() && new_features_names.includes(ele.data("name"));
+        });
+        nodes.forEach((node: any) => {
+          node.data(this.props.feature, this.props.features_new[this.props.feature][node.data("name")]);
+        });
+      }
+
       const updateFeatures = (cy_network: any) => {
         cy_network.style()
           .selector("node")
           .style({
             "background-color": (ele: any) => {
-              if (ele.data(this.props.feature) == 0) {
+              if (ele.data(this.props.feature) === 0) {
                 return "#ccc";
               } else {
                 return "pink";
