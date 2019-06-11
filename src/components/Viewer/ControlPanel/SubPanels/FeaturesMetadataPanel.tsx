@@ -12,8 +12,8 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
 
   public componentDidUpdate = (prepProps: any) => {
     if (this.props.feature !== prepProps.feature && this.props.features !== "Choose") {
-      if (this.props.feature in this.props.features_metadata) {
-          this.setState({feature_metadata: this.props.features_metadata[this.props.feature]});
+    if (this.props.feature in this.props.features_new) {
+          this.setState({feature_metadata: this.props.features_metadata});
       } else {
       this.fetchAsyncJson(this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "features_metadata.json").then((json) => {
         if (json.length != 0) {

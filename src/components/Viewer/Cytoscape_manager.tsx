@@ -220,14 +220,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         };
         if (this.props.feature != "Choose" && this.props.feature != "") {
           if (this.props.feature in this.props.features_new) {
-            cy.nodes().data(this.props.feature, 0);
-            const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
-            const nodes = cy.filter((ele: any) => {
-              return ele.isNode() && new_features_names.includes(ele.data("name"));
-            });
-            nodes.forEach((node: any) => {
-              node.data(this.props.feature, this.props.features_new[this.props.feature][node.data("name")]);
-            });
+            this.addUserFeatures(cy, "name");
           }
           const features_style = {
             backgroundColor: (ele: any) => {
@@ -338,14 +331,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
         if (this.props.feature != "Choose" && this.props.feature != "") {
           if (this.props.feature in this.props.features_new) {
-            cy.nodes().data(this.props.feature, 0);
-            const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
-            const nodes = cy.filter((ele: any) => {
-              return ele.isNode() && new_features_names.includes(ele.data("id"));
-            });
-            nodes.forEach((node: any) => {
-              node.data(this.props.feature, this.props.features_new[this.props.feature][node.data("id")]);
-            });
+            this.addUserFeatures(cy, "id");
           }
           const features_style = {
             backgroundColor: (ele: any) => {
@@ -452,14 +438,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
     } else if (this.props.feature !== prevProps.feature && this.props.feature !== "Choose" && this.props.feature !== "") {
 
       if (this.props.feature in this.props.features_new) {
-        this.left_cy_network.nodes().data(this.props.feature, 0);
-        const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
-        const nodes = this.left_cy_network.filter((ele: any) => {
-          return ele.isNode() && new_features_names.includes(ele.data("name"));
-        });
-        nodes.forEach((node: any) => {
-          node.data(this.props.feature, this.props.features_new[this.props.feature][node.data("name")]);
-        });
+        this.addUserFeatures(this.left_cy_network, "name");
+      }
+
+      if (this.props.feature in this.props.features_new) {
+        this.addUserFeatures(this.right_cy_network, "id");
       }
 
       const updateFeatures = (cy_network: any) => {
@@ -519,5 +502,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
         </div>
       </div>
     );
+  }
+
+  private addUserFeatures(cy: any, name_property: string) {
+        cy.batch(() => {
+          cy.nodes().data(this.props.feature, 0);
+          const new_features_names = Object.keys(this.props.features_new[this.props.feature]);
+          const nodes = cy.filter((ele: any) => {
+            return ele.isNode() && new_features_names.includes(ele.data(name_property));
+          });
+          nodes.forEach((node: any) => {
+            node.data(this.props.feature, this.props.features_new[this.props.feature][node.data(name_property)]);
+          });
+        });
   }
 }
