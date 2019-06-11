@@ -389,7 +389,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
         const nodes_internal_ids = [];
         for (let i = 0; i < right_nodes.length; i++) {
-          nodes_internal_ids.push(right_nodes[i].data("chr") + "_" + right_nodes[i].data("start"));
+          // Always use lowercase for X and Y chromosomes
+          const node_internal_id = (right_nodes[i].data("chr") + "_" + right_nodes[i].data("start")).toLowerCase();
+          nodes_internal_ids.push(node_internal_id);
         }
         this.setState({ neighbourhood_node_ids: nodes_internal_ids });
 
