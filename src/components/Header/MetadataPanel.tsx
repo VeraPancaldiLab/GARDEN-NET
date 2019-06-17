@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Col, Row, Table } from "reactstrap";
+import { Col, Label, Row, Table } from "reactstrap";
 
 export class MetadataPanel extends React.Component<any, any> {
 
@@ -39,7 +39,8 @@ export class MetadataPanel extends React.Component<any, any> {
 
   public render() {
     return (
-      <div style={{ paddingTop: "15px" }}>
+      <div className="text-center" style={{ paddingTop: "15px" }}>
+        <Label className="text-center">{this.props.chromosome === "PP" ? "Promoter-Promoter only" : "Chromosome " + this.props.chromosome} metadata</Label>
         <Row style={{ fontSize: "85%" }}>
           <Col xs={6}>
             <Table bordered={true} size="sm">
