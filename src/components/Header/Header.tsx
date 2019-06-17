@@ -20,7 +20,7 @@ export class Header extends React.Component<{}, {}> {
                   <Col lg="2" />
                   <Col className="text-center">
                     <a href="https://github.com/VeraPancaldiLab/GARDEN-NET">
-                      <img src="images/garden-net.png" width="128" height="128" alt="GARDEN-NET logo"/>
+                      <img src="images/garden-net.png" width="120" height="120" alt="GARDEN-NET logo"/>
                     </a>
                   </Col>
                   <Col lg="2" />

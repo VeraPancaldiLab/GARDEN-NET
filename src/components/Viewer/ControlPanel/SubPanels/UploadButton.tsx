@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Form, FormGroup, Input, Modal, ModalBody, Progress } from "reactstrap";
+import { Form, FormGroup, Input, Label, Modal, ModalBody, Progress } from "reactstrap";
 
 export class UploadButton extends React.Component<any, any> {
 
@@ -67,7 +67,8 @@ export class UploadButton extends React.Component<any, any> {
       <div className="text-center">
         <Form>
           <FormGroup style={{ marginBottom: "0px" }}>
-            <Input style={margin_style} type="file" accept=".bed.gz" onChange={this.onFileChange} key={this.state.input_key} name="features" />
+            <Label for="features_upload_button">Upload features file</Label>
+            <Input style={margin_style} type="file" accept=".bed.gz" onChange={this.onFileChange} key={this.state.input_key} name="features" id="features_upload_button" />
           </FormGroup>
         </Form>
         <Modal isOpen={this.state.loading_features} centered={true} className="text-center">
