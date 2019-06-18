@@ -129,7 +129,22 @@ export class Cytoscape_manager extends React.Component<any, any> {
     // Fix TS2345 in TypeScript 3.5.1
     const cy = cytoscape(cytoscape_definition_data);
 
-    cy.on("tap", "node", (event: any) => {
+    cy.on("click", "node", (event: any) => {
+      const node = event.target;
+      const node_internal_id = node.data("chr") + "_" + node.data("start");
+      let node_real_id = node_internal_id + "-" + node.data("end");
+      node_real_id = node_real_id.replace("_", ":");
+      const WASHUP_URL_BASE = "http://epigenomegateway.wustl.edu/browser/?genome=";
+      const organism_map: any = {Homo_sapiens: "hg19", Mus_musculus: "mm9"};
+      const node_url = WASHUP_URL_BASE + organism_map[this.props.organism] + "&position=chr" + node_real_id;
+      try { // your browser may block popups
+        window.open(node_url);
+      } catch (e) { // fall back on url change
+        window.location.href = node_url;
+      }
+    });
+
+    cy.on("cxttap", "node", (event: any) => {
       const node = event.target;
       const node_internal_id = node.data("chr") + "_" + node.data("start");
       this.setState({ neighbourhood_node_ids: [node_internal_id] });
