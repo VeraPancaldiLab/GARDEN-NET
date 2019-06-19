@@ -131,12 +131,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
     cy.on("click", "node", (event: any) => {
       const node = event.target;
-      const node_internal_id = node.data("chr") + "_" + node.data("start");
-      let node_real_id = node_internal_id + "-" + node.data("end");
-      node_real_id = node_real_id.replace("_", ":");
+      const node_real_range = node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
       const WASHUP_URL_BASE = "http://epigenomegateway.wustl.edu/browser/?genome=";
       const organism_map: any = {Homo_sapiens: "hg19", Mus_musculus: "mm9"};
-      const node_url = WASHUP_URL_BASE + organism_map[this.props.organism] + "&position=chr" + node_real_id;
+      const node_url = WASHUP_URL_BASE + organism_map[this.props.organism] + "&position=chr" + node_real_range;
       try { // your browser may block popups
         window.open(node_url);
       } catch (e) { // fall back on url change
@@ -146,10 +144,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
     cy.on("cxttap", "node", (event: any) => {
       const node = event.target;
-      const node_internal_id = node.data("chr") + "_" + node.data("start");
+      const node_internal_id = node.data("chr") + "_" + node.data("start") + "_" + node.data("end");
       this.setState({ neighbourhood_node_ids: [node_internal_id] });
-      let node_real_id = node_internal_id + "-" + node.data("end");
-      node_real_id = node_real_id.replace("_", ":");
+      const node_real_range = node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
       let message = "Search ";
       const node_name = node.data("names");
       if (node_name != "") {
@@ -158,10 +155,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
           label += "...";
         }
         message += label;
-        this.setState({ right_title: label + " (" + node_real_id + ")" });
+        this.setState({ right_title: label + " (" + node_real_range + ")" });
       } else {
-        this.setState({ right_title: node_real_id });
-        message += "by id " + node_real_id;
+        this.setState({ right_title: node_real_range });
+        message += "by id " + node_real_range;
       }
       this.reuse_message = true;
       this.setState({ loading_message: message });
