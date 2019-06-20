@@ -1,6 +1,6 @@
 import * as cytoscape from "cytoscape";
 import * as React from "react";
-import { Modal, ModalBody } from "reactstrap";
+import { Button, Modal, ModalBody } from "reactstrap";
 import Tippy from "tippy.js";
 import { Cytoscape_container } from "../../containers/CytoscapeContainer";
 
@@ -506,14 +506,67 @@ export class Cytoscape_manager extends React.Component<any, any> {
         </Modal>
         <div className="col-sm-6" style={{ padding: "0px", paddingLeft: "10px" }}>
           <h3 className="text-center" style={{ color: this.chromosome_color[this.props.chromosome] }}>{this.state.left_title ? this.state.left_title : "Chromosome " + this.props.chromosome}</h3>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "17px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickResetZoom(event, this.left_cy_network, "left")}>Reset zoom</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickPNG(event, this.left_cy_network, "left")}>PNG picture</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickJSON(event, this.left_cy_network, "left")}>JSON file</Button>
           <Cytoscape_container cytoscape_container_id={this.left_container_id} />
         </div>
         <div className="col-sm-6" style={{ padding: "0px" }}>
           <h3 className="text-center" style={{ color: this.chromosome_color[chromosome_in_right_title] }}>{this.state.right_title ? this.state.right_title : "Search view"}</h3>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "17px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickResetZoom(event, this.right_cy_network, "right")}>Reset zoom</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickPNG(event, this.right_cy_network, "right")}>PNG picture</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickJSON(event, this.right_cy_network, "right")}>JSON file</Button>
           <Cytoscape_container cytoscape_container_id={this.right_container_id} />
         </div>
       </div>
     );
+  }
+
+  private onClickResetZoom = (event: any, cy: any, view: string): any => {
+    event.preventDefault();
+    if (view == "left") {
+      this.setState({neighbourhood_node_ids: []});
+      this.left_cy_network.elements().style({
+        opacity: 1,
+      });
+    }
+    cy.fit();
+  }
+
+  private onClickPNG = (event: any, cy: any, view: string): any => {
+    event.preventDefault();
+    const png_blob = cy.png({output: "blob"});
+    const hiddenElement = document.createElement("a");
+    document.body.appendChild(hiddenElement);
+    hiddenElement.href = window.URL.createObjectURL(png_blob);
+    if (view == "left") {
+      hiddenElement.setAttribute("download", this.props.organism + "-" + this.props.cell_type + "_-hr" + this.props.chromosome + ".png");
+    } else {
+      hiddenElement.setAttribute("download", this.state.right_title + ".png");
+    }
+    hiddenElement.style.display = "none";
+    if (view == "left" || (this.right_cy_network.elements().size() != 0)) {
+      hiddenElement.click();
+    }
+    document.body.removeChild(hiddenElement);
+  }
+
+  private onClickJSON = (event: any, cy: any, view: string): any => {
+    event.preventDefault();
+    const json_blob = new Blob([JSON.stringify(cy.json(), null, 2)], { type: "application/json" });
+    const hiddenElement = document.createElement("a");
+    document.body.appendChild(hiddenElement);
+    hiddenElement.href = window.URL.createObjectURL(json_blob);
+    if (view == "left") {
+      hiddenElement.setAttribute("download", this.props.organism + "-" + this.props.cell_type + "-chr" + this.props.chromosome + ".json");
+    } else {
+      hiddenElement.setAttribute("download", this.state.right_title + ".json");
+    }
+    hiddenElement.style.display = "none";
+    if (view == "left" || (this.right_cy_network.elements().size() != 0)) {
+      hiddenElement.click();
+    }
+    document.body.removeChild(hiddenElement);
   }
 
   private addUserFeatures(cy: any, name_property: string) {
