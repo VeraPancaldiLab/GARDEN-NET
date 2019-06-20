@@ -251,7 +251,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       };
       const updateNeighbourhood = (cy: any) => {
         if (this.state.neighbourhood_node_ids.length != 0) {
-          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
+          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start") + "_" + node.data("end"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
 
           if (left_nodes.length != 0) {
             const all_left_nodes_together = cy.collection();
@@ -388,7 +388,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         const nodes_internal_ids = [];
         for (let i = 0; i < right_nodes.length; i++) {
           // Always use lowercase for X and Y chromosomes
-          const node_internal_id = (right_nodes[i].data("chr") + "_" + right_nodes[i].data("start")).toLowerCase();
+          const node_internal_id = (right_nodes[i].data("chr") + "_" + right_nodes[i].data("start") + "_" + right_nodes[i].data("end")).toLowerCase();
           nodes_internal_ids.push(node_internal_id);
         }
         this.setState({ neighbourhood_node_ids: nodes_internal_ids });
@@ -396,7 +396,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         const searched_chromosome = right_nodes[0].data("chr");
         // Force color the neighbourhood when the chromosome is the same
         if (this.props.chromosome === searched_chromosome || this.props.chromosome === "PP") {
-          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
+          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start") + "_" + node.data("end"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
 
           if (left_nodes.length != 0) {
             const all_left_nodes_together = left_nodes[0];
