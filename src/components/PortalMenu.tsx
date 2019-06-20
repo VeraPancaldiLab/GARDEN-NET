@@ -47,7 +47,11 @@ export class PortalMenu extends React.Component<any, any> {
       <div className="container">
         <Row style={{ margin: "15px" }}>
           <h3 className="text-center">Welcome to
-            <br />
+          <br/>
+          <a href="https://github.com/VeraPancaldiLab/GARDEN-NET" target="_blank">
+            <img src="images/garden-net.png" width="120" height="120" alt="GARDEN-NET logo"/>
+          </a>
+            <br/>
             Genome ARchitecture DNA Epigenome and Nucleome - Network Exploration Tool</h3>
           <br />
           <span>

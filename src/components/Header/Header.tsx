@@ -19,7 +19,7 @@ export class Header extends React.Component<{}, {}> {
                 <Row>
                   <Col lg="2" />
                   <Col className="text-center">
-                    <a href="https://github.com/VeraPancaldiLab/GARDEN-NET">
+                    <a href="https://github.com/VeraPancaldiLab/GARDEN-NET" target="_blank">
                       <img src="images/garden-net.png" width="120" height="120" alt="GARDEN-NET logo"/>
                     </a>
                   </Col>
@@ -42,11 +42,13 @@ export class Header extends React.Component<{}, {}> {
                 <span>
                   A selection of epigenomic features that have been mapped to the chromatin fragments will be available from the drop-down menu on the right. Select one of them to visualize chromatin fragments that have that feature and to calculate statistics relating to this feature and the 3D network.
                   </span>
-                <span>
-                  <a href="https://bitbucket.org/eraineri/chaser" target="_blank">ChAseR</a> R package enables calculations of network statistics and chromatin assortativity (<em><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1003-3" target="_blank">Pancaldi et al. 2016</a></em>).
+                  <span>
+                    <b>GARDEN-NET</b> uses functionality provided by the <a href="https://bitbucket.org/eraineri/chaser" target="_blank">ChAseR</a> R package to compute chromatin assortativity (<em><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1003-3" target="_blank">Pancaldi et al. 2016</a></em>).
                     </span>
-              </Row>
-            </Col>
+                    <br />
+                    User submitted features can also be visualized on the networks and used for the network based calculations.
+                  </Row>
+                </Col>
           </div>
         </Container>
       </Row>
