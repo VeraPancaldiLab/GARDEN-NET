@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Col } from "reactstrap";
 import { ChromosomesPanelContainer } from "./../../../containers/ChromosomesPanelContainer";
-import { DownloadButtonContainer } from "./../../../containers/DownloadButtonContainer";
 import { FeaturesMetadataPanelContainer } from "./../../../containers/FeaturesMetadataPanelContainer";
 import { FeaturesPanelContainer } from "./../../../containers/FeaturesPanelContainer";
 import { UploadButtonContainer } from "./../../../containers/UploadButtonContainer";
@@ -16,7 +15,6 @@ export class ControlPanel extends React.Component<{}, {}> {
           <FeaturesPanelContainer />
           <FeaturesMetadataPanelContainer />
           <UploadButtonContainer />
-          <DownloadButtonContainer />
         </Col>
       </div>
     );

@@ -32,10 +32,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
     };
   }
 
-  public onDownloadChange = (download: string) => {
-    this.props.onDownloadChange(download);
-  }
-
   public chromosomePath(chromosome: string): string {
     return this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "chromosomes" + "/" + "chr" + chromosome + ".json";
   }
@@ -217,7 +213,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
         this.initial_rendering = false;
       }
       const url = this.chromosomePath(this.props.chromosome);
-      this.onDownloadChange(url);
       let message = "";
       if (this.props.chromosome != "PP") {
         message = "Chromosome " + this.props.chromosome;

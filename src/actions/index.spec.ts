@@ -31,12 +31,6 @@ describe("actions", () => {
     });
   });
 
-  describe("download_action", () => {
-    it("should provide the change_download action", () => {
-      expect(Action.change_download("http://localhost:8080/data/chromosomes/chr1.json")).toEqual({ type: Action.CHANGED_DOWNLOAD, download: "http://localhost:8080/data/chromosomes/chr1.json" });
-    });
-  });
-
   describe("search_action", () => {
     it("should provide the change_search action", () => {
       expect(Action.change_search("Hoxa1")).toEqual({ type: Action.CHANGED_SEARCH, search: "Hoxa1" });
