@@ -1,6 +1,6 @@
 import * as cytoscape from "cytoscape";
 import * as React from "react";
-import { Modal, ModalBody } from "reactstrap";
+import { Button, Modal, ModalBody } from "reactstrap";
 import Tippy from "tippy.js";
 import { Cytoscape_container } from "../../containers/CytoscapeContainer";
 
@@ -30,10 +30,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
       left_network: undefined, right_network: undefined, left_title: "",
       right_title: "", neighbourhood_node_ids: [],
     };
-  }
-
-  public onDownloadChange = (download: string) => {
-    this.props.onDownloadChange(download);
   }
 
   public chromosomePath(chromosome: string): string {
@@ -217,7 +213,6 @@ export class Cytoscape_manager extends React.Component<any, any> {
         this.initial_rendering = false;
       }
       const url = this.chromosomePath(this.props.chromosome);
-      this.onDownloadChange(url);
       let message = "";
       if (this.props.chromosome != "PP") {
         message = "Chromosome " + this.props.chromosome;
@@ -251,7 +246,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       };
       const updateNeighbourhood = (cy: any) => {
         if (this.state.neighbourhood_node_ids.length != 0) {
-          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
+          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start") + "_" + node.data("end"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
 
           if (left_nodes.length != 0) {
             const all_left_nodes_together = cy.collection();
@@ -388,7 +383,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         const nodes_internal_ids = [];
         for (let i = 0; i < right_nodes.length; i++) {
           // Always use lowercase for X and Y chromosomes
-          const node_internal_id = (right_nodes[i].data("chr") + "_" + right_nodes[i].data("start")).toLowerCase();
+          const node_internal_id = (right_nodes[i].data("chr") + "_" + right_nodes[i].data("start") + "_" + right_nodes[i].data("end")).toLowerCase();
           nodes_internal_ids.push(node_internal_id);
         }
         this.setState({ neighbourhood_node_ids: nodes_internal_ids });
@@ -396,7 +391,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         const searched_chromosome = right_nodes[0].data("chr");
         // Force color the neighbourhood when the chromosome is the same
         if (this.props.chromosome === searched_chromosome || this.props.chromosome === "PP") {
-          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
+          const left_nodes = this.left_cy_network.nodes().filter((node: any) => { const node_id = node.data("chr") + "_" + node.data("start") + "_" + node.data("end"); return this.state.neighbourhood_node_ids.includes(node_id.toLowerCase()); });
 
           if (left_nodes.length != 0) {
             const all_left_nodes_together = left_nodes[0];
@@ -506,14 +501,67 @@ export class Cytoscape_manager extends React.Component<any, any> {
         </Modal>
         <div className="col-sm-6" style={{ padding: "0px", paddingLeft: "10px" }}>
           <h3 className="text-center" style={{ color: this.chromosome_color[this.props.chromosome] }}>{this.state.left_title ? this.state.left_title : "Chromosome " + this.props.chromosome}</h3>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "17px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickResetZoom(event, this.left_cy_network, "left")}>Reset zoom</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickPNG(event, this.left_cy_network, "left")}>PNG picture</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickJSON(event, this.left_cy_network, "left")}>JSON file</Button>
           <Cytoscape_container cytoscape_container_id={this.left_container_id} />
         </div>
         <div className="col-sm-6" style={{ padding: "0px" }}>
           <h3 className="text-center" style={{ color: this.chromosome_color[chromosome_in_right_title] }}>{this.state.right_title ? this.state.right_title : "Search view"}</h3>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "17px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickResetZoom(event, this.right_cy_network, "right")}>Reset zoom</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickPNG(event, this.right_cy_network, "right")}>PNG picture</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickJSON(event, this.right_cy_network, "right")}>JSON file</Button>
           <Cytoscape_container cytoscape_container_id={this.right_container_id} />
         </div>
       </div>
     );
+  }
+
+  private onClickResetZoom = (event: any, cy: any, view: string): any => {
+    event.preventDefault();
+    if (view == "left") {
+      this.setState({neighbourhood_node_ids: []});
+      this.left_cy_network.elements().style({
+        opacity: 1,
+      });
+    }
+    cy.fit();
+  }
+
+  private onClickPNG = (event: any, cy: any, view: string): any => {
+    event.preventDefault();
+    const png_blob = cy.png({output: "blob"});
+    const hiddenElement = document.createElement("a");
+    document.body.appendChild(hiddenElement);
+    hiddenElement.href = window.URL.createObjectURL(png_blob);
+    if (view == "left") {
+      hiddenElement.setAttribute("download", this.props.organism + "-" + this.props.cell_type + "_-hr" + this.props.chromosome + ".png");
+    } else {
+      hiddenElement.setAttribute("download", this.state.right_title + ".png");
+    }
+    hiddenElement.style.display = "none";
+    if (view == "left" || (this.right_cy_network.elements().size() != 0)) {
+      hiddenElement.click();
+    }
+    document.body.removeChild(hiddenElement);
+  }
+
+  private onClickJSON = (event: any, cy: any, view: string): any => {
+    event.preventDefault();
+    const json_blob = new Blob([JSON.stringify(cy.json(), null, 2)], { type: "application/json" });
+    const hiddenElement = document.createElement("a");
+    document.body.appendChild(hiddenElement);
+    hiddenElement.href = window.URL.createObjectURL(json_blob);
+    if (view == "left") {
+      hiddenElement.setAttribute("download", this.props.organism + "-" + this.props.cell_type + "-chr" + this.props.chromosome + ".json");
+    } else {
+      hiddenElement.setAttribute("download", this.state.right_title + ".json");
+    }
+    hiddenElement.style.display = "none";
+    if (view == "left" || (this.right_cy_network.elements().size() != 0)) {
+      hiddenElement.click();
+    }
+    document.body.removeChild(hiddenElement);
   }
 
   private addUserFeatures(cy: any, name_property: string) {
