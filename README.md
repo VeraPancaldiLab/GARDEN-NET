@@ -1,18 +1,36 @@
-# [GARDEN-NET](https://verapancaldilab.github.io/GARDEN-NET/)
-**[Website](https://verapancaldilab.github.io/GARDEN-NET/)**
+<center>
+  <h3 className="text-center">Welcome to
+  <br/>
+  <a href="https://github.com/VeraPancaldiLab/GARDEN-NET" target="_blank">
+  <img src="screenshots/garden-net.png" width="120" height="120" alt="GARDEN-NET logo"/>
+  </a>
+  <br/>
+  Genome ARchitecture DNA Epigenome and Nucleome - Network Exploration Tool</h3>
+</center>
+  <span>
+  Here you will be able to visualize chromosome conformation capture datasets as networks of interacting chromatin fragments. The published datasets available were generated with the <em>Promoter Capture HiC</em> technique, which returns contacts involving promoters.
+  </span>
+  <br />
+  Choose your organism and cell type from the drop-down menu to visualize the corresponding network (by chromosome or genome wide when showing only promoter-promoter contacts). A selection of epigenomic features that have been mapped to the chromatin fragments will be available from the drop-down menu on the right. Select one of them to visualize chromatin fragments that have that feature and to calculate statistics relating to this feature and the 3D network.
+  <br />
+  <br />
+  <span>
+  <b>GARDEN-NET</b> uses functionality provided by the <a href="https://bitbucket.org/eraineri/chaser" target="_blank">ChAseR</a> R package to compute chromatin assortativity (<em><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1003-3" target="_blank">Pancaldi et al. 2016</a></em>).
+  </span>
+  <br />
+  User submitted features can also be visualized on the networks and used for the network based calculations.
 
-<https://pancaldi.bsc.es/GARDEN-NET>
 
-[![Screenshot](screenshot.png)](https://pancaldi.bsc.es/garden-net)
+[![Portal](./screenshots/portal.png)](https://pancaldi.bsc.es/garden-net)
+[![Screenshot](./screenshots/screenshot.png)](https://pancaldi.bsc.es/garden-net)
 
 # Table Of Content
 
 <details>
 <summary>Click to expand Table Of Content</summary>
 <ul>
-  <li><a href="#garden-net">GARDEN-NET</a><ul>
     <li><a href="#table-of-content">Table Of Content</a></li>
-    <li><a href="#description">Description</a></li>
+    <li><a href="#backend">Backend</a></li>
     <li><a href="#requirements">Requirements</a><ul>
       <li><a href="#packages">Packages</a></li>
       <li><a href="#dependencies">Dependencies</a></li>
@@ -36,8 +54,8 @@
 </ul>
 </details>
 
-## Description
-Genome ARchitecture Data Epigenome and Nucleome - Network Exploration Tool (GARDEN-NET)
+## Backend
+The backend add to GARDEN-NET the search, neighborhood, and upload features files capacities provided by [GARDEN-NET_backend](https://github.com/VeraPancaldiLab/GARDEN-NET_backend)
 
 ## Requirements
 
@@ -68,24 +86,36 @@ Genome ARchitecture Data Epigenome and Nucleome - Network Exploration Tool (GARD
 Use **production.html** which replaces the next lines from the index.html
 ```html
 <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../node_modules/tippy.js/themes/light-border.css">
+
 <script src="../node_modules/react/umd/react.development.js"></script>
 <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
 <script src="../node_modules/reactstrap/dist/reactstrap.full.js"></script>
-<script src="../node_modules/cytoscape/dist/cytoscape.js"></script>
+<script src="../node_modules/cytoscape/dist/cytoscape.min.js"></script>
 <script src="../node_modules/redux/dist/redux.js"></script>
 <script src="../node_modules/react-redux/dist/react-redux.js"></script>
+<script src="../node_modules/popper.js/dist/umd/popper.js"></script>
+<script src="../node_modules/cytoscape-popper/cytoscape-popper.js"></script>
+<script src="../node_modules/tippy.js/umd/index.js"></script>
+<script src="../node_modules/react-router-dom/umd/react-router-dom.js"></script>
 ```
 
 with CDN links for production (min versions)
 
 ```html
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js/themes/light-border.css">
+
 <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/reactstrap/dist/reactstrap.full.js"></script>
+<script src="https://unpkg.com/reactstrap/dist/reactstrap.full.min.js"></script>
 <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
 <script src="https://unpkg.com/redux/dist/redux.min.js"></script>
 <script src="https://unpkg.com/react-redux/dist/react-redux.min.js"></script>
+<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/cytoscape-popper/cytoscape-popper.js"></script>
+<script src="https://unpkg.com/tippy.js/umd/index.min.js"></script>
+<script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
 ```
 
 #### Bundler with excluded dependencies
@@ -95,7 +125,13 @@ externals: {
   "react": "React",
   "react-dom": "ReactDOM",
   "reactstrap": "Reactstrap",
-  "cytoscape": "cytoscape"
+  "cytoscape": "cytoscape",
+  "redux": "Redux",
+  "react-redux": "ReactRedux",
+  "popper.js": "Popper",
+  "cytoscape-popper": 'cytoscapePopper',
+  "react-redux": "ReactRedux",
+  "react-router-dom": "ReactRouterDOM"
 }
 ```
 and run [Dist](#dist)
@@ -122,7 +158,9 @@ or run
 - [Bootstrap](https://getbootstrap.com/)
     - [Reactstrap](https://reactstrap.github.io/)
 - [Cytoscape.js](http://js.cytoscape.org/)
+    - [Cytoscape.js-popper](https://github.com/cytoscape/cytoscape.js-popper)
 - [jest](https://jestjs.io/)
+- [tippy.js](https://atomiks.github.io/tippyjs/)
 
 ## License
 GNU AFFERO GENERAL PUBLIC LICENSE (see [License.md](./License.md))
