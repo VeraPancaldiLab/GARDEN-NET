@@ -511,6 +511,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "17px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickResetZoom(event, this.right_cy_network, "right")}>Reset zoom</Button>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickPNG(event, this.right_cy_network, "right")}>PNG picture</Button>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickJSON(event, this.right_cy_network, "right")}>JSON file</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickTSV(event, this.right_cy_network, "right")}>TSV file</Button>
           <Cytoscape_container cytoscape_container_id={this.right_container_id} />
         </div>
       </div>
@@ -556,6 +557,37 @@ export class Cytoscape_manager extends React.Component<any, any> {
       hiddenElement.setAttribute("download", this.props.organism + "-" + this.props.cell_type + "-chr" + this.props.chromosome + ".json");
     } else {
       hiddenElement.setAttribute("download", this.state.right_title + ".json");
+    }
+    hiddenElement.style.display = "none";
+    if (view == "left" || (this.right_cy_network.elements().size() != 0)) {
+      hiddenElement.click();
+    }
+    document.body.removeChild(hiddenElement);
+  }
+
+  private onClickTSV= (event: any, cy: any, view: string): any => {
+    event.preventDefault();
+    if (cy.nodes().size() == 0) {
+      return;
+    }
+    const nodes = cy.nodes();
+    const header = Object.keys(nodes.data()).join("\t");
+    let tsv_text = header + "\n";
+    for (let node_index = 0; node_index < nodes.length; node_index++) {
+      const tsv_row = [];
+      for (const key of Object.keys(nodes[node_index].data())) {
+        tsv_row.push(nodes[node_index].data(key));
+      }
+      tsv_text += tsv_row.join("\t") + "\n";
+    }
+    const tsv_blob = new Blob([tsv_text], { type: "application/tsv" });
+    const hiddenElement = document.createElement("a");
+    document.body.appendChild(hiddenElement);
+    hiddenElement.href = window.URL.createObjectURL(tsv_blob);
+    if (view == "left") {
+      hiddenElement.setAttribute("download", this.props.organism + "-" + this.props.cell_type + "-chr" + this.props.chromosome + ".tsv");
+    } else {
+      hiddenElement.setAttribute("download", this.state.right_title + ".tsv");
     }
     hiddenElement.style.display = "none";
     if (view == "left" || (this.right_cy_network.elements().size() != 0)) {
