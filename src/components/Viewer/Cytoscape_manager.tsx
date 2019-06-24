@@ -512,6 +512,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickPNG(event, this.right_cy_network, "right")}>PNG picture</Button>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickJSON(event, this.right_cy_network, "right")}>JSON file</Button>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickTSV(event, this.right_cy_network, "right")}>TSV file</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickGeneList(event, this.right_cy_network)}>Gene list</Button>
           <Cytoscape_container cytoscape_container_id={this.right_container_id} />
         </div>
       </div>
@@ -593,6 +594,36 @@ export class Cytoscape_manager extends React.Component<any, any> {
     if (view == "left" || (this.right_cy_network.elements().size() != 0)) {
       hiddenElement.click();
     }
+    document.body.removeChild(hiddenElement);
+  }
+
+  private onClickGeneList= (event: any, cy: any): any => {
+    event.preventDefault();
+    if (cy.nodes().size() == 0) {
+      return;
+    }
+    const nodes = cy.nodes();
+    let tsv_text = "";
+    const tsv_row: string[] = [];
+    for (let node_index = 0; node_index < nodes.length; node_index++) {
+      const names = nodes[node_index].data("names").split(" ");
+      if (names[0] == "") {
+        continue;
+      }
+      for (const name of names) {
+        if (!tsv_row.includes(name)) {
+          tsv_row.push(name);
+        }
+      }
+    }
+    tsv_text += tsv_row.sort().join("\n");
+    const tsv_blob = new Blob([tsv_text], { type: "application/text" });
+    const hiddenElement = document.createElement("a");
+    document.body.appendChild(hiddenElement);
+    hiddenElement.href = window.URL.createObjectURL(tsv_blob);
+    hiddenElement.setAttribute("download", "GeneList.txt");
+    hiddenElement.style.display = "none";
+    hiddenElement.click();
     document.body.removeChild(hiddenElement);
   }
 
