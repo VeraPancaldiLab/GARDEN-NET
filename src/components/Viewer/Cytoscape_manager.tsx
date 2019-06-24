@@ -19,8 +19,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private tooltip_tippy: any;
   private initial_rendering = true;
   // http://www.perbang.dk/rgbgradient/
-  private chromosome_color: any = { 1: "#F90300", 2: "#FA2E00", 3: "#FA5A00", 4: "#FA8501", 5: "#FAB001", 6: "#FBDC02", 7: "#EFFB02", 8: "#C4FB03", 9: "#9AFB03", 10: "#6FFB03", 11: "#45FC04", 12: "#1AFC04", 13: "#05FC19", 14: "#05FC45", 15: "#06FD70", 16: "#06FD9B", 17: "#06FDC5", 18: "#07FDF0", 19: "#07E0FD", 20: "#08B6FE", 21: "#088BFE", 22: "#0961FE", X: "#0937FE", Y: "#090EFF", MT: "#FFFFFF" };
-
+  private chromosome_color: any = { 1: "#CC6699", 2: "#990066", 3: "#FF33FF", 4: "#FF99FF", 5: "#CC99CC", 6: "#9933FF", 7: "#330099", 8: "#3333CC", 9: "#0066FF", 10: "#0099FF", 11: "#3399CC", 12: "#009999", 13: "#006666", 14: "#33FFCC", 15: "#33CC99", 16: "#33FF66", 17: "#FFCC33", 18: "#663300", 19: "#993300", 20: "#CC0000", 21: "#CC9900", 22: "#CC6666", X: "#66CC33", Y: "#666666", MT:"#FFFFFF"};
   constructor(props: any) {
     super(props);
     this.reuse_message = false;
