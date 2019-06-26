@@ -1,6 +1,6 @@
 import * as cytoscape from "cytoscape";
 import * as React from "react";
-import { Button, Modal, ModalBody } from "reactstrap";
+import { Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row } from "reactstrap";
 import Tippy from "tippy.js";
 import { Cytoscape_container } from "../../containers/CytoscapeContainer";
 
@@ -27,7 +27,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     this.state = {
       cytoscape_loading: false, loading_message: "",
       left_network: undefined, right_network: undefined, left_title: "",
-      right_title: "", neighbourhood_node_ids: [],
+      right_title: "", neighbourhood_node_ids: [], legend_modal: false,
     };
   }
 
@@ -489,7 +489,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     }
 
     return (
-      <div className="row">
+      <Row>
         <Modal isOpen={this.state.cytoscape_loading} centered={true} className="text-center">
           <ModalBody>
             Be patient please
@@ -498,14 +498,59 @@ export class Cytoscape_manager extends React.Component<any, any> {
             <div className="spinner"/>
           </ModalBody>
         </Modal>
-        <div className="col-sm-6" style={{ padding: "0px", paddingLeft: "10px" }}>
+        <Modal isOpen={this.state.legend_modal} centered={true} className="text-center">
+          <ModalHeader>
+            <b style={{marginLeft: "200px"}}>Legend</b>
+          </ModalHeader>
+          <ModalBody>
+            <Row>
+              <Col>
+                <b>Colors as chromosome number</b>
+                <img src="../../../images/legend-colors.png" alt="legend colors"/>
+              </Col>
+            </Row>
+            <Row style={{marginTop: "10px"}}>
+              <Col>
+                <b>Shapes as fragment type</b>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <b style={{marginRight: "75px"}}>Promoter</b>
+                <b>Other-end</b>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <img src="../../../images/legend-shapes.png" alt="legend shapes"/>
+              </Col>
+            </Row>
+            <Row style={{marginTop: "10px"}}>
+              <Col>
+                <b>Size as network degree</b>
+                <img src="../../../images/legend-sizes.png" alt="legend sizes"/>
+              </Col>
+            </Row>
+            <Row style={{marginTop: "10px"}}>
+              <Col>
+                <b>Background color highlights epigenomic feature</b>
+                <img src="../../../images/legend-features.png" alt="legend features"/>
+              </Col>
+            </Row>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="secondary" style={{marginRight: "200px"}} onClick={() => this.setState({legend_modal: false})}>Close</Button>
+          </ModalFooter>
+          </Modal>
+        <Col className="col-sm-6" style={{ padding: "0px", paddingLeft: "10px" }}>
           <h3 className="text-center" style={{ color: this.chromosome_color[this.props.chromosome] }}>{this.state.left_title ? this.state.left_title : "Chromosome " + this.props.chromosome}</h3>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "17px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickResetZoom(event, this.left_cy_network, "left")}>Reset zoom</Button>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickPNG(event, this.left_cy_network, "left")}>PNG picture</Button>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickJSON(event, this.left_cy_network, "left")}>JSON file</Button>
+          <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={this.onClickLegend}>Legend</Button>
           <Cytoscape_container cytoscape_container_id={this.left_container_id} />
-        </div>
-        <div className="col-sm-6" style={{ padding: "0px" }}>
+        </Col>
+        <Col className="col-sm-6" style={{ padding: "0px" }}>
           <h3 className="text-center" style={{ color: this.chromosome_color[chromosome_in_right_title] }}>{this.state.right_title ? this.state.right_title : "Search view"}</h3>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "17px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickResetZoom(event, this.right_cy_network, "right")}>Reset zoom</Button>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickPNG(event, this.right_cy_network, "right")}>PNG picture</Button>
@@ -513,8 +558,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickTSV(event, this.right_cy_network, "right")}>TSV file</Button>
           <Button outline={true} color="secondary" size="sm" style={{marginLeft: "5px", marginBottom: "5px", borderWidth: "2px"}} onClick={(event: any) => this.onClickGeneList(event, this.right_cy_network)}>Gene list</Button>
           <Cytoscape_container cytoscape_container_id={this.right_container_id} />
-        </div>
-      </div>
+        </Col>
+      </Row>
     );
   }
 
@@ -565,7 +610,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
     document.body.removeChild(hiddenElement);
   }
 
-  private onClickTSV= (event: any, cy: any, view: string): any => {
+  private onClickLegend = (event: any): any => {
+    event.preventDefault();
+    this.setState({legend_modal: true});
+  }
+
+  private onClickTSV = (event: any, cy: any, view: string): any => {
     event.preventDefault();
     if (cy.nodes().size() == 0) {
       return;
