@@ -95,6 +95,9 @@ export class UploadButton extends React.Component<any, any> {
           </FormGroup>
         </Form>
         <Modal isOpen={this.state.loading_features} centered={true} className="text-center">
+          <ModalHeader>
+            <b style={{marginLeft: "170px"}}>Processing...</b>
+          </ModalHeader>
           <ModalBody>
             Be patient please
             <br />
