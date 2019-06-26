@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Form, FormGroup, Input, Label, Modal, ModalBody, Progress } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Progress } from "reactstrap";
 
 export class UploadButton extends React.Component<any, any> {
 
   public constructor(props: any) {
     super(props);
-    this.state = { loading_features: false, message: "", percentage: 0, uploaded_features: [], input_key: Date.now()};
+    this.state = { loading_features: false, message: "", percentage: 0, uploaded_features: [], input_key: Date.now(), file_already_processed: false};
   }
 
   public onUpload = () => {
@@ -51,6 +51,7 @@ export class UploadButton extends React.Component<any, any> {
     );
     } else {
       // Feature already uploaded
+      this.setState({file_already_processed: true, input_key: Date.now()});
     }
   }
 
@@ -65,6 +66,17 @@ export class UploadButton extends React.Component<any, any> {
 
     return (
       <div className="text-center">
+        <Modal isOpen={this.state.file_already_processed} centered={true} className="text-center">
+          <ModalHeader>
+            <b className="text-info" style={{marginLeft: "170px"}}>Information</b>
+          </ModalHeader>
+          <ModalBody>
+            File already processed
+          </ModalBody>
+          <ModalFooter>
+            <Button color="info" style={{marginRight: "200px"}} onClick={() => this.setState({file_already_processed: false})}>Close</Button>
+          </ModalFooter>
+        </Modal>
         <Form>
           <FormGroup style={{ marginBottom: "0px" }}>
             <Label for="features_upload_button">Upload features file</Label>
