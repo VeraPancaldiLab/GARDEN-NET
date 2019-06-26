@@ -491,6 +491,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
     return (
       <Row>
         <Modal isOpen={this.state.cytoscape_loading} centered={true} className="text-center">
+          <ModalHeader>
+            <b style={{marginLeft: "170px"}}>Processing...</b>
+          </ModalHeader>
           <ModalBody>
             Be patient please
             <br />
