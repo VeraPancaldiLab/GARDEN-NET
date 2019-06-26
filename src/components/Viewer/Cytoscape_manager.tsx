@@ -506,7 +506,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             <Row>
               <Col>
                 <b>Colors as chromosome number</b>
-                <img src="../../../images/legend-colors.png" alt="legend colors"/>
+                <img src="images/legend-colors.png" alt="legend colors"/>
               </Col>
             </Row>
             <Row style={{marginTop: "10px"}}>
@@ -522,19 +522,19 @@ export class Cytoscape_manager extends React.Component<any, any> {
             </Row>
             <Row>
               <Col>
-                <img src="../../../images/legend-shapes.png" alt="legend shapes"/>
+                <img src="images/legend-shapes.png" alt="legend shapes"/>
               </Col>
             </Row>
             <Row style={{marginTop: "10px"}}>
               <Col>
                 <b>Size as network degree</b>
-                <img src="../../../images/legend-sizes.png" alt="legend sizes"/>
+                <img src="images/legend-sizes.png" alt="legend sizes"/>
               </Col>
             </Row>
             <Row style={{marginTop: "10px"}}>
               <Col>
                 <b>Background color highlights epigenomic feature</b>
-                <img src="../../../images/legend-features.png" alt="legend features"/>
+                <img src="images/legend-features.png" alt="legend features"/>
               </Col>
             </Row>
           </ModalBody>
