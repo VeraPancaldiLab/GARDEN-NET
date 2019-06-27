@@ -2,7 +2,7 @@
   <h3 className="text-center">Welcome to
   <br/>
   <a href="https://github.com/VeraPancaldiLab/GARDEN-NET" target="_blank">
-  <img src="screenshots/garden-net.png" width="120" height="120" alt="GARDEN-NET logo"/>
+  <img src="public/images/garden-net.png" width="120" height="120" alt="GARDEN-NET logo"/>
   </a>
   <br/>
   Genome ARchitecture DNA Epigenome and Nucleome - Network Exploration Tool</h3>
@@ -21,8 +21,8 @@
   User submitted features can also be visualized on the networks and used for the network based calculations.
 
 
-[![Portal](./screenshots/portal.png)](https://pancaldi.bsc.es/garden-net)
-[![Screenshot](./screenshots/screenshot.png)](https://pancaldi.bsc.es/garden-net)
+[![Portal](./public/images/portal.png)](https://pancaldi.bsc.es/garden-net)
+[![Screenshot](./public/images/screenshot.png)](https://pancaldi.bsc.es/garden-net)
 
 # Table Of Content
 
