@@ -52,7 +52,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       }
       // Let the loading message disappear thanks to delay the alert message with a zero time out
       setTimeout(() => {
-        alert('There are not any node which matches with the search petition: "' + this.props.search + '"');
+        alert('There are no nodes which matching the search petition: "' + this.props.search + '"');
       }, 0);
     });
   }

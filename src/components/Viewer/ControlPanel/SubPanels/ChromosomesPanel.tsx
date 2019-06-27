@@ -46,7 +46,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
       return json;
     }).catch((_err) => {
       setTimeout(() => {
-        alert("There are not any suggestions to be downloaded");
+        alert("There are no suggestions to be downloaded");
       }, 0);
     });
   }
