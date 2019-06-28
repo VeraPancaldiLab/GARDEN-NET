@@ -28,7 +28,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       cytoscape_loading: false, loading_message: "",
       left_network: undefined, right_network: undefined, left_title: "",
       right_title: "", neighbourhood_node_ids: [], legend_modal: false,
-      search_error: false,
+      search_error: false, search_timeout: false,
     };
   }
 
@@ -45,14 +45,19 @@ export class Cytoscape_manager extends React.Component<any, any> {
     // In this case, the port used to serve is the 8080
     return fetch(url).then((response) => {
       const json = response.json();
-      return json;
-    }).catch((_err) => {
-      this.setState({ cytoscape_loading: false, right_title: "" });
-      if (this.props.search !== "") {
-        this.cache.delete(this.props.search);
+      if (response.status != 200) {
+        if (response.status == 404) {
+          this.setState({search_error: true});
+        } else if (response.status == 408) {
+          this.setState({search_timeout: true});
+        }
+        if (this.props.search !== "") {
+          this.cache.delete(this.props.search);
+        }
+        this.setState({ cytoscape_loading: false, right_title: "" });
       }
-      this.setState({search_error: true});
-    });
+      return json;
+    }).catch(() => {}); // Silence the broken json
   }
 
   public buildNetwork = (cy_json_elements: any, cytoscape_container_id: string) => {
@@ -488,6 +493,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
     return (
       <Row>
+        <Modal isOpen={this.state.search_timeout} centered={true} className="text-center">
+          <ModalHeader>
+            <b className="text-danger" style={{marginLeft: "190px"}}>Timeout</b>
+          </ModalHeader>
+          <ModalBody>
+            {'The range searched "' + this.props.search + '" is too big to be computed on time'}
+          </ModalBody>
+          <ModalFooter>
+            <Button color="danger" style={{marginRight: "200px"}} onClick={() => this.setState({search_timeout: false})}>Close</Button>
+          </ModalFooter>
+        </Modal>
         <Modal isOpen={this.state.search_error} centered={true} className="text-center">
           <ModalHeader>
             <b className="text-danger" style={{marginLeft: "210px"}}>Error</b>
