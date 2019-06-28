@@ -53,19 +53,28 @@ export class PortalMenu extends React.Component<any, any> {
           </a>
             <br/>
             Genome ARchitecture DNA Epigenome and Nucleome - Network Exploration Tool</h3>
-          <br />
           <span>
             Here you will be able to visualize chromosome conformation capture datasets as networks of interacting chromatin fragments. The published datasets available were generated with the <em>Promoter Capture HiC</em> technique, which returns contacts involving promoters.
             </span>
           <br />
           Choose your organism and cell type from the drop-down menu to visualize the corresponding network (by chromosome or genome wide when showing only promoter-promoter contacts). A selection of epigenomic features that have been mapped to the chromatin fragments will be available from the drop-down menu on the right. Select one of them to visualize chromatin fragments that have that feature and to calculate statistics relating to this feature and the 3D network.
-            <br />
-          <br />
           <span>
             <b>GARDEN-NET</b> uses functionality provided by the <a href="https://bitbucket.org/eraineri/chaser" target="_blank">ChAseR</a> R package to compute chromatin assortativity (<em><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1003-3" target="_blank">Pancaldi et al. 2016</a></em>).
             </span>
-          <br />
-          User submitted features can also be visualized on the networks and used for the network based calculations.
+          <p>
+            <span>
+              User submitted features can also be visualized on the networks and used for the network based calculations.
+            </span>
+            <br/>
+            <br/>
+            <span>
+              Developed by <i><b><a href="https://www.crct-inserm.fr/en/21-v-pancaldi-2/">Epigenomics and network modelling of heterogeneity in immuno-oncology</a></b></i> group from <a href="https://www.crct-inserm.fr/en/"><b>CRCT</b></a>, hosted by <a href="https://www.bsc.es/"><b>BSC</b></a>.
+            </span>
+            <br/>
+            <span>
+              Code available in <a href="https://github.com/VeraPancaldiLab/GARDEN-NET">GitHub</a>
+            </span>
+          </p>
           </Row>
         <Row className="text-center">
           <Col>
@@ -97,6 +106,11 @@ export class PortalMenu extends React.Component<any, any> {
                 {Object.keys(cell_types[organism_key]).slice(-1).map((cell_type_key: any) => <Link target="_blank" to={"/Visualize/" + this.state.organism.split(" ").join("_") + "/" + cell_type_key} key={cell_type_key}>{cell_types[organism_key][cell_type_key]}</Link>)}
               </DropdownMenu>
             </ButtonDropdown>
+          </Col>
+        </Row>
+        <Row style={{marginTop: "5px"}} className="text-center">
+          <Col>
+            <img src="images/screenshot.png" width="910" height="410" style={{borderStyle: "solid", borderWidth: "1px", borderColor: "#ccc"}} alt="GARDEN-NET screenshot"/>
           </Col>
         </Row>
       </div>
