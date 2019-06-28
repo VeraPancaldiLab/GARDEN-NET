@@ -28,6 +28,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       cytoscape_loading: false, loading_message: "",
       left_network: undefined, right_network: undefined, left_title: "",
       right_title: "", neighbourhood_node_ids: [], legend_modal: false,
+      search_error: false,
     };
   }
 
@@ -50,10 +51,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       if (this.props.search !== "") {
         this.cache.delete(this.props.search);
       }
-      // Let the loading message disappear thanks to delay the alert message with a zero time out
-      setTimeout(() => {
-        alert('There are no nodes which matching the search petition: "' + this.props.search + '"');
-      }, 0);
+      this.setState({search_error: true});
     });
   }
 
@@ -490,6 +488,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
     return (
       <Row>
+        <Modal isOpen={this.state.search_error} centered={true} className="text-center">
+          <ModalHeader>
+            <b className="text-danger" style={{marginLeft: "210px"}}>Error</b>
+          </ModalHeader>
+          <ModalBody>
+            {'There are no nodes which matching the search petition: "' + this.props.search + '"'}
+          </ModalBody>
+          <ModalFooter>
+            <Button color="danger" style={{marginRight: "200px"}} onClick={() => this.setState({search_error: false})}>Close</Button>
+          </ModalFooter>
+        </Modal>
         <Modal isOpen={this.state.cytoscape_loading} centered={true} className="text-center">
           <ModalHeader>
             <b style={{marginLeft: "185px"}}>Loading...</b>
