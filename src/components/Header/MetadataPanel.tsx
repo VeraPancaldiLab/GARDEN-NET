@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Col, Label, Row, Table } from "reactstrap";
+import { Button, Col, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row, Table } from "reactstrap";
 
 export class MetadataPanel extends React.Component<any, any> {
 
@@ -7,7 +7,7 @@ export class MetadataPanel extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
-    this.state = { network_properties: {}, network_statistics: {} };
+    this.state = { network_properties: {}, network_statistics: {}, metadata_error: false };
   }
 
   public async fetchAsyncJson(url: string) {
@@ -18,9 +18,7 @@ export class MetadataPanel extends React.Component<any, any> {
       const json = response.json();
       return json;
     }).catch((_err) => {
-      setTimeout(() => {
-        alert("There is not metadata to be downloaded");
-      }, 0);
+        this.setState({metadata_error: true});
     });
   }
 
@@ -40,6 +38,17 @@ export class MetadataPanel extends React.Component<any, any> {
   public render() {
     return (
       <div className="text-center" style={{ paddingTop: "15px" }}>
+        <Modal isOpen={this.state.metadata_error} centered={true} className="text-center">
+          <ModalHeader>
+            <b className="text-danger" style={{marginLeft: "210px"}}>Error</b>
+          </ModalHeader>
+          <ModalBody>
+            There is not metadata to be downloaded
+          </ModalBody>
+          <ModalFooter>
+            <Button color="danger" style={{marginRight: "200px"}} onClick={() => this.setState({metadata_error: false})}>Close</Button>
+          </ModalFooter>
+        </Modal>
         <Label className="text-center">{this.props.chromosome === "PP" ? "Promoter-Promoter only" : "Chromosome " + this.props.chromosome} network data</Label>
         <Row style={{ fontSize: "85%" }}>
           <Col xs={6}>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Alert, Button, Form, FormGroup, Input, ListGroup, ListGroupItem } from "reactstrap";
+import { Alert, Button, Form, FormGroup, Input, ListGroup, ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
 export class SearchPanel extends React.Component<any, any> {
 
@@ -9,7 +9,7 @@ export class SearchPanel extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.suggestions = [];
-    this.state = { filtered_suggestions: [] };
+    this.state = { filtered_suggestions: [], suggestions_error: false };
   }
 
   public async fetchAsyncJson(url: string) {
@@ -20,9 +20,7 @@ export class SearchPanel extends React.Component<any, any> {
       const json = response.json();
       return json;
     }).catch((_err) => {
-      setTimeout(() => {
-        alert("There are no suggestions to be downloaded");
-      }, 0);
+        this.setState({suggestions_error: true});
     });
   }
 
@@ -73,6 +71,18 @@ export class SearchPanel extends React.Component<any, any> {
       Mus_musculus: { Embryonic_stem_cells: "Embryonic stem cells" },
     };
     return (
+      <div>
+        <Modal isOpen={this.state.suggestions_error} centered={true} className="text-center">
+          <ModalHeader>
+            <b className="text-danger" style={{marginLeft: "210px"}}>Error</b>
+          </ModalHeader>
+          <ModalBody>
+            There are no suggestions to be downloaded
+          </ModalBody>
+          <ModalFooter>
+            <Button color="danger" style={{marginRight: "200px"}} onClick={() => this.setState({suggestions_error: false})}>Close</Button>
+          </ModalFooter>
+        </Modal>
       <Form className="text-center">
         <FormGroup>
         <Alert color="info">
@@ -85,6 +95,7 @@ export class SearchPanel extends React.Component<any, any> {
         </FormGroup>
         <Button disabled={this.props.text == ""} style={{ marginBottom: "15px" }} onClick={this.onSubmit}>Submit</Button>
       </Form>
+    </div>
     );
   }
 }

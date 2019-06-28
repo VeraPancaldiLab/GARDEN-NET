@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormGroup, Label } from "reactstrap";
+import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormGroup, Label, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
 interface IChromosomeProps {
   onChromosomeChange: (feature: string) => void;
@@ -14,7 +14,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
 
   constructor(props: any) {
     super(props);
-    this.state = { dropdownOpen: false, chromosomes: [""] };
+    this.state = { dropdownOpen: false, chromosomes: [""], chromosomes_error: false };
   }
 
   public onChromosomeChange = (event: React.MouseEvent<HTMLElement>) => {
@@ -45,9 +45,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
       const json = response.json();
       return json;
     }).catch((_err) => {
-      setTimeout(() => {
-        alert("There are no suggestions to be downloaded");
-      }, 0);
+        this.setState({chromosomes_error: true});
     });
   }
 
@@ -64,6 +62,18 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
     };
 
     return (
+        <div>
+        <Modal isOpen={this.state.file_error} centered={true} className="text-center">
+          <ModalHeader>
+            <b className="text-danger" style={{marginLeft: "210px"}}>Error</b>
+          </ModalHeader>
+          <ModalBody>
+            There are no chromosomes to be downloaded
+          </ModalBody>
+          <ModalFooter>
+            <Button color="danger" style={{marginRight: "200px"}} onClick={() => this.setState({chromosomes_error: false})}>Close</Button>
+          </ModalFooter>
+        </Modal>
       <Form style={margin_style}>
         <FormGroup className="text-center">
           <Label for="Select">Chromosomes</Label>
@@ -79,6 +89,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
           </ButtonDropdown>
         </FormGroup>
       </Form>
+    </div>
     );
   }
 }
