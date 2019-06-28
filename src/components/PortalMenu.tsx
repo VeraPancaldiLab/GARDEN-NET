@@ -68,11 +68,7 @@ export class PortalMenu extends React.Component<any, any> {
             <br/>
             <br/>
             <span>
-              Developed by <i><b><a href="https://www.crct-inserm.fr/en/21-v-pancaldi-2/">Epigenomics and network modelling of heterogeneity in immuno-oncology</a></b></i> group from <a href="https://www.crct-inserm.fr/en/"><b>CRCT</b></a>, hosted by <a href="https://www.bsc.es/"><b>BSC</b></a>.
-            </span>
-            <br/>
-            <span>
-              Code available in <a href="https://github.com/VeraPancaldiLab/GARDEN-NET">GitHub</a>
+              Developed by the <i><b><a href="https://www.crct-inserm.fr/en/21-v-pancaldi-2/">Pancaldi Lab</a></b></i> from <a href="https://www.crct-inserm.fr/en/"><b>CRCT</b></a>, hosted by <a href="https://www.bsc.es/"><b>BSC</b></a>. Code available in <a href="https://github.com/VeraPancaldiLab/GARDEN-NET">GitHub</a>
             </span>
           </p>
           </Row>
