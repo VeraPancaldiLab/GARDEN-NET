@@ -91,7 +91,7 @@ export class UploadButton extends React.Component<any, any> {
         <Form>
           <FormGroup style={{ marginBottom: "0px" }}>
             <Label for="features_upload_button">Upload features file</Label>
-            <Input style={margin_style} type="file" accept=".txt,.txt.gz,.bed,.bed.gz" onChange={this.onFileChange} key={this.state.input_key} name="features" id="features_upload_button" />
+            <Input style={margin_style} type="file" accept=".txt,.txt.gz,.bed,.bed.gz,.bedgraph,bedgraph.gz" onChange={this.onFileChange} key={this.state.input_key} name="features" id="features_upload_button" />
           </FormGroup>
         </Form>
         <Modal isOpen={this.state.loading_features} centered={true} className="text-center">
