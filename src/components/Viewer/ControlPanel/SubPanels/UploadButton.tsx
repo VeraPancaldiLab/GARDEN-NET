@@ -5,7 +5,7 @@ export class UploadButton extends React.Component<any, any> {
 
   public constructor(props: any) {
     super(props);
-    this.state = { loading_features: false, message: "", percentage: 0, uploaded_features: [], input_key: Date.now(), file_error: false, file_already_processed: false};
+    this.state = { loading_features: false, loading_features_file: false, message: "", percentage: 0, uploaded_features: [], input_key: Date.now(), file_error: false, file_already_processed: false, features_filename: ""};
   }
 
   public onUpload = () => {
@@ -31,9 +31,9 @@ export class UploadButton extends React.Component<any, any> {
 
     form_data.append("features", features_file);
 
-    const features_filename = features_file.name;
-    if (!this.state.uploaded_features.includes(features_filename)) {
-      this.setState({uploaded_features: this.state.uploaded_features.concat(features_filename)});
+    this.setState({features_filename: features_file.name});
+    if (!this.state.uploaded_features.includes(this.state.features_filename)) {
+      this.setState({uploaded_features: this.state.uploaded_features.concat(this.state.features_filename), loading_features_file: true});
       fetch("http://CRCT2107:5000/upload_features?" + "organism=" + this.props.organism + "&cell_type=" + this.props.cell_type, {
       method: "POST",
       body: form_data,
@@ -45,13 +45,14 @@ export class UploadButton extends React.Component<any, any> {
         // Very weird bug in Location path sent from production server
         // Also force to use https
         const location = headers.get("location").replace("http://pancaldi.bsc.es/garden-net_reststatus/", "https://pancaldi.bsc.es/garden-net_rest/status/");
+        this.setState({loading_features_file: false});
         this.features_task_progress(location);
         return json;
       },
     );
     } else {
       // Feature already uploaded
-      this.setState({file_already_processed: true, input_key: Date.now()});
+      this.setState({file_already_processed: true, input_key: Date.now(), loading_features_file: false});
     }
   }
 
@@ -94,6 +95,17 @@ export class UploadButton extends React.Component<any, any> {
             <Input style={margin_style} type="file" accept=".txt,.txt.gz,.bed,.bed.gz,.bedgraph,.bedgraph.gz" onChange={this.onFileChange} key={this.state.input_key} name="features" id="features_upload_button" />
           </FormGroup>
         </Form>
+        <Modal isOpen={this.state.loading_features_file} centered={true} className="text-center">
+          <ModalHeader>
+            <b style={{marginLeft: "170px"}}>Uploading...</b>
+          </ModalHeader>
+          <ModalBody>
+            Be patient please
+            <br />
+            {"Uploading file: '" + this.state.features_filename + "'"}
+          <Progress animated={true} value="100" style={{margin: "10px", borderRadius: "10px"}}/>
+          </ModalBody>
+        </Modal>
         <Modal isOpen={this.state.loading_features} centered={true} className="text-center">
           <ModalHeader>
             <b style={{marginLeft: "170px"}}>Processing...</b>
