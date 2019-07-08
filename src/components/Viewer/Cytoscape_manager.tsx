@@ -561,7 +561,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             </Row>
             <Row style={{marginTop: "10px"}}>
               <Col>
-                <b>Background color highlights epigenomic feature</b>
+                <b>Node colour highlights epigenomic feature</b>
                 <img src="images/legend-features.png" alt="legend features"/>
               </Col>
             </Row>
