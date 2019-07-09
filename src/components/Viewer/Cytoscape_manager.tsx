@@ -168,26 +168,25 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const ref = node.popperRef(); // used only for positioning
       const gene_name = node.data("names");
       let intronic_region = "";
+      let feature_information = "";
+      const feature_value = Math.round(node.data(this.props.feature) * 1000) / 1000;
+      if (feature_value != 0 && this.props.feature != "Choose") {
+        feature_information = (gene_name.length !== 0 ? "<br/>" : "") + this.props.feature + ": " + feature_value ;
+      }
       if (this.props.organism == "Homo_sapiens") {
         // node.data("intronic_regions") from searched neighbourhood return 1 or 0 instead "TRUE" or "FALSE"
-        let intronic_regions = node.data("intronic_regions");
-        if (typeof(intronic_regions) == "number") {
+      let intronic_regions = node.data("intronic_regions");
+      if (typeof(intronic_regions) == "number") {
           if (intronic_regions == 1) {
             intronic_regions = "TRUE";
           } else {
             intronic_regions = "FALSE";
           }
         }
-        intronic_region = (intronic_regions.trim() == "TRUE" ? "</br>(<b>intronic region</b>)" : "" );
+      intronic_region = (intronic_regions.trim() == "TRUE" ? "" + ((gene_name.length !== 0 || feature_information.length !== 0 ) ? "<br/>" : "") + "(<b>intronic region</b>)" : "" );
       }
 
-      let feature_information = "";
-      const feature_value = Math.round(node.data(this.props.feature) * 1000) / 1000;
-      if (feature_value != 0 && this.props.feature != "Choose") {
-        feature_information = "<br/>" + this.props.feature + ": " + feature_value ;
-      }
-
-      const tooltip_content = (gene_name.length !== 0 ? "<b>" + gene_name + "</b>" + feature_information + intronic_region + "<br/>" : "") + node_id;
+      const tooltip_content = (gene_name.length !== 0 ? "<b>" + gene_name + "</b>" : "") + feature_information + intronic_region + ((gene_name.length !== 0 || feature_information.length !== 0 || intronic_region.length !== 0) ? "<br/>" :"") + node_id ;
 
       // using tippy ^4.0.0
       this.tooltip_tippy = Tippy(ref, { // tippy options:
