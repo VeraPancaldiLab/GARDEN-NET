@@ -238,13 +238,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             this.addUserFeatures(cy, "name");
           }
           const features_style = {
-            backgroundColor: (ele: any) => {
-              if (ele.data(this.props.feature) == 0) {
-                return "#ccc";
-              } else {
-                return "pink";
-              }
-            },
+            backgroundColor: "mapData(" + this.props.feature + ", 0, 1, blue, red)",
           };
           dict_style = { ...dict_style, ...features_style };
         }
@@ -349,13 +343,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             this.addUserFeatures(cy, "id");
           }
           const features_style = {
-            backgroundColor: (ele: any) => {
-              if (ele.data(this.props.feature) == 0) {
-                return "#ccc";
-              } else {
-                return "pink";
-              }
-            },
+            backgroundColor: "mapData(" + this.props.feature + ", 0, 1,blue, red)",
           };
 
           dict_style = { ...dict_style, ...features_style };
@@ -464,13 +452,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         cy_network.style()
           .selector("node")
           .style({
-            "background-color": (ele: any) => {
-              if (ele.data(this.props.feature) === 0) {
-                return "#ccc";
-              } else {
-                return "pink";
-              }
-            },
+            backgroundColor: "mapData(" + this.props.feature + ", 0, 1, blue, red)",
           })
           .update();
       };
