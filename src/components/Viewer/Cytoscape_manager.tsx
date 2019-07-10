@@ -237,8 +237,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
           if (this.props.feature in this.props.features_new) {
             this.addUserFeatures(cy, "name");
           }
+
+          const min_feature = cy.nodes().min((node: any) => node.data(this.props.feature)).value;
+          const max_feature = cy.nodes().max((node: any) => node.data(this.props.feature)).value;
           const features_style = {
-            backgroundColor: "mapData(" + this.props.feature + ", 0, 1, blue, red)",
+            backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", blue, red)",
           };
           dict_style = { ...dict_style, ...features_style };
         }
@@ -342,8 +345,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
           if (this.props.feature in this.props.features_new) {
             this.addUserFeatures(cy, "id");
           }
+          const min_feature = cy.nodes().min((node: any) => node.data(this.props.feature)).value;
+          const max_feature = cy.nodes().max((node: any) => node.data(this.props.feature)).value;
           const features_style = {
-            backgroundColor: "mapData(" + this.props.feature + ", 0, 1,blue, red)",
+            backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", blue, red)",
           };
 
           dict_style = { ...dict_style, ...features_style };
@@ -449,10 +454,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
       }
 
       const updateFeatures = (cy_network: any) => {
-        cy_network.style()
+      const min_feature = cy_network.nodes().min((node: any) => node.data(this.props.feature)).value;
+      const max_feature = cy_network.nodes().max((node: any) => node.data(this.props.feature)).value;
+      cy_network.style()
           .selector("node")
           .style({
-            backgroundColor: "mapData(" + this.props.feature + ", 0, 1, blue, red)",
+            backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", blue, red)",
           })
           .update();
       };
@@ -462,7 +469,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         updateFeatures(this.left_cy_network);
       }
 
-      if (this.right_cy_network !== undefined) {
+      if (this.right_cy_network !== undefined && this.right_cy_network.elements().size() != 0) {
         updateFeatures(this.right_cy_network);
       }
     }
