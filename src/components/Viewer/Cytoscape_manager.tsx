@@ -610,7 +610,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
   private onClickPNG = (event: any, cy: any, view: string): any => {
     event.preventDefault();
-    const png_blob = cy.png({output: "blob"});
+    const png_blob = cy.png({output: "blob", bg: "white"});
     const hiddenElement = document.createElement("a");
     document.body.appendChild(hiddenElement);
     hiddenElement.href = window.URL.createObjectURL(png_blob);
