@@ -241,7 +241,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           const min_feature = this.left_cy_network.nodes().min((node: any) => node.data(this.props.feature)).value;
           const max_feature = this.left_cy_network.nodes().max((node: any) => node.data(this.props.feature)).value;
           const features_style = {
-            backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", blue, red)",
+            backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", lightblue, pink)",
           };
           dict_style = { ...dict_style, ...features_style };
         }
@@ -348,7 +348,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           const min_feature = this.left_cy_network.nodes().min((node: any) => node.data(this.props.feature)).value;
           const max_feature = this.left_cy_network.nodes().max((node: any) => node.data(this.props.feature)).value;
           const features_style = {
-            backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", blue, red)",
+            backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", lightblue, pink)",
           };
 
           dict_style = { ...dict_style, ...features_style };
@@ -459,7 +459,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       cy_network.style()
           .selector("node")
           .style({
-            backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", blue, red)",
+            backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", lightblue, pink)",
           })
           .update();
       };
