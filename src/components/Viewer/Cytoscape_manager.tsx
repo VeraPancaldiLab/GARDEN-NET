@@ -170,7 +170,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       let intronic_region = "";
       let feature_information = "";
       const feature_value = Math.round(node.data(this.props.feature) * 1000) / 1000;
-      if (feature_value != 0 && this.props.feature != "Choose") {
+      if (this.props.feature != "Choose") {
         feature_information = (gene_name.length !== 0 ? "<br/>" : "") + this.props.feature + ": " + feature_value ;
       }
       if (this.props.organism == "Homo_sapiens") {
