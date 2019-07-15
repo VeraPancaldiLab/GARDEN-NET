@@ -214,7 +214,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
   public componentDidUpdate(prevProps: any) {
     // If chromosome change, update left view and delete right view
-    // Force to update chrosome view if this the first render caused by react router props initialization
+    // Force to update chromosome view if this the first render caused by react router props initialization
     if (this.initial_rendering || this.props.chromosome !== prevProps.chromosome) {
       if (this.initial_rendering) {
         this.right_cy_network = this.buildNetwork(undefined, this.right_container_id);

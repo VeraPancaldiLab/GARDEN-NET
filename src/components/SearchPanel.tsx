@@ -88,7 +88,7 @@ export class SearchPanel extends React.Component<any, any> {
         <Alert color="info">
           {this.props.organism ? organism[this.props.organism] : ""} : {this.props.organism ? cell_type[this.props.organism][this.props.cell_type] : ""}
       </Alert>
-          <Input className="text-center" value={this.props.text} type="text" name="Search" placeholder="Hoxa1 6:52155590 6:52155590-52158317" onChange={this.onInputChange} onKeyPress={this.handleEnterKey} />
+          <Input className="text-center" value={this.props.text} type="text" name="Search" placeholder="" onChange={this.onInputChange} onKeyPress={this.handleEnterKey} />
           <ListGroup className="text-center container-fluid" style={{ height: "auto", maxHeight: "110px", overflowX: "hidden", padding: "0px", display: ((this.props.text.length !== 0 && this.state.filtered_suggestions.length !== 0) ? "block" : "none") }}>
             {this.state.filtered_suggestions.map((suggestion: string) => <ListGroupItem key={suggestion} value={suggestion} onClick={this.onSuggestChange} style={{ padding: "0px", cursor: "pointer" }}>{this.boldText(suggestion, this.props.text.length)}</ListGroupItem>)}
           </ListGroup>
