@@ -68,7 +68,7 @@ export class PortalMenu extends React.Component<any, any> {
             <br/>
             <br/>
             <span>
-              Developed by the <i><b><a href="https://www.crct-inserm.fr/en/21-v-pancaldi-2/">Pancaldi Lab</a></b></i> from <a href="https://www.crct-inserm.fr/en/"><b>CRCT</b></a>, hosted by <a href="https://www.bsc.es/"><b>BSC</b></a>. Code available in <a href="https://github.com/VeraPancaldiLab/GARDEN-NET">GitHub</a>
+              Developed by the <b><a href="https://www.crct-inserm.fr/en/21-v-pancaldi-2/" target="_blank">Pancaldi Lab</a></b> at <a href="https://www.crct-inserm.fr/en/" target="_blank"><b>CRCT</b></a>, hosted by <a href="https://www.bsc.es/" target="_blank"><b>BSC</b></a>. Code available in <a href="https://github.com/VeraPancaldiLab/GARDEN-NET" target="_blank">GitHub</a>
             </span>
           </p>
           </Row>
