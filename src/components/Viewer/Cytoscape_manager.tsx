@@ -238,8 +238,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
             this.addUserFeatures(cy, "name");
           }
 
-          const min_feature = cy.nodes().min((node: any) => node.data(this.props.feature)).value;
-          const max_feature = cy.nodes().max((node: any) => node.data(this.props.feature)).value;
+          const min_feature = this.left_cy_network.nodes().min((node: any) => node.data(this.props.feature)).value;
+          const max_feature = this.left_cy_network.nodes().max((node: any) => node.data(this.props.feature)).value;
           const features_style = {
             backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", blue, red)",
           };
@@ -345,8 +345,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
           if (this.props.feature in this.props.features_new) {
             this.addUserFeatures(cy, "id");
           }
-          const min_feature = cy.nodes().min((node: any) => node.data(this.props.feature)).value;
-          const max_feature = cy.nodes().max((node: any) => node.data(this.props.feature)).value;
+          const min_feature = this.left_cy_network.nodes().min((node: any) => node.data(this.props.feature)).value;
+          const max_feature = this.left_cy_network.nodes().max((node: any) => node.data(this.props.feature)).value;
           const features_style = {
             backgroundColor: "mapData(" + this.props.feature + ", " + min_feature + ", " + max_feature + ", blue, red)",
           };
@@ -454,8 +454,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
       }
 
       const updateFeatures = (cy_network: any) => {
-      const min_feature = cy_network.nodes().min((node: any) => node.data(this.props.feature)).value;
-      const max_feature = cy_network.nodes().max((node: any) => node.data(this.props.feature)).value;
+      const min_feature = this.left_cy_network.nodes().min((node: any) => node.data(this.props.feature)).value;
+      const max_feature = this.left_cy_network.nodes().max((node: any) => node.data(this.props.feature)).value;
       cy_network.style()
           .selector("node")
           .style({
