@@ -180,7 +180,7 @@ export class UploadButton extends React.Component<any, any> {
             <Button style={{marginRight: "200px"}} onClick={() => this.setState({upload_features_modal: false})}>Close</Button>
           </ModalFooter>
         </Modal>
-            <Button outline={true} onClick={() => this.setState({upload_features_modal: true})}>Upload features</Button>
+        <Button outline={true} style={{marginTop: "10px"}} onClick={() => this.setState({upload_features_modal: true})}>Upload features</Button>
       </div>
     );
   }
