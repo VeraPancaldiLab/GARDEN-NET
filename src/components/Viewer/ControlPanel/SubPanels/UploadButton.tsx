@@ -34,7 +34,7 @@ export class UploadButton extends React.Component<any, any> {
     this.setState({features_filename: features_file.name});
     if (!this.state.uploaded_features.includes(this.state.features_filename)) {
       this.setState({uploaded_features: this.state.uploaded_features.concat(this.state.features_filename), loading_features_file: true});
-      fetch("https://pancaldi.bsc.es/garden-net_rest/upload_features?" + "organism=" + this.props.organism + "&cell_type=" + this.props.cell_type, {
+      fetch("https://pancaldi.bsc.es/garden-net_rest/upload_features?" + "organism=" + this.props.organism + "&cell_type=" + this.props.cell_type + "&feature_format_option=" + this.state.feature_format_option + "&feature_format_function=" + (this.state.feature_format_function == "" ? "None" : this.state.feature_format_function ), {
       method: "POST",
       body: form_data,
     }).then(
