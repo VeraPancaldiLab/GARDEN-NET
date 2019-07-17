@@ -105,7 +105,8 @@ export class PortalMenu extends React.Component<any, any> {
             <a href="https://bitbucket.org/eraineri/chaser" target="_blank">
               ChAseR
             </a>{" "}
-            R package to integrate datasets and compute chromatin assortativity (
+            R package to integrate datasets and compute chromatin assortativity
+            (
             <em>
               <a
                 href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1003-3"
