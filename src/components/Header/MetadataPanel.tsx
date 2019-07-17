@@ -52,7 +52,7 @@ export class MetadataPanel extends React.Component<any, any> {
         <Label className="text-center">{this.props.chromosome === "PP" ? "Promoter-Promoter only" : "Chromosome " + this.props.chromosome} network data</Label>
         <Row style={{ fontSize: "85%" }}>
           <Col xs={6}>
-            <Table bordered={true} size="sm">
+            <Table bordered={true} size="sm" style={{fontSize: "x-small"}}>
               <thead>
                 <tr>
                   <th>Network properties</th>
@@ -65,7 +65,7 @@ export class MetadataPanel extends React.Component<any, any> {
             </Table>
           </Col>
           <Col xs={6}>
-            <Table bordered={true} size="sm">
+            <Table bordered={true} size="sm" style={{fontSize: "x-small"}}>
               <thead>
                 <tr>
                   <th>Network statistics</th>

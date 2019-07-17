@@ -61,7 +61,7 @@ export class FeaturesPanel extends React.Component<any, any> {
       <div style={{ display: (this.props.features_list.length == 0 ? "none" : "block") }}>
         <Form className="text-center" style={margin_style}>
           <FormGroup className="text-center">
-            <Label for="Select">Features</Label>
+            <Label for="Select"><b>Features</b></Label>
             <br />
             <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
               <DropdownToggle style={{ color: "black", backgroundColor: "white", fontSize: "small" }} caret={true}>
