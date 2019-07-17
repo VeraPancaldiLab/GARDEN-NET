@@ -76,7 +76,7 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
         </Modal>
       <Form style={margin_style}>
         <FormGroup className="text-center">
-          <Label for="Select">Chromosomes</Label>
+          <Label for="Select"><b>Chromosomes</b></Label>
           <br />
           <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle caret={true} style={{ fontSize: "small" }}>

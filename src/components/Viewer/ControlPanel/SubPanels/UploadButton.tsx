@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Progress } from "reactstrap";
+import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Progress } from "reactstrap";
 
 export class UploadButton extends React.Component<any, any> {
 
   public constructor(props: any) {
     super(props);
-    this.state = { loading_features: false, loading_features_file: false, message: "", percentage: 0, uploaded_features: [], input_key: Date.now(), file_error: false, file_already_processed: false, features_filename: ""};
+    this.state = { loading_features: false, loading_features_file: false, message: "", percentage: 0, uploaded_features: [], input_key: Date.now(), file_error: false, file_already_processed: false, features_filename: "", dropdownOpen: false, feature_format_option: "match_nodes", feature_format_function: "", upload_features_modal: false};
   }
 
   public onUpload = () => {
@@ -34,7 +34,7 @@ export class UploadButton extends React.Component<any, any> {
     this.setState({features_filename: features_file.name});
     if (!this.state.uploaded_features.includes(this.state.features_filename)) {
       this.setState({uploaded_features: this.state.uploaded_features.concat(this.state.features_filename), loading_features_file: true});
-      fetch("http://CRCT2107:5000/upload_features?" + "organism=" + this.props.organism + "&cell_type=" + this.props.cell_type, {
+      fetch("http://CRCT2107:5000/upload_features?" + "organism=" + this.props.organism + "&cell_type=" + this.props.cell_type + "&feature_format_option=" + this.state.feature_format_option + "&feature_format_function=" + (this.state.feature_format_function == "" ? "None" : this.state.feature_format_function ), {
       method: "POST",
       body: form_data,
     }).then(
@@ -45,15 +45,31 @@ export class UploadButton extends React.Component<any, any> {
         // Very weird bug in Location path sent from production server
         // Also force to use https
         const location = headers.get("location").replace("http://pancaldi.bsc.es/garden-net_reststatus/", "https://pancaldi.bsc.es/garden-net_rest/status/");
-        this.setState({loading_features_file: false});
+        this.setState({loading_features_file: false, feature_format_function: "", upload_features_modal: false});
         this.features_task_progress(location);
         return json;
       },
     );
     } else {
       // Feature already uploaded
-      this.setState({file_already_processed: true, input_key: Date.now(), loading_features_file: false});
+      this.setState({file_already_processed: true, input_key: Date.now(), loading_features_file: false, upload_features_modal: false});
     }
+  }
+
+  public toggle = () => {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen,
+    });
+  }
+
+  public onFormatChange = (event: React.MouseEvent<HTMLElement>) => {
+    const selector = event.target as HTMLInputElement;
+    this.setState({feature_format_option: selector.value});
+  }
+
+  public onFeatureFormatFunctionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selector = event.target as HTMLInputElement;
+    this.setState({feature_format_function: selector.value});
   }
 
   public render() {
@@ -65,8 +81,24 @@ export class UploadButton extends React.Component<any, any> {
       fontSize: "small",
     };
 
+    const margin_style_format_selector = {
+      border: "#aaa",
+      borderRadius: "5px",
+      borderStyle: "solid",
+      borderWidth: "2px",
+      padding: "5px",
+      fontSize: "small",
+    };
+
+    const feature_formats: any = {
+      match_nodes: "Match features to the nodes",
+      proportion_on_nodes: "Calculate proportion of nodes with feature",
+      chromHMM: "Create feature from chromHMM chromatin states",
+      features_table: "Table of features already assigned to nodes",
+    };
+
     return (
-      <div className="text-center">
+      <div className="text-center" >
         <Modal isOpen={this.state.file_already_processed} centered={true} className="text-center">
           <ModalHeader>
             <b className="text-info" style={{marginLeft: "170px"}}>Information</b>
@@ -89,12 +121,6 @@ export class UploadButton extends React.Component<any, any> {
             <Button color="danger" style={{marginRight: "200px"}} onClick={() => this.setState({file_error: false})}>Close</Button>
           </ModalFooter>
         </Modal>
-        <Form>
-          <FormGroup style={{ marginBottom: "0px" }}>
-            <Label for="features_upload_button">Upload features file</Label>
-            <Input style={margin_style} type="file" accept=".txt,.txt.gz,.bed,.bed.gz,.bedgraph,.bedgraph.gz" onChange={this.onFileChange} key={this.state.input_key} name="features" id="features_upload_button" />
-          </FormGroup>
-        </Form>
         <Modal isOpen={this.state.loading_features_file} centered={true} className="text-center">
           <ModalHeader>
             <b style={{marginLeft: "170px"}}>Uploading...</b>
@@ -118,6 +144,43 @@ export class UploadButton extends React.Component<any, any> {
           <div className="text-center"><b>{this.state.percentage}%</b></div>
           <Progress animated={true} value={this.state.percentage} style={{margin: "10px", borderRadius: "10px"}}/>
         </Modal>
+
+        <Modal isOpen={this.state.upload_features_modal} centered={true} className="text-center">
+          <ModalHeader>
+            <b style={{marginLeft: "141px"}}>Upload features file</b>
+          </ModalHeader>
+          <ModalBody>
+      <Form style={margin_style_format_selector}>
+        <FormGroup className="text-center">
+          <Label for="Select" style={{fontSize: "small"}}><b>Feature formats</b></Label>
+          <br />
+          <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <DropdownToggle caret={true} style={{ fontSize: "small", color: "black", backgroundColor: "white" }}>
+              {feature_formats[this.state.feature_format_option]}
+            </DropdownToggle>
+            <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden", fontSize: "small" }}>
+              {Object.keys(feature_formats).slice(0, -1).map((format: string) => <div key={format}><DropdownItem value={format} onClick={this.onFormatChange}>{feature_formats[format]}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
+              {Object.keys(feature_formats).slice(-1).map((format: string) => <DropdownItem key={format} value={format} onClick={this.onFormatChange}>{feature_formats[format]}</DropdownItem>)}
+            </DropdownMenu>
+          </ButtonDropdown>
+        </FormGroup>
+      </Form>
+      <div style={{ display: (this.state.feature_format_option != "match_nodes" ? "none" : "block" ) }}>
+        Default aggregation function: mean
+      </div>
+      <Input onChange={this.onFeatureFormatFunctionChange} style={{ display: (this.state.feature_format_option != "match_nodes" ? "none" : "block" ) }}/>
+        <Form>
+          <FormGroup style={{ marginBottom: "0px" }}>
+            <Label for="features_upload_button" style={{fontSize: "small"}}>Upload features file</Label>
+            <Input style={margin_style} type="file" accept=".txt,.txt.gz,.bed,.bed.gz,.tsv,.tsv.gz.bedgraph,.bedgraph.gz" onChange={this.onFileChange} key={this.state.input_key} name="features" id="features_upload_button" />
+          </FormGroup>
+        </Form>
+          </ModalBody>
+          <ModalFooter>
+            <Button style={{marginRight: "200px"}} onClick={() => this.setState({upload_features_modal: false})}>Close</Button>
+          </ModalFooter>
+        </Modal>
+        <Button outline={true} style={{marginTop: "10px"}} onClick={() => this.setState({upload_features_modal: true})}>Upload features</Button>
       </div>
     );
   }
