@@ -5,7 +5,7 @@ export class UploadButton extends React.Component<any, any> {
 
   public constructor(props: any) {
     super(props);
-    this.state = { loading_features: false, loading_features_file: false, message: "", percentage: 0, uploaded_features: [], input_key: Date.now(), file_error: false, file_already_processed: false, features_filename: "", dropdownOpen: false, feature_format_option: "match_nodes", feature_format_function: ""};
+    this.state = { loading_features: false, loading_features_file: false, message: "", percentage: 0, uploaded_features: [], input_key: Date.now(), file_error: false, file_already_processed: false, features_filename: "", dropdownOpen: false, feature_format_option: "match_nodes", feature_format_function: "", upload_features_modal: false};
   }
 
   public onUpload = () => {
@@ -45,14 +45,14 @@ export class UploadButton extends React.Component<any, any> {
         // Very weird bug in Location path sent from production server
         // Also force to use https
         const location = headers.get("location").replace("http://pancaldi.bsc.es/garden-net_reststatus/", "https://pancaldi.bsc.es/garden-net_rest/status/");
-        this.setState({loading_features_file: false, feature_format_function: ""});
+        this.setState({loading_features_file: false, feature_format_function: "", upload_features_modal: false});
         this.features_task_progress(location);
         return json;
       },
     );
     } else {
       // Feature already uploaded
-      this.setState({file_already_processed: true, input_key: Date.now(), loading_features_file: false});
+      this.setState({file_already_processed: true, input_key: Date.now(), loading_features_file: false, upload_features_modal: false});
     }
   }
 
@@ -144,21 +144,30 @@ export class UploadButton extends React.Component<any, any> {
           <div className="text-center"><b>{this.state.percentage}%</b></div>
           <Progress animated={true} value={this.state.percentage} style={{margin: "10px", borderRadius: "10px"}}/>
         </Modal>
+
+        <Modal isOpen={this.state.upload_features_modal} centered={true} className="text-center">
+          <ModalHeader>
+            <b style={{marginLeft: "141px"}}>Upload features file</b>
+          </ModalHeader>
+          <ModalBody>
       <Form style={margin_style_format_selector}>
         <FormGroup className="text-center">
-          <Label for="Select" style={{fontSize: "x-small"}}><b>Feature formats</b></Label>
+          <Label for="Select" style={{fontSize: "small"}}><b>Feature formats</b></Label>
           <br />
-          <ButtonDropdown direction="up" style={{ display: "grid" }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <ButtonDropdown style={{ display: "grid" }} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle caret={true} style={{ fontSize: "small", color: "black", backgroundColor: "white" }}>
               {feature_formats[this.state.feature_format_option]}
             </DropdownToggle>
-            <DropdownMenu direction="up" className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden", fontSize: "x-small" }}>
+            <DropdownMenu className="text-center container-fluid" style={{ height: "auto", maxHeight: "200px", overflowX: "hidden", fontSize: "small" }}>
               {Object.keys(feature_formats).slice(0, -1).map((format: string) => <div key={format}><DropdownItem value={format} onClick={this.onFormatChange}>{feature_formats[format]}</DropdownItem><DropdownItem style={{ margin: 0 }} divider={true} /></div>)}
               {Object.keys(feature_formats).slice(-1).map((format: string) => <DropdownItem key={format} value={format} onClick={this.onFormatChange}>{feature_formats[format]}</DropdownItem>)}
             </DropdownMenu>
           </ButtonDropdown>
         </FormGroup>
       </Form>
+      <div style={{ display: (this.state.feature_format_option != "match_nodes" ? "none" : "block" ) }}>
+        Default aggregation function: mean
+      </div>
       <Input onChange={this.onFeatureFormatFunctionChange} style={{ display: (this.state.feature_format_option != "match_nodes" ? "none" : "block" ) }}/>
         <Form>
           <FormGroup style={{ marginBottom: "0px" }}>
@@ -166,6 +175,12 @@ export class UploadButton extends React.Component<any, any> {
             <Input style={margin_style} type="file" accept=".txt,.txt.gz,.bed,.bed.gz,.tsv,.tsv.gz.bedgraph,.bedgraph.gz" onChange={this.onFileChange} key={this.state.input_key} name="features" id="features_upload_button" />
           </FormGroup>
         </Form>
+          </ModalBody>
+          <ModalFooter>
+            <Button style={{marginRight: "200px"}} onClick={() => this.setState({upload_features_modal: false})}>Close</Button>
+          </ModalFooter>
+        </Modal>
+            <Button outline={true} onClick={() => this.setState({upload_features_modal: true})}>Upload features</Button>
       </div>
     );
   }
