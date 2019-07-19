@@ -1,5 +1,6 @@
 import * as cytoscape from "cytoscape";
 import * as React from "react";
+import { MetadataPanelContainer } from "../../containers/MetadataPanelContainer";
 import {
   Button,
   Col,
@@ -69,7 +70,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
       search_error: false,
       search_timeout: false,
       min_feature: null,
-      max_feature: null
+      max_feature: null,
+      chromosome_statistics_modal: false
     };
   }
 
@@ -909,6 +911,33 @@ export class Cytoscape_manager extends React.Component<any, any> {
             </Button>
           </ModalFooter>
         </Modal>
+        <Modal
+          isOpen={this.state.chromosome_statistics_modal}
+          centered={true}
+          className="text-center"
+        >
+          <ModalHeader>
+            <b style={{ marginLeft: "80px" }}>
+              {this.props.chromosome === "PP"
+                ? "Promoter-Promoter only"
+                : "Chromosome " + this.props.chromosome}{" "}
+              network data
+            </b>
+          </ModalHeader>
+          <ModalBody>
+            <MetadataPanelContainer />
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              style={{ marginRight: "200px" }}
+              onClick={() =>
+                this.setState({ chromosome_statistics_modal: false })
+              }
+            >
+              Close
+            </Button>
+          </ModalFooter>
+        </Modal>
         <Col
           className="col-sm-6"
           style={{ padding: "0px", paddingLeft: "10px" }}
@@ -965,6 +994,19 @@ export class Cytoscape_manager extends React.Component<any, any> {
             }
           >
             JSON file
+          </Button>
+          <Button
+            outline={true}
+            color="secondary"
+            size="sm"
+            style={{
+              marginLeft: "5px",
+              marginBottom: "5px",
+              borderWidth: "2px"
+            }}
+            onClick={this.onChromosomeStatistics}
+          >
+            Chromosome data
           </Button>
           <Button
             outline={true}
@@ -1210,6 +1252,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
     hiddenElement.style.display = "none";
     hiddenElement.click();
     document.body.removeChild(hiddenElement);
+  };
+
+  private onChromosomeStatistics = (event: any): any => {
+    event.preventDefault();
+    this.setState({ chromosome_statistics_modal: true });
   };
 
   private addUserFeatures(cy: any, name_property: string) {
