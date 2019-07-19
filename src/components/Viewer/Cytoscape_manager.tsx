@@ -868,6 +868,35 @@ export class Cytoscape_manager extends React.Component<any, any> {
               <Col>
                 <b>Node colour highlights epigenomic feature</b>
                 <img src="images/legend-features.png" alt="legend features" />
+                <div>
+                  {this.state.min_feature == null
+                    ? "min"
+                    : Math.round(this.state.min_feature * 100) / 100}
+                  <svg width="140" height="30">
+                    <defs>
+                      <linearGradient id="linealGradient1">
+                        <stop offset="0%" stopColor="lightblue" />
+                        <stop offset="100%" stopColor="pink" />
+                      </linearGradient>
+                    </defs>
+                    <rect
+                      x="3"
+                      y="3"
+                      rx="5"
+                      width="135"
+                      height="25"
+                      fill="url(#linealGradient1)"
+                      style={{
+                        borderStyle: "solid",
+                        stroke: "#aaa",
+                        strokeWidth: "3"
+                      }}
+                    />
+                  </svg>
+                  {this.state.max_feature == null
+                    ? "max"
+                    : Math.round(this.state.max_feature * 100) / 100}
+                </div>
               </Col>
             </Row>
           </ModalBody>
