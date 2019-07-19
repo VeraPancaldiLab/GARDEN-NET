@@ -60,6 +60,13 @@ module.exports = (env, argv) => {
 
   } else if (argv.mode === 'production') {
     config.output.path = __dirname + '/dist';
+		const CompressionPlugin = require('compression-webpack-plugin')
+    config.plugins = [new CompressionPlugin({
+      test: /bundle\.js/,
+      algorithm: 'gzip',
+      compressionOptions: { level: 9 },
+      deleteOriginalAssets: true,
+    })]
   }
 
   return config;
