@@ -2,7 +2,6 @@ import * as React from "react";
 import {
   Button,
   Col,
-  Label,
   Modal,
   ModalBody,
   ModalFooter,
@@ -92,15 +91,9 @@ export class MetadataPanel extends React.Component<any, any> {
             </Button>
           </ModalFooter>
         </Modal>
-        <Label className="text-center">
-          {this.props.chromosome === "PP"
-            ? "Promoter-Promoter only"
-            : "Chromosome " + this.props.chromosome}{" "}
-          network data
-        </Label>
-        <Row style={{ fontSize: "85%" }}>
+        <Row>
           <Col xs={6}>
-            <Table bordered={true} size="sm" style={{ fontSize: "x-small" }}>
+            <Table bordered={true} size="sm" style={{ fontSize: "small" }}>
               <thead>
                 <tr>
                   <th>Network properties</th>
@@ -118,7 +111,7 @@ export class MetadataPanel extends React.Component<any, any> {
             </Table>
           </Col>
           <Col xs={6}>
-            <Table bordered={true} size="sm" style={{ fontSize: "x-small" }}>
+            <Table bordered={true} size="sm" style={{ fontSize: "small" }}>
               <thead>
                 <tr>
                   <th>Network statistics</th>
@@ -136,11 +129,6 @@ export class MetadataPanel extends React.Component<any, any> {
             </Table>
           </Col>
         </Row>
-        <div className="text-left">
-          Left click on nodes to navigate to WashU browser.
-          <br />
-          Right click on nodes to zoom into their neighborhood.
-        </div>
       </div>
     );
   }
