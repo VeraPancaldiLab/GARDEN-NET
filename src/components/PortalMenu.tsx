@@ -264,8 +264,7 @@ export class PortalMenu extends React.Component<any, any> {
           <Col>
             <img
               src="images/screenshot.png"
-              width="910"
-              height="410"
+              height="440"
               style={{
                 borderStyle: "solid",
                 borderWidth: "1px",
