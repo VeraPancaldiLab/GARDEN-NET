@@ -921,7 +921,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               {this.props.chromosome === "PP"
                 ? "Promoter-Promoter only"
                 : "Chromosome " + this.props.chromosome}{" "}
-              network data
+              network properties
             </b>
           </ModalHeader>
           <ModalBody>
@@ -978,7 +978,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               this.onClickPNG(event, this.left_cy_network, "left")
             }
           >
-            PNG picture
+            Picture
           </Button>
           <Button
             outline={true}
@@ -993,7 +993,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               this.onClickJSON(event, this.left_cy_network, "left")
             }
           >
-            JSON file
+            Cytoscape file
           </Button>
           <Button
             outline={true}
@@ -1006,7 +1006,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             }}
             onClick={this.onChromosomeStatistics}
           >
-            Chromosome data
+            Chromosome network properties
           </Button>
           <Button
             outline={true}
@@ -1060,7 +1060,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               this.onClickPNG(event, this.right_cy_network, "right")
             }
           >
-            PNG picture
+            Picture
           </Button>
           <Button
             outline={true}
@@ -1075,7 +1075,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               this.onClickJSON(event, this.right_cy_network, "right")
             }
           >
-            JSON file
+            Cytoscape file
           </Button>
           <Button
             outline={true}
@@ -1090,7 +1090,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               this.onClickTSV(event, this.right_cy_network, "right")
             }
           >
-            TSV file
+            Genes properties file
           </Button>
           <Button
             outline={true}
@@ -1105,7 +1105,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               this.onClickGeneList(event, this.right_cy_network)
             }
           >
-            Gene list
+            Genes list
           </Button>
           <Cytoscape_container
             cytoscape_container_id={this.right_container_id}
@@ -1138,7 +1138,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         this.props.organism +
           "-" +
           this.props.cell_type +
-          "_-hr" +
+          "_chr" +
           this.props.chromosome +
           ".png"
       );
@@ -1166,7 +1166,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         this.props.organism +
           "-" +
           this.props.cell_type +
-          "-chr" +
+          "_chr" +
           this.props.chromosome +
           ".json"
       );
