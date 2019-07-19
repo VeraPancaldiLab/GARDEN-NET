@@ -955,6 +955,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
               marginLeft: "17px",
               marginBottom: "5px",
               borderWidth: "2px"
@@ -970,6 +971,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
               marginLeft: "5px",
               marginBottom: "5px",
               borderWidth: "2px"
@@ -985,6 +987,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
               marginLeft: "5px",
               marginBottom: "5px",
               borderWidth: "2px"
@@ -993,13 +996,46 @@ export class Cytoscape_manager extends React.Component<any, any> {
               this.onClickJSON(event, this.left_cy_network, "left")
             }
           >
-            Cytoscape file
+            Cytoscape
           </Button>
           <Button
             outline={true}
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
+              marginLeft: "5px",
+              marginBottom: "5px",
+              borderWidth: "2px"
+            }}
+            onClick={(event: any) =>
+              this.onClickTSVnodes(event, this.left_cy_network, "left")
+            }
+          >
+            Genes properties
+          </Button>
+          <Button
+            outline={true}
+            color="secondary"
+            size="sm"
+            style={{
+              fontSize: "small",
+              marginLeft: "5px",
+              marginBottom: "5px",
+              borderWidth: "2px"
+            }}
+            onClick={(event: any) =>
+              this.onClickTSVedges(event, this.left_cy_network, "left")
+            }
+          >
+            Edges list
+          </Button>
+          <Button
+            outline={true}
+            color="secondary"
+            size="sm"
+            style={{
+              fontSize: "small",
               marginLeft: "5px",
               marginBottom: "5px",
               borderWidth: "2px"
@@ -1013,6 +1049,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
               marginLeft: "5px",
               marginBottom: "5px",
               borderWidth: "2px"
@@ -1037,6 +1074,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
               marginLeft: "17px",
               marginBottom: "5px",
               borderWidth: "2px"
@@ -1052,6 +1090,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
               marginLeft: "5px",
               marginBottom: "5px",
               borderWidth: "2px"
@@ -1067,6 +1106,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
               marginLeft: "5px",
               marginBottom: "5px",
               borderWidth: "2px"
@@ -1075,28 +1115,46 @@ export class Cytoscape_manager extends React.Component<any, any> {
               this.onClickJSON(event, this.right_cy_network, "right")
             }
           >
-            Cytoscape file
+            Cytoscape
           </Button>
           <Button
             outline={true}
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
               marginLeft: "5px",
               marginBottom: "5px",
               borderWidth: "2px"
             }}
             onClick={(event: any) =>
-              this.onClickTSV(event, this.right_cy_network, "right")
+              this.onClickTSVnodes(event, this.right_cy_network, "right")
             }
           >
-            Genes properties file
+            Genes properties
           </Button>
           <Button
             outline={true}
             color="secondary"
             size="sm"
             style={{
+              fontSize: "small",
+              marginLeft: "5px",
+              marginBottom: "5px",
+              borderWidth: "2px"
+            }}
+            onClick={(event: any) =>
+              this.onClickTSVedges(event, this.right_cy_network, "right")
+            }
+          >
+            Edges list
+          </Button>
+          <Button
+            outline={true}
+            color="secondary"
+            size="sm"
+            style={{
+              fontSize: "small",
               marginLeft: "5px",
               marginBottom: "5px",
               borderWidth: "2px"
@@ -1185,7 +1243,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     this.setState({ legend_modal: true });
   };
 
-  private onClickTSV = (event: any, cy: any, view: string): any => {
+  private onClickTSVnodes = (event: any, cy: any, view: string): any => {
     event.preventDefault();
     if (cy.nodes().size() == 0) {
       return;
@@ -1198,6 +1256,51 @@ export class Cytoscape_manager extends React.Component<any, any> {
       for (const key of Object.keys(nodes[node_index].data())) {
         tsv_row.push(nodes[node_index].data(key));
       }
+      tsv_text += tsv_row.join("\t") + "\n";
+    }
+    const tsv_blob = new Blob([tsv_text], { type: "application/tsv" });
+    const hiddenElement = document.createElement("a");
+    document.body.appendChild(hiddenElement);
+    hiddenElement.href = window.URL.createObjectURL(tsv_blob);
+    if (view == "left") {
+      hiddenElement.setAttribute(
+        "download",
+        this.props.organism +
+          "-" +
+          this.props.cell_type +
+          "-chr" +
+          this.props.chromosome +
+          ".tsv"
+      );
+    } else {
+      hiddenElement.setAttribute("download", this.state.right_title + ".tsv");
+    }
+    hiddenElement.style.display = "none";
+    if (view == "left" || this.right_cy_network.elements().size() != 0) {
+      hiddenElement.click();
+    }
+    document.body.removeChild(hiddenElement);
+  };
+
+  private onClickTSVedges = (event: any, cy: any, view: string): any => {
+    event.preventDefault();
+    if (cy.nodes().size() == 0) {
+      return;
+    }
+    const edges = cy.edges();
+    let tsv_text = "";
+    const source_attribute = view == "left" ? "source_original" : "source";
+    const target_attribute = view == "left" ? "target_original" : "target";
+    for (let edge_index = 0; edge_index < edges.length; edge_index++) {
+      const tsv_row = [];
+      let source = edges[edge_index].data(source_attribute);
+      source = "chr" + source;
+      source = source.replace(/_/g, "-").replace(/-/, ":");
+      tsv_row.push(source);
+      let target = edges[edge_index].data(target_attribute);
+      target = "chr" + target;
+      target = target.replace(/_/g, "-").replace(/-/, ":");
+      tsv_row.push(target);
       tsv_text += tsv_row.join("\t") + "\n";
     }
     const tsv_blob = new Blob([tsv_text], { type: "application/tsv" });
