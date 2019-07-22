@@ -58,7 +58,7 @@
     "build": "./node_modules/.bin/webpack --mode development --watch --progress --display-error-details",
     "build:no-watch": "./node_modules/.bin/webpack --mode development --progress --display-error-details",
     "dist": "./node_modules/.bin/webpack --mode production --progress",
-    "fmt": "./node_modules/.bin/prettier --write src/**/*.tsx",
+    "fmt": "./node_modules/.bin/prettier --write 'src/**/*.{ts,tsx}'",
     "lint": "./node_modules/.bin/tslint --fix --project tsconfig.json",
     "serve": "./node_modules/.bin/http-server ./ -a 0.0.0.0 -p 8080 --cors --gzip -o",
     "test": "./node_modules/.bin/jest"
