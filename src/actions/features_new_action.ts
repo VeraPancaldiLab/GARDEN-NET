@@ -6,5 +6,5 @@ interface IFeatureNewMap {
 
 export const change_features_new = (features_new: IFeatureNewMap) => ({
   type: CHANGED_FEATURES_NEW,
-  features_new,
+  features_new
 });

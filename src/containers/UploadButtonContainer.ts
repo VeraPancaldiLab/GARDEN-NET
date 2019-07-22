@@ -1,5 +1,10 @@
 import { connect } from "react-redux";
-import { change_feature, change_features_list, change_features_metadata, change_features_new } from "../actions/index";
+import {
+  change_feature,
+  change_features_list,
+  change_features_metadata,
+  change_features_new
+} from "../actions/index";
 import { UploadButton } from "../components/Viewer/ControlPanel/SubPanels/UploadButton";
 
 interface IFeatureMetadataMap {
@@ -26,7 +31,7 @@ export const mapStateToProps = (state: IUploadProps) => {
     features_list: state.features_list,
     features_metadata: state.features_metadata,
     features_new: state.features_new,
-    organism: state.organism,
+    organism: state.organism
   };
 };
 
@@ -34,10 +39,10 @@ export const mapDispatchToProps = {
   onFeatureChange: change_feature,
   onFeaturesListChange: change_features_list,
   onFeaturesMetadataChange: change_features_metadata,
-  onFeaturesNewChange: change_features_new,
+  onFeaturesNewChange: change_features_new
 };
 
 export const UploadButtonContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(UploadButton);

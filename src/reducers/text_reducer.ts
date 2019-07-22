@@ -7,7 +7,10 @@ interface ITextAction {
   text?: string;
 }
 
-export const text_reducer = (state: string = DEFAULT_TEXT, action: ITextAction) => {
+export const text_reducer = (
+  state: string = DEFAULT_TEXT,
+  action: ITextAction
+) => {
   switch (action.type) {
     case CHANGED_TEXT:
       return action.text;

@@ -11,11 +11,11 @@ export const mapStateToProps = (state: ICytoscapeProps) => {
   return {
     chromosome: state.chromosome,
     feature: state.feature,
-    search: state.search,
+    search: state.search
   };
 };
 
 export const Cytoscape_container = connect(
   mapStateToProps,
-  null,
+  null
 )(Cytoscape);

@@ -11,7 +11,10 @@ interface IFeaturesMetadataAction {
   features_metadata?: IFeatureMetadataMap;
 }
 
-export const features_metadata_reducer = (state: IFeatureMetadataMap = DEFAULT_FEATURES_METADATA, action: IFeaturesMetadataAction) => {
+export const features_metadata_reducer = (
+  state: IFeatureMetadataMap = DEFAULT_FEATURES_METADATA,
+  action: IFeaturesMetadataAction
+) => {
   switch (action.type) {
     case CHANGED_FEATURES_METADATA:
       if (action.features_metadata === undefined) {

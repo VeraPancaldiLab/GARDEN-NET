@@ -9,8 +9,12 @@ export class ControlPanel extends React.Component<{}, {}> {
   public render() {
     return (
       <div className="container-fluid">
-        <h3 className="text-center" style={{ visibility: "hidden" }}>Panel</h3>
-        <Button className="text-center" style={{ visibility: "hidden" }}>Panel</Button>
+        <h3 className="text-center" style={{ visibility: "hidden" }}>
+          Panel
+        </h3>
+        <Button className="text-center" style={{ visibility: "hidden" }}>
+          Panel
+        </Button>
         <Col className="text-center">
           <ChromosomesPanelContainer />
           <FeaturesPanelContainer />

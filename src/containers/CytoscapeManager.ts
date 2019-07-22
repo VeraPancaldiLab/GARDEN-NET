@@ -22,16 +22,16 @@ export const mapStateToProps = (state: ICytoscapeProps) => {
     features_new: state.features_new,
     search: state.search,
     organism: state.organism,
-    cell_type: state.cell_type,
+    cell_type: state.cell_type
   };
 };
 
 export const mapDispatchToProps = {
   onChromosomeChange: change_chromosome,
-  onSearchChange: change_search,
+  onSearchChange: change_search
 };
 
 export const CytoscapeManager = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Cytoscape_manager);

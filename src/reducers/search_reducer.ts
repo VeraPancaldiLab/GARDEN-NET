@@ -7,7 +7,10 @@ interface ISearchAction {
   search?: string;
 }
 
-export const search_reducer = (state: string = DEFAULT_SEARCH, action: ISearchAction) => {
+export const search_reducer = (
+  state: string = DEFAULT_SEARCH,
+  action: ISearchAction
+) => {
   switch (action.type) {
     case CHANGED_SEARCH:
       return action.search;
