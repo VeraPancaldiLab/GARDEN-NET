@@ -12,5 +12,5 @@ ReactDOM.render(
   <Provider store={store}>
     <Portal />
   </Provider>,
-  rootEl,
+  rootEl
 );

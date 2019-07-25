@@ -11,7 +11,10 @@ interface IFeaturesNewAction {
   features_new?: IFeatureNewMap;
 }
 
-export const features_new_reducer = (state: IFeatureNewMap = DEFAULT_FEATURES_NEW, action: IFeaturesNewAction) => {
+export const features_new_reducer = (
+  state: IFeatureNewMap = DEFAULT_FEATURES_NEW,
+  action: IFeaturesNewAction
+) => {
   switch (action.type) {
     case CHANGED_FEATURES_NEW:
       if (action.features_new === undefined) {

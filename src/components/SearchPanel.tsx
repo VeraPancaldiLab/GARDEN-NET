@@ -78,6 +78,7 @@ export class SearchPanel extends React.Component<any, any> {
   };
 
   public onSuggestChange = (event: any) => {
+    event.preventDefault();
     const suggestion_selected = event.target.innerText;
     this.props.onTextChange(suggestion_selected);
     this.props.onSearchChange(suggestion_selected);

@@ -6,7 +6,10 @@ interface IChromosomeAction {
   chromosome?: string;
 }
 
-export const chromosomes_reducer = (state: string = DEFAULT_CHROMOSOME, action: IChromosomeAction) => {
+export const chromosomes_reducer = (
+  state: string = DEFAULT_CHROMOSOME,
+  action: IChromosomeAction
+) => {
   switch (action.type) {
     case CHANGED_CHROMOSOME:
       return action.chromosome;

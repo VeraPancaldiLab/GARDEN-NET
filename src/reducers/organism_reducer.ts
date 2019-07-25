@@ -6,7 +6,10 @@ interface IOrganismAction {
   organism?: string;
 }
 
-export const organism_reducer = (state: string = DEFAULT_ORGANISM, action: IOrganismAction) => {
+export const organism_reducer = (
+  state: string = DEFAULT_ORGANISM,
+  action: IOrganismAction
+) => {
   switch (action.type) {
     case CHANGED_ORGANISM:
       return action.organism;

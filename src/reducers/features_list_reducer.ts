@@ -7,7 +7,10 @@ interface IFeaturesListAction {
   features_list?: string[];
 }
 
-export const features_list_reducer = (state: string[] = DEFAULT_FEATURES_LIST, action: IFeaturesListAction) => {
+export const features_list_reducer = (
+  state: string[] = DEFAULT_FEATURES_LIST,
+  action: IFeaturesListAction
+) => {
   switch (action.type) {
     case CHANGED_FEATURES_LIST:
       if (action.features_list === undefined) {
