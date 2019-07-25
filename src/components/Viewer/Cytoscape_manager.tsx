@@ -1046,7 +1046,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           </Button>
           <Button
             outline={true}
-            color="secondary"
+            color="info"
             size="sm"
             style={{
               fontSize: "small",
@@ -1164,6 +1164,20 @@ export class Cytoscape_manager extends React.Component<any, any> {
             }
           >
             Genes list
+          </Button>
+          <Button
+            outline={true}
+            color="info"
+            size="sm"
+            style={{
+              fontSize: "small",
+              marginLeft: "5px",
+              marginBottom: "5px",
+              borderWidth: "2px"
+            }}
+            onClick={this.onClickLegend}
+          >
+            Legend
           </Button>
           <Cytoscape_container
             cytoscape_container_id={this.right_container_id}
