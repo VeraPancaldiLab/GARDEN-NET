@@ -16,15 +16,17 @@ export class Header extends React.Component<{}, {}> {
                   fragments. The published datasets available were generated
                   with the <em>Promoter Capture HiC</em> technique, which
                   returns contacts involving promoters.
+                  <div className="text-left">
+                    <b>
+                      Left click on nodes to navigate to WashU browser.
+                    </b>
+                    <br />
+                    <b>
+                      Right click on nodes to zoom into their neighborhood.
+                    </b>
+                  </div>
                 </span>
                 <br />
-                <span>
-                  A selection of epigenomic features that have been mapped to
-                  the chromatin fragments will be available from the drop-down
-                  menu on the right. Select one of them to visualize chromatin
-                  fragments that have that feature and to calculate statistics
-                  relating to this feature and the 3D network.
-                </span>
               </Col>
             </Col>
             <Col>
@@ -80,11 +82,13 @@ export class Header extends React.Component<{}, {}> {
                 <br />
                 User submitted features can also be visualized on the networks
                 and used for the network based calculations.
-                <div className="text-left">
-                  Left click on nodes to navigate to WashU browser.
-                  <br />
-                  Right click on nodes to zoom into their neighborhood.
-                </div>
+                <span>
+                  A selection of epigenomic features that have been mapped to
+                  the chromatin fragments will be available from the drop-down
+                  menu on the right. Select one of them to visualize chromatin
+                  fragments that have that feature and to calculate statistics
+                  relating to this feature and the 3D network.
+                </span>
               </Row>
             </Col>
           </div>
