@@ -1,11 +1,16 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import {
+  Button,
   ButtonDropdown,
   Col,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
+  Modal,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
   Row
 } from "reactstrap";
 
@@ -15,6 +20,7 @@ export class PortalMenu extends React.Component<any, any> {
     this.state = {
       dropdownOpen_organism: false,
       dropdownOpen_cell_type: false,
+      downtime_modal: true,
       organism: "Choose"
     };
   }
@@ -66,6 +72,39 @@ export class PortalMenu extends React.Component<any, any> {
 
     return (
       <div className="container">
+        <Modal
+          isOpen={this.state.downtime_modal}
+          centered={true}
+          className="text-center"
+        >
+          <ModalHeader>
+            <b className="text-danger" style={{ marginLeft: "140px" }}>
+              Maintenance period
+            </b>
+          </ModalHeader>
+          <ModalBody>
+            Dear users, <br />
+            Due to scheduled annual electrical maintenance <br />
+            <b>GARDEN-NET will be unavailable</b>
+            <br />
+            <br />
+            From <br />
+            Monday, August 5th 16:00h <br />
+            to <br />
+            Thursday, August 8th, 13:00h <br />
+            <br />
+            We apologize for the inconveniences this may cause.
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              color="danger"
+              style={{ marginRight: "200px" }}
+              onClick={() => this.setState({ downtime_modal: false })}
+            >
+              Close
+            </Button>
+          </ModalFooter>
+        </Modal>
         <Row style={{ margin: "15px" }}>
           <h3 className="text-center">
             Welcome to

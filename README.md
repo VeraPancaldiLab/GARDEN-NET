@@ -1,4 +1,4 @@
-<center>
+<p align="center">
   <h3 className="text-center">Welcome to
   <br/>
   <a href="https://github.com/VeraPancaldiLab/GARDEN-NET" target="_blank">
@@ -6,7 +6,19 @@
   </a>
   <br/>
   Genome ARchitecture DNA Epigenome and Nucleome - Network Exploration Tool</h3>
-</center>
+</p>
+<p align="center">
+  Dear users, 
+  Due to scheduled annual electrical maintenance 
+  GARDEN-NET will be unavailable
+  
+  From 
+  Monday, August 5th 16:00h 
+  to 
+  Thursday, August 8th, 13:00h 
+  
+  We apologize for the inconveniences this may cause.
+</p>
   <span>
   Here you will be able to visualize chromosome conformation capture datasets as networks of interacting chromatin fragments. The published datasets available were generated with the <em>Promoter Capture HiC</em> technique, which returns contacts involving promoters.
   </span>
