@@ -75,7 +75,7 @@ export class PortalMenu extends React.Component<any, any> {
               target="_blank"
             >
               <img
-                src="images/garden-net.png"
+                src="https://cdn.jsdelivr.net/gh/VeraPancaldiLab/GARDEN-NET@latest/public/images/garden-net.png"
                 width="120"
                 height="120"
                 alt="GARDEN-NET logo"
@@ -263,7 +263,7 @@ export class PortalMenu extends React.Component<any, any> {
         <Row style={{ marginTop: "5px" }} className="text-center">
           <Col>
             <img
-              src="images/screenshot.png"
+              src="https://cdn.jsdelivr.net/gh/VeraPancaldiLab/GARDEN-NET@latest/public/images/screenshot.png"
               height="440"
               style={{
                 borderStyle: "solid",
