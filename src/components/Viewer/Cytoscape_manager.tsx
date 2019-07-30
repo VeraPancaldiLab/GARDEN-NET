@@ -628,7 +628,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
         }
         this.setState({ neighbourhood_node_ids: nodes_internal_ids });
 
-        const searched_chromosome = right_nodes[0].data("chr");
+        // Use bigger connected component chromosome as searched chromosome
+        const bigger_connected_component_node = right_nodes.max(
+          (right_node: any) => right_node.closedNeighbourhood().nodes().length
+        ).ele;
+
+        const searched_chromosome = bigger_connected_component_node.data("chr");
         // Force color the neighbourhood when the chromosome is the same
         if (
           this.props.chromosome === searched_chromosome ||
