@@ -121,8 +121,13 @@ export class PortalMenu extends React.Component<any, any> {
               />
             </a>
             <br />
-            Genome ARchitecture DNA Epigenome and Nucleome - Network Exploration
-            Tool
+            <a
+              target="_blank"
+              href="https://www.biorxiv.org/content/10.1101/717298v1"
+            >
+              Genome ARchitecture DNA Epigenome and Nucleome - Network
+              Exploration Tool
+            </a>
           </h3>
           <span>
             Here you will be able to visualize chromosome conformation capture
@@ -187,6 +192,17 @@ export class PortalMenu extends React.Component<any, any> {
                 target="_blank"
               >
                 GitHub
+              </a>
+            </span>
+            <br />
+            <span>
+              For more Information see:{" "}
+              <a
+                target="_blank"
+                href="https://www.biorxiv.org/content/10.1101/717298v1"
+              >
+                GARDEN-NET and ChAseR: a suite of tools for the analysis of
+                chromatin networks
               </a>
             </span>
           </p>
