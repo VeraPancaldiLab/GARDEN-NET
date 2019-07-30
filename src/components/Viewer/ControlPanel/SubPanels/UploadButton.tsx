@@ -338,6 +338,20 @@ export class UploadButton extends React.Component<any, any> {
                     : "block"
               }}
             />
+            <Label
+              style={{
+                fontSize: "small",
+                display:
+                  this.state.feature_format_option != "match_nodes"
+                    ? "none"
+                    : "block"
+              }}
+            >
+              The file has to have the first 3 columns with column names
+              <br />
+              'chr' 'start' 'end' <br />
+              followed by feature columns with their respective names.
+            </Label>
             <Form>
               <FormGroup style={{ marginBottom: "0px" }}>
                 <Label
