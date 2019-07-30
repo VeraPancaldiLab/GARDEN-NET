@@ -17,13 +17,9 @@ export class Header extends React.Component<{}, {}> {
                   with the <em>Promoter Capture HiC</em> technique, which
                   returns contacts involving promoters.
                   <div className="text-left">
-                    <b>
-                      Left click on nodes to navigate to WashU browser.
-                    </b>
+                    <b>Left click on nodes to navigate to WashU browser.</b>
                     <br />
-                    <b>
-                      Right click on nodes to zoom into their neighborhood.
-                    </b>
+                    <b>Right click on nodes to zoom into their neighborhood.</b>
                   </div>
                 </span>
                 <br />
