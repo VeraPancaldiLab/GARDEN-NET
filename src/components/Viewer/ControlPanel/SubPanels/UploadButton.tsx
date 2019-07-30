@@ -358,7 +358,7 @@ export class UploadButton extends React.Component<any, any> {
                   for="features_upload_button"
                   style={{ fontSize: "small" }}
                 >
-                  Upload features file
+                  Upload features file <b>(max size: 10MB)</b>
                 </Label>
                 <Input
                   style={margin_style}
