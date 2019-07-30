@@ -267,11 +267,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.props.feature +
           ": " +
           feature_value;
+        // svg rectangle is width (minus borders) is between 5 and 132 px
         let current_feature_position =
-          (this.state.current_feature_value * 135) / this.state.max_feature;
-        if (current_feature_position == 0) {
-          current_feature_position = 6;
-        }
+          ((this.state.current_feature_value - this.state.min_feature) /
+            (this.state.max_feature - this.state.min_feature)) *
+            132 +
+          5;
         const features_range_color =
           `
           <div>
