@@ -10,6 +10,7 @@
       "noUnusedParameters": true,
       "noErrorTruncation": true,
       "noFallthroughCasesInSwitch": true,
+      "esModuleInterop": true,
       "module": "commonjs",
       "target": "es2017",
       "jsx": "react"

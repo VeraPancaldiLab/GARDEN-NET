@@ -49,7 +49,8 @@ let config = {
     "popper.js": "Popper",
     "cytoscape-popper": 'cytoscapePopper',
     "react-redux": "ReactRedux",
-    "react-router-dom": "ReactRouterDOM"
+    "react-router-dom": "ReactRouterDOM",
+    "cytoscape-svg": "cytoscapeSvg"
   }
 };
 
@@ -60,7 +61,7 @@ module.exports = (env, argv) => {
 
   } else if (argv.mode === 'production') {
     config.output.path = __dirname + '/dist';
-		const CompressionPlugin = require('compression-webpack-plugin')
+    const CompressionPlugin = require('compression-webpack-plugin')
     config.plugins = [new CompressionPlugin({
       test: /bundle\.js/,
       algorithm: 'gzip',
