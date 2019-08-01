@@ -1464,6 +1464,11 @@ cytoscape-popper@^1.0.4:
   dependencies:
     popper.js "^1.0.0"
 
+cytoscape-svg@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/cytoscape-svg/-/cytoscape-svg-0.2.0.tgz#802d196e97e419a891af1beee568c3a0ce6cab3f"
+  integrity sha512-IFTLBf03o2/XmtMG7X73tNuKafjnlSQHyAqGJCBq8sZO2lXoaXePciKCg78x8F8a1H1+dt+45carDHThNU6kfQ==
+
 cytoscape@^3.7.0:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/cytoscape/-/cytoscape-3.8.2.tgz#d78f9872c89ebb313451543312929d1036a69f30"

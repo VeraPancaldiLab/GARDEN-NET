@@ -1,9 +1,13 @@
-import * as cytoscape from "cytoscape";
+import cytoscape from "cytoscape";
 import * as React from "react";
 import { MetadataPanelContainer } from "../../containers/MetadataPanelContainer";
 import {
   Button,
+  ButtonDropdown,
   Col,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
   Modal,
   ModalBody,
   ModalFooter,
@@ -12,6 +16,9 @@ import {
 } from "reactstrap";
 import Tippy from "tippy.js";
 import { Cytoscape_container } from "../../containers/CytoscapeContainer";
+
+// import _svg from "cytoscape-svg";
+// cytoscape.use(_svg);
 
 export class Cytoscape_manager extends React.Component<any, any> {
   private BASE_URL = "http://CRCT2107:8080/data/";
@@ -71,7 +78,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
       search_timeout: false,
       min_feature: null,
       max_feature: null,
-      chromosome_statistics_modal: false
+      chromosome_statistics_modal: false,
+      dropdownOpenLeftPicture: false,
+      dropdownOpenRightPicture: false
     };
   }
 
@@ -972,22 +981,50 @@ export class Cytoscape_manager extends React.Component<any, any> {
           >
             Reset zoom
           </Button>
-          <Button
-            outline={true}
-            color="secondary"
-            size="sm"
-            style={{
-              fontSize: "small",
-              marginLeft: "5px",
-              marginBottom: "5px",
-              borderWidth: "2px"
-            }}
-            onClick={(event: any) =>
-              this.onClickPNG(event, this.left_cy_network, "left")
-            }
+          <ButtonDropdown
+            isOpen={this.state.dropdownOpenLeftPicture}
+            toggle={this.toggleLeftPicture}
           >
-            Picture
-          </Button>
+            <DropdownToggle
+              outline={true}
+              color="secondary"
+              size="sm"
+              style={{
+                fontSize: "small",
+                marginLeft: "5px",
+                marginBottom: "5px",
+                borderWidth: "2px",
+                borderRadius: "2px"
+              }}
+            >
+              Picture
+            </DropdownToggle>
+            <DropdownMenu
+              onMouseLeave={this.toggleLeftPicture}
+              className="text-center container-fluid"
+              style={{
+                width: "auto"
+              }}
+            >
+              <DropdownItem
+                onClick={(event: any) => {
+                  this.onClickPNG(event, this.left_cy_network, "left");
+                  this.toggleLeftPicture();
+                }}
+              >
+                PNG
+              </DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem
+                onClick={(event: any) => {
+                  this.onClickSVG(event, this.left_cy_network, "left");
+                  this.toggleLeftPicture();
+                }}
+              >
+                SVG
+              </DropdownItem>
+            </DropdownMenu>
+          </ButtonDropdown>
           <Button
             outline={true}
             color="secondary"
@@ -1091,22 +1128,47 @@ export class Cytoscape_manager extends React.Component<any, any> {
           >
             Reset zoom
           </Button>
-          <Button
-            outline={true}
-            color="secondary"
-            size="sm"
-            style={{
-              fontSize: "small",
-              marginLeft: "5px",
-              marginBottom: "5px",
-              borderWidth: "2px"
-            }}
-            onClick={(event: any) =>
-              this.onClickPNG(event, this.right_cy_network, "right")
-            }
+          <ButtonDropdown
+            isOpen={this.state.dropdownOpenRightPicture}
+            toggle={this.toggleRightPicture}
           >
-            Picture
-          </Button>
+            <DropdownToggle
+              outline={true}
+              color="secondary"
+              size="sm"
+              style={{
+                fontSize: "small",
+                marginLeft: "5px",
+                marginBottom: "5px",
+                borderWidth: "2px",
+                borderRadius: "2px"
+              }}
+            >
+              Picture
+            </DropdownToggle>
+            <DropdownMenu
+              onMouseLeave={this.toggleRightPicture}
+              className="text-center container-fluid"
+            >
+              <DropdownItem
+                onClick={(event: any) => {
+                  this.onClickPNG(event, this.right_container_id, "right");
+                  this.toggleRightPicture();
+                }}
+              >
+                PNG
+              </DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem
+                onClick={(event: any) => {
+                  this.onClickSVG(event, this.right_cy_network, "right");
+                  this.toggleRightPicture();
+                }}
+              >
+                SVG
+              </DropdownItem>
+            </DropdownMenu>
+          </ButtonDropdown>
           <Button
             outline={true}
             color="secondary"
@@ -1222,6 +1284,35 @@ export class Cytoscape_manager extends React.Component<any, any> {
       );
     } else {
       hiddenElement.setAttribute("download", this.state.right_title + ".png");
+    }
+    hiddenElement.style.display = "none";
+    if (view == "left" || this.right_cy_network.elements().size() != 0) {
+      hiddenElement.click();
+    }
+    document.body.removeChild(hiddenElement);
+  };
+
+  private onClickSVG = (event: any, cy: any, view: string): any => {
+    event.preventDefault();
+    const svg_image = cy.svg({ scale: 1, full: true });
+    const svg_blob = new Blob([svg_image], {
+      type: "image/svg+xml;charset=utf-8"
+    });
+    const hiddenElement = document.createElement("a");
+    document.body.appendChild(hiddenElement);
+    hiddenElement.href = window.URL.createObjectURL(svg_blob);
+    if (view == "left") {
+      hiddenElement.setAttribute(
+        "download",
+        this.props.organism +
+          "-" +
+          this.props.cell_type +
+          "_chr" +
+          this.props.chromosome +
+          ".svg"
+      );
+    } else {
+      hiddenElement.setAttribute("download", this.state.right_title + ".svg");
     }
     hiddenElement.style.display = "none";
     if (view == "left" || this.right_cy_network.elements().size() != 0) {
@@ -1401,4 +1492,19 @@ export class Cytoscape_manager extends React.Component<any, any> {
       });
     });
   }
+
+  private toggleLeftPicture = () => {
+    this.setState({
+      dropdownOpenLeftPicture: !this.state.dropdownOpenLeftPicture
+    });
+  };
+
+  private toggleRightPicture = () => {
+    this.setState({
+      dropdownOpenRightPicture:
+        !this.state.dropdownOpenRightPicture &&
+        this.right_cy_network !== undefined &&
+        this.right_cy_network.elements().size() != 0
+    });
+  };
 }

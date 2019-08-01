@@ -8,6 +8,7 @@
     "bootstrap": "^4.3.1",
     "cytoscape": "^3.7.0",
     "cytoscape-popper": "^1.0.4",
+    "cytoscape-svg": "^0.2.0",
     "http-server": "^0.11.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
