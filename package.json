@@ -55,7 +55,7 @@
     ]
   },
   "scripts": {
-    "build": "./node_modules/.bin/webpack --mode development --watch --progress --display-error-details",
+    "build": "./node_modules/.bin/webpack --mode development --watch --progress --display-error-details --display verbose",
     "build:no-watch": "./node_modules/.bin/webpack --mode development --progress --display-error-details",
     "dist": "./node_modules/.bin/webpack --mode production --progress",
     "fmt": "./node_modules/.bin/prettier --write 'src/**/*.{ts,tsx}'",
