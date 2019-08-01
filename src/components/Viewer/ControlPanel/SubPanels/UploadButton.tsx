@@ -261,6 +261,11 @@ export class UploadButton extends React.Component<any, any> {
             <b style={{ marginLeft: "141px" }}>Upload features file</b>
           </ModalHeader>
           <ModalBody>
+            Feature upload options (see{" "}
+            <a href="https://bitbucket.org/eraineri/chaser/src/master/">
+              ChAseR
+            </a>{" "}
+            documentation)
             <Form style={margin_style_format_selector}>
               <FormGroup className="text-center">
                 <Label for="Select" style={{ fontSize: "small" }}>
@@ -327,7 +332,7 @@ export class UploadButton extends React.Component<any, any> {
                     : "block"
               }}
             >
-              Default aggregation function: mean
+              Aggregation function: mean(default), sum, min,...
             </div>
             <Input
               onChange={this.onFeatureFormatFunctionChange}
@@ -347,10 +352,11 @@ export class UploadButton extends React.Component<any, any> {
                     : "block"
               }}
             >
-              The file has to have the first 3 columns with column names
+              where the first three column names are ‘chrom’, ‘start’, ‘end’ and
+              the remaining columns are features with corresponding column
+              names.
               <br />
-              'chr' 'start' 'end' <br />
-              followed by feature columns with their respective names.
+              Without header if the file use the BED6 format.
             </Label>
             <Form>
               <FormGroup style={{ marginBottom: "0px" }}>
@@ -358,7 +364,8 @@ export class UploadButton extends React.Component<any, any> {
                   for="features_upload_button"
                   style={{ fontSize: "small" }}
                 >
-                  Upload features file <b>(max size: 10MB)</b>
+                  Note maximum upload file size <b>10MB</b>, use .gz compressed
+                  files if necessary
                 </Label>
                 <Input
                   style={margin_style}
