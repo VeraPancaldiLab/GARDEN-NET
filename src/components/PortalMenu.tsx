@@ -81,10 +81,8 @@ export class PortalMenu extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b className="text-danger" style={{ marginLeft: "140px" }}>
-              Maintenance period
-            </b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b className="text-danger">Maintenance period</b>
           </ModalHeader>
           <ModalBody>
             Dear users, <br />
@@ -99,10 +97,9 @@ export class PortalMenu extends React.Component<any, any> {
             <br />
             We apologize for the inconveniences this may cause.
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
               color="danger"
-              style={{ marginRight: "200px" }}
               onClick={() => this.setState({ downtime_modal: false })}
             >
               Close
@@ -317,7 +314,7 @@ export class PortalMenu extends React.Component<any, any> {
           <Col>
             <img
               src="images/screenshot.png"
-              height="440"
+              height="410"
               style={{
                 borderStyle: "solid",
                 borderWidth: "1px",

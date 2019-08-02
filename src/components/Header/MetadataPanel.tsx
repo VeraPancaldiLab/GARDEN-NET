@@ -74,16 +74,13 @@ export class MetadataPanel extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b className="text-danger" style={{ marginLeft: "210px" }}>
-              Error
-            </b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b className="text-danger">Error</b>
           </ModalHeader>
           <ModalBody>There is not metadata to be downloaded</ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
               color="danger"
-              style={{ marginRight: "200px" }}
               onClick={() => this.setState({ metadata_error: false })}
             >
               Close

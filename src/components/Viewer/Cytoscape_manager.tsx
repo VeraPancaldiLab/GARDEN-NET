@@ -783,20 +783,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b className="text-danger" style={{ marginLeft: "190px" }}>
-              Timeout
-            </b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b className="text-danger">Timeout</b>
           </ModalHeader>
           <ModalBody>
             {'The range searched "' +
               this.props.search +
               '" is too big to be computed on time'}
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
               color="danger"
-              style={{ marginRight: "200px" }}
               onClick={() => this.setState({ search_timeout: false })}
             >
               Close
@@ -808,20 +805,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b className="text-danger" style={{ marginLeft: "210px" }}>
-              Error
-            </b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b className="text-danger">Error</b>
           </ModalHeader>
           <ModalBody>
             {'There are no nodes which matching the search petition: "' +
               this.props.search +
               '"'}
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
               color="danger"
-              style={{ marginRight: "200px" }}
               onClick={() => this.setState({ search_error: false })}
             >
               Close
@@ -833,8 +827,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b style={{ marginLeft: "185px" }}>Loading...</b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b>Loading...</b>
           </ModalHeader>
           <ModalBody>
             Be patient please
@@ -848,8 +842,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b style={{ marginLeft: "200px" }}>Legend</b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b>Legend</b>
           </ModalHeader>
           <ModalBody>
             <Row>
@@ -916,10 +910,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
               </Col>
             </Row>
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
               color="secondary"
-              style={{ marginRight: "200px" }}
               onClick={() => this.setState({ legend_modal: false })}
             >
               Close
@@ -931,8 +924,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b style={{ marginLeft: "80px" }}>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b>
               {this.props.chromosome === "PP"
                 ? "Promoter-Promoter only"
                 : "Chromosome " + this.props.chromosome}{" "}
@@ -942,9 +935,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
           <ModalBody>
             <MetadataPanelContainer />
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
-              style={{ marginRight: "200px" }}
               onClick={() =>
                 this.setState({ chromosome_statistics_modal: false })
               }
