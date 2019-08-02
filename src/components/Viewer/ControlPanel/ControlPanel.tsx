@@ -63,7 +63,7 @@ export class ControlPanel extends React.Component<any, any> {
             <br />
             Promoter Capture HiC data for mouse embryonic stem cells{" "}
             <a target="_blank" href="https://doi.org/10.1101/gr.185272.114">
-              <em>Shoenfelder et al. Genome Research 2015</em>
+              <em>Schoenfelder et al. Genome Research 2015</em>
             </a>{" "}
             <br />
             <b>Features</b>
@@ -75,8 +75,6 @@ export class ControlPanel extends React.Component<any, any> {
             >
               <em>Juan et al. Cell Reports 2016</em>
             </a>
-            <br />
-            <b>Human Gene expression data</b>
             <br />
             GeneExp from{" "}
             <a target="_blank" href="https://doi.org/10.1186/s13073-019-0638-6">
