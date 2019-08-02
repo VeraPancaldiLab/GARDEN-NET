@@ -173,16 +173,13 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b className="text-info" style={{ marginLeft: "170px" }}>
-              Information
-            </b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b className="text-info">Information</b>
           </ModalHeader>
           <ModalBody>File already processed</ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
               color="info"
-              style={{ marginRight: "200px" }}
               onClick={() => this.setState({ file_already_processed: false })}
             >
               Close
@@ -194,16 +191,13 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b className="text-danger" style={{ marginLeft: "210px" }}>
-              Error
-            </b>
+          <ModalHeader style={{ marginLeft: "auto" }}>
+            <b className="text-danger">Error</b>
           </ModalHeader>
           <ModalBody>{this.state.message}</ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
               color="danger"
-              style={{ marginRight: "200px" }}
               onClick={() => this.setState({ file_error: false })}
             >
               Close
@@ -215,8 +209,8 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b style={{ marginLeft: "170px" }}>Uploading...</b>
+          <ModalHeader style={{ marginLeft: "auto" }}>
+            <b>Uploading...</b>
           </ModalHeader>
           <ModalBody>
             Be patient please
@@ -257,8 +251,8 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b style={{ marginLeft: "141px" }}>Upload features file</b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b>Upload features file</b>
           </ModalHeader>
           <ModalBody>
             Feature upload options (see{" "}
@@ -378,9 +372,8 @@ export class UploadButton extends React.Component<any, any> {
               </FormGroup>
             </Form>
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
-              style={{ marginRight: "200px" }}
               onClick={() => this.setState({ upload_features_modal: false })}
             >
               Close

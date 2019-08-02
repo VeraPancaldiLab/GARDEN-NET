@@ -15,7 +15,19 @@ export class Header extends React.Component<{}, {}> {
                   capture datasets as networks of interacting chromatin
                   fragments. The published datasets available were generated
                   with the <em>Promoter Capture HiC</em> technique, which
-                  returns contacts involving promoters.
+                  returns contacts involving promoters. For more Information
+                  see:
+                  <br />
+                  <a
+                    style={{ fontSize: "98%" }}
+                    target="_blank"
+                    href="https://doi.org/10.1101/717298"
+                  >
+                    GARDEN-NET and ChAseR: a suite of tools for the analysis of
+                    chromatin networks
+                  </a>
+                  <br />
+                  <br />
                   <div className="text-left">
                     <b>Left click on nodes to navigate to WashU browser.</b>
                     <br />

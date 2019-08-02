@@ -81,10 +81,8 @@ export class PortalMenu extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b className="text-danger" style={{ marginLeft: "140px" }}>
-              Maintenance period
-            </b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b className="text-danger">Maintenance period</b>
           </ModalHeader>
           <ModalBody>
             Dear users, <br />
@@ -99,10 +97,9 @@ export class PortalMenu extends React.Component<any, any> {
             <br />
             We apologize for the inconveniences this may cause.
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter style={{ margin: "auto" }}>
             <Button
               color="danger"
-              style={{ marginRight: "200px" }}
               onClick={() => this.setState({ downtime_modal: false })}
             >
               Close
@@ -125,10 +122,7 @@ export class PortalMenu extends React.Component<any, any> {
               />
             </a>
             <br />
-            <a
-              target="_blank"
-              href="https://www.biorxiv.org/content/10.1101/717298v1"
-            >
+            <a target="_blank" href="https://doi.org/10.1101/717298">
               Genome ARchitecture DNA Epigenome and Nucleome - Network
               Exploration Tool
             </a>
@@ -201,10 +195,7 @@ export class PortalMenu extends React.Component<any, any> {
             <br />
             <span>
               For more Information see:{" "}
-              <a
-                target="_blank"
-                href="https://www.biorxiv.org/content/10.1101/717298v1"
-              >
+              <a target="_blank" href="https://doi.org/10.1101/717298">
                 GARDEN-NET and ChAseR: a suite of tools for the analysis of
                 chromatin networks
               </a>
@@ -323,7 +314,7 @@ export class PortalMenu extends React.Component<any, any> {
           <Col>
             <img
               src="https://cdn.jsdelivr.net/gh/VeraPancaldiLab/GARDEN-NET@latest/public/images/screenshot.png"
-              height="440"
+              height="410"
               style={{
                 borderStyle: "solid",
                 borderWidth: "1px",
