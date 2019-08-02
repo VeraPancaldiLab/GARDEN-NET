@@ -125,10 +125,7 @@ export class PortalMenu extends React.Component<any, any> {
               />
             </a>
             <br />
-            <a
-              target="_blank"
-              href="https://www.biorxiv.org/content/10.1101/717298v1"
-            >
+            <a target="_blank" href="https://doi.org/10.1101/717298">
               Genome ARchitecture DNA Epigenome and Nucleome - Network
               Exploration Tool
             </a>
@@ -201,10 +198,7 @@ export class PortalMenu extends React.Component<any, any> {
             <br />
             <span>
               For more Information see:{" "}
-              <a
-                target="_blank"
-                href="https://www.biorxiv.org/content/10.1101/717298v1"
-              >
+              <a target="_blank" href="https://doi.org/10.1101/717298">
                 GARDEN-NET and ChAseR: a suite of tools for the analysis of
                 chromatin networks
               </a>
