@@ -8,23 +8,19 @@ import {
   DropdownMenu,
   DropdownToggle,
   Modal,
-  ModalHeader,
-  ModalFooter,
   ModalBody,
+  ModalFooter,
+  ModalHeader,
   Row
 } from "reactstrap";
 
 export class PortalMenu extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
-    const date = new Date();
-    const day = date.getDate();
-    const month = date.getMonth();
-    const year = date.getFullYear();
     this.state = {
       dropdownOpen_organism: false,
       dropdownOpen_cell_type: false,
-      downtime_modal: day <= 8 && month === 7 && year === 2019,
+      downtime_modal: false,
       organism: "Choose"
     };
   }
