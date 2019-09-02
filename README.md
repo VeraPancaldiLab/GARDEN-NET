@@ -20,23 +20,6 @@
 Network Exploration Tool
 </p>
 </h3>
-<p align="center">
-  Dear users,
-</p>
-<p align="center">
-  <b>
-  Due to scheduled annual electrical maintenance GARDEN-NET will be unavailable
-  </b>
-</p>
-<p align="center">
-  From
-  Monday, August 5th 16:00h
-  to
-  Thursday, August 8th, 13:00h
-</p>
-<p align="center">
-  We apologize for the inconveniences this may cause.
-</p>
   <span>
   Here you will be able to visualize chromosome conformation capture datasets as networks of interacting chromatin fragments. The published datasets available were generated with the <em>Promoter Capture HiC</em> technique, which returns contacts involving promoters.
   </span>
@@ -196,4 +179,4 @@ or run
 GNU AFFERO GENERAL PUBLIC LICENSE (see [License.md](./License.md))
 
 ## Contributors
-- Miguel Madrid Mencía ([mimadrid](https://github.com/mimadrid)) - creator, maintainer
+- Miguel Madrid Mencía ([mimame](https://github.com/mimame)) - creator, maintainer
