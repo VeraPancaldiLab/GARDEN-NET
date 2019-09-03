@@ -18,9 +18,9 @@ export class PortalMenu extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      dropdownOpen_organism: false,
-      dropdownOpen_cell_type: false,
       downtime_modal: false,
+      dropdownOpen_cell_type: false,
+      dropdownOpen_organism: false,
       organism: "Choose"
     };
   }
@@ -49,19 +49,19 @@ export class PortalMenu extends React.Component<any, any> {
     const cell_types: any = {
       Choose: {},
       Homo: {
-        aCD4: "Activated total CD4+T cells",
         EP: "Endothelial precursors",
         Ery: "Erythroblasts",
         FoeT: "Fetal thymus",
+        MK: "Megakaryocytes",
         Mac0: "Macrophages M0",
         Mac1: "Macrophages M1",
         Mac2: "Macrophages M2",
-        MK: "Megakaryocytes",
         Mon: "Monocytes",
-        naCD4: "Non-activated total CD4+T cells",
+        Neu: "Neutrophils",
+        aCD4: "Activated total CD4+T cells",
         nCD4: "Naive CD4+ T cells",
         nCD8: "Naive CD8+ T cells",
-        Neu: "Neutrophils",
+        naCD4: "Non-activated total CD4+T cells",
         tCD4: "Total CD4+ T cells",
         tCD8: "Total CD8+ T cells"
       },
@@ -252,10 +252,10 @@ export class PortalMenu extends React.Component<any, any> {
               toggle={this.toggle_cell_type}
             >
               <DropdownToggle
-                disabled={this.state.organism == "Choose"}
+                disabled={this.state.organism === "Choose"}
                 caret={true}
               >
-                {this.state.organism == "Choose"
+                {this.state.organism === "Choose"
                   ? "Choose an organism first"
                   : "Choose"}
               </DropdownToggle>
@@ -312,9 +312,9 @@ export class PortalMenu extends React.Component<any, any> {
               src="https://cdn.jsdelivr.net/gh/VeraPancaldiLab/GARDEN-NET@latest/public/images/screenshot.png"
               height="410"
               style={{
+                borderColor: "#ccc",
                 borderStyle: "solid",
-                borderWidth: "1px",
-                borderColor: "#ccc"
+                borderWidth: "1px"
               }}
               alt="GARDEN-NET screenshot"
             />

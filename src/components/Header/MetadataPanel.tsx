@@ -17,9 +17,9 @@ export class MetadataPanel extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
+      metadata_error: false,
       network_properties: {},
-      network_statistics: {},
-      metadata_error: false
+      network_statistics: {}
     };
   }
 

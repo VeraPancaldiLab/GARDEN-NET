@@ -15,10 +15,10 @@ interface ISearchProps {
 
 export const mapStateToProps = (state: ISearchProps) => {
   return {
-    search: state.search,
-    text: state.text,
+    cell_type: state.cell_type,
     organism: state.organism,
-    cell_type: state.cell_type
+    search: state.search,
+    text: state.text
   };
 };
 

@@ -24,7 +24,7 @@ export class FeaturesPanel extends React.Component<any, any> {
   }
 
   public componentDidUpdate = () => {
-    if (this.props.features_list[0] == "") {
+    if (this.props.features_list[0] === "") {
       this.fetchAsyncJson(
         this.BASE_URL +
           this.props.organism +
@@ -69,15 +69,15 @@ export class FeaturesPanel extends React.Component<any, any> {
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "2px",
+      fontSize: "small",
       paddingLeft: "5px",
-      paddingRight: "5px",
-      fontSize: "small"
+      paddingRight: "5px"
     };
 
     return (
       <div
         style={{
-          display: this.props.features_list.length == 0 ? "none" : "block"
+          display: this.props.features_list.length === 0 ? "none" : "block"
         }}
       >
         <Form className="text-center" style={margin_style}>
@@ -93,8 +93,8 @@ export class FeaturesPanel extends React.Component<any, any> {
             >
               <DropdownToggle
                 style={{
-                  color: "black",
                   backgroundColor: "white",
+                  color: "black",
                   fontSize: "small"
                 }}
                 caret={true}

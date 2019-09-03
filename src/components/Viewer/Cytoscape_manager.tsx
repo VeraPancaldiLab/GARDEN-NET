@@ -1,6 +1,5 @@
 import cytoscape from "cytoscape";
 import * as React from "react";
-import { MetadataPanelContainer } from "../../containers/MetadataPanelContainer";
 import {
   Button,
   ButtonDropdown,
@@ -16,6 +15,7 @@ import {
 } from "reactstrap";
 import Tippy from "tippy.js";
 import { Cytoscape_container } from "../../containers/CytoscapeContainer";
+import { MetadataPanelContainer } from "../../containers/MetadataPanelContainer";
 
 // import _svg from "cytoscape-svg";
 // cytoscape.use(_svg);
@@ -31,6 +31,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private reuse_message: boolean;
   private clean_right_view: boolean = true;
   private old_neighbourhood: any;
+  private new_features_names: Set<string> = new Set();
   private tooltip_tippy: any;
   private initial_rendering = true;
   // http://www.perbang.dk/rgbgradient/
@@ -57,30 +58,30 @@ export class Cytoscape_manager extends React.Component<any, any> {
     20: "#CC0000",
     21: "#CC9900",
     22: "#CC6666",
+    MT: "#FFFFFF",
     X: "#66CC33",
-    Y: "#666666",
-    MT: "#FFFFFF"
+    Y: "#666666"
   };
   constructor(props: any) {
     super(props);
     this.reuse_message = false;
 
     this.state = {
-      cytoscape_loading: false,
-      loading_message: "",
-      left_network: undefined,
-      right_network: undefined,
-      left_title: "",
-      right_title: "",
-      neighbourhood_node_ids: [],
-      legend_modal: false,
-      search_error: false,
-      search_timeout: false,
-      min_feature: null,
-      max_feature: null,
       chromosome_statistics_modal: false,
+      cytoscape_loading: false,
       dropdownOpenLeftPicture: false,
-      dropdownOpenRightPicture: false
+      dropdownOpenRightPicture: false,
+      left_network: undefined,
+      left_title: "",
+      legend_modal: false,
+      loading_message: "",
+      max_feature: null,
+      min_feature: null,
+      neighbourhood_node_ids: [],
+      right_network: undefined,
+      right_title: "",
+      search_error: false,
+      search_timeout: false
     };
   }
 
@@ -120,10 +121,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
     return fetch(url)
       .then(response => {
         const json = response.json();
-        if (response.status != 200) {
-          if (response.status == 404) {
+        if (response.status !== 200) {
+          if (response.status === 404) {
             this.setState({ search_error: true });
-          } else if (response.status == 408) {
+          } else if (response.status === 408) {
             this.setState({ search_timeout: true });
           }
           if (this.props.search !== "") {
@@ -150,6 +151,13 @@ export class Cytoscape_manager extends React.Component<any, any> {
         {
           selector: "node",
           style: {
+            "background-color": "#ccc",
+            "border-color": (ele: any) =>
+              this.chromosome_color[ele.data("chr")],
+            "border-width": 3,
+            color: "black",
+            "font-size": 9.5,
+            height: 20,
             label: (ele: any) => {
               let label = ele
                 .data("names")
@@ -161,17 +169,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
               }
               return label;
             },
-            "text-wrap": "wrap",
-            color: "black",
-            "font-size": 9.5,
-            "text-valign": "center",
             "text-halign": "center",
-            width: 20,
-            height: 20,
-            "border-color": (ele: any) =>
-              this.chromosome_color[ele.data("chr")],
-            "border-width": 3,
-            "background-color": "#ccc"
+            "text-valign": "center",
+            "text-wrap": "wrap",
+            width: 20
           }
         },
         {
@@ -189,17 +190,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
         {
           selector: "edge",
           style: {
-            width: 3,
             "line-color": "#ccc",
             "target-arrow-color": "#ccc",
-            "target-arrow-shape": "triangle"
+            "target-arrow-shape": "triangle",
+            width: 3
           }
         }
       ],
 
       layout: {
-        name: "preset",
         animate: false,
+        name: "preset",
         stop: () => {
           if (cy_json_elements !== undefined) {
             this.setState({ cytoscape_loading: false });
@@ -241,7 +242,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
       let message = "Search ";
       const node_name = node.data("names");
-      if (node_name != "") {
+      if (node_name !== "") {
         let label = node_name
           .split(" ")
           .slice(0, 2)
@@ -270,14 +271,14 @@ export class Cytoscape_manager extends React.Component<any, any> {
       let feature_information = "";
       const feature_value =
         Math.round(node.data(this.props.feature) * 1000) / 1000;
-      if (this.props.feature != "Choose") {
+      if (this.props.feature !== "Choose") {
         feature_information =
           (gene_name.length !== 0 ? "<br/>" : "") +
           this.props.feature +
           ": " +
           feature_value;
         // svg rectangle is width (minus borders) is between 5 and 132 px
-        let current_feature_position =
+        const current_feature_position =
           ((this.state.current_feature_value - this.state.min_feature) /
             (this.state.max_feature - this.state.min_feature)) *
             132 +
@@ -324,18 +325,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
         `;
         feature_information = feature_information + features_range_color;
       }
-      if (this.props.organism == "Homo_sapiens") {
+      if (this.props.organism === "Homo_sapiens") {
         // node.data("intronic_regions") from searched neighbourhood return 1 or 0 instead "TRUE" or "FALSE"
         let intronic_regions = node.data("intronic_regions");
-        if (typeof intronic_regions == "number") {
-          if (intronic_regions == 1) {
+        if (typeof intronic_regions === "number") {
+          if (intronic_regions === 1) {
             intronic_regions = "TRUE";
           } else {
             intronic_regions = "FALSE";
           }
         }
         intronic_region =
-          intronic_regions.trim() == "TRUE"
+          intronic_regions.trim() === "TRUE"
             ? "" +
               (gene_name.length !== 0 || feature_information.length !== 0
                 ? "<br/>"
@@ -358,12 +359,12 @@ export class Cytoscape_manager extends React.Component<any, any> {
       // using tippy ^4.0.0
       this.tooltip_tippy = Tippy(ref, {
         // tippy options:
+        arrow: true,
         content: () => {
           const content = document.createElement("div");
           content.innerHTML = tooltip_content;
           return content;
         },
-        arrow: true,
         theme: "light-border",
         trigger: "manual"
       });
@@ -396,22 +397,22 @@ export class Cytoscape_manager extends React.Component<any, any> {
       }
       const url = this.chromosomePath(this.props.chromosome);
       let message = "";
-      if (this.props.chromosome != "PP") {
+      if (this.props.chromosome !== "PP") {
         message = "Chromosome " + this.props.chromosome;
       } else {
         message = "Promoter-Promoter only";
       }
       this.setState({
         cytoscape_loading: true,
-        loading_message: message,
-        left_title: message
+        left_title: message,
+        loading_message: message
       });
       const updateChromosomeStyle = (cy: any) => {
         let dict_style = {
           height: (ele: any) => 20 + 1 * ele.data("total_degree"),
           width: (ele: any) => 20 + 1 * ele.data("total_degree")
         };
-        if (this.props.feature != "Choose" && this.props.feature != "") {
+        if (this.props.feature !== "Choose" && this.props.feature !== "") {
           if (this.props.feature in this.props.features_new) {
             this.addUserFeatures(cy, "name");
           }
@@ -441,7 +442,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           .update();
       };
       const updateNeighbourhood = (cy: any) => {
-        if (this.state.neighbourhood_node_ids.length != 0) {
+        if (this.state.neighbourhood_node_ids.length !== 0) {
           const left_nodes = this.left_cy_network
             .nodes()
             .filter((node: any) => {
@@ -456,7 +457,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               );
             });
 
-          if (left_nodes.length != 0) {
+          if (left_nodes.length !== 0) {
             const all_left_nodes_together = cy.collection();
             for (let i = 0; i < left_nodes.length; i++) {
               all_left_nodes_together.merge(left_nodes[i]);
@@ -476,8 +477,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
           } else {
             this.right_cy_network.elements().remove();
             this.setState({
-              right_title: "Search view",
-              neighbourhood_node_ids: []
+              neighbourhood_node_ids: [],
+              right_title: "Search view"
             });
             this.clean_right_view = true;
           }
@@ -508,8 +509,8 @@ export class Cytoscape_manager extends React.Component<any, any> {
         if (this.clean_right_view) {
           this.right_cy_network.elements().remove();
           this.setState({
-            right_title: "Search view",
-            neighbourhood_node_ids: []
+            neighbourhood_node_ids: [],
+            right_title: "Search view"
           });
         } else {
           this.clean_right_view = true;
@@ -552,15 +553,15 @@ export class Cytoscape_manager extends React.Component<any, any> {
         };
 
         let dict_style = {
-          height: (ele: any) => 20 + 1 * ele.data("degree"),
-          width: (ele: any) => 20 + 1 * ele.data("degree"),
-          "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
           // normalize total_degree to 0-1 range but never 0
+          "background-opacity": opacityStyle,
+          "border-color": (ele: any) => this.chromosome_color[ele.data("chr")],
           "border-opacity": opacityStyle,
-          "background-opacity": opacityStyle
+          height: (ele: any) => 20 + 1 * ele.data("degree"),
+          width: (ele: any) => 20 + 1 * ele.data("degree")
         };
 
-        if (this.props.feature != "Choose" && this.props.feature != "") {
+        if (this.props.feature !== "Choose" && this.props.feature !== "") {
           if (this.props.feature in this.props.features_new) {
             this.addUserFeatures(cy, "id");
           }
@@ -592,9 +593,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
         const right_nodes = this.right_cy_network
           .nodes()
-          .filter((node: any) => node.data("searched") == "true");
+          .filter((node: any) => node.data("searched") === "true");
 
-        if (right_nodes.length == 0) {
+        if (right_nodes.length === 0) {
           // This node searched is not found so exit inmmediately without crash
           return;
         }
@@ -609,7 +610,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           "-" +
           right_nodes[0].data("end");
         let node_complete_name = node_range;
-        if (node_name != "") {
+        if (node_name !== "") {
           let label = node_name
             .split(" ")
             .slice(0, 2)
@@ -662,7 +663,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               );
             });
 
-          if (left_nodes.length != 0) {
+          if (left_nodes.length !== 0) {
             const all_left_nodes_together = left_nodes[0];
             for (let i = 1; i < left_nodes.length; i++) {
               all_left_nodes_together.merge(left_nodes[i]);
@@ -686,7 +687,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             });
             this.old_neighbourhood = neighbourhood;
             // If there is not left_node and we are showing the PP network, we know that is a other end
-          } else if (this.props.chromosome == "PP") {
+          } else if (this.props.chromosome === "PP") {
             this.props.onChromosomeChange(searched_chromosome);
           }
         } else {
@@ -720,10 +721,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.props.feature !== ""
     ) {
       if (this.props.feature in this.props.features_new) {
+        // Load specific user feature for first time so we generate a cache with the set of all position IDs
+        this.new_features_names = new Set(
+          Object.keys(this.props.features_new[this.props.feature])
+        );
+
         this.addUserFeatures(this.left_cy_network, "name");
       }
 
-      if (this.props.feature in this.props.features_new) {
+      if (
+        this.right_cy_network.elements().size() !== 0 &&
+        this.props.feature in this.props.features_new
+      ) {
         this.addUserFeatures(this.right_cy_network, "id");
       }
 
@@ -758,7 +767,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
       if (
         this.right_cy_network !== undefined &&
-        this.right_cy_network.elements().size() != 0
+        this.right_cy_network.elements().size() !== 0
       ) {
         updateFeatures(this.right_cy_network);
       }
@@ -974,10 +983,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "17px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "17px"
             }}
             onClick={(event: any) =>
               this.onClickResetZoom(event, this.left_cy_network, "left")
@@ -994,11 +1003,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
               color="secondary"
               size="sm"
               style={{
-                fontSize: "small",
-                marginLeft: "5px",
-                marginBottom: "5px",
+                borderRadius: "2px",
                 borderWidth: "2px",
-                borderRadius: "2px"
+                fontSize: "small",
+                marginBottom: "5px",
+                marginLeft: "5px"
               }}
             >
               Picture
@@ -1018,7 +1027,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               >
                 PNG
               </DropdownItem>
-              <DropdownItem divider />
+              <DropdownItem divider={true} />
               <DropdownItem
                 onClick={(event: any) => {
                   this.onClickSVG(event, this.left_cy_network, "left");
@@ -1034,10 +1043,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={(event: any) =>
               this.onClickJSON(event, this.left_cy_network, "left")
@@ -1050,10 +1059,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={(event: any) =>
               this.onClickTSVnodes(event, this.left_cy_network, "left")
@@ -1066,10 +1075,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={(event: any) =>
               this.onClickTSVedges(event, this.left_cy_network, "left")
@@ -1082,10 +1091,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={this.onChromosomeStatistics}
           >
@@ -1096,10 +1105,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="info"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={this.onClickLegend}
           >
@@ -1121,10 +1130,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "17px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "17px"
             }}
             onClick={(event: any) =>
               this.onClickResetZoom(event, this.right_cy_network, "right")
@@ -1141,11 +1150,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
               color="secondary"
               size="sm"
               style={{
-                fontSize: "small",
-                marginLeft: "5px",
-                marginBottom: "5px",
+                borderRadius: "2px",
                 borderWidth: "2px",
-                borderRadius: "2px"
+                fontSize: "small",
+                marginBottom: "5px",
+                marginLeft: "5px"
               }}
             >
               Picture
@@ -1162,7 +1171,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
               >
                 PNG
               </DropdownItem>
-              <DropdownItem divider />
+              <DropdownItem divider={true} />
               <DropdownItem
                 onClick={(event: any) => {
                   this.onClickSVG(event, this.right_cy_network, "right");
@@ -1178,10 +1187,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={(event: any) =>
               this.onClickJSON(event, this.right_cy_network, "right")
@@ -1194,10 +1203,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={(event: any) =>
               this.onClickTSVnodes(event, this.right_cy_network, "right")
@@ -1210,10 +1219,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={(event: any) =>
               this.onClickTSVedges(event, this.right_cy_network, "right")
@@ -1226,10 +1235,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="secondary"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={(event: any) =>
               this.onClickGeneList(event, this.right_cy_network)
@@ -1242,10 +1251,10 @@ export class Cytoscape_manager extends React.Component<any, any> {
             color="info"
             size="sm"
             style={{
+              borderWidth: "2px",
               fontSize: "small",
-              marginLeft: "5px",
               marginBottom: "5px",
-              borderWidth: "2px"
+              marginLeft: "5px"
             }}
             onClick={this.onClickLegend}
           >
@@ -1261,7 +1270,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
   private onClickResetZoom = (event: any, cy: any, view: string): any => {
     event.preventDefault();
-    if (view == "left") {
+    if (view === "left") {
       this.setState({ neighbourhood_node_ids: [] });
       this.left_cy_network.elements().style({
         opacity: 1
@@ -1276,7 +1285,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     const hiddenElement = document.createElement("a");
     document.body.appendChild(hiddenElement);
     hiddenElement.href = window.URL.createObjectURL(png_blob);
-    if (view == "left") {
+    if (view === "left") {
       hiddenElement.setAttribute(
         "download",
         this.props.organism +
@@ -1290,7 +1299,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       hiddenElement.setAttribute("download", this.state.right_title + ".png");
     }
     hiddenElement.style.display = "none";
-    if (view == "left" || this.right_cy_network.elements().size() != 0) {
+    if (view === "left" || this.right_cy_network.elements().size() !== 0) {
       hiddenElement.click();
     }
     document.body.removeChild(hiddenElement);
@@ -1305,7 +1314,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     const hiddenElement = document.createElement("a");
     document.body.appendChild(hiddenElement);
     hiddenElement.href = window.URL.createObjectURL(svg_blob);
-    if (view == "left") {
+    if (view === "left") {
       hiddenElement.setAttribute(
         "download",
         this.props.organism +
@@ -1319,7 +1328,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       hiddenElement.setAttribute("download", this.state.right_title + ".svg");
     }
     hiddenElement.style.display = "none";
-    if (view == "left" || this.right_cy_network.elements().size() != 0) {
+    if (view === "left" || this.right_cy_network.elements().size() !== 0) {
       hiddenElement.click();
     }
     document.body.removeChild(hiddenElement);
@@ -1333,7 +1342,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     const hiddenElement = document.createElement("a");
     document.body.appendChild(hiddenElement);
     hiddenElement.href = window.URL.createObjectURL(json_blob);
-    if (view == "left") {
+    if (view === "left") {
       hiddenElement.setAttribute(
         "download",
         this.props.organism +
@@ -1347,7 +1356,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       hiddenElement.setAttribute("download", this.state.right_title + ".json");
     }
     hiddenElement.style.display = "none";
-    if (view == "left" || this.right_cy_network.elements().size() != 0) {
+    if (view === "left" || this.right_cy_network.elements().size() !== 0) {
       hiddenElement.click();
     }
     document.body.removeChild(hiddenElement);
@@ -1360,7 +1369,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
   private onClickTSVnodes = (event: any, cy: any, view: string): any => {
     event.preventDefault();
-    if (cy.nodes().size() == 0) {
+    if (cy.nodes().size() === 0) {
       return;
     }
     const nodes = cy.nodes();
@@ -1377,7 +1386,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     const hiddenElement = document.createElement("a");
     document.body.appendChild(hiddenElement);
     hiddenElement.href = window.URL.createObjectURL(tsv_blob);
-    if (view == "left") {
+    if (view === "left") {
       hiddenElement.setAttribute(
         "download",
         this.props.organism +
@@ -1391,7 +1400,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       hiddenElement.setAttribute("download", this.state.right_title + ".tsv");
     }
     hiddenElement.style.display = "none";
-    if (view == "left" || this.right_cy_network.elements().size() != 0) {
+    if (view === "left" || this.right_cy_network.elements().size() !== 0) {
       hiddenElement.click();
     }
     document.body.removeChild(hiddenElement);
@@ -1399,13 +1408,13 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
   private onClickTSVedges = (event: any, cy: any, view: string): any => {
     event.preventDefault();
-    if (cy.nodes().size() == 0) {
+    if (cy.nodes().size() === 0) {
       return;
     }
     const edges = cy.edges();
     let tsv_text = "";
-    const source_attribute = view == "left" ? "source_original" : "source";
-    const target_attribute = view == "left" ? "target_original" : "target";
+    const source_attribute = view === "left" ? "source_original" : "source";
+    const target_attribute = view === "left" ? "target_original" : "target";
     for (let edge_index = 0; edge_index < edges.length; edge_index++) {
       const tsv_row = [];
       let source = edges[edge_index].data(source_attribute);
@@ -1422,7 +1431,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     const hiddenElement = document.createElement("a");
     document.body.appendChild(hiddenElement);
     hiddenElement.href = window.URL.createObjectURL(tsv_blob);
-    if (view == "left") {
+    if (view === "left") {
       hiddenElement.setAttribute(
         "download",
         this.props.organism +
@@ -1436,7 +1445,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       hiddenElement.setAttribute("download", this.state.right_title + ".tsv");
     }
     hiddenElement.style.display = "none";
-    if (view == "left" || this.right_cy_network.elements().size() != 0) {
+    if (view === "left" || this.right_cy_network.elements().size() !== 0) {
       hiddenElement.click();
     }
     document.body.removeChild(hiddenElement);
@@ -1444,7 +1453,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
   private onClickGeneList = (event: any, cy: any): any => {
     event.preventDefault();
-    if (cy.nodes().size() == 0) {
+    if (cy.nodes().size() === 0) {
       return;
     }
     const nodes = cy.nodes();
@@ -1452,7 +1461,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     const tsv_row: string[] = [];
     for (let node_index = 0; node_index < nodes.length; node_index++) {
       const names = nodes[node_index].data("names").split(" ");
-      if (names[0] == "") {
+      if (names[0] === "") {
         continue;
       }
       for (const name of names) {
@@ -1480,13 +1489,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private addUserFeatures(cy: any, name_property: string) {
     cy.batch(() => {
       cy.nodes().data(this.props.feature, 0);
-      const new_features_names = Object.keys(
-        this.props.features_new[this.props.feature]
-      );
-      const nodes = cy.filter((ele: any) => {
-        return (
-          ele.isNode() && new_features_names.includes(ele.data(name_property))
-        );
+      const nodes = cy.nodes().filter((ele: any) => {
+        // Use precached set of position IDs
+        return this.new_features_names.has(ele.data(name_property));
       });
       nodes.forEach((node: any) => {
         node.data(
@@ -1508,7 +1513,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       dropdownOpenRightPicture:
         !this.state.dropdownOpenRightPicture &&
         this.right_cy_network !== undefined &&
-        this.right_cy_network.elements().size() != 0
+        this.right_cy_network.elements().size() !== 0
     });
   };
 }

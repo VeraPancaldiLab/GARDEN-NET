@@ -17,12 +17,12 @@ interface ICytoscapeProps {
 
 export const mapStateToProps = (state: ICytoscapeProps) => {
   return {
+    cell_type: state.cell_type,
     chromosome: state.chromosome,
     feature: state.feature,
     features_new: state.features_new,
-    search: state.search,
     organism: state.organism,
-    cell_type: state.cell_type
+    search: state.search
   };
 };
 

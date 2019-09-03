@@ -19,11 +19,11 @@ export const mapStateToProps = (state: {
   cell_type: string;
 }) => {
   return {
+    cell_type: state.cell_type,
     feature: state.feature,
     features_metadata: state.features_metadata,
     features_new: state.features_new,
-    organism: state.organism,
-    cell_type: state.cell_type
+    organism: state.organism
   };
 };
 

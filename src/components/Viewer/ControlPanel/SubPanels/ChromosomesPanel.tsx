@@ -28,9 +28,9 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      dropdownOpen: false,
       chromosomes: [""],
-      chromosomes_error: false
+      chromosomes_error: false,
+      dropdownOpen: false
     };
   }
 

@@ -20,19 +20,19 @@ export class UploadButton extends React.Component<any, any> {
   public constructor(props: any) {
     super(props);
     this.state = {
+      dropdownOpen: false,
+      feature_format_function: "",
+      feature_format_option: "match_nodes",
+      features_filename: "",
+      file_already_processed: false,
+      file_error: false,
+      input_key: Date.now(),
       loading_features: false,
       loading_features_file: false,
       message: "",
       percentage: 0,
-      uploaded_features: [],
-      input_key: Date.now(),
-      file_error: false,
-      file_already_processed: false,
-      features_filename: "",
-      dropdownOpen: false,
-      feature_format_option: "match_nodes",
-      feature_format_function: "",
-      upload_features_modal: false
+      upload_features_modal: false,
+      uploaded_features: []
     };
   }
 
@@ -69,10 +69,10 @@ export class UploadButton extends React.Component<any, any> {
     this.setState({ features_filename: features_file.name });
     if (!this.state.uploaded_features.includes(this.state.features_filename)) {
       this.setState({
+        loading_features_file: true,
         uploaded_features: this.state.uploaded_features.concat(
           this.state.features_filename
-        ),
-        loading_features_file: true
+        )
       });
       fetch(
         "https://pancaldi.bsc.es/garden-net_rest/upload_features?" +
@@ -83,12 +83,12 @@ export class UploadButton extends React.Component<any, any> {
           "&feature_format_option=" +
           this.state.feature_format_option +
           "&feature_format_function=" +
-          (this.state.feature_format_function == ""
+          (this.state.feature_format_function === ""
             ? "None"
             : this.state.feature_format_function),
         {
-          method: "POST",
-          body: form_data
+          body: form_data,
+          method: "POST"
         }
       ).then(
         // Take the json part of the response when the features file is in the server
@@ -104,8 +104,8 @@ export class UploadButton extends React.Component<any, any> {
               "https://pancaldi.bsc.es/garden-net_rest/status/"
             );
           this.setState({
-            loading_features_file: false,
             feature_format_function: "",
+            loading_features_file: false,
             upload_features_modal: false
           });
           this.features_task_progress(location);
@@ -155,15 +155,15 @@ export class UploadButton extends React.Component<any, any> {
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "2px",
-      padding: "5px",
-      fontSize: "small"
+      fontSize: "small",
+      padding: "5px"
     };
 
     const feature_formats: any = {
-      match_nodes: "Match features to the nodes",
-      proportion_on_nodes: "Calculate proportion of nodes with feature",
       chromHMM: "Create feature from chromHMM chromatin states",
-      features_table: "Table of features already assigned to nodes"
+      features_table: "Table of features already assigned to nodes",
+      match_nodes: "Match features to the nodes",
+      proportion_on_nodes: "Calculate proportion of nodes with feature"
     };
 
     return (
@@ -274,9 +274,9 @@ export class UploadButton extends React.Component<any, any> {
                   <DropdownToggle
                     caret={true}
                     style={{
-                      fontSize: "small",
+                      backgroundColor: "white",
                       color: "black",
-                      backgroundColor: "white"
+                      fontSize: "small"
                     }}
                   >
                     {feature_formats[this.state.feature_format_option]}
@@ -284,10 +284,10 @@ export class UploadButton extends React.Component<any, any> {
                   <DropdownMenu
                     className="text-center container-fluid"
                     style={{
+                      fontSize: "small",
                       height: "auto",
                       maxHeight: "200px",
-                      overflowX: "hidden",
-                      fontSize: "small"
+                      overflowX: "hidden"
                     }}
                   >
                     {Object.keys(feature_formats)
@@ -321,7 +321,7 @@ export class UploadButton extends React.Component<any, any> {
             <div
               style={{
                 display:
-                  this.state.feature_format_option != "match_nodes"
+                  this.state.feature_format_option !== "match_nodes"
                     ? "none"
                     : "block"
               }}
@@ -332,18 +332,18 @@ export class UploadButton extends React.Component<any, any> {
               onChange={this.onFeatureFormatFunctionChange}
               style={{
                 display:
-                  this.state.feature_format_option != "match_nodes"
+                  this.state.feature_format_option !== "match_nodes"
                     ? "none"
                     : "block"
               }}
             />
             <Label
               style={{
-                fontSize: "small",
                 display:
-                  this.state.feature_format_option != "match_nodes"
+                  this.state.feature_format_option !== "match_nodes"
                     ? "none"
-                    : "block"
+                    : "block",
+                fontSize: "small"
               }}
             >
               where the first three column names are ‘chrom’, ‘start’, ‘end’ and
@@ -399,16 +399,16 @@ export class UploadButton extends React.Component<any, any> {
       )
       .then(task => {
         if (
-          task.state != "PENDING" &&
-          task.state != "PROGRESS" &&
-          task.state != "FAILURE"
+          task.state !== "PENDING" &&
+          task.state !== "PROGRESS" &&
+          task.state !== "FAILURE"
         ) {
           if ("result" in task) {
             // Finished
             this.setState({
+              loading_features: true,
               message: task.message,
-              percentage: task.percentage,
-              loading_features: true
+              percentage: task.percentage
             });
             // Wait one second to show the finished progress bar before remove it
             const feature_names = Object.keys(task.result.features);
@@ -433,18 +433,18 @@ export class UploadButton extends React.Component<any, any> {
               this.setState({ loading_features: false });
             }, 1000);
           }
-        } else if (task.state == "FAILURE") {
+        } else if (task.state === "FAILURE") {
           this.setState({
-            message: task.message,
-            loading_features: false,
             file_error: true,
-            input_key: Date.now()
+            input_key: Date.now(),
+            loading_features: false,
+            message: task.message
           });
         } else {
           this.setState({
+            loading_features: true,
             message: task.message,
-            percentage: task.percentage,
-            loading_features: true
+            percentage: task.percentage
           });
           setTimeout(() => {
             this.features_task_progress(location);
@@ -453,10 +453,10 @@ export class UploadButton extends React.Component<any, any> {
       })
       .catch(() => {
         this.setState({
-          loading_features: false,
-          message: "Error proccesing the feature file",
           file_error: true,
-          input_key: Date.now()
+          input_key: Date.now(),
+          loading_features: false,
+          message: "Error proccesing the feature file"
         });
       });
   }

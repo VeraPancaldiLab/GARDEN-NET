@@ -39,7 +39,7 @@ export class SearchPanel extends React.Component<any, any> {
   }
 
   public componentDidUpdate = () => {
-    if (this.suggestions.length == 0) {
+    if (this.suggestions.length === 0) {
       this.fetchAsyncJson(
         this.BASE_URL +
           this.props.organism +
@@ -102,19 +102,19 @@ export class SearchPanel extends React.Component<any, any> {
 
     const cell_type: any = {
       Homo_sapiens: {
-        aCD4: "Activated total CD4+T cells",
         EP: "Endothelial precursors",
         Ery: "Erythroblasts",
         FoeT: "Fetal thymus",
+        MK: "Megakaryocytes",
         Mac0: "Macrophages M0",
         Mac1: "Macrophages M1",
         Mac2: "Macrophages M2",
-        MK: "Megakaryocytes",
         Mon: "Monocytes",
-        naCD4: "Non-activated total CD4+T cells",
+        Neu: "Neutrophils",
+        aCD4: "Activated total CD4+T cells",
         nCD4: "Naive CD4+ T cells",
         nCD8: "Naive CD8+ T cells",
-        Neu: "Neutrophils",
+        naCD4: "Non-activated total CD4+T cells",
         tCD4: "Total CD4+ T cells",
         tCD8: "Total CD8+ T cells"
       },
@@ -160,15 +160,15 @@ export class SearchPanel extends React.Component<any, any> {
             <ListGroup
               className="text-center container-fluid"
               style={{
-                height: "auto",
-                maxHeight: "110px",
-                overflowX: "hidden",
-                padding: "0px",
                 display:
                   this.props.text.length !== 0 &&
                   this.state.filtered_suggestions.length !== 0
                     ? "block"
-                    : "none"
+                    : "none",
+                height: "auto",
+                maxHeight: "110px",
+                overflowX: "hidden",
+                padding: "0px"
               }}
             >
               {this.state.filtered_suggestions.map((suggestion: string) => (
@@ -184,7 +184,7 @@ export class SearchPanel extends React.Component<any, any> {
             </ListGroup>
           </FormGroup>
           <Button
-            disabled={this.props.text == ""}
+            disabled={this.props.text === ""}
             style={{ marginBottom: "15px" }}
             onClick={this.onSubmit}
           >
