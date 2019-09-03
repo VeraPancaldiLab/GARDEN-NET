@@ -10,11 +10,11 @@ export const mapStateToProps = (state: {
   cell_type: string;
 }) => {
   return {
+    cell_type: state.cell_type,
+    chromosome: state.chromosome,
     feature: state.feature,
     features_list: state.features_list,
-    chromosome: state.chromosome,
-    organism: state.organism,
-    cell_type: state.cell_type
+    organism: state.organism
   };
 };
 

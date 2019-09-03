@@ -16,7 +16,7 @@ export class Cytoscape extends React.Component<any, any> {
           className="cytoscape_container"
           id={this.props.cytoscape_container_id}
           style={margin_style}
-        ></div>
+        />
       </div>
     );
   }

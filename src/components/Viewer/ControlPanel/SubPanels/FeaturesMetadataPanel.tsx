@@ -25,7 +25,7 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
             "/" +
             "features_metadata.json"
         ).then(json => {
-          if (json.length != 0) {
+          if (json.length !== 0) {
             this.setState({ feature_metadata: json });
           }
         });
@@ -62,7 +62,7 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
         <tr key={key}>
           <td>{key}</td>
           <td>
-            {key == "Random ChAs interval"
+            {key === "Random ChAs interval"
               ? this.state.feature_metadata.net[key][this.props.feature]
               : parseFloat(
                   this.state.feature_metadata.net[key][this.props.feature]
@@ -94,7 +94,7 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
     return (
       <div
         style={{
-          display: this.props.feature != "Choose" ? "block" : "none",
+          display: this.props.feature !== "Choose" ? "block" : "none",
           fontSize: "85%",
           marginTop: "10px"
         }}

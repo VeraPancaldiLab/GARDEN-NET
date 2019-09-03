@@ -22,8 +22,8 @@ describe("reducers", () => {
     it("should handle CHANGED_CHROMOSOME action", () => {
       expect(
         Reducer.chromosomes_reducer(Reducer.DEFAULT_CHROMOSOME, {
-          type: CHANGED_CHROMOSOME,
-          chromosome: "X"
+          chromosome: "X",
+          type: CHANGED_CHROMOSOME
         })
       ).toBe("X");
     });
@@ -47,8 +47,8 @@ describe("reducers", () => {
     it("should handle CHANGED_FEATURE action", () => {
       expect(
         Reducer.features_reducer(Reducer.DEFAULT_FEATURE, {
-          type: CHANGED_FEATURE,
-          feature: "BRG1"
+          feature: "BRG1",
+          type: CHANGED_FEATURE
         })
       ).toBe("BRG1");
     });
@@ -70,8 +70,8 @@ describe("reducers", () => {
     it("should handle CHANGED_FEATURE action", () => {
       expect(
         Reducer.features_list_reducer(Reducer.DEFAULT_FEATURES_LIST, {
-          type: CHANGED_FEATURES_LIST,
-          features_list: ["BRG1"]
+          features_list: ["BRG1"],
+          type: CHANGED_FEATURES_LIST
         })
       ).toEqual(["BRG1"]);
     });
@@ -95,8 +95,8 @@ describe("reducers", () => {
     it("should handle CHANGED_FEATURES_METADATA action", () => {
       expect(
         Reducer.features_metadata_reducer(Reducer.DEFAULT_FEATURES_METADATA, {
-          type: CHANGED_FEATURES_METADATA,
-          features_metadata: { BRG1: "0" }
+          features_metadata: { BRG1: "0" },
+          type: CHANGED_FEATURES_METADATA
         })
       ).toEqual({ BRG1: "0" });
     });
@@ -120,8 +120,8 @@ describe("reducers", () => {
     it("should handle CHANGED_FEATURES_NEW action", () => {
       expect(
         Reducer.features_new_reducer(Reducer.DEFAULT_FEATURES_NEW, {
-          type: CHANGED_FEATURES_NEW,
-          features_new: { BRG1: 0 }
+          features_new: { BRG1: 0 },
+          type: CHANGED_FEATURES_NEW
         })
       ).toEqual({ BRG1: 0 });
     });
@@ -145,8 +145,8 @@ describe("reducers", () => {
     it("should handle CHANGED_SEARCH action", () => {
       expect(
         Reducer.search_reducer(Reducer.DEFAULT_SEARCH, {
-          type: CHANGED_SEARCH,
-          search: "Hoxa1"
+          search: "Hoxa1",
+          type: CHANGED_SEARCH
         })
       ).toBe("Hoxa1");
     });
@@ -166,8 +166,8 @@ describe("reducers", () => {
     it("should handle CHANGED_TEXT action", () => {
       expect(
         Reducer.text_reducer(Reducer.DEFAULT_TEXT, {
-          type: CHANGED_TEXT,
-          text: "Hoxa1"
+          text: "Hoxa1",
+          type: CHANGED_TEXT
         })
       ).toBe("Hoxa1");
     });
@@ -189,8 +189,8 @@ describe("reducers", () => {
     it("should handle CHANGED_ORGANISM action", () => {
       expect(
         Reducer.organism_reducer(Reducer.DEFAULT_ORGANISM, {
-          type: CHANGED_ORGANISM,
-          organism: "Homo"
+          organism: "Homo",
+          type: CHANGED_ORGANISM
         })
       ).toBe("Homo");
     });
@@ -212,8 +212,8 @@ describe("reducers", () => {
     it("should handle CHANGED_CELL_TYPE action", () => {
       expect(
         Reducer.cell_type_reducer(Reducer.DEFAULT_CELL_TYPE, {
-          type: CHANGED_CELL_TYPE,
-          cell_type: "Mon"
+          cell_type: "Mon",
+          type: CHANGED_CELL_TYPE
         })
       ).toBe("Mon");
     });

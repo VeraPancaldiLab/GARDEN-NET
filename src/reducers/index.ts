@@ -19,15 +19,15 @@ import { DEFAULT_SEARCH, search_reducer } from "./search_reducer";
 import { DEFAULT_TEXT, text_reducer } from "./text_reducer";
 
 const root_reducers = combineReducers({
+  cell_type: cell_type_reducer,
   chromosome: chromosomes_reducer,
   feature: features_reducer,
   features_list: features_list_reducer,
   features_metadata: features_metadata_reducer,
   features_new: features_new_reducer,
-  search: search_reducer,
-  text: text_reducer,
   organism: organism_reducer,
-  cell_type: cell_type_reducer
+  search: search_reducer,
+  text: text_reducer
 });
 
 export {

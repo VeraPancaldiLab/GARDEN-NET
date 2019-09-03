@@ -7,6 +7,6 @@ interface IFeatureMetadataMap {
 export const change_features_metadata = (
   features_metadata: IFeatureMetadataMap
 ) => ({
+  features_metadata,
   type: CHANGED_FEATURES_METADATA,
-  features_metadata
 });

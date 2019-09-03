@@ -4,8 +4,8 @@ describe("actions", () => {
   describe("chromosomes_action", () => {
     it("should provide the change_chromosome action", () => {
       expect(Action.change_chromosome("5")).toEqual({
-        type: Action.CHANGED_CHROMOSOME,
-        chromosome: "5"
+        chromosome: "5",
+        type: Action.CHANGED_CHROMOSOME
       });
     });
   });
@@ -13,8 +13,8 @@ describe("actions", () => {
   describe("features_action", () => {
     it("should provide the change_selection action", () => {
       expect(Action.change_feature("EZH2")).toEqual({
-        type: Action.CHANGED_FEATURE,
-        feature: "EZH2"
+        feature: "EZH2",
+        type: Action.CHANGED_FEATURE
       });
     });
   });
@@ -22,8 +22,8 @@ describe("actions", () => {
   describe("features_list_action", () => {
     it("should provide the change_features_list action", () => {
       expect(Action.change_features_list(["EZH2"])).toEqual({
-        type: Action.CHANGED_FEATURES_LIST,
-        features_list: ["EZH2"]
+        features_list: ["EZH2"],
+        type: Action.CHANGED_FEATURES_LIST
       });
     });
   });
@@ -31,8 +31,8 @@ describe("actions", () => {
   describe("features_list_action", () => {
     it("should provide the change_features_list action", () => {
       expect(Action.change_features_metadata({ EZH2: "0" })).toEqual({
-        type: Action.CHANGED_FEATURES_METADATA,
-        features_metadata: { EZH2: "0" }
+        features_metadata: { EZH2: "0" },
+        type: Action.CHANGED_FEATURES_METADATA
       });
     });
   });
@@ -40,8 +40,8 @@ describe("actions", () => {
   describe("features_new_action", () => {
     it("should provide the change_features_new action", () => {
       expect(Action.change_features_new({ EZH2: 0 })).toEqual({
-        type: Action.CHANGED_FEATURES_NEW,
-        features_new: { EZH2: 0 }
+        features_new: { EZH2: 0 },
+        type: Action.CHANGED_FEATURES_NEW
       });
     });
   });
@@ -49,8 +49,8 @@ describe("actions", () => {
   describe("search_action", () => {
     it("should provide the change_search action", () => {
       expect(Action.change_search("Hoxa1")).toEqual({
-        type: Action.CHANGED_SEARCH,
-        search: "Hoxa1"
+        search: "Hoxa1",
+        type: Action.CHANGED_SEARCH
       });
     });
   });
@@ -58,8 +58,8 @@ describe("actions", () => {
   describe("text_action", () => {
     it("should provide the change_text action", () => {
       expect(Action.change_text("Hoxa1")).toEqual({
-        type: Action.CHANGED_TEXT,
-        text: "Hoxa1"
+        text: "Hoxa1",
+        type: Action.CHANGED_TEXT
       });
     });
   });
@@ -67,8 +67,8 @@ describe("actions", () => {
   describe("organism_action", () => {
     it("should provide the change_organism action", () => {
       expect(Action.change_organism("Homo")).toEqual({
-        type: Action.CHANGED_ORGANISM,
-        organism: "Homo"
+        organism: "Homo",
+        type: Action.CHANGED_ORGANISM
       });
     });
   });
@@ -76,8 +76,8 @@ describe("actions", () => {
   describe("cell_type_action", () => {
     it("should provide the change_cell_type action", () => {
       expect(Action.change_cell_type("Mon")).toEqual({
-        type: Action.CHANGED_CELL_TYPE,
-        cell_type: "Mon"
+        cell_type: "Mon",
+        type: Action.CHANGED_CELL_TYPE
       });
     });
   });
