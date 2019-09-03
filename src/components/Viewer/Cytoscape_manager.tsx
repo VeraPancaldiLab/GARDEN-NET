@@ -31,6 +31,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private reuse_message: boolean;
   private clean_right_view: boolean = true;
   private old_neighbourhood: any;
+  private new_features_names: Set<string> = new Set();
   private tooltip_tippy: any;
   private initial_rendering = true;
   // http://www.perbang.dk/rgbgradient/
@@ -720,10 +721,18 @@ export class Cytoscape_manager extends React.Component<any, any> {
       this.props.feature !== ""
     ) {
       if (this.props.feature in this.props.features_new) {
+        // Load specific user feature for first time so we generate a cache with the set of all position IDs
+        this.new_features_names = new Set(
+          Object.keys(this.props.features_new[this.props.feature])
+        );
+
         this.addUserFeatures(this.left_cy_network, "name");
       }
 
-      if (this.props.feature in this.props.features_new) {
+      if (
+        this.right_cy_network.elements().size() !== 0 &&
+        this.props.feature in this.props.features_new
+      ) {
         this.addUserFeatures(this.right_cy_network, "id");
       }
 
@@ -1468,13 +1477,9 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private addUserFeatures(cy: any, name_property: string) {
     cy.batch(() => {
       cy.nodes().data(this.props.feature, 0);
-      const new_features_names = Object.keys(
-        this.props.features_new[this.props.feature]
-      );
-      const nodes = cy.filter((ele: any) => {
-        return (
-          ele.isNode() && new_features_names.includes(ele.data(name_property))
-        );
+      const nodes = cy.nodes().filter((ele: any) => {
+        // Use precached set of position IDs
+        return this.new_features_names.has(ele.data(name_property));
       });
       nodes.forEach((node: any) => {
         node.data(
