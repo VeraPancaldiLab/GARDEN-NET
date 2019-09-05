@@ -190,7 +190,7 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader style={{ marginLeft: "auto" }}>
+          <ModalHeader style={{ margin: "auto" }}>
             <b className="text-danger">Error</b>
           </ModalHeader>
           <ModalBody>{this.state.message}</ModalBody>
@@ -208,7 +208,7 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader style={{ marginLeft: "auto" }}>
+          <ModalHeader style={{ margin: "auto" }}>
             <b>Uploading...</b>
           </ModalHeader>
           <ModalBody>
@@ -227,8 +227,8 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b style={{ marginLeft: "170px" }}>Processing...</b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b>Processing...</b>
           </ModalHeader>
           <ModalBody>
             Be patient please
