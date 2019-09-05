@@ -1446,19 +1446,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
     }
     const nodes = cy.nodes();
     let tsv_text = "";
-    const tsv_row: string[] = [];
+    const tsv_row = new Set();
     for (let node_index = 0; node_index < nodes.length; node_index++) {
       const names = nodes[node_index].data("names").split(" ");
       if (names[0] === "") {
         continue;
       }
-      for (const name of names) {
-        if (!tsv_row.includes(name)) {
-          tsv_row.push(name);
-        }
-      }
+      names.forEach((name: string) => tsv_row.add(name));
     }
-    tsv_text += tsv_row.sort().join("\n");
+    tsv_text += Array.from(tsv_row)
+      .sort()
+      .join("\n");
     const tsv_blob = new Blob([tsv_text], { type: "application/text" });
     const hiddenElement = document.createElement("a");
     document.body.appendChild(hiddenElement);
