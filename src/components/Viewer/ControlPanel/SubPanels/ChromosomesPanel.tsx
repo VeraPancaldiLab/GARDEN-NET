@@ -89,10 +89,8 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b className="text-danger" style={{ marginLeft: "210px" }}>
-              Error
-            </b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b className="text-danger">Error</b>
           </ModalHeader>
           <ModalBody>There are no chromosomes to be downloaded</ModalBody>
           <ModalFooter>

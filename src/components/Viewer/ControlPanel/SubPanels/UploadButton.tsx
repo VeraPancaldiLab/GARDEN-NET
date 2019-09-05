@@ -32,7 +32,7 @@ export class UploadButton extends React.Component<any, any> {
       message: "",
       percentage: 0,
       upload_features_modal: false,
-      uploaded_features: []
+      uploaded_features: new Set()
     };
   }
 
@@ -66,13 +66,12 @@ export class UploadButton extends React.Component<any, any> {
 
     form_data.append("features", features_file);
 
-    this.setState({ features_filename: features_file.name });
-    if (!this.state.uploaded_features.includes(this.state.features_filename)) {
+    const features_filename = features_file.name;
+    if (!this.state.uploaded_features.has(features_filename)) {
       this.setState({
+        features_filename,
         loading_features_file: true,
-        uploaded_features: this.state.uploaded_features.concat(
-          this.state.features_filename
-        )
+        uploaded_features: this.state.uploaded_features.add(features_filename)
       });
       fetch(
         "https://pancaldi.bsc.es/garden-net_rest/upload_features?" +
@@ -191,7 +190,7 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader style={{ marginLeft: "auto" }}>
+          <ModalHeader style={{ margin: "auto" }}>
             <b className="text-danger">Error</b>
           </ModalHeader>
           <ModalBody>{this.state.message}</ModalBody>
@@ -209,7 +208,7 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader style={{ marginLeft: "auto" }}>
+          <ModalHeader style={{ margin: "auto" }}>
             <b>Uploading...</b>
           </ModalHeader>
           <ModalBody>
@@ -228,8 +227,8 @@ export class UploadButton extends React.Component<any, any> {
           centered={true}
           className="text-center"
         >
-          <ModalHeader>
-            <b style={{ marginLeft: "170px" }}>Processing...</b>
+          <ModalHeader style={{ margin: "auto" }}>
+            <b>Processing...</b>
           </ModalHeader>
           <ModalBody>
             Be patient please

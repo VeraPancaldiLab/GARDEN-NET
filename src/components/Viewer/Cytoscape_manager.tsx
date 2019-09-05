@@ -77,7 +77,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       loading_message: "",
       max_feature: null,
       min_feature: null,
-      neighbourhood_node_ids: [],
+      neighbourhood_node_ids: new Set(),
       right_network: undefined,
       right_title: "",
       search_error: false,
@@ -237,7 +237,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
       const node = event.target;
       const node_internal_id =
         node.data("chr") + "_" + node.data("start") + "_" + node.data("end");
-      this.setState({ neighbourhood_node_ids: [node_internal_id] });
+      this.setState({ neighbourhood_node_ids: new Set([node_internal_id]) });
       const node_real_range =
         node.data("chr") + ":" + node.data("start") + "-" + node.data("end");
       let message = "Search ";
@@ -442,7 +442,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           .update();
       };
       const updateNeighbourhood = (cy: any) => {
-        if (this.state.neighbourhood_node_ids.length !== 0) {
+        if (this.state.neighbourhood_node_ids.size !== 0) {
           const left_nodes = this.left_cy_network
             .nodes()
             .filter((node: any) => {
@@ -452,7 +452,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
                 node.data("start") +
                 "_" +
                 node.data("end");
-              return this.state.neighbourhood_node_ids.includes(
+              return this.state.neighbourhood_node_ids.has(
                 node_id.toLowerCase()
               );
             });
@@ -477,7 +477,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           } else {
             this.right_cy_network.elements().remove();
             this.setState({
-              neighbourhood_node_ids: [],
+              neighbourhood_node_ids: new Set(),
               right_title: "Search view"
             });
             this.clean_right_view = true;
@@ -509,7 +509,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
         if (this.clean_right_view) {
           this.right_cy_network.elements().remove();
           this.setState({
-            neighbourhood_node_ids: [],
+            neighbourhood_node_ids: new Set(),
             right_title: "Search view"
           });
         } else {
@@ -636,7 +636,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           ).toLowerCase();
           nodes_internal_ids.push(node_internal_id);
         }
-        this.setState({ neighbourhood_node_ids: nodes_internal_ids });
+        this.setState({ neighbourhood_node_ids: new Set(nodes_internal_ids) });
 
         // Use bigger connected component chromosome as searched chromosome
         const bigger_connected_component_node = right_nodes.max(
@@ -658,7 +658,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
                 node.data("start") +
                 "_" +
                 node.data("end");
-              return this.state.neighbourhood_node_ids.includes(
+              return this.state.neighbourhood_node_ids.has(
                 node_id.toLowerCase()
               );
             });
@@ -1458,19 +1458,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
     }
     const nodes = cy.nodes();
     let tsv_text = "";
-    const tsv_row: string[] = [];
+    const tsv_row = new Set();
     for (let node_index = 0; node_index < nodes.length; node_index++) {
       const names = nodes[node_index].data("names").split(" ");
       if (names[0] === "") {
         continue;
       }
-      for (const name of names) {
-        if (!tsv_row.includes(name)) {
-          tsv_row.push(name);
-        }
-      }
+      names.forEach((name: string) => tsv_row.add(name));
     }
-    tsv_text += tsv_row.sort().join("\n");
+    tsv_text += Array.from(tsv_row)
+      .sort()
+      .join("\n");
     const tsv_blob = new Blob([tsv_text], { type: "application/text" });
     const hiddenElement = document.createElement("a");
     document.body.appendChild(hiddenElement);
