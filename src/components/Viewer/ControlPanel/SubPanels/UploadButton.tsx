@@ -32,7 +32,7 @@ export class UploadButton extends React.Component<any, any> {
       message: "",
       percentage: 0,
       upload_features_modal: false,
-      uploaded_features: []
+      uploaded_features: new Set()
     };
   }
 
@@ -66,13 +66,12 @@ export class UploadButton extends React.Component<any, any> {
 
     form_data.append("features", features_file);
 
-    this.setState({ features_filename: features_file.name });
-    if (!this.state.uploaded_features.includes(this.state.features_filename)) {
+    const features_filename = features_file.name;
+    if (!this.state.uploaded_features.has(features_filename)) {
       this.setState({
+        features_filename,
         loading_features_file: true,
-        uploaded_features: this.state.uploaded_features.concat(
-          this.state.features_filename
-        )
+        uploaded_features: this.state.uploaded_features.add(features_filename)
       });
       fetch(
         "http://CRCT2107:5000/upload_features?" +
