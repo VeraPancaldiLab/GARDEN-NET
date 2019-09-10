@@ -7,6 +7,7 @@ export class Frontend extends React.Component<any, any> {
   public componentWillMount = () => {
     this.onOrganismChange(this.props.match.params.organism);
     this.onCellTypeChange(this.props.match.params.cell_type);
+    this.onSearchChange(this.props.match.params.search);
   };
 
   public onOrganismChange = (organism: string) => {
@@ -15,6 +16,10 @@ export class Frontend extends React.Component<any, any> {
 
   public onCellTypeChange = (cell_type: string) => {
     this.props.onCellTypeChange(cell_type);
+  };
+
+  public onSearchChange = (search: string) => {
+    this.props.onSearchChange(search);
   };
 
   public render() {

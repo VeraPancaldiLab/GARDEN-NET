@@ -34,6 +34,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
   private new_features_names: Set<string> = new Set();
   private tooltip_tippy: any;
   private initial_rendering = true;
+  private initial_search = false;
   // http://www.perbang.dk/rgbgradient/
   private chromosome_color: any = {
     1: "#CC6699",
@@ -394,7 +395,17 @@ export class Cytoscape_manager extends React.Component<any, any> {
           this.right_container_id
         );
         this.initial_rendering = false;
+        // Use reproducible search in urls so we have to force to update i
+        if (this.props.search !== "") {
+          this.initial_search = true;
+          this.left_cy_network = this.buildNetwork(
+            undefined,
+            this.left_container_id
+          );
+          return;
+        }
       }
+
       const url = this.chromosomePath(this.props.chromosome);
       let message = "";
       if (this.props.chromosome !== "PP") {
@@ -505,7 +516,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             updateNeighbourhood(event.cy);
           });
         }
-        // Clean right view only if we select explictly a chromosome
+        // Clean right view only if we select explicitly a chromosome
         if (this.clean_right_view) {
           this.right_cy_network.elements().remove();
           this.setState({
@@ -519,9 +530,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
 
       // If search change, update right view and change to the searched node chromosome
     } else if (
-      this.props.search !== prevProps.search &&
-      this.props.search !== ""
+      this.initial_search ||
+      (this.props.search !== prevProps.search && this.props.search !== "")
     ) {
+      this.initial_search = false;
+
       this.setState({ cytoscape_loading: true });
       this.clean_right_view = false;
       const search = this.props.search.toString().toLowerCase();
@@ -596,7 +609,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
           .filter((node: any) => node.data("searched") === "true");
 
         if (right_nodes.length === 0) {
-          // This node searched is not found so exit inmmediately without crash
+          // This node searched is not found so exit immediately without crash
           return;
         }
 

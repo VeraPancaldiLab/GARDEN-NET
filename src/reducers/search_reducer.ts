@@ -13,6 +13,9 @@ export const search_reducer = (
 ) => {
   switch (action.type) {
     case CHANGED_SEARCH:
+      if (action.search === undefined) {
+        return DEFAULT_SEARCH;
+      }
       return action.search;
     default:
       return state;
