@@ -1166,7 +1166,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
             >
               <DropdownItem
                 onClick={(event: any) => {
-                  this.onClickPNG(event, this.right_container_id, "right");
+                  this.onClickPNG(event, this.right_cy_network, "right");
                   this.toggleRightPicture();
                 }}
               >
