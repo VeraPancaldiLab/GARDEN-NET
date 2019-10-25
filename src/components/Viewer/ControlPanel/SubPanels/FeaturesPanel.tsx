@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 
 export class FeaturesPanel extends React.Component<any, any> {
-  private BASE_URL = "http://CRCT2107:8080/data/";
+  private BASE_URL = "http://CRCT2107:8080/" + document.URL.split("/")[3] + "/data/";
 
   constructor(props: any) {
     super(props);

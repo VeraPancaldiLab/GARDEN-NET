@@ -11,7 +11,8 @@ import {
 } from "reactstrap";
 
 export class MetadataPanel extends React.Component<any, any> {
-  private BASE_URL = "http://CRCT2107:8080/data/";
+  private BASE_URL =
+    "http://CRCT2107:8080/" + document.URL.split("/")[3] + "/data/";
 
   constructor(props: any) {
     super(props);
@@ -23,7 +24,7 @@ export class MetadataPanel extends React.Component<any, any> {
   }
 
   public async fetchAsyncJson(url: string) {
-    // Warning: The network file has to be serve before by a http server
+    // Warning: The network file has to be serve before by a http server like nginx
     // http-server is provided to help to the development thanks to `yarn serve` command
     // In this case, the port used to serve is the 8080
     return fetch(url)

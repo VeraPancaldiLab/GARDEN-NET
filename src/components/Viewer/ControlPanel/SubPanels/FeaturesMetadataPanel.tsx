@@ -2,7 +2,8 @@ import * as React from "react";
 import { Table } from "reactstrap";
 
 export class FeaturesMetadataPanel extends React.Component<any, any> {
-  private BASE_URL = "http://CRCT2107:8080/data/";
+  private BASE_URL =
+    "http://CRCT2107:8080/" + document.URL.split("/")[3] + "/data/";
 
   constructor(props: any) {
     super(props);

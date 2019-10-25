@@ -14,7 +14,8 @@ import {
 } from "reactstrap";
 
 export class SearchPanel extends React.Component<any, any> {
-  private BASE_URL = "http://CRCT2107:8080/data/";
+  private BASE_URL =
+    "http://CRCT2107:8080/" + document.URL.split("/")[3] + "/data/";
   private suggestions: string[];
 
   constructor(props: any) {

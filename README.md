@@ -91,7 +91,31 @@ The backend add to GARDEN-NET the search, neighborhood, and upload features file
 `yarn build`
 
 ### Serve
+#### Minimun http
 `yarn serve`
+
+#### Real http server (nginx)
+```
+    server {
+      listen 8080;
+
+      server_name localhost;
+
+      # Allow origin only from our domain
+      add_header Access-Control-Allow-Origin *;
+      # And expose Location header
+      add_header "Access-Control-Expose-Headers" "Location";
+      # Let to the user upload files of 10M as maximum
+      client_max_body_size 10M;
+
+      # See README.md in the repository's root
+      # Serve all static files from here
+      location /garden-net {
+        root /var/www/;
+      }
+    }
+```
+`http://localhost:8080/garden-net/public/`
 
 ## Production
 **React**, **React-DOM**, **Reactstrap** and **Cytoscape** dependencies are excluded by default from the bundle a cause of their size

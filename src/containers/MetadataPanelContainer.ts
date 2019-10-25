@@ -9,7 +9,7 @@ export const mapStateToProps = (state: {
   return {
     cell_type: state.cell_type,
     chromosome: state.chromosome,
-    organism: state.organism,
+    organism: state.organism
   };
 };
 

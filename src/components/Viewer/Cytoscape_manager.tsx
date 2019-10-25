@@ -21,7 +21,8 @@ import { MetadataPanelContainer } from "../../containers/MetadataPanelContainer"
 // cytoscape.use(_svg);
 
 export class Cytoscape_manager extends React.Component<any, any> {
-  private BASE_URL = "http://CRCT2107:8080/data/";
+  private BASE_URL =
+    "http://CRCT2107:8080/" + document.URL.split("/")[3] + "/data/";
   private SEARCH_URL = "http://CRCT2107:5000/";
   private cache: Map<string, any> = new Map();
   private left_container_id = "left_container_id";
@@ -1434,6 +1435,7 @@ export class Cytoscape_manager extends React.Component<any, any> {
     if (cy.nodes().size() === 0) {
       return;
     }
+
     const edges = cy.edges();
     let tsv_text = "";
     const source_attribute = view === "left" ? "source_original" : "source";
