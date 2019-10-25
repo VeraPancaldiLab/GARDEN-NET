@@ -147,6 +147,7 @@ export class SearchPanel extends React.Component<any, any> {
                 ? cell_type[this.props.organism][this.props.cell_type]
                 : ""}
             </Alert>
+            Search gene name, Ensembl ID or genomic range
             <Input
               className="text-center"
               value={this.props.text}
