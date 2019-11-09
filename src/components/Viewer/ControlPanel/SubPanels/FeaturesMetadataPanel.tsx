@@ -100,6 +100,7 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
         }}
         className="text-center"
       >
+        Feature statistics for the whole network
         <Table
           bordered={true}
           size="sm"
@@ -107,7 +108,7 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
         >
           <thead>
             <tr>
-              <th>{this.props.feature} statistics</th>
+              <th>{this.props.feature}</th>
               <th>Values</th>
             </tr>
           </thead>
