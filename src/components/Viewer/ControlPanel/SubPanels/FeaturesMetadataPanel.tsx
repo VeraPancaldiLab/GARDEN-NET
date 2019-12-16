@@ -71,26 +71,36 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
           </td>
         </tr>
       ));
+      // There is not pp network in HiC
+      if (this.state.feature_metadata.pp) {
       pp_statistics = Object.keys(this.state.feature_metadata.pp).map(key => (
         <tr key={key}>
           <td>{key} (PP)</td>
           <td>
-            {parseFloat(
-              this.state.feature_metadata.pp[key][this.props.feature]
-            ).toFixed(3)}
+            {key === "Random ChAs interval"
+              ? this.state.feature_metadata.pp[key][this.props.feature]
+              : parseFloat(
+                  this.state.feature_metadata.pp[key][this.props.feature]
+                ).toFixed(3)}
           </td>
         </tr>
       ));
+      }
+      // There is not po network in HiC
+      if (this.state.feature_metadata.po) {
       po_statistics = Object.keys(this.state.feature_metadata.po).map(key => (
         <tr key={key}>
           <td>{key} (PO)</td>
           <td>
-            {parseFloat(
-              this.state.feature_metadata.po[key][this.props.feature]
-            ).toFixed(3)}
+            {key === "Random ChAs interval"
+              ? this.state.feature_metadata.po[key][this.props.feature]
+              : parseFloat(
+                  this.state.feature_metadata.po[key][this.props.feature]
+                ).toFixed(3)}
           </td>
         </tr>
       ));
+      }
     }
     return (
       <div
@@ -101,14 +111,15 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
         }}
         className="text-center"
       >
+        Feature statistics for the whole network
         <Table
           bordered={true}
           size="sm"
-          style={{ fontSize: "small", marginBottom: "5px" }}
+          style={{ fontSize: "x-small", marginBottom: "5px" }}
         >
           <thead>
             <tr>
-              <th>{this.props.feature} statistics</th>
+              <th>{this.props.feature}</th>
               <th>Values</th>
             </tr>
           </thead>
