@@ -114,7 +114,7 @@ export class FeaturesMetadataPanel extends React.Component<any, any> {
         <Table
           bordered={true}
           size="sm"
-          style={{ fontSize: "x-small", marginBottom: "5px" }}
+          style={{ fontSize: (this.state.feature_metadata.po ? "x-small" : ""), marginBottom: "5px" }}
         >
           <thead>
             <tr>
