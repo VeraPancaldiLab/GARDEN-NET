@@ -49,23 +49,24 @@ export class PortalMenu extends React.Component<any, any> {
     const cell_types: any = {
       Choose: {},
       Homo: {
-        EP: "Endothelial precursors",
-        Ery: "Erythroblasts",
-        FoeT: "Fetal thymus",
-        MK: "Megakaryocytes",
-        Mac0: "Macrophages M0",
-        Mac1: "Macrophages M1",
-        Mac2: "Macrophages M2",
-        Mon: "Monocytes",
-        Neu: "Neutrophils",
-        aCD4: "Activated total CD4+T cells",
-        nCD4: "Naive CD4+ T cells",
-        nCD8: "Naive CD8+ T cells",
-        naCD4: "Non-activated total CD4+T cells",
-        tCD4: "Total CD4+ T cells",
-        tCD8: "Total CD8+ T cells"
+        EP: "Endothelial precursors (PCHiC)",
+        Ery: "Erythroblasts (PCHiC)",
+        FoeT: "Fetal thymus (PCHiC)",
+        GM06990: "GM06990 lymphoblastoid cells (HiC)",
+        MK: "Megakaryocytes (PCHiC)",
+        Mac0: "Macrophages M0 (PCHiC)",
+        Mac1: "Macrophages M1 (PCHiC)",
+        Mac2: "Macrophages M2 (PCHiC)",
+        Mon: "Monocytes (PCHiC)",
+        Neu: "Neutrophils (PCHiC)",
+        aCD4: "Activated total CD4+T cells (PCHiC)",
+        nCD4: "Naive CD4+ T cells (PCHiC)",
+        nCD8: "Naive CD8+ T cells (PCHiC)",
+        naCD4: "Non-activated total CD4+T cells (PCHiC)",
+        tCD4: "Total CD4+ T cells (PCHiC)",
+        tCD8: "Total CD8+ T cells (PCHiC)"
       },
-      Mus: { Embryonic_stem_cells: "Embryonic stem cells" }
+      Mus: { Dixon2012: "Dixon2012 Embryonic stem cells (HiC)", Embryonic_stem_cells: "Embryonic stem cells (PCHiC)" }
     };
 
     const organism_key = this.state.organism.split(" ")[0];
