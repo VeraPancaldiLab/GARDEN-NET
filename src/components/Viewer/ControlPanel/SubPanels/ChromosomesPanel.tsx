@@ -19,6 +19,7 @@ interface IChromosomeProps {
   onTextChange: (gene: string) => void;
   chromosome: string;
   organism: string;
+  cell_type: string;
 }
 
 export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
@@ -46,9 +47,9 @@ export class ChromosomesPanel extends React.Component<IChromosomeProps, any> {
   };
 
   public componentDidUpdate = () => {
-    if (this.state.chromosomes[0] == "") {
+    if (this.state.chromosomes[0] === "") {
       this.fetchAsyncJson(
-        this.BASE_URL + this.props.organism + "/" + "chromosomes.json"
+        this.BASE_URL + this.props.organism + "/" + this.props.cell_type + "/" + "chromosomes.json"
       ).then(json => {
         this.setState({ chromosomes: json });
       });
