@@ -336,7 +336,11 @@ export class Cytoscape_manager extends React.Component<any, any> {
           } else {
             intronic_regions = "FALSE";
           }
+          // There is not intronic_regions property in HiC networks
+        } else if (typeof intronic_regions === "boolean") {
+            intronic_regions = "FALSE";
         }
+
         intronic_region =
           intronic_regions.trim() === "TRUE"
             ? "" +
