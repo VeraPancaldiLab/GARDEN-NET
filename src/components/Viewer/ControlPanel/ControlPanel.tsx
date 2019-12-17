@@ -53,7 +53,7 @@ export class ControlPanel extends React.Component<any, any> {
           <ModalBody>
             <b>Chromatin Contact networks</b>
             <br />
-            Promoter Capture HiC data for haematopoietic cells in human.{" "}
+            Promoter Capture HiC for hematopoietic cells in human.{" "}
             <a
               target="_blank"
               href="https://doi.org/10.1016/j.cell.2016.09.037"
@@ -61,9 +61,19 @@ export class ControlPanel extends React.Component<any, any> {
               <em>Javierre et al. Cell 2016</em>
             </a>
             <br />
-            Promoter Capture HiC data for mouse embryonic stem cells{" "}
+            Promoter Capture HiC for mouse embryonic stem cells{" "}
             <a target="_blank" href="https://doi.org/10.1101/gr.185272.114">
               <em>Schoenfelder et al. Genome Research 2015</em>
+            </a>{" "}
+            <br />
+            Chromosome conformation capture (HiC) for embryonic stem cells{" "}
+            <a target="_blank" href="https://doi.org/10.1038/nature11082">
+              <em>Dixon JR, et al. Nature 2012</em>
+            </a>{" "}
+            <br />
+            Chromosome conformation capture (HiC) for GM06990 lymphoblastoid cells{" "}
+            <a target="_blank" href="https://doi.org/10.1126/science.1181369">
+              <em>Lieberman-Aiden E, et al. Science 2009</em>
             </a>{" "}
             <br />
             <b>Features</b>
@@ -89,7 +99,7 @@ export class ControlPanel extends React.Component<any, any> {
               <em>Chen et al. Cell 2016</em>
             </a>
             <br />
-            Human Histone modification data: EPIVAR from{" "}
+            Human Histone modification: EPIVAR from{" "}
             <a
               target="_blank"
               href="https://doi.org/10.1016/j.cell.2016.10.026"
@@ -97,12 +107,22 @@ export class ControlPanel extends React.Component<any, any> {
               <em>Chen et al. Cell 2016</em>
             </a>
             <br />
-            Human Replication Timing data (GM12878).{" "}
+            Human Replication Timing (GM12878).{" "}
             <a target="_blank" href="https://doi.org/10.1038/nature13986">
               <em>Pope et al. Nature 2014</em>
             </a>
             <br />
-            PCHiC data processed with CHiCAGO.{" "}
+             Human (GM06990) histone modifications.{" "}
+            <a target="_blank" href="https://doi.org/10.1038/s41591-018-0028-4">
+              <em>Beekman et al. Nature 2018</em>
+            </a>
+            <br />
+             Human (GM06990) histone modifications.{" "}
+            <a target="_blank" href="https://doi.org/10.1038/s41467-018-07766-x">
+              <em>Zhang X, Zhang Y, Zhu X, Purmann C et al.</em>
+            </a>
+            <br />
+            PCHiC processed with CHiCAGO.{" "}
             <a target="_blank" href="https://doi.org/10.1186/s13059-016-0992-2">
               <em>Cairns et al. Genome Biology 2016</em>
             </a>
