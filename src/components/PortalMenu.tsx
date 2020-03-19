@@ -192,7 +192,7 @@ export class PortalMenu extends React.Component<any, any> {
             <br />
             <span>
               For more Information see:{" "}
-              <a target="_blank" href="https://doi.org/10.1101/717298">
+              <a target="_blank" href="https://doi.org/10.1093/nar/gkaa159">
                 GARDEN-NET and ChAseR: a suite of tools for the analysis of
                 chromatin networks
               </a>
