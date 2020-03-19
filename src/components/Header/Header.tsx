@@ -21,7 +21,7 @@ export class Header extends React.Component<{}, {}> {
                   <a
                     style={{ fontSize: "98%" }}
                     target="_blank"
-                    href="https://doi.org/10.1101/717298"
+                    href="https://doi.org/10.1093/nar/gkaa159"
                   >
                     GARDEN-NET and ChAseR: a suite of tools for the analysis of
                     chromatin networks
