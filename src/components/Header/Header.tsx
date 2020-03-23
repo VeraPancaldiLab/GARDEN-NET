@@ -23,8 +23,7 @@ export class Header extends React.Component<{}, {}> {
                     target="_blank"
                     href="https://doi.org/10.1093/nar/gkaa159"
                   >
-                    GARDEN-NET and ChAseR: a suite of tools for the analysis of
-                    chromatin networks
+                    Using GARDEN-NET and ChAseR to explore human haematopoietic 3D chromatin interaction networks 
                   </a>
                   <br />
                   <br />
