@@ -18,7 +18,7 @@ export class PortalMenu extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      downtime_modal: false,
+      downtime_modal: new Date().getTime() < new Date('2020-08-4').getTime(),
       dropdownOpen_cell_type: false,
       dropdownOpen_organism: false,
       organism: "Choose"
@@ -88,9 +88,9 @@ export class PortalMenu extends React.Component<any, any> {
             <br />
             <br />
             From <br />
-            Monday, August 5th 16:00h <br />
+            Monday, August 3th 15:00h <br />
             to <br />
-            Thursday, August 8th, 13:00h <br />
+            Tuesday, August 4th, 20:00h <br />
             <br />
             We apologize for the inconveniences this may cause.
           </ModalBody>
