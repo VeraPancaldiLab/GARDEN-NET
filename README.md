@@ -20,9 +20,6 @@
 Network Exploration Tool
 </p>
 </h3>
-<p align="center">
-  Dear users,
-</p>
   <span>
   Here you will be able to visualize chromosome conformation capture datasets as networks of interacting chromatin fragments. The published datasets available were generated with the <em>Promoter Capture HiC</em> technique, which returns contacts involving promoters.
   </span>
