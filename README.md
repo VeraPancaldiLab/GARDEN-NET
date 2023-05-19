@@ -23,20 +23,6 @@ Network Exploration Tool
 <p align="center">
   Dear users,
 </p>
-<p align="center">
-  <b>
-  Due to scheduled annual electrical maintenance GARDEN-NET will be unavailable
-  </b>
-</p>
-<p align="center">
-  From
-  Monday, August 3th 15:00h
-  to
-  Tuesday, August 4th, 20:00h
-</p>
-<p align="center">
-  We apologize for the inconveniences this may cause.
-</p>
   <span>
   Here you will be able to visualize chromosome conformation capture datasets as networks of interacting chromatin fragments. The published datasets available were generated with the <em>Promoter Capture HiC</em> technique, which returns contacts involving promoters.
   </span>
